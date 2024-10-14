@@ -1,0 +1,54 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "ES2017",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "incremental": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "noImplicitAny": false, // Allow 'any' type without warnings
+    "strictFunctionTypes": false, // Disable strict function types
+    "strictBindCallApply": false, // Disable strict bind, call, and apply methods
+    "noImplicitThis": false, // Allow 'this' type to be implicitly 'any'
+    "alwaysStrict": false, // Disable 'use strict' at the beginning of files
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "~/*": [
+        "./src/*"
+      ],
+      "@/*": [
+        "./src/*"
+      ]
+    },
+    "strictNullChecks": false,
+  },
+ "include": [
+  "next-env.d.ts",
+  "**/*.ts",
+  "**/*.tsx",
+  ".next/types/**/*.ts",
+  "src/app/(studio)/studio/[[...index]]/page.jsx",
+  "src/app/(studio)/studio/[[...tool]]/page.jsx",
+  "src/app/schemas/**/*.ts"  // Add this line to include schema files
+, "src/app/components/molecules/Seo.jsx"],
+  "exclude": [
+    "node_modules"
+  ]
+}

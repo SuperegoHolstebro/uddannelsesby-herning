@@ -1,0 +1,5 @@
+[data-border="true"] *:not(svg) + span {
+    box-shadow: none !important;
+  }
+  
+  

@@ -1,0 +1,100 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "dev": "next -p 3333",
+    "format": "npx prettier --write . --ignore-path .gitignore",
+    "lint": "next lint -- --ignore-path .gitignore",
+    "lint:fix": "npm run format && npm run lint -- --fix",
+    "start": "next start",
+    "type-check": "tsc --noEmit"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
+  "eslintConfig": {
+    "rules": {
+      "import/no-unresolved": [
+        2,
+        {
+          "ignore": [
+            "^(all|part):"
+          ]
+        }
+      ]
+    }
+  },
+  "dependencies": {
+    "@lottiefiles/dotlottie-react": "^0.8.7",
+    "@mynaui/icons-react": "^0.2.1",
+    "@next/third-parties": "^14.2.7",
+    "@portabletext/react": "^3.0.11",
+    "@radix-ui/react-slot": "^1.0.2",
+    "@sanity/base": "^2.36.2",
+    "@sanity/client": "^6.21.1",
+    "@sanity/dashboard": "^4.0.0",
+    "@sanity/demo": "2.0.0",
+    "@sanity/icons": "3.3.0",
+    "@sanity/image-url": "1.0.2",
+    "@sanity/locale-da-dk": "^1.0.1",
+    "@sanity/orderable-document-list": "^1.2.1",
+    "@sanity/preview-url-secret": "1.6.17",
+    "@sanity/react-loader": "1.10.3",
+    "@sanity/schema": "^3.57.2",
+    "@sanity/ui": "2.4.0",
+    "@sanity/vision": "3.47.1",
+    "@sanity/visual-editing": "^2.1.6",
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@tinloof/sanity-studio": "^0.3.1",
+    "@vercel/speed-insights": "^1.0.11",
+    "axios": "^1.7.7",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
+    "framer-motion": "^11.2.10",
+    "gsap": "^3.12.5",
+    "i18next": "^23.12.2",
+    "lenis": "^1.1.13",
+    "next": "^14.2.7",
+    "next-i18next": "^15.3.1",
+    "next-sanity": "9.3.10",
+    "node-fetch": "^3.3.2",
+    "nodemailer": "^6.9.15",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-i18next": "^15.0.0",
+    "react-player": "^2.16.0",
+    "rxjs": "7.8.1",
+    "sanity": "3.47.1",
+    "sanity-plugin-asset-source-unsplash": "3.0.1",
+    "sanity-plugin-iframe-pane": "2.6.1",
+    "sanity-plugin-media": "^2.2.5",
+    "sanity-plugin-seo-pane": "^2.0.1",
+    "styled-components": "^6.1.8",
+    "swiper": "^11.1.4",
+    "tailwind-merge": "^2.2.1",
+    "xml2js": "^0.6.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/line-clamp": "^0.4.4",
+    "@tailwindcss/typography": "^0.5.10",
+    "@types/react": "18.2.55",
+    "@typescript-eslint/eslint-plugin": "^7.15.0",
+    "autoprefixer": "^10.4.17",
+    "eslint": "8.56.0",
+    "eslint-config-next": "^14.2.5",
+    "eslint-plugin-simple-import-sort": "10.0.0",
+    "postcss": "^8.4.35",
+    "prettier": "3.2.5",
+    "prettier-plugin-packagejson": "2.4.10",
+    "prettier-plugin-tailwindcss": "^0.6.6",
+    "tailwindcss": "^3.4.3",
+    "tailwindcss-debug-screens": "^2.2.1",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}
