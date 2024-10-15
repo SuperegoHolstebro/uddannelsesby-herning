@@ -69,6 +69,9 @@ import { heroType } from '@/sanity/schemas/sections/herotype'
 import { Hero2Type } from './sections/Hero2Type'
 import { Hero3Type } from './sections/Hero3Type'
 import { MediaObject } from './sections/atoms/MediaObject'
+import { companiesType } from './sections/companies'
+import company from './documents/company'
+import companyLogin from './documents/companyLogin'
 export const schemaTypes = [
   heroType,
   Hero2Type,
@@ -79,6 +82,7 @@ export const schemaTypes = [
   textContainerType,
   EmployeesType,
   blockContent,
+  companiesType,
   contactFormType,
   EventType,
   ArticlesType,
@@ -115,6 +119,9 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     page,
     event,
     article,
+    companiesType,
+    company,
+    companyLogin,
     // Management
     settings,
     redirects,

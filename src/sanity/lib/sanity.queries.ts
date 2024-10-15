@@ -154,3 +154,12 @@ export const allSlugsQuery = `
   _updatedAt
 }
 `
+
+export const COMPANY_QUERY = groq`
+*[_type == "company" && slug.current == $slug][0] {
+  ...,
+  image{
+    ${ImageQuery}
+  }
+}
+`

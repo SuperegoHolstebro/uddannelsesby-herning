@@ -1,0 +1,59 @@
+import 'swiper/css'
+import React from 'react'
+import { loadPage } from '@/sanity/queries/loadPage'
+import PageBuilder from '~/components/PageBuilder'
+import PageContainer from '@/components/PageContainer'
+import { notFound } from 'next/navigation'
+import { Metadata } from 'next'
+import Section from '@/components/sections/Section'
+import Heading from '@/components/atoms/Heading'
+import Paragraph from '@/components/atoms/Paragraph'
+import { formatDate } from '@/utils/date'
+import { COMPANY_QUERY } from '@/sanity/lib/sanity.queries'
+import TextContainer from '@/components/sections/textContainer'
+import { generatePageMetadata } from '~/utils/metadataUtils'
+import { stegaClean } from '@sanity/client/stega'
+import Image from 'next/image'
+import { urlFor } from '~/sanity/lib/sanity.image'
+
+export default async function DynamicRoute({
+  params: { slug: slug, locale },
+}: {
+  params: { slug: string[] | any; locale: string }
+}) {
+  const page = await loadPage(slug, 'da', COMPANY_QUERY)
+
+  if (!page) {
+    notFound()
+  }
+
+  return (
+    <PageContainer>
+      <Section>
+        <div className="col-span-full">
+          {page.name && <Heading>{page.name}</Heading>}
+          {page.image && (
+            <Image
+              className="object-cover"
+              src={urlFor(page.image).dpr(2).url()}
+              alt={page.altText || 'Billede af ' + page.title}
+              width={1920}
+              height={1080}
+              placeholder="blur"
+              blurDataURL={urlFor(page.image)
+                .width(24)
+                .height(24)
+                .blur(10)
+                .url()}
+              sizes="
+             (max-width: 768px) 100vw,
+             (max-width: 1200px) 50vw,
+             40vw"
+            />
+          )}
+          {page.description && <Paragraph>{page.description}</Paragraph>}
+        </div>
+      </Section>
+    </PageContainer>
+  )
+}

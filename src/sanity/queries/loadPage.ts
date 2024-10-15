@@ -7,6 +7,8 @@ import { readToken } from '@/sanity/lib/sanity.api'
 import { PAGE_QUERY } from '@/sanity/lib/sanity.queries'
 
 export type PagePayload = {
+  altText: string
+  name: string
   image?: any
   _id?: string
   _type: string

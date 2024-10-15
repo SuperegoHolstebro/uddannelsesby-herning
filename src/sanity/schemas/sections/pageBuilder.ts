@@ -17,6 +17,10 @@ export const pageBuilder = defineType({
       type: 'ReusableSection',
     }),
     defineArrayMember({
+      name: 'companiesType',
+      type: 'companiesType',
+    }),
+    defineArrayMember({
       name: 'IconPicker',
       type: 'IconPicker',
     }),

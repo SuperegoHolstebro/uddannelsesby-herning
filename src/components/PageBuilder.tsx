@@ -16,6 +16,7 @@ import Hero3 from './sections/Hero3Section'
 import LogoGallery from './sections/LogoGallery'
 import LogoGallery2 from './sections/LogoGallery2'
 import ContactFormSection from './sections/ContactFormSection'
+import Companies from './sections/Companies'
 
 const PageBuilder = ({ sections }) => {
   return (
@@ -35,6 +36,8 @@ const PageBuilder = ({ sections }) => {
                 <Breadcrumbs />
               </React.Fragment>
             )
+          case 'companiesType':
+            return <Companies key={index} section={section} />
           case 'Hero2':
             return (
               <React.Fragment key={index}>
