@@ -3,7 +3,14 @@ import React, { useState } from 'react'
 import bcrypt from 'bcryptjs'
 import { set, unset } from 'sanity'
 
-const PasswordInputComponent = React.forwardRef((props, ref) => {
+type PasswordInputProps = {
+  onChange: (value: any) => void
+}
+
+const PasswordInputComponent = React.forwardRef<
+  HTMLInputElement,
+  PasswordInputProps
+>((props: PasswordInputProps, ref) => {
   const [password, setPassword] = useState('')
 
   const handlePasswordChange = (event) => {

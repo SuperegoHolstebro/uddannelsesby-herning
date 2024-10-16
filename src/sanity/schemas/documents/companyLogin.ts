@@ -27,7 +27,7 @@ export default defineType({
       description: 'Hashed password for security.',
       validation: (Rule) => Rule.required(),
       components: {
-        input: PasswordInput, // Use the custom PasswordInput component here
+        input: PasswordInput,
       },
     }),
     defineField({
