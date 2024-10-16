@@ -2,6 +2,8 @@ import groq from 'groq'
 import { pageBuilderQuery } from '../queries/organisms/pageBuilderQuery'
 import { ImageQuery } from '../queries/atoms/ImageQuery'
 import { ButtonQuery } from '../queries/atoms/ButtonQuery'
+import { client } from './sanity.client'
+import { stegaClean } from '@sanity/client/stega'
 
 // GROQ Navigation Query
 export const NAVIGATION_QUERY = groq`
@@ -163,3 +165,22 @@ export const COMPANY_QUERY = groq`
   }
 }
 `
+
+// GROQ Company Login Query// /lib/groqQuery.js
+export const getCompanyLogin = async (username) => {
+  const query = groq`
+    *[_type == "companyLogin" && username == $username][0] {
+      username,
+      password,
+      "company": companyRef->name
+    }
+  `
+
+  const result = await client.fetch(query, { username })
+
+  if (!result) {
+    return null // Return null if no user is found
+  }
+
+  return stegaClean(result)
+}

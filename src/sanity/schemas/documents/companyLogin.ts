@@ -1,5 +1,6 @@
 import { defineField, defineType } from 'sanity'
 import { User } from '@mynaui/icons-react'
+import PasswordInput from '@/components/sanity/PasswordInput' // Path to your PasswordInput component
 
 export default defineType({
   name: 'companyLogin',
@@ -25,6 +26,9 @@ export default defineType({
       group: 'loginInfo',
       description: 'Hashed password for security.',
       validation: (Rule) => Rule.required(),
+      components: {
+        input: PasswordInput, // Use the custom PasswordInput component here
+      },
     }),
     defineField({
       name: 'companyRef',
