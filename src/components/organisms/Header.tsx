@@ -66,8 +66,8 @@ export default function Header() {
   return (
     <>
       <header
-        className={` fixed top-0 right-0 w-full py-4 se-grid z-[9999999999] h-20 transition-all ${
-          isScrolled ? '!bg-lys' : ''
+        className={` fixed top-0 bg-mørk right-0 w-full py-4 se-grid z-[9999999999] transition-all flex justify-center items-center ${
+          isScrolled ? '!bg-mørk' : ''
         }`}
       >
         <div className="col-span-2 col-start-1 md:col-span-6">
