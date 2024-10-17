@@ -32,26 +32,62 @@ export default async function DynamicRoute({
       <Section>
         <div className="col-span-full">
           {page.name && <Heading>{page.name}</Heading>}
-          {page.image && (
-            <Image
-              className="object-cover"
-              src={urlFor(page.image).dpr(2).url()}
-              alt={page.altText || 'Billede af ' + page.title}
-              width={1920}
-              height={1080}
-              placeholder="blur"
-              blurDataURL={urlFor(page.image)
-                .width(24)
-                .height(24)
-                .blur(10)
-                .url()}
-              sizes="
+
+          <div className="flex flex-row justify-between gap-12">
+            {page.image && (
+              <Image
+                className="object-cover"
+                src={urlFor(page.image).dpr(2).url()}
+                alt={page.altText || 'Billede af ' + page.title}
+                width={1920}
+                height={1080}
+                placeholder="blur"
+                blurDataURL={urlFor(page.image)
+                  .width(24)
+                  .height(24)
+                  .blur(10)
+                  .url()}
+                sizes="
              (max-width: 768px) 100vw,
              (max-width: 1200px) 50vw,
              40vw"
-            />
-          )}
-          {page.description && <Paragraph>{page.description}</Paragraph>}
+              />
+            )}
+            <div className="flex-col prose-p:pb-4">
+              {page.description && (
+                <>
+                  <Heading type="h6" tag="h6" spacing="none">
+                    Om os
+                  </Heading>
+                  <Paragraph spacing="none">{page.description}</Paragraph>
+                </>
+              )}
+              {page.address && (
+                <>
+                  <Heading type="h6" tag="h6" spacing="none">
+                    Adresse
+                  </Heading>
+                  <Paragraph>{page.address}</Paragraph>
+                </>
+              )}
+              {page.phone && (
+                <>
+                  <Heading type="h6" tag="h6" spacing="none">
+                    Telefon
+                  </Heading>
+                  <Paragraph>{page.phone}</Paragraph>
+                </>
+              )}
+              {page.email && (
+                <>
+                  <Heading type="h6" tag="h6" spacing="none">
+                    Email
+                  </Heading>
+                  <Paragraph>{page.email}</Paragraph>
+                </>
+              )}
+            </div>
+          </div>
         </div>
       </Section>
     </PageContainer>
