@@ -32,15 +32,15 @@ export default function SignIn() {
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          placeholder="Username"
+          placeholder="Brugernavn"
         />
         <input
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
+          placeholder="Kode"
         />
-        <button type="submit">Sign In</button>
+        <button type="submit">Log ind</button>
       </form>
     </div>
   )

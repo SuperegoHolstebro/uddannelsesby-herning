@@ -184,3 +184,13 @@ export const getCompanyLogin = async (username) => {
 
   return stegaClean(result)
 }
+
+export async function getAllCompanies() {
+  const query = `*[_type == "company"]{
+    _id,
+    name,
+    slug
+  }`
+  const companies = await client.fetch(query)
+  return companies
+}
