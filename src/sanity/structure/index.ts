@@ -6,6 +6,7 @@ import employees from './employee.structure'
 import settings from './settings.structure'
 import companies from './company.structure'
 import companyLogins from './companyLogin.structure'
+import fields from './field.structure'
 
 export const structure: StructureResolver = (S, context) =>
   S.list()
@@ -18,6 +19,7 @@ export const structure: StructureResolver = (S, context) =>
       S.divider(),
       companies(S, context),
       companyLogins(S, context),
+      fields(S, context),
       S.divider(),
       settings(S, context),
     ])

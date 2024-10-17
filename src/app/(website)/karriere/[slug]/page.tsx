@@ -81,7 +81,9 @@ export default async function DynamicRoute({
                   <Heading type="h6" tag="h6" spacing="none">
                     Telefon
                   </Heading>
-                  <Paragraph>{page.phone}</Paragraph>
+                  <Paragraph>
+                    <a href={`tel:${page.phone}`}>{page.phone}</a>
+                  </Paragraph>
                 </>
               )}
               {page.email && (
@@ -89,9 +91,26 @@ export default async function DynamicRoute({
                   <Heading type="h6" tag="h6" spacing="none">
                     Email
                   </Heading>
-                  <Paragraph>{page.email}</Paragraph>
+                  <Paragraph>
+                    <a href={`mailto:${page.email}`}>{page.email}</a>
+                  </Paragraph>
                 </>
               )}
+              {page.fields && (
+                <>
+                  <Heading type="h6" tag="h6" spacing="none">
+                    Fagområder
+                  </Heading>
+                  {/*    <ul>
+                    {page.fields.map((field: string, index: number) => (
+                      <li key={index}>{field}</li>
+                    ))}
+                  </ul> */}
+                </>
+              )}
+
+              {/*  <pre>{JSON.stringify(page, null, 2)}</pre> */}
+
               {isUserAssignedToCompany && <EditButton />}
             </div>
           </div>
