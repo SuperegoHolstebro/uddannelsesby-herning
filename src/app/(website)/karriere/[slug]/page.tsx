@@ -17,7 +17,7 @@ import Image from 'next/image'
 import { urlFor } from '~/sanity/lib/sanity.image'
 import EditButton from '~/components/atoms/EditButton'
 import { getServerSession } from 'next-auth'
-import { authOptions } from '~/app/api/auth/[...nextauth]/route'
+import { NextAuth } from '~/app/api/auth/[...nextauth]/route'
 import { useSession } from 'next-auth/react'
 
 export default async function DynamicRoute({
@@ -26,7 +26,7 @@ export default async function DynamicRoute({
   params: { slug: string[] | any; locale: string }
 }) {
   const page = await loadPage(slug, 'da', COMPANY_QUERY)
-  const session = await getServerSession(authOptions)
+  const session = await getServerSession(NextAuth)
 
   if (!page) {
     notFound()

@@ -6,7 +6,7 @@ import Section from '~/components/sections/Section'
 import Heading from '~/components/atoms/Heading'
 
 export default async function ProtectedPage() {
-  const session = await getServerSession(authOptions)
+  const session = await getServerSession(NextAuth)
 
   if (!session) {
     return <p>You must be logged in to view this page</p>
