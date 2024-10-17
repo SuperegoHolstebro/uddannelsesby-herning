@@ -96,7 +96,7 @@ module.exports = {
         lys: '#F4F4E9',
         signal: {
           gul: '#D9FC00',
-          pink: '#FFD4F3',
+          pink: 'hsla(317, 100%, 92%, 100)',
         },
         // Superego farver
         green: '#3BE086',

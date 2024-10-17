@@ -28,7 +28,7 @@ export default function Root({ children }: { children: React.ReactNode }) {
         )}
       </Head>
       <body
-        className={`selection:text-light-light selection:bg-green ${draftMode().isEnabled ? 'debug-screens' : ''}`}
+        className={`selection:text-mørk selection:bg-signal-gul ${draftMode().isEnabled ? 'debug-screens' : ''}`}
       >
         {children}
         {draftMode().isEnabled && (
