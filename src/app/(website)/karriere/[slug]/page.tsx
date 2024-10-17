@@ -17,11 +17,18 @@ import Image from 'next/image'
 import { urlFor } from '~/sanity/lib/sanity.image'
 import EditButton from '~/components/atoms/EditButton'
 import { getServerSession } from 'next-auth'
-import { authOptions } from '~/app/api/auth/[...nextauth]/route' // Import authOptions if needed for the session
+import { authOptions } from '@/sanity/lib/authOptions'
 import { useSession } from 'next-auth/react'
 
+export interface UserProfile {
+  name?: string
+  email?: string
+  image?: string
+  company?: string
+  provider?: any
+}
 export default async function DynamicRoute({
-  params: { slug: slug, locale },
+  params: { slug, locale },
 }: {
   params: { slug: string[] | any; locale: string }
 }) {
@@ -31,6 +38,7 @@ export default async function DynamicRoute({
   if (!page) {
     notFound()
   }
+
   const isUserAssignedToCompany = session?.user?.company === page.name
 
   return (
