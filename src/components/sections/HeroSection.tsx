@@ -7,6 +7,8 @@ import Section from '@/components/sections/Section'
 import Modal from '../molecules/Modal'
 import { useState } from 'react'
 import { AnimatePresence } from 'framer-motion'
+import Scene from '~/components/Scene'
+import Text from '~/components/Text'
 
 /**
  *
@@ -36,38 +38,10 @@ const Hero: React.FC<HeroProps> = ({ data, ...props }) => {
   }
   return (
     <>
-      <Section
-        {...props}
-        variant="secondary"
-        paddingX="none"
-        className={`h-screen relative place-content-center overflow-hidden ${before}`}
-      >
-        <div className="absolute w-full h-full">
-          <Media data={data?.MediaObject?.media} />
-        </div>
-        <div className="z-10 col-start-1 text-center -col-end-1 sm:col-start-2 sm:-col-end-2 lg:col-start-3 lg:-col-end-3 xl:col-start-6 xl:-col-end-6 2xl:col-start-6 2xl:-col-end-6">
-          <Heading tag="h1" type="h1" fontFamily="sans">
-            {data?.title}
-          </Heading>
-          <Paragraph>{data?.subtitle}</Paragraph>
-          {data?.MediaObject?.media.videoObject && (
-            <button onClick={OpenModal} className="relative z-40 text-white">
-              Afspil video
-            </button>
-          )}
-          <div className="absolute top-0 left-0 z-50 flex items-center justify-center w-full h-full pointer-events-none">
-            {data?.MediaObject?.media?.videoObject?.video && (
-              <AnimatePresence mode="sync">
-                {isOpen && (
-                  <Modal openModal={OpenModal}>
-                    <Media data={data?.MediaObject?.media} />
-                  </Modal>
-                )}
-              </AnimatePresence>
-            )}
-          </div>
-        </div>
-      </Section>
+      <div className="flex items-center justify-center w-full h-screen">
+        <Scene />
+        <Text />
+      </div>
     </>
   )
 }
