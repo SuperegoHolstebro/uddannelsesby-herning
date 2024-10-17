@@ -3,6 +3,9 @@
 import { signIn, useSession } from 'next-auth/react'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import Heading from '~/components/atoms/Heading'
+import PageContainer from '~/components/PageContainer'
+import Section from '~/components/sections/Section'
 
 export default function SignIn() {
   const [username, setUsername] = useState('')
@@ -43,22 +46,30 @@ export default function SignIn() {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          placeholder="Username"
-        />
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-        />
-        <button type="submit">Sign In</button>
-      </form>
-    </div>
+    <PageContainer>
+      <Section>
+        <div className="col-span-full">
+          <Heading type="h2" tag="h2">
+            {' '}
+            Log ind{' '}
+          </Heading>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Username"
+            />
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
+            />
+            <button type="submit">Sign In</button>
+          </form>
+        </div>
+      </Section>
+    </PageContainer>
   )
 }

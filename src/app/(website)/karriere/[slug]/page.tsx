@@ -15,6 +15,10 @@ import { generatePageMetadata } from '~/utils/metadataUtils'
 import { stegaClean } from '@sanity/client/stega'
 import Image from 'next/image'
 import { urlFor } from '~/sanity/lib/sanity.image'
+import EditButton from '~/components/atoms/EditButton'
+import { getServerSession } from 'next-auth'
+import { authOptions } from '~/app/api/auth/[...nextauth]/route'
+import { useSession } from 'next-auth/react'
 
 export default async function DynamicRoute({
   params: { slug: slug, locale },
@@ -22,10 +26,12 @@ export default async function DynamicRoute({
   params: { slug: string[] | any; locale: string }
 }) {
   const page = await loadPage(slug, 'da', COMPANY_QUERY)
+  const session = await getServerSession(authOptions)
 
   if (!page) {
     notFound()
   }
+  const isUserAssignedToCompany = session?.user?.company === page.name
 
   return (
     <PageContainer>
@@ -86,6 +92,7 @@ export default async function DynamicRoute({
                   <Paragraph>{page.email}</Paragraph>
                 </>
               )}
+              {isUserAssignedToCompany && <EditButton />}
             </div>
           </div>
         </div>

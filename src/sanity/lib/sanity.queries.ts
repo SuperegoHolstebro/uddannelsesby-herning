@@ -170,6 +170,7 @@ export const COMPANY_QUERY = groq`
 export const getCompanyLogin = async (username) => {
   const query = groq`
     *[_type == "companyLogin" && username == $username][0] {
+      _id,
       username,
       password,
       "company": companyRef->name

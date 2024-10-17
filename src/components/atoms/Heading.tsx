@@ -97,8 +97,8 @@ const Heading: React.FC<HeadingProps> = ({
   return (
     <HeadingTag
       className={cn(
+        className,
         HeadingVariants({
-          className,
           text,
           fontFamily,
           clamp,

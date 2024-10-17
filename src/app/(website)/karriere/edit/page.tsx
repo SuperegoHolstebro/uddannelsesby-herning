@@ -1,7 +1,9 @@
 import { getServerSession } from 'next-auth/next'
-// Import the correct path for the module
 import { authOptions } from '@/app/api/auth/[...nextauth]/route'
 import SignOut from '~/components/atoms/Signout'
+import PageContainer from '~/components/PageContainer'
+import Section from '~/components/sections/Section'
+import Heading from '~/components/atoms/Heading'
 
 export default async function ProtectedPage() {
   const session = await getServerSession(authOptions)
@@ -11,9 +13,16 @@ export default async function ProtectedPage() {
   }
 
   return (
-    <div>
-      <h1> Welcome, {session.user.company}</h1>
-      <SignOut />
-    </div>
+    <PageContainer>
+      <Section>
+        <div className="col-span-full">
+          <Heading type="h2" tag="h2">
+            {' '}
+            Welcome, {session.user.company}
+          </Heading>
+          <SignOut />
+        </div>
+      </Section>
+    </PageContainer>
   )
 }

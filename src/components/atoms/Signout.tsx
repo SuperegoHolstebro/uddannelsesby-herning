@@ -8,7 +8,7 @@ interface SignOutComponentProps {
 }
 
 const SignOut: React.FC<SignOutComponentProps> = ({
-  callbackUrl = '/auth/signin',
+  callbackUrl = '/signin',
 }) => {
   const [isSigningOut, setIsSigningOut] = useState(false)
 
