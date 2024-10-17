@@ -170,6 +170,7 @@ export const COMPANY_QUERY = groq`
 export const getCompanyLogin = async (username) => {
   const query = groq`
     *[_type == "companyLogin" && username == $username][0] {
+      _id,
       username,
       password,
       "company": companyRef->name
@@ -183,4 +184,14 @@ export const getCompanyLogin = async (username) => {
   }
 
   return stegaClean(result)
+}
+
+export async function getAllCompanies() {
+  const query = `*[_type == "company"]{
+    _id,
+    name,
+    slug
+  }`
+  const companies = await client.fetch(query)
+  return companies
 }

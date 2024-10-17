@@ -57,10 +57,8 @@ export async function getFooter() {
         hours
       }
     }
-    `
-  );
+    `)
 }
-
 
 export default function Footer() {
   const [footer, setFooter] = React.useState<FooterType[]>([])
@@ -144,7 +142,6 @@ function ColumnTwo({ data }) {
         <p>{cvr}</p>
       </div>
     </div>
-
   )
 }
 
@@ -172,7 +169,6 @@ function ColumnThree({ data }) {
 }
 
 function ColumnFour({ data }) {
-  const openingHours = data?.openingHours
   return (
     <div className=" col-span-full sm:col-span-full md:col-span-3 lg:col-span-3 xl:col-span-6">
       <div className="pb-4 uppercase ">
@@ -182,19 +178,11 @@ function ColumnFour({ data }) {
           tag="h5"
           type="h5"
         >
-          Åbningstider
+          Til virksomheder
         </Heading>
       </div>
 
-      <ul className="space-y-2 text-center md:text-left">
-        {openingHours?.map((item, listIndex) => (
-          <li className="text-center md:text-left" key={listIndex}>
-            <span>{item.day}</span>
-            <span> - </span>
-            <span>{item.hours}</span>
-          </li>
-        ))}
-      </ul>
+      <Link href="/signin">Log ind</Link>
     </div>
   )
 }
@@ -213,7 +201,7 @@ function Legal({ data }) {
         </p>
         <p className="text-[14px]">
           <a href="/" target="_blank" rel="noreferrer">
-          Cookiepolitik
+            Cookiepolitik
           </a>
         </p>
         <p className="relative transition-all text-[14px] group">

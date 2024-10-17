@@ -1,62 +1,75 @@
-// /app/signin/page.js
 'use client'
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
 
-export default function SignInPage() {
+import { signIn, useSession } from 'next-auth/react'
+import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
+import Heading from '~/components/atoms/Heading'
+import PageContainer from '~/components/PageContainer'
+import Section from '~/components/sections/Section'
+
+export default function SignIn() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [error, setError] = useState(null)
+  const { data: session, status } = useSession() // Get the session and status
   const router = useRouter()
 
-  const handleSubmit = async (e) => {
+  // Redirect to /karriere/edit if the user is already logged in
+  useEffect(() => {
+    if (status === 'authenticated') {
+      router.push('/karriere/edit')
+    }
+  }, [status, router])
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setError(null)
 
-    try {
-      const res = await fetch('/api/auth/signin', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password }),
-      })
+    const result = await signIn('credentials', {
+      redirect: false,
+      username,
+      password,
+    })
 
-      const data = await res.json()
-
-      // Check if status is 200 (success)
-      if (res.status === 200) {
-        alert('Login Successful!')
-        router.push('/dashboard')
-      } else {
-        // Set error message if login failed
-        setError(data.error || 'Login failed')
-      }
-    } catch (err) {
-      console.error('Error during login:', err)
-      setError('Something went wrong. Please try again.')
+    if (result?.error) {
+      console.error(result.error)
+    } else {
+      router.push('/karriere/edit') // Redirect after successful sign-in
     }
   }
 
+  // If the user is already authenticated, don't show the sign-in form
+  if (status === 'loading') {
+    return <div>Loading...</div> // Show a loading state while checking the session
+  }
+
+  if (status === 'authenticated') {
+    return null // Return null since the user is redirected in the useEffect
+  }
+
   return (
-    <div>
-      <h1>Sign In</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit">Sign In</button>
-      </form>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-    </div>
+    <PageContainer>
+      <Section>
+        <div className="col-span-full">
+          <Heading type="h2" tag="h2">
+            {' '}
+            Log ind{' '}
+          </Heading>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Username"
+            />
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
+            />
+            <button type="submit">Sign In</button>
+          </form>
+        </div>
+      </Section>
+    </PageContainer>
   )
 }

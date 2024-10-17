@@ -15,6 +15,10 @@ import { generatePageMetadata } from '~/utils/metadataUtils'
 import { stegaClean } from '@sanity/client/stega'
 import Image from 'next/image'
 import { urlFor } from '~/sanity/lib/sanity.image'
+import EditButton from '~/components/atoms/EditButton'
+import { getServerSession } from 'next-auth'
+import { authOptions } from '~/app/api/auth/[...nextauth]/route'
+import { useSession } from 'next-auth/react'
 
 export default async function DynamicRoute({
   params: { slug: slug, locale },
@@ -22,36 +26,94 @@ export default async function DynamicRoute({
   params: { slug: string[] | any; locale: string }
 }) {
   const page = await loadPage(slug, 'da', COMPANY_QUERY)
+  const session = await getServerSession(authOptions)
 
   if (!page) {
     notFound()
   }
+  const isUserAssignedToCompany = session?.user?.company === page.name
 
   return (
     <PageContainer>
       <Section>
         <div className="col-span-full">
           {page.name && <Heading>{page.name}</Heading>}
-          {page.image && (
-            <Image
-              className="object-cover"
-              src={urlFor(page.image).dpr(2).url()}
-              alt={page.altText || 'Billede af ' + page.title}
-              width={1920}
-              height={1080}
-              placeholder="blur"
-              blurDataURL={urlFor(page.image)
-                .width(24)
-                .height(24)
-                .blur(10)
-                .url()}
-              sizes="
+
+          <div className="flex flex-row justify-between gap-12">
+            {page.image && (
+              <Image
+                className="object-cover"
+                src={urlFor(page.image).dpr(2).url()}
+                alt={page.altText || 'Billede af ' + page.title}
+                width={1920}
+                height={1080}
+                placeholder="blur"
+                blurDataURL={urlFor(page.image)
+                  .width(24)
+                  .height(24)
+                  .blur(10)
+                  .url()}
+                sizes="
              (max-width: 768px) 100vw,
              (max-width: 1200px) 50vw,
              40vw"
-            />
-          )}
-          {page.description && <Paragraph>{page.description}</Paragraph>}
+              />
+            )}
+            <div className="flex-col prose-p:pb-4">
+              {page.description && (
+                <>
+                  <Heading type="h6" tag="h6" spacing="none">
+                    Om os
+                  </Heading>
+                  <Paragraph spacing="none">{page.description}</Paragraph>
+                </>
+              )}
+              {page.address && (
+                <>
+                  <Heading type="h6" tag="h6" spacing="none">
+                    Adresse
+                  </Heading>
+                  <Paragraph>{page.address}</Paragraph>
+                </>
+              )}
+              {page.phone && (
+                <>
+                  <Heading type="h6" tag="h6" spacing="none">
+                    Telefon
+                  </Heading>
+                  <Paragraph>
+                    <a href={`tel:${page.phone}`}>{page.phone}</a>
+                  </Paragraph>
+                </>
+              )}
+              {page.email && (
+                <>
+                  <Heading type="h6" tag="h6" spacing="none">
+                    Email
+                  </Heading>
+                  <Paragraph>
+                    <a href={`mailto:${page.email}`}>{page.email}</a>
+                  </Paragraph>
+                </>
+              )}
+              {page.fields && (
+                <>
+                  <Heading type="h6" tag="h6" spacing="none">
+                    Fagområder
+                  </Heading>
+                  {/*    <ul>
+                    {page.fields.map((field: string, index: number) => (
+                      <li key={index}>{field}</li>
+                    ))}
+                  </ul> */}
+                </>
+              )}
+
+              {/*  <pre>{JSON.stringify(page, null, 2)}</pre> */}
+
+              {isUserAssignedToCompany && <EditButton />}
+            </div>
+          </div>
         </div>
       </Section>
     </PageContainer>

@@ -56,12 +56,18 @@ export default defineType({
       group: 'companyDetails',
     }),
     defineField({
-      name: 'availableInternships',
-      title: 'Available Internships',
+      name: 'fields',
+      title: 'Fagområder',
       type: 'array',
-      of: [{ type: 'string' }],
       group: 'companyDetails',
-      description: 'List of available internships',
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'field' }],
+        },
+      ],
+      description:
+        'Vælg et eller flere kompetenceområder, hvor virksomheden kunne bruge hjælp fra en studerende',
     }),
     defineField({
       name: 'contactPerson',

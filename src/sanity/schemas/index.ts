@@ -72,6 +72,7 @@ import { MediaObject } from './sections/atoms/MediaObject'
 import { companiesType } from './sections/companies'
 import company from './documents/company'
 import companyLogin from './documents/companyLogin'
+import field from './management/field'
 export const schemaTypes = [
   heroType,
   Hero2Type,
@@ -122,6 +123,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     companiesType,
     company,
     companyLogin,
+    field,
     // Management
     settings,
     redirects,
