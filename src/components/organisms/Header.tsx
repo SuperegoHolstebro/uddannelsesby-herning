@@ -71,7 +71,7 @@ export default function Header() {
         }`}
       >
         <div className="col-span-2 col-start-1 md:col-span-6">
-          <Link href="/">
+          <Link className="text-lys" href="/">
             <Logo className="w-full h-auto max-w-xs" />
           </Link>
         </div>
