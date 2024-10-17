@@ -1,12 +1,12 @@
 import { getServerSession } from 'next-auth/next'
-import { NextAuth } from '@/app/api/auth/[...nextauth]/route'
+import { authOptions } from '~/app/api/auth/[...nextauth]/route'
 import SignOut from '~/components/atoms/Signout'
 import PageContainer from '~/components/PageContainer'
 import Section from '~/components/sections/Section'
 import Heading from '~/components/atoms/Heading'
 
 export default async function ProtectedPage() {
-  const session = await getServerSession(NextAuth)
+  const session = await getServerSession(authOptions)
 
   if (!session) {
     return <p>You must be logged in to view this page</p>
