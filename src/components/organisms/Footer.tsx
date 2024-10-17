@@ -8,6 +8,7 @@ import Icon from '../atoms/Icons'
 import Logo from '../atoms/Logo'
 import { FooterType } from '~/types/Footer.types'
 import { stegaClean } from '@sanity/client/stega'
+import Paragraph from '../atoms/Paragraph'
 
 /**
  *
@@ -77,12 +78,13 @@ export default function Footer() {
   return (
     <>
       <footer
-        className={`${gridCols} ${gridGap} ${paddingX} ${paddingY} grid pb-20 text-mørk bg-signal-pink *:mx-auto md:*:mx-0`}
+        className={`${gridCols} ${gridGap} ${paddingX} ${paddingY} pb-6 text-mørk bg-signal-pink`}
       >
-        <Footer.ColumnOne data={data} />
-        <Footer.ColumnTwo data={data} />
-        <Footer.ColumnThree data={data} />
-        <Footer.ColumnFour data={data} />
+        <div className="flex justify-between pb-12 col-span-full">
+          <Footer.ColumnOne data={data} />
+          <Footer.ColumnTwo data={data} />
+          <Footer.ColumnThree data={data} />
+        </div>
         <Footer.Legal data={data} />
       </footer>
     </>
@@ -92,54 +94,44 @@ export default function Footer() {
 Footer.ColumnOne = ColumnOne
 Footer.ColumnTwo = ColumnTwo
 Footer.ColumnThree = ColumnThree
-Footer.ColumnFour = ColumnFour
 Footer.Legal = Legal
 function ColumnOne({ data }) {
   const social = data?.social
   return (
-    <div className="col-span-full sm:col-span-full md:col-span-3 lg:col-span-3 xl:col-span-6">
-      <div className="">
-        <Link className="text-mørk" href="/">
-          <Logo className="w-full h-auto max-w-xs" />
-        </Link>
+    <div className=" col-span-full sm:col-span-full md:col-span-3 lg:col-span-3 xl:col-span-6">
+      <div className="pb-4 ">
+        <Paragraph className="text-mørk" spacing="none">
+          {' '}
+          Følg os her:
+        </Paragraph>
       </div>
-      <ul className="flex flex-wrap justify-center mx-auto mt-8 max-w-64 md:mx-0 gap-x-4 gap-y-2 md:justify-start">
-        {social?.map((item, index) => (
-          <li key={index}>
-            <Link
-              className="fill-white *:size-6 hover:fill-green transition-colors"
-              href={item.url}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Icon className="" type={item.platform} />
-            </Link>
-          </li>
-        ))}
+      <ul className="flex flex-wrap justify-center mx-auto max-w-64 md:mx-0 gap-x-4 gap-y-2 md:justify-start">
+        {social?.map(
+          (item: { platform: string; url: string }, index: number) => (
+            <li key={index}>
+              <Link
+                className="fill-mørk *:size-6 hover:fill-signal-gul transition-colors"
+                href={item.url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Icon className="" type={item.platform} />
+              </Link>
+            </li>
+          ),
+        )}
       </ul>
     </div>
   )
 }
 
 function ColumnTwo({ data }) {
-  const logo = data?.logo
-  const address = data?.object?.address
-  const cvr = data?.object?.cvr
   return (
-    <div className=" col-span-full sm:col-span-full md:col-span-3 lg:col-span-3 xl:col-span-6">
-      <div className="pb-4 uppercase ">
-        <Heading
-          className="text-center text-mørk md:text-left"
-          spacing="none"
-          tag="h5"
-          type="h5"
-        >
-          Addresse
-        </Heading>
-      </div>
-      <div className="space-y-2 text-center md:text-left">
-        <p>{address}</p>
-        <p>{cvr}</p>
+    <div className="col-span-full sm:col-span-full md:col-span-3 lg:col-span-3 xl:col-span-6">
+      <div className="">
+        <Link className="text-mørk" href="/">
+          <Logo className="w-full h-auto max-w-xs" />
+        </Link>
       </div>
     </div>
   )
@@ -148,42 +140,29 @@ function ColumnTwo({ data }) {
 function ColumnThree({ data }) {
   const phone = data?.object?.telephone
   const email = data?.object?.email
+  const logo = data?.logo
+  const address = data?.object?.address
+  const cvr = data?.object?.cvr
+  const companyName = data?.object?.companyName
   return (
-    <div className=" col-span-full sm:col-span-full md:col-span-3 lg:col-span-3 xl:col-span-6">
-      <div className="pb-4 uppercase ">
-        <Heading
-          className="text-center text-mørk md:text-left"
-          spacing="none"
-          tag="h5"
-          type="h5"
-        >
-          Kontakt
-        </Heading>
+    <>
+      <div className=" col-span-full sm:col-span-full md:col-span-3 lg:col-span-3 xl:col-span-6">
+        <div className="pb-4 uppercase ">
+          <Heading
+            className="text-center text-mørk md:text-left"
+            spacing="none"
+            tag="h5"
+            type="h5"
+          >
+            {companyName}
+          </Heading>
+        </div>
+        <div className="space-y-2 text-center md:text-left">
+          <p>{address}</p>
+          <p>CVR {cvr}</p>
+        </div>
       </div>
-      <div className="*:block space-y-2 text-center md:text-left">
-        <a href={`tel:${phone}`}>{phone}</a>
-        <a href={`mailto:${email}`}>{email}</a>
-      </div>
-    </div>
-  )
-}
-
-function ColumnFour({ data }) {
-  return (
-    <div className=" col-span-full sm:col-span-full md:col-span-3 lg:col-span-3 xl:col-span-6">
-      <div className="pb-4 uppercase ">
-        <Heading
-          className="text-center text-mørk md:text-left"
-          spacing="none"
-          tag="h5"
-          type="h5"
-        >
-          Til virksomheder
-        </Heading>
-      </div>
-
-      <Link href="/signin">Log ind</Link>
-    </div>
+    </>
   )
 }
 
@@ -191,19 +170,26 @@ function Legal({ data }) {
   const companyName = data?.object?.companyName
   return (
     <div className="space-y-6 col-span-full">
-      <div className="h-0.5 w-full hidden sm:block bg-mørk"></div>
+      <div className="h-px w-full hidden sm:block bg-mørk"></div>
       <div className="flex flex-col justify-center gap-1 text-center sm:text-left sm:flex-row sm:justify-between text-[14px]">
-        <p className="text-[14px]">{`© ${new Date().getFullYear()} ${companyName}`}</p>
-        <p className="text-[14px]">
-          <a href="/" target="_blank" rel="noreferrer">
-            Privacy Policy
-          </a>
-        </p>
-        <p className="text-[14px]">
-          <a href="/" target="_blank" rel="noreferrer">
-            Cookiepolitik
-          </a>
-        </p>
+        <div className="flex justify-start gap-12">
+          <p className="text-[14px]">{`© ${new Date().getFullYear()} ${companyName}`}</p>
+          <p className="text-[14px]">
+            <a href="/" target="_blank" rel="noreferrer">
+              Cookiepolitik
+            </a>
+          </p>
+          <p className="text-[14px]">
+            <a href="/" target="_blank" rel="noreferrer">
+              Tilgængelighedserklæring
+            </a>
+          </p>
+          <p className="text-[14px]">
+            <a href="/signin" target="_blank" rel="noreferrer">
+              Virksomhedslogin
+            </a>
+          </p>
+        </div>
         <p className="relative transition-all text-[14px] group">
           <a
             className="before:absolute before:-right-[11px] before:rounded-full before:animate-bounce duration-1000 before:bottom-[5px] before:size-[7px] before:block before:transition-all ease-linear transition-all group-hover:before:bg-green"
