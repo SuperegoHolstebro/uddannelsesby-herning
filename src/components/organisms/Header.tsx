@@ -66,23 +66,26 @@ export default function Header() {
   return (
     <>
       <header
-        className={` fixed top-0 bg-mørk right-0 w-full py-4 se-grid z-[9999999999] transition-all flex justify-center items-center ${
+        className={` fixed top-0 left-0 w-[100px] h-full bg-mørk z-[9999999999] transition-all flex flex-col-reverse justify-between items-center ${
           isScrolled ? '!bg-mørk' : ''
         }`}
       >
-        <div className="col-span-2 col-start-1 md:col-span-6">
+        <div className="w-full mb-4">
+          {' '}
+          {/* Added margin at the bottom */}
           <Link className="text-lys" href="/">
-            <Logo className="w-full h-auto max-w-xs" />
+            <Logo className="object-contain w-full h-auto max-w-xs rotate-90" />{' '}
+            {/* Adjusted size and object fitting */}
           </Link>
         </div>
-        <Search />
+
         <button
           aria-controls="menu"
           aria-label="Menu"
           onClick={() => setIsOpen(!isOpen)}
-          className="relative z-[999999999] -col-start-1 -col-end-1 size-11.5 group ring-0 focus-within:ring-signal-gul ring-offset-0 focus-within:ring-2 focus-within:ring-signal-gul focus-within:ring-offset-2"
+          className="relative z-[999999999] mt-4 size-11.5 group ring-0 focus-within:ring-signal-gul ring-offset-0 focus-within:ring-2 focus-within:ring-signal-gul focus-within:ring-offset-2"
         >
-          <div className="relative w-full h-auto -translate-x-1/2 translate-y-1/2 -right-1/2">
+          <div className="relative w-full h-auto -translate-x-1/2 translate-y-1/2">
             <span
               className={`block absolute transition-all h-0.5 w-12 bg-signal-gul group-hover:bg-signal-gul transform duration-500 ease-in-out ${isOpen ? 'rotate-45 ' : '-translate-y-1.5 group-hover:w-10'}`}
               aria-hidden="true"
