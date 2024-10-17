@@ -42,4 +42,6 @@ const PasswordInputComponent = React.forwardRef<
   )
 })
 
+PasswordInputComponent.displayName = 'PasswordInputComponent'
+
 export default PasswordInputComponent
