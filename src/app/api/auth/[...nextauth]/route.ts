@@ -3,7 +3,7 @@ import CredentialsProvider from 'next-auth/providers/credentials'
 import { getCompanyLogin } from '@/sanity/lib/sanity.queries'
 import bcrypt from 'bcryptjs'
 
-const handler = NextAuth({
+export const authOptions = {
   providers: [
     CredentialsProvider({
       name: 'Credentials',
@@ -55,6 +55,9 @@ const handler = NextAuth({
   pages: {
     signIn: '/auth/signin',
   },
-})
+}
 
-export { handler as GET, handler as POST }
+// Create NextAuth handler with the exported authOptions
+const handler = NextAuth(authOptions)
+
+export { handler as GET, handler as POST, authOptions } // Export authOptions for external use
