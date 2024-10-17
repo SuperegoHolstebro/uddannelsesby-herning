@@ -89,7 +89,7 @@ export default function Search() {
         aria-label="Open search"
       >
         <Icon
-          className="my-auto ml-auto mr-4 transition-all md:mx-auto size-8 fill-dark group-hover:rotate-12 filter bg-blend-exclusion group-hover:fill-green"
+          className="my-auto ml-auto mr-4 transition-all md:mx-auto size-8 fill-signal-gul group-hover:rotate-12 filter bg-blend-exclusion group-hover:fill-signal-gul"
           type="Search"
         />
       </button>
@@ -102,7 +102,7 @@ export default function Search() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: '-100%', transition: { duration: 0.25 } }}
             transition={{ duration: 0.3, ease: [0.77, 0, 0.18, 1] }}
-            className="fixed pt-2.5 h-20 pb-2.5 top-0 right-0 w-full px-4 xs:px-4 sm:px-13 md:px-24 lg:px-19 xl:px-36 2xl:px-52 bg-light-light z-[calc(infinity+1)]"
+            className="fixed pt-2.5 h-20 pb-2.5 top-0 right-0 w-full px-4 xs:px-4 sm:px-13 md:px-24 lg:px-19 xl:px-36 2xl:px-52 bg-lys z-[calc(infinity+1)]"
             role="dialog"
             aria-modal="true"
             aria-labelledby="search-title"
@@ -113,17 +113,14 @@ export default function Search() {
             <label className="relative block w-full" htmlFor="text">
               <input
                 autoFocus
-                className="w-full px-4 transition-all border rounded-lg h-14 border-dark ring-0 ring-green ring-offset-0 focus-within:ring-2 focus-within:ring-green focus-within:ring-offset-2"
+                className="w-full px-4 transition-all border rounded-lg h-14 border-mørk ring-0 ring-green ring-offset-0 focus-within:ring-2 focus-within:ring-signal-gul focus-within:ring-offset-2"
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 aria-label="Search query"
               />
               <div className="absolute -translate-y-1/2 right-4 top-1/2">
-                <AdvancedButton
-                  onClick={toggleSearch}
-                  variant="default"
-                >
+                <AdvancedButton onClick={toggleSearch} variant="default">
                   Search
                 </AdvancedButton>
               </div>
@@ -141,7 +138,7 @@ export default function Search() {
       <AnimatePresence>
         {isSearchOpen && (
           <motion.button
-            className="fixed z-[998] top-0 right-0 w-screen h-screen bg-dark/50 backdrop-blur-sm"
+            className="fixed z-[998] top-0 right-0 w-screen h-screen bg-mørk/50 backdrop-blur-sm"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -161,13 +158,13 @@ const SearchResult = ({ result }) => {
       <Link
         href={resolveHref(result?._type, result.slug)}
         target="_self"
-        className="block px-6 py-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green focus-visible:ring-offset-2 bg-light-base"
+        className="block px-6 py-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green focus-visible:ring-offset-2 bg-lys"
       >
-        <Heading spacing="none"  type="h6" tag="h6">
+        <Heading spacing="none" type="h6" tag="h6">
           {result.title}
         </Heading>
 
-        <span className="absolute px-2 py-1 -translate-y-1/2 border rounded-md text-small bg-dark text-light-base top-1/2 right-4 ">
+        <span className="absolute px-2 py-1 -translate-y-1/2 border rounded-md text-small bg-mørk text-lys top-1/2 right-4 ">
           {result._type === 'event'
             ? 'Begivenhed'
             : result._type === 'article'

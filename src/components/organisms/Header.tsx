@@ -67,7 +67,7 @@ export default function Header() {
     <>
       <header
         className={` fixed top-0 right-0 w-full py-4 se-grid z-[9999999999] h-20 transition-all ${
-          isScrolled ? '!bg-light-light' : ''
+          isScrolled ? '!bg-lys' : ''
         }`}
       >
         <div className="col-span-2 col-start-1 md:col-span-6">
@@ -80,19 +80,19 @@ export default function Header() {
           aria-controls="menu"
           aria-label="Menu"
           onClick={() => setIsOpen(!isOpen)}
-          className="relative z-[999999999] -col-start-1 -col-end-1 size-11.5 group ring-0 focus-within:ring-green ring-offset-0 focus-within:ring-2 focus-within:ring-green focus-within:ring-offset-2"
+          className="relative z-[999999999] -col-start-1 -col-end-1 size-11.5 group ring-0 focus-within:ring-signal-gul ring-offset-0 focus-within:ring-2 focus-within:ring-signal-gul focus-within:ring-offset-2"
         >
           <div className="relative w-full h-auto -translate-x-1/2 translate-y-1/2 -right-1/2">
             <span
-              className={`block absolute transition-all h-0.5 w-12 bg-dark group-hover:bg-green transform duration-500 ease-in-out ${isOpen ? 'rotate-45 ' : '-translate-y-1.5 group-hover:w-10'}`}
+              className={`block absolute transition-all h-0.5 w-12 bg-signal-gul group-hover:bg-signal-gul transform duration-500 ease-in-out ${isOpen ? 'rotate-45 ' : '-translate-y-1.5 group-hover:w-10'}`}
               aria-hidden="true"
             ></span>
             <span
-              className={`block absolute transition-all h-0.5 w-12 bg-dark group-hover:bg-green transform duration-500 ease-in-out ${isOpen ? 'opacity-0 ' : ''}`}
+              className={`block absolute transition-all h-0.5 w-12 bg-signal-gul group-hover:bg-signal-gul transform duration-500 ease-in-out ${isOpen ? 'opacity-0 ' : ''}`}
               aria-hidden="true"
             ></span>
             <span
-              className={`block absolute transition-all h-0.5 w-12 bg-dark group-hover:bg-green transform duration-500 ease-in-out ${isOpen ? '-rotate-45 ' : 'translate-y-1.5 group-hover:w-5'}`}
+              className={`block absolute transition-all h-0.5 w-12 bg-signal-gul group-hover:bg-signal-gul transform duration-500 ease-in-out ${isOpen ? '-rotate-45 ' : 'translate-y-1.5 group-hover:w-5'}`}
               aria-hidden="true"
             ></span>
           </div>

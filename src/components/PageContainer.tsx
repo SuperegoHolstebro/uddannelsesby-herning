@@ -17,44 +17,41 @@ import { Lenis } from '~/components/Lenis'
  *
  **/
 
-
 export default function PageContainer({
   lenis = {
     lerp: 0.1,
     duration: 1.2,
     smoothTouch: false, //smooth scroll for touch devices
     smooth: true,
-    easing: (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)), 
-    orientation: "vertical",
-    gestureOrientation: "vertical",
+    easing: (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)),
+    orientation: 'vertical',
+    gestureOrientation: 'vertical',
     smoothWheel: true,
     touchMultiplier: 2,
-
   },
   children,
 }: {
   lenis?: {
-    lerp: number,
-    duration: number,
-    smoothTouch: boolean,
-    smooth: boolean,
-    easing: (t: number) => number,
-    orientation: string,
-    gestureOrientation: string,
-    smoothWheel: boolean,
-    touchMultiplier: number,
-  },
-  children: React.ReactNode,
-
+    lerp: number
+    duration: number
+    smoothTouch: boolean
+    smooth: boolean
+    easing: (t: number) => number
+    orientation: string
+    gestureOrientation: string
+    smoothWheel: boolean
+    touchMultiplier: number
+  }
+  children: React.ReactNode
 }) {
   return (
     <>
-
       <Header />
-      <Lenis options={lenis} root={typeof document !== 'undefined' ? document.documentElement : null} />
-      <main className={` min-h-screen bg-light-light`}>
-        {children}
-      </main>
+      <Lenis
+        options={lenis}
+        root={typeof document !== 'undefined' ? document.documentElement : null}
+      />
+      <main className={` min-h-screen bg-lys`}>{children}</main>
       <Footer />
       {/*  <!-- Google Tag Manager (noscript) -->   */}
       <noscript>

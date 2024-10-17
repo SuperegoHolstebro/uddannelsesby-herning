@@ -77,7 +77,7 @@ export default function Footer() {
   return (
     <>
       <footer
-        className={`${gridCols} ${gridGap} ${paddingX} ${paddingY} grid pb-20 text-light-base bg-dark *:mx-auto md:*:mx-0`}
+        className={`${gridCols} ${gridGap} ${paddingX} ${paddingY} grid pb-20 text-mørk bg-signal-pink *:mx-auto md:*:mx-0`}
       >
         <Footer.ColumnOne data={data} />
         <Footer.ColumnTwo data={data} />
@@ -99,7 +99,7 @@ function ColumnOne({ data }) {
   return (
     <div className="col-span-full sm:col-span-full md:col-span-3 lg:col-span-3 xl:col-span-6">
       <div className="">
-        <Link className="text-light-base" href="/">
+        <Link className="text-mørk" href="/">
           <Logo className="w-full h-auto max-w-xs" />
         </Link>
       </div>
@@ -129,7 +129,7 @@ function ColumnTwo({ data }) {
     <div className=" col-span-full sm:col-span-full md:col-span-3 lg:col-span-3 xl:col-span-6">
       <div className="pb-4 uppercase ">
         <Heading
-          className="text-center text-light-light md:text-left"
+          className="text-center text-mørk md:text-left"
           spacing="none"
           tag="h5"
           type="h5"
@@ -152,7 +152,7 @@ function ColumnThree({ data }) {
     <div className=" col-span-full sm:col-span-full md:col-span-3 lg:col-span-3 xl:col-span-6">
       <div className="pb-4 uppercase ">
         <Heading
-          className="text-center text-light-light md:text-left"
+          className="text-center text-mørk md:text-left"
           spacing="none"
           tag="h5"
           type="h5"
@@ -173,7 +173,7 @@ function ColumnFour({ data }) {
     <div className=" col-span-full sm:col-span-full md:col-span-3 lg:col-span-3 xl:col-span-6">
       <div className="pb-4 uppercase ">
         <Heading
-          className="text-center text-light-light md:text-left"
+          className="text-center text-mørk md:text-left"
           spacing="none"
           tag="h5"
           type="h5"
@@ -191,7 +191,7 @@ function Legal({ data }) {
   const companyName = data?.object?.companyName
   return (
     <div className="space-y-6 col-span-full">
-      <div className="h-0.5 w-full hidden sm:block bg-green"></div>
+      <div className="h-0.5 w-full hidden sm:block bg-mørk"></div>
       <div className="flex flex-col justify-center gap-1 text-center sm:text-left sm:flex-row sm:justify-between text-[14px]">
         <p className="text-[14px]">{`© ${new Date().getFullYear()} ${companyName}`}</p>
         <p className="text-[14px]">

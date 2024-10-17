@@ -27,7 +27,7 @@ interface HeroProps {
 }
 
 const before =
-  'before:bg-gradient-to-b before:from-dark/0 before:to-dark/60 before:absolute before:inset-0 before:z-10 '
+  'before:bg-gradient-to-b before:from-mørk/0 before:to-mørk/60 before:absolute before:inset-0 before:z-10 '
 const Hero: React.FC<HeroProps> = ({ data, ...props }) => {
   const [isOpen, setIsOpen] = useState(false)
 

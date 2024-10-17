@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import { default as NextLink } from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { client } from '@/sanity/lib/sanity.client'
@@ -23,22 +23,20 @@ import { NAVIGATION_QUERY } from '~/sanity/lib/sanity.queries'
  *
  **/
 
-
 export default function Navigation({ onClose }) {
   const useNavigationData = () => {
-    const [data, setData] = useState(null);
+    const [data, setData] = useState(null)
     useEffect(() => {
       const fetchData = async () => {
-        let result = await client.fetch(NAVIGATION_QUERY);
-        result = await stegaClean(result);
-        setData(result);
-      };
-      fetchData();
-    }, []);
-    return data;
-  };
-  const data = useNavigationData();
-
+        let result = await client.fetch(NAVIGATION_QUERY)
+        result = await stegaClean(result)
+        setData(result)
+      }
+      fetchData()
+    }, [])
+    return data
+  }
+  const data = useNavigationData()
 
   return (
     <>
@@ -48,7 +46,7 @@ export default function Navigation({ onClose }) {
         transition={{ stiffness: 100 }}
         animate={{ x: 0 }}
         exit={{ x: '100%', opacity: 0 }}
-        className="fixed z-[999] top-0 right-0 w-screen h-screen sm:w-[50vw] md:w-[50vw] lg:w-[33vw] overflow-auto bg-light-light"
+        className="fixed z-[999] top-0 right-0 w-screen h-screen sm:w-[50vw] md:w-[50vw] lg:w-[33vw] overflow-auto bg-lys"
       >
         <ul className="h-full px-6 pb-6 space-y-6 overflow-auto md:px-24 lg:px-19 xl:px-16 sm:px-13 pt-44 sm:pt-32 md:pt-28 lg:pt-28">
           {data?.links?.map((item, index) => (
@@ -58,7 +56,7 @@ export default function Navigation({ onClose }) {
       </motion.nav>
       <motion.button
         title="Luk menu"
-        className="fixed z-[998] top-0 right-0 w-screen h-screen bg-dark/50 backdrop-blur-sm"
+        className="fixed z-[998] top-0 right-0 w-screen h-screen bg-mørk/50 backdrop-blur-sm"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -69,20 +67,26 @@ export default function Navigation({ onClose }) {
   )
 }
 
-
 function MenuItem({ item }) {
-  const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
+  const [isSubmenuOpen, setIsSubmenuOpen] = useState(false)
 
   const toggleSubmenu = () => {
-    setIsSubmenuOpen(!isSubmenuOpen);
-  };
+    setIsSubmenuOpen(!isSubmenuOpen)
+  }
   return (
-    <li className={`h-auto border-b border-dark text-medium `}>
+    <li className={`h-auto border-b border-mørk text-medium `}>
       {item?.subLinks?.length > 0 ? (
         <>
-          <AdvancedButton onClick={toggleSubmenu} className="relative flex items-start justify-between w-full px-0 py-0 pb-2 text-left " variant="none">
+          <AdvancedButton
+            onClick={toggleSubmenu}
+            className="relative flex items-start justify-between w-full px-0 py-0 pb-2 text-left "
+            variant="none"
+          >
             {item.link.label}
-            <Icon type={'chevronUp'} className={`size-6 transition-all transform fill-dark ${isSubmenuOpen ? 'rotate-180' : 'rotate-0'}`} />
+            <Icon
+              type={'chevronUp'}
+              className={`size-6 transition-all transform fill-mørk ${isSubmenuOpen ? 'rotate-180' : 'rotate-0'}`}
+            />
           </AdvancedButton>
           <AnimatePresence>
             {isSubmenuOpen && (
@@ -101,21 +105,28 @@ function MenuItem({ item }) {
           </AnimatePresence>
         </>
       ) : (
-        <Button className='relative block w-full h-auto px-0 py-0 pb-2 text-left ' variant='none' link={item.link}>
+        <Button
+          className="relative block w-full h-auto px-0 py-0 pb-2 text-left "
+          variant="none"
+          link={item.link}
+        >
           {item.link.label}
         </Button>
       )}
     </li>
-  );
+  )
 }
-
 
 function SubMenuItem({ item }) {
   return (
-    <li className='h-auto border-b last-of-type:border-b-0 border-dark last-of-type:mb-6'>
-      <Button className='relative block w-full px-0 py-0 pb-2 text-left ' variant='none' link={item}>
+    <li className="h-auto border-b last-of-type:border-b-0 border-mørk last-of-type:mb-6">
+      <Button
+        className="relative block w-full px-0 py-0 pb-2 text-left "
+        variant="none"
+        link={item}
+      >
         {item.label}
       </Button>
     </li>
-  );
+  )
 }

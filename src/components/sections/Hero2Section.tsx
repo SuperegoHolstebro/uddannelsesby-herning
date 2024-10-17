@@ -50,7 +50,7 @@ const Hero2: React.FC<HeroProps> = ({ data, ...props }) => {
 
           <div className="absolute z-10 w-full h-full translate-x-1/2 -translate-y-1/2 pointer-events-none top-1/2 right-1/2 bg-black/45" />
 
-          <div className="absolute z-20 w-full px-4 text-center translate-x-1/2 -translate-y-1/2 top-1/2 right-1/2 text-light-base">
+          <div className="absolute z-20 w-full px-4 text-center translate-x-1/2 -translate-y-1/2 top-1/2 right-1/2 text-lys">
             <Heading spacing="small" tag="h1" type="h1">
               {data.title}
             </Heading>

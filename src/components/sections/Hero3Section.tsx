@@ -101,7 +101,7 @@ Hero3.Content = Content
 
 function Content({ data }) {
   return (
-    <div className="z-30 w-full text-light-base col-span-full max-w-prose md:max-w-[80ch] prose-headings:text-green">
+    <div className="z-30 w-full text-lys col-span-full max-w-prose md:max-w-[80ch] prose-headings:text-signal-gul">
       <Paragraph spacing="small">{data?.subtitle}</Paragraph>
       <Heading spacing="small" tag="h1" type="h1" text="balance">
         {data.title}
