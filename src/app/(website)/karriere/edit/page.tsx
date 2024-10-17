@@ -1,5 +1,5 @@
 import { getServerSession } from 'next-auth/next'
-import { authOptions } from '@/app/api/auth/[...nextauth]/route'
+import { NextAuth } from '@/app/api/auth/[...nextauth]/route'
 import SignOut from '~/components/atoms/Signout'
 import PageContainer from '~/components/PageContainer'
 import Section from '~/components/sections/Section'
