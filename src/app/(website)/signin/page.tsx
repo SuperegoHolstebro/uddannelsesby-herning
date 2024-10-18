@@ -12,6 +12,8 @@ import { AdvancedButton } from '~/components/atoms/AdvancedButton'
 export default function SignIn() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [loading, setLoading] = useState(false) // Add loading state for button
+
   const { data: session, status } = useSession() // Get the session and status
   const router = useRouter()
 
@@ -24,6 +26,7 @@ export default function SignIn() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setLoading(true) // Set loading state when the form is submitted
 
     const result = await signIn('credentials', {
       redirect: false,
@@ -33,21 +36,10 @@ export default function SignIn() {
 
     if (result?.error) {
       console.error(result.error)
+      setLoading(false) // Reset loading state on error
     } else {
       router.push('/karriere/edit') // Redirect after successful sign-in
     }
-  }
-
-  // If the user is already authenticated, don't show the sign-in form
-  if (status === 'loading') {
-    return (
-      <PageContainer>
-        <Section>
-          <Paragraph>Loading...</Paragraph>{' '}
-        </Section>{' '}
-      </PageContainer>
-    )
-    // Show a loading state while checking the session
   }
 
   if (status === 'authenticated') {
@@ -81,8 +73,10 @@ export default function SignIn() {
                 variant="default"
                 type="submit"
                 className="w-full px-4 py-2 rounded"
+                disabled={loading} // Disable the button while loading
               >
-                Sign In
+                {loading ? 'Indlæser...' : 'Log ind'}{' '}
+                {/* Change the text based on loading state */}
               </AdvancedButton>
             </form>
           </div>

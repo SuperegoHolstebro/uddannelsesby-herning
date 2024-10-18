@@ -6,6 +6,7 @@ import PageContainer from '~/components/PageContainer'
 import Section from '~/components/sections/Section'
 import Heading from '~/components/atoms/Heading'
 import Image from 'next/image' // Assuming you're using Next.js image optimization
+import SignOut from './atoms/Signout'
 
 export default function EditCompanyForm({ session, company }) {
   const [companyName, setCompanyName] = useState(company?.name || '')
@@ -16,9 +17,11 @@ export default function EditCompanyForm({ session, company }) {
   const [address, setAddress] = useState(company?.address || '')
   const [phone, setPhone] = useState(company?.phone || '')
   const [documentId] = useState(company?._id || '')
+  const [loading, setLoading] = useState(false) // Add loading state
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setLoading(true) // Set loading to true when form is submitted
 
     // Submit the updated company data to the API route
     const res = await fetch('/api/updateCompany', {
@@ -39,8 +42,10 @@ export default function EditCompanyForm({ session, company }) {
     const result = await res.json()
     if (result.success) {
       alert('Company information updated successfully')
+      setLoading(false) // Reset loading state after submission
     } else {
       alert('Error updating company information')
+      setLoading(false) // Reset loading state after submission
     }
   }
 
@@ -171,11 +176,16 @@ export default function EditCompanyForm({ session, company }) {
                 variant="default"
                 type="submit"
                 className="w-full px-4 py-2 rounded"
+                disabled={loading}
               >
-                Opdater
+                {loading ? 'Opdaterer...' : 'Opdater'}{' '}
+                {/* Change text based on loading state */}
               </AdvancedButton>
             </form>
           </div>
+        </div>
+        <div className="absolute bottom-0 right-0 pb-8 pr-8 col-span-full">
+          <SignOut />
         </div>
       </Section>
     </PageContainer>
