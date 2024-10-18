@@ -66,7 +66,7 @@ export default function Header() {
   return (
     <>
       <header
-        className={` fixed top-0 left-0 translate-x-0 w-[100px] h-full bg-mørk z-[9999999999] transition-all flex flex-col-reverse justify-between items-center  ${
+        className={` fixed top-0 left-0 translate-x-0 w-[100px] h-full bg-mørk z-[9999999999] transition-all flex flex-col-reverse justify-between items-center ${
           isScrolled ? '!bg-mørk' : ''
         }`}
       >

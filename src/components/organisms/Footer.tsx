@@ -185,7 +185,7 @@ function Legal({ data }) {
             </a>
           </p>
           <p className="text-[14px]">
-            <a href="/signin" target="_blank" rel="noreferrer">
+            <a href="/signin" target="" rel="noreferrer">
               Virksomhedslogin
             </a>
           </p>
