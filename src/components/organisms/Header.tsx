@@ -66,14 +66,14 @@ export default function Header() {
   return (
     <>
       <header
-        className={` fixed top-0 left-0 translate-x-0 w-[100px] h-full bg-mørk z-[9999999999] transition-all flex flex-col-reverse justify-between items-center ${
+        className={` fixed top-0 left-0 translate-x-0 w-[100px] h-full bg-mørk z-[9999999999] transition-all flex flex-col-reverse justify-between items-center  ${
           isScrolled ? '!bg-mørk' : ''
         }`}
       >
-        <div className="w-full">
+        <div className="flex items-center justify-center h-[300px] w-full">
           {' '}
           <Link className="text-lys" href="/">
-            <Logo className="object-contain w-full h-auto max-w-xs rotate-90" />{' '}
+            <Logo className="w-[250px] rotate-90" />
           </Link>
         </div>
 
