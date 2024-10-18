@@ -173,7 +173,8 @@ export const getCompanyLogin = async (username) => {
       _id,
       username,
       password,
-      "company": companyRef->name
+      "company": companyRef->name,  // Fetch the company name
+      "companyId": companyRef->_id   // Fetch the company _id from companyRef
     }
   `
 

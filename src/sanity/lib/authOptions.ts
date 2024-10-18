@@ -27,10 +27,16 @@ export const authOptions: AuthOptions = {
           throw new Error('Invalid password')
         }
 
+        // Make sure the companyRef._id exists
+        if (!user.companyRef || !user.companyRef._id) {
+          throw new Error('Company reference not found')
+        }
+
         return {
           id: user._id,
           username: user.username,
           company: user.company,
+          companyId: user.companyRef._id,
         }
       },
     }),
@@ -42,13 +48,21 @@ export const authOptions: AuthOptions = {
     async jwt({ token, user }) {
       if (user) {
         token.id = user.id
+        token.username = user.username
         token.company = user.company
+        token.companyId = user.companyId
       }
+      console.log('JWT Token:', token) // Debugging JWT token
+
       return token
     },
     async session({ session, token }) {
       session.user.id = token.id as string
+      session.user.username = token.username as string
       session.user.company = token.company as string
+      session.user.companyId = token.companyId as string
+      console.log('Session Data:', session) // Debugging session
+
       return session
     },
   },
