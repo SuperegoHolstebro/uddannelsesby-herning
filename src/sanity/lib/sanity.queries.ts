@@ -174,7 +174,7 @@ export const getCompanyLogin = async (username) => {
       username,
       password,
       "company": companyRef->name,  // Fetch the company name
-      "companyId": companyRef->_id   // Fetch the company _id from companyRef
+      "companyRefId": companyRef->_id   // Fetch the company _id from companyRef
     }
   `
 
@@ -183,6 +183,7 @@ export const getCompanyLogin = async (username) => {
   if (!result) {
     return null // Return null if no user is found
   }
+  console.log('Fetched user data:', result)
 
   return stegaClean(result)
 }
