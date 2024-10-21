@@ -99,14 +99,13 @@ export default defineType({
   preview: {
     select: {
       title: 'name',
-      industry: 'industry',
-      contactPerson: 'contactPerson',
+      description: 'description',
       media: 'image',
     },
     prepare(selection) {
       return {
         title: selection.title,
-        subtitle: `${selection.industry} - Contact: ${selection.contactPerson}`,
+        subtitle: selection.description,
         media: selection.media,
       }
     },

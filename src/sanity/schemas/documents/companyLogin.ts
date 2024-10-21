@@ -47,8 +47,8 @@ export default defineType({
     },
     prepare(selection) {
       return {
-        title: selection.username,
-        subtitle: `Company: ${selection.companyTitle}`,
+        title: `${selection.companyTitle}`,
+        subtitle: selection.username,
       }
     },
   },
