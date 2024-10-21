@@ -41,7 +41,7 @@ export default function EditCompanyForm({ session, company }) {
 
     const result = await res.json()
     if (result.success) {
-      alert('Company information updated successfully')
+      alert('Virksomhedens information er blevet opdateret')
       setLoading(false) // Reset loading state after submission
     } else {
       alert('Error updating company information')
