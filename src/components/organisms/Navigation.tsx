@@ -42,11 +42,11 @@ export default function Navigation({ onClose }) {
     <>
       <motion.nav
         data-lenis-prevent="true"
-        initial={{ x: '100%' }}
+        initial={{ x: '-100%' }}
         transition={{ stiffness: 100 }}
         animate={{ x: 0 }}
-        exit={{ x: '100%', opacity: 0 }}
-        className="fixed z-[999] top-0 right-0 w-screen h-screen sm:w-[50vw] md:w-[50vw] lg:w-[33vw] overflow-auto bg-lys"
+        exit={{ x: '-100%', opacity: 0 }}
+        className="fixed z-[999] top-0 left-[100px] w-screen h-screen sm:w-[50vw] md:w-[50vw] lg:w-[33vw] overflow-auto bg-lys"
       >
         <ul className="h-full px-6 pb-6 space-y-6 overflow-auto md:px-24 lg:px-19 xl:px-16 sm:px-13 pt-44 sm:pt-32 md:pt-28 lg:pt-28">
           {data?.links?.map((item, index) => (
