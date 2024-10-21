@@ -2,10 +2,10 @@ import '@/styles/global.css'
 import { draftMode } from 'next/headers'
 import { GoogleTagManager } from '@next/third-parties/google'
 import { Inter, PT_Serif, Outfit } from 'next/font/google'
-const sans = Inter({
+const sans = Outfit({
   variable: '--font-family-sans',
   subsets: ['latin'],
-  weight: ['500', '700', '800'],
+  weight: ['400', '700'],
   display: 'swap',
   preload: true,
 })
