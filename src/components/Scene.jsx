@@ -1,29 +1,47 @@
 'use client'
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import useWindow from './useWindow'
 import Image from 'next/image'
 
 export default function Scene() {
   const { dimension } = useWindow()
-  const canvas = useRef()
+  const canvas = useRef(null)
   const prevPosition = useRef(null)
+  const [hasAnimated, setHasAnimated] = useState(false)
 
   useEffect(() => {
-    dimension.width > 0 && init()
-  }, [dimension])
+    // Check if the animation has already been shown
+    const hasBeenShown = localStorage.getItem('hasAnimated')
+
+    if (!hasBeenShown) {
+      // Initialize animation if it hasn't been shown
+      setHasAnimated(false)
+    } else {
+      // Skip animation if it has been shown
+      setHasAnimated(true)
+    }
+
+    if (dimension.width > 0 && !hasAnimated) {
+      init()
+    }
+  }, [dimension, hasAnimated])
 
   const init = () => {
     const ctx = canvas.current.getContext('2d')
     ctx.fillStyle = '#262723'
     ctx.fillRect(0, 0, dimension.width, dimension.height)
     ctx.globalCompositeOperation = 'destination-out'
+
+    // Save that the animation has been shown
+    localStorage.setItem('hasAnimated', 'true')
   }
 
   const lerp = (x, y, a) => x * (1 - a) + y * a
 
   const manageMouseMove = (e) => {
-    const { clientX, clientY, movementX, movementY } = e
+    if (hasAnimated) return
 
+    const { clientX, clientY, movementX, movementY } = e
     const nbOfCircles = Math.max(Math.abs(movementX), Math.abs(movementY)) / 10
 
     if (prevPosition.current != null) {
@@ -53,12 +71,14 @@ export default function Scene() {
       {dimension.width == 0 && (
         <div className="absolute w-full h-full bg-mørk" />
       )}
-      <canvas
-        ref={canvas}
-        onMouseMove={manageMouseMove}
-        height={dimension.height}
-        width={dimension.width}
-      />
+      {!hasAnimated && (
+        <canvas
+          ref={canvas}
+          onMouseMove={manageMouseMove}
+          height={dimension.height}
+          width={dimension.width}
+        />
+      )}
     </div>
   )
 }
