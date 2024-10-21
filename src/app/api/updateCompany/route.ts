@@ -16,13 +16,23 @@ export async function POST(req: Request) {
       return NextResponse.json({ message: 'Unauthorized' }, { status: 401 })
     }
 
-    const { documentId, companyName, companyDescription } = await req.json()
+    const {
+      documentId,
+      companyName,
+      companyDescription,
+      email,
+      address,
+      phone,
+    } = await req.json()
 
     // Log the received data
     console.log('Received data:', {
       documentId,
       companyName,
       companyDescription,
+      email,
+      address,
+      phone,
     })
 
     if (!documentId || !companyName || !companyDescription) {
@@ -36,7 +46,13 @@ export async function POST(req: Request) {
     // Update the company in Sanity
     const result = await client
       .patch(documentId)
-      .set({ name: companyName, description: companyDescription })
+      .set({
+        name: companyName,
+        description: companyDescription,
+        email: email,
+        address: address,
+        phone: phone,
+      })
       .commit()
 
     // Log success result
