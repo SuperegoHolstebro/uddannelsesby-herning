@@ -1,28 +1,36 @@
 import { getServerSession } from 'next-auth/next'
 import { authOptions } from '@/sanity/lib/authOptions'
-import SignOut from '~/components/atoms/Signout'
-import PageContainer from '~/components/PageContainer'
-import Section from '~/components/sections/Section'
-import Heading from '~/components/atoms/Heading'
+import { client } from '@/sanity/lib/sanity.client'
+import EditCompanyForm from '@/components/EditCompanyForm'
 
-export default async function ProtectedPage() {
+export default async function EditPage() {
+  // Fetch the session server-side
   const session = await getServerSession(authOptions)
 
+  // Debugging session output to ensure companyId is present
+  console.log('Session data:', session)
+
   if (!session) {
-    return <p>You must be logged in to view this page</p>
+    return <p>Du skal være logget ind for at se denne side.</p>
+  }
+
+  // Fetch the company data server-side using companyId from session
+  const company = await client.fetch(
+    `*[_type == "company" && _id == $companyId][0]`,
+    { companyId: session.user.companyId }, // Use companyId from session
+  )
+
+  // Handle case where no company is found
+  if (!company) {
+    return (
+      <p>Der blev ikke fundet nogen virksomhed tilknyttet denne bruger. </p>
+    )
   }
 
   return (
-    <PageContainer>
-      <Section>
-        <div className="col-span-full">
-          <Heading type="h2" tag="h2">
-            {' '}
-            Welcome, {session.user.company}
-          </Heading>
-          <SignOut />
-        </div>
-      </Section>
-    </PageContainer>
+    <div>
+      {/* Pass the session and company data to the client-side form */}
+      <EditCompanyForm session={session} company={company} />
+    </div>
   )
 }

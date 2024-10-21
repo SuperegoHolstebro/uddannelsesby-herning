@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { signOut } from 'next-auth/react'
+import { AdvancedButton } from './AdvancedButton'
 
 interface SignOutComponentProps {
   callbackUrl?: string
@@ -23,7 +24,16 @@ const SignOut: React.FC<SignOutComponentProps> = ({
     setIsSigningOut(true)
   }
 
-  return <button onClick={handleSignOut}>Sign Out</button>
+  return (
+    <AdvancedButton
+      variant="default"
+      onClick={handleSignOut}
+      disabled={isSigningOut}
+    >
+      {isSigningOut ? 'Logger ud...' : 'Log ud'}{' '}
+      {/* Change text based on state */}
+    </AdvancedButton>
+  )
 }
 
 export default SignOut

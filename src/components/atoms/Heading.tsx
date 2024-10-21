@@ -39,6 +39,7 @@ const HeadingVariants = cva('text-balance rwx hyphens-auto', {
       sans: 'font-sans',
       serif: 'font-serif',
       mono: 'font-mono',
+      outfit: 'font-outfit',
     },
     tag: {
       h1: 'h1',
