@@ -41,6 +41,7 @@ export const authOptions: AuthOptions = {
       },
     }),
   ],
+  secret: process.env.NEXTAUTH_SECRET,
   session: {
     strategy: 'jwt', // Ensure the value aligns with the NextAuth expected type
     maxAge: 14 * 24 * 60 * 60, // 14 days in seconds
