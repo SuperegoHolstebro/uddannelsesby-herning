@@ -21,14 +21,13 @@ export default function Text() {
         </h1>
       </div>
 
-      <div className="absolute bottom-0 left-0 z-10 pb-4 pl-8 font-sans pointer-events-none text-lys sm:max-w-md md:max-w-3xl">
+      <div className="absolute bottom-0 left-0 z-10 pb-8 font-sans pointer-events-none pl-36 text-lys sm:max-w-md md:max-w-3xl">
         <p>
-          Ea fugiat ut officia mollit cillum amet dolore quis tempor Lorem do
-          dolor. Dolor occaecat consequat elit nisi velit exercitation dolor
-          dolore exercitation qui irure esse. Quis occaecat consectetur nulla
-          nulla exercitation elit deserunt magna duis fugiat ut qui quis ipsum
-          elit. Nostrud ipsum dolore duis. Occaecat irure tempor pariatur
-          occaecat consectetur laborum enim.
+          Kan du se det for dig? Med en uddannelse i Uddannelsesby Herning får
+          du ikke bare et trygt studieliv og en perlerække af fede events inden
+          for sport og kultur. Du bliver en del af en visionær by, hvor drømme
+          og potentialer er håndgribelige. For vi kan se det for os. Din fremtid
+          begynder i Herning.
         </p>
       </div>
     </>
