@@ -11,18 +11,20 @@ export default async function EditPage() {
   console.log('Session data:', session)
 
   if (!session) {
-    return <p>You must be logged in to view this page</p>
+    return <p>Du skal være logget ind for at se denne side.</p>
   }
 
   // Fetch the company data server-side using companyId from session
   const company = await client.fetch(
     `*[_type == "company" && _id == $companyId][0]`,
-    { companyId: '****' }, // Use companyId from session
+    { companyId: session.user.companyId }, // Use companyId from session
   )
 
   // Handle case where no company is found
   if (!company) {
-    return <p>No company found for this user.</p>
+    return (
+      <p>Der blev ikke fundet nogen virksomhed tilknyttet denne bruger. </p>
+    )
   }
 
   return (
