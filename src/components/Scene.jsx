@@ -41,21 +41,29 @@ export default function Scene() {
   const manageMouseMove = (e) => {
     if (hasAnimated) return
 
+    // Get the scroll offsets
+    const scrollX = window.scrollX || window.pageXOffset
+    const scrollY = window.scrollY || window.pageYOffset
+
+    // Adjust the mouse position based on the scroll offset
     const { clientX, clientY, movementX, movementY } = e
+    const mouseX = clientX + scrollX
+    const mouseY = clientY + scrollY
+
     const nbOfCircles = Math.max(Math.abs(movementX), Math.abs(movementY)) / 10
 
     if (prevPosition.current != null) {
       const { x, y } = prevPosition.current
       for (let i = 0; i < nbOfCircles; i++) {
-        const targetX = lerp(x, clientX, (1 / nbOfCircles) * i)
-        const targetY = lerp(y, clientY, (1 / nbOfCircles) * i)
+        const targetX = lerp(x, mouseX, (1 / nbOfCircles) * i)
+        const targetY = lerp(y, mouseY, (1 / nbOfCircles) * i)
         draw(targetX, targetY, 150)
       }
     }
 
     prevPosition.current = {
-      x: clientX,
-      y: clientY,
+      x: mouseX + movementX,
+      y: mouseY + movementY,
     }
   }
 
