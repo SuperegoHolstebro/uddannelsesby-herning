@@ -79,6 +79,10 @@ export default function SignIn() {
                 {/* Change the text based on loading state */}
               </AdvancedButton>
             </form>
+            <Paragraph className="pt-2 " size="regular" spacing="none">
+              Har du ikke en virksomhedskonto?{' '}
+              <a href="/signup">Opret en her</a>
+            </Paragraph>
           </div>
         </div>
       </Section>
