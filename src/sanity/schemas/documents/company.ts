@@ -99,14 +99,21 @@ export default defineType({
   preview: {
     select: {
       title: 'name',
-      description: 'description',
       media: 'image',
+      updatedAt: '_updatedAt', // Fetch the _updatedAt field for preview
     },
     prepare(selection) {
+      const { title, media, updatedAt } = selection
+      const formattedDate = new Date(updatedAt).toLocaleDateString('da-DK', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+      })
+
       return {
-        title: selection.title,
-        subtitle: selection.description,
-        media: selection.media,
+        title: title,
+        subtitle: `Sidst ændret: ${formattedDate}`, // Show the formatted date as the subtitle
+        media: media,
       }
     },
   },
