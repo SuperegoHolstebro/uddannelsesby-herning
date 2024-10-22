@@ -26,9 +26,9 @@ export async function POST(req) {
     const attendeeDoc = {
       _type: 'attendee',
       _id: uuidv4(), // Unique ID for the attendee document
-      navn, // Use "navn" instead of "name"
+      navn,
       email,
-      skole, // Use "skole" instead of "school"
+      skole,
     }
     const createAttendeeResponse = await client.create(attendeeDoc)
     console.log('Created attendee document:', createAttendeeResponse)
@@ -73,9 +73,11 @@ export async function POST(req) {
   }
 }
 
-export const config = {
-  // Ensure POST is the only allowed method
-  api: {
-    methods: ['POST'],
-  },
+// Middleware to ensure the route only accepts POST requests
+export async function middleware(req) {
+  if (req.method !== 'POST') {
+    return new Response(JSON.stringify({ message: 'Method not allowed' }), {
+      status: 405,
+    })
+  }
 }
