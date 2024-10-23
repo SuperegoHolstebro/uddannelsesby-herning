@@ -7,6 +7,37 @@ import { readToken } from '@/sanity/lib/sanity.api'
 import { PAGE_QUERY } from '@/sanity/lib/sanity.queries'
 
 export type PagePayload = {
+  isMultiDay(
+    startDate: (
+      startDate: any,
+      endDate: any,
+      isMultiDay: any,
+    ) => import('react').ReactNode,
+    endDate: (
+      startDate: (
+        startDate: any,
+        endDate: any,
+        isMultiDay: any,
+      ) => import('react').ReactNode,
+      endDate: any,
+      isMultiDay: any,
+    ) => import('react').ReactNode,
+    isMultiDay: any,
+  ): import('react').ReactNode
+  endDate(
+    startDate: (
+      startDate: any,
+      endDate: any,
+      isMultiDay: any,
+    ) => import('react').ReactNode,
+    endDate: any,
+    isMultiDay: any,
+  ): import('react').ReactNode
+  startDate(
+    startDate: any,
+    endDate: any,
+    isMultiDay: any,
+  ): import('react').ReactNode
   address: any
   phone: any
   email: any

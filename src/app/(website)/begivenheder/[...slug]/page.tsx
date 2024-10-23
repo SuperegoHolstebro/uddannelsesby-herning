@@ -45,7 +45,8 @@ export default async function DynamicRoute({
           <div className="col-span-full">
             <Heading spacing="small">{page.title}</Heading>
             <Heading type="p" tag="p" spacing="default">
-              {formatDate(page.date)}
+              {/* Use eventDateRange and pass the correct properties */}
+              {eventDateRange(page.startDate, page.endDate, page.isMultiDay)}
             </Heading>
             <Paragraph>{page.description}</Paragraph>
           </div>
@@ -86,4 +87,22 @@ export async function generateMetadata({
   const page = await loadPage(slug, 'da')
 
   return generatePageMetadata(page, baseUrl)
+}
+
+const eventDateRange = (startDate, endDate, isMultiDay) => {
+  const formattedStart = new Date(startDate).toLocaleDateString('da-DK', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  })
+  const formattedEnd =
+    isMultiDay && endDate
+      ? new Date(endDate).toLocaleDateString('da-DK', {
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric',
+        })
+      : null
+
+  return formattedEnd ? `${formattedStart} - ${formattedEnd}` : formattedStart
 }
