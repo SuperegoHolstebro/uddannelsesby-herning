@@ -11,8 +11,6 @@ import TextWithIllustration from '@/components/sections/TextWithIllustration'
 import EmployeesSection from './sections/EmployeesSection'
 import Breadcrumbs from './molecules/Breadcrumbs'
 import TextContainer from './sections/textContainer'
-import Hero2 from './sections/Hero2Section'
-import Hero3 from './sections/Hero3Section'
 import LogoGallery from './sections/LogoGallery'
 import LogoGallery2 from './sections/LogoGallery2'
 import ContactFormSection from './sections/ContactFormSection'
@@ -38,20 +36,6 @@ const PageBuilder = ({ sections }) => {
             )
           case 'companiesType':
             return <Companies key={index} section={section} />
-          case 'Hero2':
-            return (
-              <React.Fragment key={index}>
-                <Hero2 data={section} />
-                <Breadcrumbs />
-              </React.Fragment>
-            )
-          case 'Hero3':
-            return (
-              <React.Fragment key={index}>
-                <Hero3 data={section} />
-                <Breadcrumbs />
-              </React.Fragment>
-            )
           case 'LogoGallery':
             return (
               <React.Fragment key={index}>

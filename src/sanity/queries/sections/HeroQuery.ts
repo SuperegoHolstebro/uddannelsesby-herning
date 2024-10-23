@@ -1,11 +1,9 @@
 import groq from 'groq'
 
-import { MediaObjectQuery } from '../molecules/MediaObjectQuery'
 export const heroQuery = groq`
 _type == "hero" => {
-  title, 
-  subtitle,
+  text, 
   _type,
-  ${MediaObjectQuery},
+  "media": Video.asset->url,
 }
 `
