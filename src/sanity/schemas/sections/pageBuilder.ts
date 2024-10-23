@@ -29,14 +29,6 @@ export const pageBuilder = defineType({
       type: 'hero',
     }),
     defineArrayMember({
-      name: 'Hero2',
-      type: 'Hero2',
-    }),
-    defineArrayMember({
-      name: 'Hero3',
-      type: 'Hero3',
-    }),
-    defineArrayMember({
       name: 'EmployeesType',
       type: 'EmployeesType',
     }),

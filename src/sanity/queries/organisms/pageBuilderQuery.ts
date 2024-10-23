@@ -11,8 +11,6 @@ import { LogoGallery2Query } from '@/sanity/queries/sections/LogoGallery2Query'
 import { heroQuery } from '@/sanity/queries/sections/HeroQuery'
 import { textContainerQuery } from '@/sanity/queries/sections/textContainerQuery'
 import { textWithIllustrationQuery } from '@/sanity/queries/sections/TextWithIllustrationQuery'
-import { hero2Query } from '@/sanity/queries/sections/Hero2Query'
-import { hero3Query } from '@/sanity/queries/sections/Hero3Query'
 import { companiesTypeQuery } from '../sections/companiesTypeQuery'
 
 export const pageBuilderQuery = groq`
@@ -22,8 +20,6 @@ export const pageBuilderQuery = groq`
     ${EventTypeQuery},
     ${ContactFormTypeQuery},
     ${heroQuery},
-    ${hero2Query},
-    ${hero3Query},
     ${textContainerQuery},
     ${CallToActionQuery},
     ${CallToActionQuery2},
