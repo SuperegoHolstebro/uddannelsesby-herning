@@ -66,8 +66,6 @@ import navigation from '@/sanity/schemas/settings/navigation'
 import settings from '@/sanity/schemas/settings/settings'
 import redirects from './settings/redirects'
 import { heroType } from '@/sanity/schemas/sections/herotype'
-import { Hero2Type } from './sections/Hero2Type'
-import { Hero3Type } from './sections/Hero3Type'
 import { MediaObject } from './sections/atoms/MediaObject'
 import { companiesType } from './sections/companies'
 import company from './documents/company'
@@ -76,8 +74,6 @@ import field from './management/field'
 import attendee from './management/attendee'
 export const schemaTypes = [
   heroType,
-  Hero2Type,
-  Hero3Type,
   textWithIllustration,
   formType,
   videoType,
@@ -132,8 +128,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     navigation,
     position,
     heroType,
-    Hero2Type,
-    Hero3Type,
     employee,
     attendee,
     category,
