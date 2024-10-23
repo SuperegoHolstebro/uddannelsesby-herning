@@ -71,7 +71,6 @@ import { companiesType } from './sections/companies'
 import company from './documents/company'
 import companyLogin from './documents/companyLogin'
 import field from './management/field'
-import attendee from './management/attendee'
 export const schemaTypes = [
   heroType,
   textWithIllustration,
@@ -129,7 +128,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     position,
     heroType,
     employee,
-    attendee,
     category,
     // Objects
     blockContent,
