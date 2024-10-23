@@ -116,13 +116,33 @@ export default defineType({
       group: 'registration',
       validation: (Rule) => Rule.min(1).required(),
     }),
+
+    // Store the list of attendees directly inside the event document
     defineField({
       name: 'attendees',
-      title: 'Deltagere',
+      title: 'Attendees',
       type: 'array',
-      of: [{ type: 'reference', to: [{ type: 'attendee' }] }], // Expecting references
-      description: 'De personer, der har tilmeldt sig begivenheden',
-      group: 'registration',
+      of: [
+        defineField({
+          name: 'attendee',
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'name',
+              title: 'Name',
+              type: 'string',
+              validation: (Rule) => Rule.required(),
+            }),
+            defineField({
+              name: 'email',
+              title: 'Email',
+              type: 'string',
+              validation: (Rule) => Rule.required().email(),
+            }),
+            defineField({ name: 'school', title: 'School', type: 'string' }),
+          ],
+        }),
+      ],
     }),
 
     defineField({
@@ -156,29 +176,14 @@ export default defineType({
       title: 'title',
       startDate: 'startDate',
       endDate: 'endDate',
-      isMultiDay: 'isMultiDay',
+      attendeeCount: 'attendees.length', // Show the number of attendees in the preview
     },
     prepare(selection) {
-      const { title, startDate, endDate, isMultiDay } = selection
-      const formattedStart = new Date(startDate).toLocaleDateString('da-DK', {
-        day: 'numeric',
-        month: 'long',
-        year: 'numeric',
-      })
-      const formattedEnd =
-        isMultiDay && endDate
-          ? new Date(endDate).toLocaleDateString('da-DK', {
-              day: 'numeric',
-              month: 'long',
-              year: 'numeric',
-            })
-          : null
+      const { title, attendeeCount } = selection
 
       return {
         title: title,
-        subtitle: formattedEnd
-          ? `${formattedStart} - ${formattedEnd}`
-          : formattedStart,
+        subtitle: `${attendeeCount || 0} attendees`,
       }
     },
   },
