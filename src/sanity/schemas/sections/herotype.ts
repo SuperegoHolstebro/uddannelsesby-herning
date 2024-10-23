@@ -13,7 +13,7 @@ export const heroType = defineType({
     { title: 'Indstillinger', name: 'settings' },
   ],
   description: 'Øverste modul på forsiden.',
-  title: 'Hero 1',
+  title: 'Forside Hero',
   fields: [
     {
       group: 'media',
