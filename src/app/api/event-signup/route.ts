@@ -6,6 +6,7 @@ import { NextRequest, NextResponse } from 'next/server'
 interface EventSignUpRequestBody {
   navn: string
   email: string
+  telefon: string
   skole: string
   event: string
 }
@@ -13,7 +14,7 @@ interface EventSignUpRequestBody {
 // POST handler
 export async function POST(req: NextRequest) {
   try {
-    const { navn, email, skole, event }: EventSignUpRequestBody =
+    const { navn, email, telefon, skole, event }: EventSignUpRequestBody =
       await req.json()
 
     console.log('Event ID being fetched:', event)
@@ -39,6 +40,7 @@ export async function POST(req: NextRequest) {
       _key: uuidv4(), // Unique _key for the attendee
       name: navn, // Name of the attendee
       email: email, // Email of the attendee
+      phone: telefon, // Phone number of the attendee
       school: skole, // School of the attendee
     }
 

@@ -120,7 +120,7 @@ export default defineType({
     // Store the list of attendees directly inside the event document
     defineField({
       name: 'attendees',
-      title: 'Attendees',
+      title: 'Deltagere',
       type: 'array',
       of: [
         defineField({
@@ -129,7 +129,7 @@ export default defineType({
           fields: [
             defineField({
               name: 'name',
-              title: 'Name',
+              title: 'Navn',
               type: 'string',
               validation: (Rule) => Rule.required(),
             }),
@@ -138,6 +138,11 @@ export default defineType({
               title: 'Email',
               type: 'string',
               validation: (Rule) => Rule.required().email(),
+            }),
+            defineField({
+              name: 'phone',
+              title: 'Telefon',
+              type: 'string',
             }),
             defineField({ name: 'school', title: 'School', type: 'string' }),
           ],
