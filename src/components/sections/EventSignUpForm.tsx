@@ -106,11 +106,19 @@ function EventSignUpForm({ event }) {
               required
             >
               <option value="">Vælg skole</option>
-              <option value="Uni">Aarhus Universitet i Herning</option>
-              <option value="VIA">VIA University College</option>
-              <option value="Erhvervsakademi">Erhvervsakademi MidtVest</option>
-              <option value="Sosu">Social- og Sundhedsskolen Herning</option>
-              <option value="Herningsholm">
+              <option value="Aarhus Universitet i Herning">
+                Aarhus Universitet i Herning
+              </option>
+              <option value="VIA University College">
+                VIA University College
+              </option>
+              <option value="Erhvervsakademi MidtVest">
+                Erhvervsakademi MidtVest
+              </option>
+              <option value="Social- og Sundhedsskolen Herning">
+                Social- og Sundhedsskolen Herning
+              </option>
+              <option value="Herningsholm Erhvervsskole & HHX/HTX">
                 Herningsholm Erhvervsskole & HHX/HTX
               </option>
             </select>
