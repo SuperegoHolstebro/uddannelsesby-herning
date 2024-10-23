@@ -50,10 +50,10 @@ export default defineType({
       group: 'content',
     }),
     defineField({
-      name: 'date',
+      name: 'startDate',
       type: 'datetime',
-      title: 'Dato',
-      description: 'Dato og tidspunkt for begivenheden',
+      title: 'Startdato',
+      description: 'Dato og tidspunkt for begivenhedens start',
       group: 'content',
       options: {
         dateFormat: 'DD-MM-YYYY',
@@ -61,7 +61,36 @@ export default defineType({
         timeStep: 15,
       },
       initialValue: () => new Date().toISOString(),
+      validation: (Rule) => Rule.required(), // Ensure a start date is required
     }),
+    defineField({
+      name: 'isMultiDay',
+      type: 'boolean',
+      title: 'Er dette en flerdagsbegivenhed?',
+      description: 'Slå til for at tilføje en slutdato til begivenheden',
+      group: 'content',
+      initialValue: false,
+    }),
+    defineField({
+      name: 'endDate',
+      type: 'datetime',
+      title: 'Slutdato',
+      description: 'Dato og tidspunkt for begivenhedens slut (valgfri)',
+      group: 'content',
+      hidden: ({ document }) => !document?.isMultiDay, // Only show if the toggle is enabled
+      options: {
+        dateFormat: 'DD-MM-YYYY',
+        timeFormat: 'HH:mm',
+        timeStep: 15,
+      },
+      validation: (Rule) =>
+        Rule.custom((endDate, context) => {
+          const startDate = context.document.startDate
+          if (!context.document.isMultiDay || !endDate) return true
+          return endDate >= startDate || 'Slutdato skal være efter startdatoen'
+        }),
+    }),
+
     defineField({
       group: 'pageBuilder',
       name: 'pageBuilder',
@@ -125,19 +154,32 @@ export default defineType({
   preview: {
     select: {
       title: 'title',
-      date: 'date',
-      image: 'image',
+      startDate: 'startDate',
+      endDate: 'endDate',
+      isMultiDay: 'isMultiDay',
     },
-    prepare: ({ title, date, image }) => ({
-      title: title,
-      subtitle: date
-        ? new Date(date).toLocaleDateString('da-DK', {
-            month: 'long',
-            day: 'numeric',
-            year: 'numeric',
-          })
-        : 'Ingen dato angivet',
-      media: image,
-    }),
+    prepare(selection) {
+      const { title, startDate, endDate, isMultiDay } = selection
+      const formattedStart = new Date(startDate).toLocaleDateString('da-DK', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+      })
+      const formattedEnd =
+        isMultiDay && endDate
+          ? new Date(endDate).toLocaleDateString('da-DK', {
+              day: 'numeric',
+              month: 'long',
+              year: 'numeric',
+            })
+          : null
+
+      return {
+        title: title,
+        subtitle: formattedEnd
+          ? `${formattedStart} - ${formattedEnd}`
+          : formattedStart,
+      }
+    },
   },
 })

@@ -49,11 +49,6 @@ function EventSignUpForm({ event }) {
   return (
     <Section variant="primary" className="flex justify-center col-span-full">
       <div className="">
-        <h2>{event.title}</h2>
-        <p>{event.description}</p>
-        <p>Dato: {new Date(event.date).toLocaleString()}</p>
-        <p>Lokation: {event.location}</p>
-
         {event.isExternal ? (
           <a
             href={event.externalLink}

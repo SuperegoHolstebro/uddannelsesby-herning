@@ -11,6 +11,7 @@ export default defineStructure<ListItemBuilder>((S) =>
         .title('Begivenheder')
         .id('events')
         .items([
+          // Upcoming events include events that haven't started or are ongoing
           S.listItem()
             .id('upcomingEvents')
             .title('Kommende begivenheder')
@@ -18,11 +19,14 @@ export default defineStructure<ListItemBuilder>((S) =>
             .child(
               S.documentTypeList('event')
                 .title('Kommende begivenheder')
-                .filter('_type == "event" && date >= now()')
+                .filter(
+                  '_type == "event" && (startDate >= now() || (startDate <= now() && endDate >= now()))',
+                )
                 .child((documentId) =>
                   S.document().documentId(documentId).schemaType('event'),
                 ),
             ),
+          // Past events include events that have already ended or single-day events that have already started
           S.listItem()
             .id('pastEvents')
             .title('Tidligere begivenheder')
@@ -30,7 +34,9 @@ export default defineStructure<ListItemBuilder>((S) =>
             .child(
               S.documentTypeList('event')
                 .title('Tidligere begivenheder')
-                .filter('_type == "event" && date < now()')
+                .filter(
+                  '_type == "event" && (endDate < now() || (!endDate && startDate < now()))',
+                )
                 .child((documentId) =>
                   S.document().documentId(documentId).schemaType('event'),
                 ),
