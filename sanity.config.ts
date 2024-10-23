@@ -26,6 +26,7 @@ import { DocumentStatus } from '~/sanity/lib/sanity.badge'
 import { CustomToolMenu } from '~/components/sanity/ToolMenu'
 import Sidebar from '~/components/sanity/Sidebar.component'
 import { createVisualAction } from '~/sanity/lib/sanity.actions'
+import { DownloadAttendeesAction } from '~/utils/DownloadAttendeesAction'
 
 const theme = _theme as import('sanity').StudioTheme
 
@@ -155,8 +156,17 @@ export default defineConfig({
     linkField(),
   ],
   document: {
-    actions: (prev, context) =>
-      prev.map((originalAction) => (originalAction.action === 'publish' ? createVisualAction(originalAction) : originalAction)),
+    actions: (prev, context) => {
+      // Include the custom DownloadAttendeesAction for event documents
+      if (context.schemaType === 'event') {
+        return [...prev, DownloadAttendeesAction] // Add the custom action
+      }
+      return prev.map((originalAction) =>
+        originalAction.action === 'publish'
+          ? createVisualAction(originalAction)
+          : originalAction,
+      )
+    },
     badges: (prev, context) => {
       if (
         context.schemaType === 'page' ||

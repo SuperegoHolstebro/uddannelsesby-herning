@@ -33,34 +33,25 @@ export async function POST(req: NextRequest) {
       })
     }
 
-    // Create the attendee document
-    const attendeeDoc = {
+    // Create a new attendee object and add it to the event's attendees array
+    const newAttendee = {
       _type: 'attendee',
-      _id: uuidv4(), // Unique ID for the attendee document
-      navn,
-      email,
-      skole,
+      _key: uuidv4(), // Unique _key for the attendee
+      name: navn, // Name of the attendee
+      email: email, // Email of the attendee
+      school: skole, // School of the attendee
     }
 
-    const createAttendeeResponse = await client.create(attendeeDoc)
-    console.log('Created attendee document:', createAttendeeResponse)
-
-    // Add the attendee reference to the event with a unique _key
+    // Add the new attendee to the event's attendees array
     const patchResponse = await client
       .patch(event)
-      .setIfMissing({ attendees: [] })
-      .append('attendees', [
-        {
-          _type: 'reference',
-          _ref: attendeeDoc._id, // Reference to the newly created attendee
-          _key: uuidv4(), // Unique _key for this reference
-        },
-      ])
+      .setIfMissing({ attendees: [] }) // Ensure attendees array exists
+      .append('attendees', [newAttendee]) // Add the new attendee to the array
       .commit()
 
     console.log('Patch response from Sanity:', patchResponse)
 
-    // Fetch the updated event document
+    // Fetch the updated event document (optional)
     const updatedEventDoc = await client.getDocument(event)
     console.log('Fetched updated eventDoc after signup:', updatedEventDoc)
 
