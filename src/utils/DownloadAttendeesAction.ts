@@ -16,10 +16,11 @@ export const DownloadAttendeesAction = (props) => {
 
     // Create CSV content from the attendees array
     const csvContent = [
-      ['Name', 'Email', 'School'], // CSV headers
+      ['Navn', 'Email', 'Telefon', 'Skole'], // CSV headers
       ...event.attendees.map((attendee) => [
         attendee.name,
         attendee.email,
+        attendee.phone,
         attendee.school,
       ]),
     ]
@@ -43,7 +44,7 @@ export const DownloadAttendeesAction = (props) => {
   }
 
   return {
-    label: 'Download liste af deltagere',
+    label: 'Download liste over deltagere',
     onHandle: () => {
       handleDownload()
       props.onComplete() // Mark action as complete

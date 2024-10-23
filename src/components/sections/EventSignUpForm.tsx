@@ -5,7 +5,12 @@ import Section from './Section'
 import { AdvancedButton } from '../atoms/AdvancedButton'
 
 function EventSignUpForm({ event }) {
-  const [formData, setFormData] = useState({ navn: '', email: '', skole: '' })
+  const [formData, setFormData] = useState({
+    navn: '',
+    email: '',
+    telefon: '',
+    skole: '',
+  })
   const [isFull, setIsFull] = useState(false)
   const [submitting, setSubmitting] = useState(false) // Add submitting state to prevent multiple form submissions
 
@@ -40,6 +45,7 @@ function EventSignUpForm({ event }) {
         body: JSON.stringify({
           navn: formData.navn,
           email: formData.email,
+          telefon: formData.telefon,
           skole: formData.skole,
           event: event._id, // Ensure the event ID is being passed correctly
         }),
@@ -50,7 +56,7 @@ function EventSignUpForm({ event }) {
       if (response.ok) {
         alert('Du er nu tilmeldt begivenheden')
         // Reset form
-        setFormData({ navn: '', email: '', skole: '' })
+        setFormData({ navn: '', email: '', telefon: '', skole: '' })
         // Optimistically update the `isFull` state if the event is now full
         if (event.attendees.length + 1 >= event.maxAttendees) {
           setIsFull(true)
@@ -82,7 +88,7 @@ function EventSignUpForm({ event }) {
           <form onSubmit={handleSubmit}>
             <input
               type="text"
-              placeholder="Navn"
+              placeholder="Navn*"
               value={formData.navn}
               onChange={(e) =>
                 setFormData({ ...formData, navn: e.target.value })
@@ -91,13 +97,23 @@ function EventSignUpForm({ event }) {
             />
             <input
               type="email"
-              placeholder="Email"
+              placeholder="Email*"
               value={formData.email}
               onChange={(e) =>
                 setFormData({ ...formData, email: e.target.value })
               }
               required
             />
+
+            <input
+              type="tel"
+              placeholder="Telefon"
+              value={formData.telefon}
+              onChange={(e) =>
+                setFormData({ ...formData, telefon: e.target.value })
+              }
+            />
+
             <select
               value={formData.skole}
               onChange={(e) =>
@@ -106,11 +122,19 @@ function EventSignUpForm({ event }) {
               required
             >
               <option value="">Vælg skole</option>
-              <option value="Uni">Aarhus Universitet i Herning</option>
-              <option value="VIA">VIA University College</option>
-              <option value="Erhvervsakademi">Erhvervsakademi MidtVest</option>
-              <option value="Sosu">Social- og Sundhedsskolen Herning</option>
-              <option value="Herningsholm">
+              <option value="Aarhus Universitet i Herning">
+                Aarhus Universitet i Herning
+              </option>
+              <option value="VIA University College">
+                VIA University College
+              </option>
+              <option value="Erhvervsakademi MidtVest">
+                Erhvervsakademi MidtVest
+              </option>
+              <option value="Social- og Sundhedsskolen Herning">
+                Social- og Sundhedsskolen Herning
+              </option>
+              <option value="Herningsholm Erhvervsskole & HHX/HTX">
                 Herningsholm Erhvervsskole & HHX/HTX
               </option>
             </select>
