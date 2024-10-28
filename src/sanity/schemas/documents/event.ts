@@ -8,7 +8,6 @@ export default defineType({
   icon: CalendarUp,
   groups: [
     { name: 'content', title: 'Indhold' },
-    { name: 'pageBuilder', title: 'Sideopbygning' },
     { name: 'registration', title: 'Tilmelding' }, // New group for registration
     { name: 'seo', title: 'SEO' },
   ],
@@ -44,7 +43,7 @@ export default defineType({
     }),
     defineField({
       name: 'description',
-      type: 'text',
+      type: 'blockContent',
       title: 'Beskrivelse',
       description: 'En kort beskrivelse af begivenheden',
       group: 'content',
@@ -89,14 +88,6 @@ export default defineType({
           if (!context.document.isMultiDay || !endDate) return true
           return endDate >= startDate || 'Slutdato skal være efter startdatoen'
         }),
-    }),
-
-    defineField({
-      group: 'pageBuilder',
-      name: 'pageBuilder',
-      title: 'Indhold',
-      description: 'Indholdet på siden',
-      type: 'pageBuilder',
     }),
 
     defineField({
@@ -180,15 +171,19 @@ export default defineType({
     select: {
       title: 'title',
       startDate: 'startDate',
-      endDate: 'endDate',
-      attendeeCount: 'attendees.length', // Show the number of attendees in the preview
+      attendeeCount: 'attendees',
+      maxAttendees: 'maxAttendees', // Select maxAttendees for comparison
     },
     prepare(selection) {
-      const { title, attendeeCount } = selection
+      const { title, attendeeCount, maxAttendees } = selection
+      const numAttendees = attendeeCount ? attendeeCount.length : 0
+      const isEventFull = maxAttendees ? numAttendees >= maxAttendees : false
 
       return {
         title: title,
-        subtitle: `${attendeeCount || 0} attendees`,
+        subtitle: `${numAttendees} deltagere ${
+          isEventFull ? '(Ikke flere pladser)' : ''
+        }`,
       }
     },
   },

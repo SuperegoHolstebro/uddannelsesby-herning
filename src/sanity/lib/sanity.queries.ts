@@ -43,9 +43,11 @@ export const EVENT_QUERY = groq`
   ...,
   _type,
   ${SEO_QUERY},
-  ${pageBuilderQuery},
   image{
     ${ImageQuery}
+  },
+  description[]{
+    ...,
   }
 }
 `
