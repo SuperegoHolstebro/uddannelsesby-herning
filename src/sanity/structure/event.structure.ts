@@ -41,6 +41,20 @@ export default defineStructure<ListItemBuilder>((S) =>
                   S.document().documentId(documentId).schemaType('event'),
                 ),
             ),
+
+          // All events
+          S.listItem()
+            .id('allEvents')
+            .title('Alle begivenheder')
+            .icon(Calendar)
+            .child(
+              S.documentTypeList('event')
+                .title('Alle begivenheder')
+                .filter('_type == "event"')
+                .child((documentId) =>
+                  S.document().documentId(documentId).schemaType('event'),
+                ),
+            ),
         ]),
     ),
 )
