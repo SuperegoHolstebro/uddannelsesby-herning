@@ -5,9 +5,12 @@ export const DownloadAttendeesAction = (props) => {
 
   const handleDownload = async () => {
     // Fetch the event including the array of attendees directly from the event document
-    const event = await client.fetch(`*[_id == $id] {title, attendees }[0]`, {
-      id: props.id,
-    })
+    const event = await client.fetch(
+      `*[_id == $id] {title, startDate, attendees }[0]`,
+      {
+        id: props.id,
+      },
+    )
 
     if (!event?.attendees?.length) {
       alert('No attendees found')
@@ -27,10 +30,14 @@ export const DownloadAttendeesAction = (props) => {
       .map((row) => row.join(';')) // Use semicolon (;) as the delimiter
       .join('\n')
 
+    const eventDate = event.startDate
+      ? new Date(event.startDate).toLocaleDateString('da-DK')
+      : 'uden_dato'
+
     // Use the event title for the filename, falling back to a default if title is not available
     const fileName = event.title
-      ? `${event.title}_deltagere.csv`
-      : 'deltagere.csv'
+      ? `${event.title}_${eventDate}_deltagerliste.csv`
+      : `deltagere_${eventDate}.csv`
 
     // Create a downloadable file for the CSV
     const blob = new Blob([csvContent], { type: 'text/csv' })
