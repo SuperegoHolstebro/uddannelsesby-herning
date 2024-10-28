@@ -3,6 +3,7 @@ import Heading from '@/components/atoms/Heading'
 import { Button } from '@/components/atoms/Button'
 import Paragraph from '@/components/atoms/Paragraph'
 import Accordion from '@/components/molecules/Accordion'
+import { clean } from '~/utils/sanitize'
 
 const InnerBlocks = ({ blocks }) => {
   return (
@@ -16,8 +17,8 @@ const InnerBlocks = ({ blocks }) => {
           case 'button':
             return (
               <>
-                <div className='mt-8'>
-                  <Button link={block.link}>
+                <div className="mt-8">
+                  <Button variant={clean(block.style)} link={block.link}>
                     {block.link.label}
                   </Button>
                 </div>
@@ -43,10 +44,7 @@ InnerBlocks.Paragraphs = Paragraphs
 function Title({ data }) {
   return (
     <>
-      <Heading
-        size={data.heading.tag}
-        type={data.heading.tag}
-      >
+      <Heading size={data.heading.tag} type={data.heading.tag}>
         {data.heading.heading}
       </Heading>
     </>

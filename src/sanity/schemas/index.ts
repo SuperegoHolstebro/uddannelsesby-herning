@@ -39,7 +39,6 @@ import { buttonType } from '@/sanity/schemas/sections/atoms/ButtonType'
 import { figureType } from '@/sanity/schemas/sections/atoms/figureType'
 import { headingType } from '@/sanity/schemas/sections/atoms/headingType'
 import { textType } from '@/sanity/schemas/sections/atoms/textType'
-import { CallToAction } from '@/sanity/schemas/sections/callToAction'
 import { CallToAction2 } from '@/sanity/schemas/sections/CallToAction2'
 import { contactFormType } from '@/sanity/schemas/sections/contactForm'
 import { EmployeesType } from '@/sanity/schemas/sections/EmployeesType'
@@ -71,6 +70,7 @@ import { companiesType } from './sections/companies'
 import company from './documents/company'
 import companyLogin from './documents/companyLogin'
 import field from './management/field'
+import { TextAndImage } from './sections/TextAndImage.schema'
 export const schemaTypes = [
   heroType,
   textWithIllustration,
@@ -79,6 +79,7 @@ export const schemaTypes = [
   textContainerType,
   EmployeesType,
   blockContent,
+  TextAndImage,
   companiesType,
   contactFormType,
   EventType,
@@ -87,7 +88,6 @@ export const schemaTypes = [
   LogoGallery,
   LogoGallery2,
   MediaType,
-  CallToAction,
   CallToAction2,
   IconPicker,
   ReusableSectionType,
@@ -116,6 +116,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     page,
     event,
     article,
+    TextAndImage,
     companiesType,
     company,
     companyLogin,
@@ -134,7 +135,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     Gallery,
     LogoGallery,
     LogoGallery2,
-    CallToAction,
     CallToAction2,
     ArticlesType,
     IconPicker,

@@ -48,7 +48,7 @@ export default async function DynamicRoute({
               {/* Use eventDateRange and pass the correct properties */}
               {eventDateRange(page.startDate, page.endDate, page.isMultiDay)}
             </Heading>
-            <Paragraph>{page.description}</Paragraph>
+            <Paragraph portableText>{page.description}</Paragraph>
           </div>
         </Section>
         <div className="order-1 col-span-full sm:col-span-8 md:col-span-6 lg:col-span-6 xl:col-span-12 md:order-2">

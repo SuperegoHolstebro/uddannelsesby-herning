@@ -82,15 +82,15 @@ module.exports = {
         },
       ],
     },
-    fontFamily: {
-      // font families
-      sans: ['var(--font-family-sans)'],
-      serif: ['var(--font-family-serif)'],
-      display: ['var(--display)'],
-      outfit: ['var(--font-family-outfit)'],
-    },
 
     extend: {
+      fontFamily: {
+        // font families
+        sans: ['var(--font-sans)'],
+        serif: ['var(--font-serif)'],
+        display: ['var(--display)'],
+        outfit: ['var(--font-outfit)'],
+      },
       colors: {
         mørk: '#262723',
         grå: '#C7C9C2',

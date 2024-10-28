@@ -1,7 +1,6 @@
 import React from 'react'
 import InnerBlocks from '@/components/molecules/InnerBlocks'
 import ArticlesSection from '@/components/sections/ArticlesSection'
-import CallToActionSection from '@/components/sections/CallToActionSection'
 import CallToActionSection2 from './sections/CallToActionSection2'
 import EventSection from '@/components/sections/EventSection'
 import GallerySection from '@/components/sections/GallerySection'
@@ -15,6 +14,7 @@ import LogoGallery from './sections/LogoGallery'
 import LogoGallery2 from './sections/LogoGallery2'
 import ContactFormSection from './sections/ContactFormSection'
 import Companies from './sections/Companies'
+import TextAndImage from './sections/TextAndImage'
 
 const PageBuilder = ({ sections }) => {
   return (
@@ -23,8 +23,6 @@ const PageBuilder = ({ sections }) => {
         switch (section?._type) {
           case 'EmployeesType':
             return <EmployeesSection key={index} section={section} />
-          case 'CallToAction':
-            return <CallToActionSection key={index} section={section} />
           case 'CallToAction2':
             return <CallToActionSection2 key={index} section={section} />
           case 'hero':
@@ -34,6 +32,8 @@ const PageBuilder = ({ sections }) => {
                 <Breadcrumbs />
               </React.Fragment>
             )
+          case 'TextAndImage':
+            return <TextAndImage key={index} data={section} />
           case 'companiesType':
             return <Companies key={index} section={section} />
           case 'LogoGallery':

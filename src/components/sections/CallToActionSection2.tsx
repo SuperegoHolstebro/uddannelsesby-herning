@@ -1,8 +1,9 @@
 import React from 'react'
 import Heading from '../atoms/Heading'
 import Section from './Section'
-import {Button} from '../atoms/Button'
+import { Button } from '../atoms/Button'
 import { clean } from '~/utils/sanitize'
+import Media from '@/components/organisms/Media'
 
 /**
  * @returns: En sektion med en eller flere call-to-action elementer.
@@ -17,47 +18,33 @@ import { clean } from '~/utils/sanitize'
  **/
 
 const CallToActionSection2 = ({ section }) => {
-  // Ensure callToActions is an array to prevent runtime errors
-  const callToActions = section?.callToActions || []
-
   return (
     <Section
       variant={clean(section?.design?.color?.color || 'default')}
       id={clean(section?.SectionSettings?.anchor?.current)}
       paddingTop={clean(section?.design?.padding?.spacingTop)}
       paddingBottom={clean(section?.design?.padding?.spacingBottom)}
-      className={section?.design?.color?.color === 'secondary' ? 'bg-light-300' : ''}
+      className={section?.design?.color?.color === 'secondary' ? 'bg-mørk' : ''}
     >
-      {/* Heading on the left, taking up 12 columns */}
-      <div className="flex justify-center w-full col-start-1 text-center sm:col-start-1 sm:-col-end-1 md:text-left -col-end-1 md:col-start-2 md:col-end-7 lg:col-start-2 lg:col-end-7 xl:col-start-5 xl:col-end-13 align-center md:max-w-prose ">
-        <Heading
-          text="balance"
-          spacing="none"
-          type="h3"
-          tag="h3"
-          color={
-            section?.design?.color?.color === 'secondary' ? 'white' : undefined
-          }
-        >
-          {section?.heading}
-        </Heading>
-      </div>
-
-      {/* Buttons on the right, each taking up 6 columns */}
-      <div className="flex items-center justify-center col-start-1 space-x-4 -col-end-1 md:col-start-7 md:col-end-12 lg:col-start-7 lg:col-end-12 xl:col-start-13 xl:col-end-21 align-center">
-        <div className="flex flex-col justify-center w-full gap-4 md:flex-row">
-          {section?.links?.map((link, index) => (
-            <>
-              <Button
-                key={index}
-                link={link}
-                variant={index === 0 ? 'primary' : 'secondary'}
-                className="w-full md:w-1/2"
-              >
-                {link?.label}
-              </Button>
-            </>
-          ))}
+      <div className="grid grid-cols-2 col-span-full">
+        <div className="h-auto col-span-1">
+          <Media data={section.MediaObject?.media} />
+        </div>
+        <div className="col-span-1 text-right bg-mørk text-lys h-full">
+          <div className="pt-44 pb-24 pl-1.5">
+            <Heading
+              text="balance"
+              spacing="none"
+              type="h3"
+              tag="h3"
+              className="pb-24"
+            >
+              {section.heading}
+            </Heading>
+            <Button link={section?.link} variant={'secondary'}>
+              {section?.link?.label}
+            </Button>
+          </div>
         </div>
       </div>
     </Section>

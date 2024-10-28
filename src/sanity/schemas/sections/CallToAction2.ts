@@ -12,48 +12,27 @@ const CallToAction2 = defineType({
     { title: 'Indhold', name: 'content' },
     { title: 'Design', name: 'design' },
     { title: 'indstillinger', name: 'settings' },
+    { title: 'Medie', name: 'medie' },
   ],
   fields: [
+    {
+      group: 'medie',
+      name: 'MediaObject',
+      title: 'Medie',
+      type: 'MediaObject',
+    },
     defineField({
       name: 'heading',
       title: 'Overskrift',
       type: 'string',
-      description:
-        'Overskriften er det første, brugeren ser, og skal være kort og præcis. Den skal beskrive, hvad brugeren får ud af at klikke på knappen.',
     }),
 
-    {
-      name: 'links',
-      title: 'Links',
-      description: 'Tilføj op til 2 links',
-      type: 'array',
-      validation(rule) {
-        return rule.required().min(1).max(2)
-      },
-      of: [
-        {
-          name: 'link',
-          title: 'Link',
-          type: 'link',
-          validation: (Rule) => Rule.required(),
-        },
-      ],
-    },
-    /*     // link
     defineField({
       name: 'link',
-      title: 'Link',
+      title: 'Knap',
       type: 'link',
       validation: (Rule) => Rule.required(),
     }),
-
-    // link
-    defineField({
-      name: 'link2',
-      title: 'Link',
-      type: 'link',
-      validation: (Rule) => Rule.required(),
-    }), */
 
     {
       name: 'design',

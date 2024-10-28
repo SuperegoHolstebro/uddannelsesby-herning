@@ -3,7 +3,7 @@ import { draftMode } from 'next/headers'
 import { GoogleTagManager } from '@next/third-parties/google'
 import { Inter, PT_Serif, Outfit } from 'next/font/google'
 const sans = Outfit({
-  variable: '--font-family-sans',
+  variable: '--font-sans',
   subsets: ['latin'],
   weight: ['400', '700'],
   display: 'swap',
@@ -11,7 +11,7 @@ const sans = Outfit({
 })
 
 const serif = PT_Serif({
-  variable: '--font-family-serif',
+  variable: '--font-serif',
   style: ['normal', 'italic'],
   subsets: ['latin'],
   weight: ['400', '700'],
@@ -20,7 +20,7 @@ const serif = PT_Serif({
 })
 
 const outfit = Outfit({
-  variable: '--font-family-outfit',
+  variable: '--font-outfit',
   subsets: ['latin'],
   weight: ['400', '700'],
   display: 'swap',
@@ -29,19 +29,13 @@ const outfit = Outfit({
 
 export default function Root({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="da">
+    <html
+      lang="da"
+      className={` ${serif.className} ${outfit.className} ${sans.className}`}
+    >
       <GoogleTagManager gtmId="GTM-" />
-      <style>
-        {`
-          :root {
-            --font-family-sans: ${sans.style.fontFamily};
-            --font-family-serif: ${serif.style.fontFamily};
-            --font-family-outfit: ${outfit.style.fontFamily};
-          }
-        `}
-      </style>
       <body
-        className={`selection:text-light-light selection:bg-green ${draftMode().isEnabled ? 'debug-screens' : ''} ${serif.className} ${outfit.className} ${sans.className}`}
+        className={`selection:text-light-light selection:bg-green ${draftMode().isEnabled ? 'debug-screens' : ''}`}
       >
         {children}
       </body>

@@ -29,6 +29,10 @@ export const pageBuilder = defineType({
       type: 'hero',
     }),
     defineArrayMember({
+      name: 'TextAndImage',
+      type: 'TextAndImage',
+    }),
+    defineArrayMember({
       name: 'EmployeesType',
       type: 'EmployeesType',
     }),
@@ -39,10 +43,6 @@ export const pageBuilder = defineType({
     defineArrayMember({
       name: 'ArticlesType',
       type: 'ArticlesType',
-    }),
-    defineArrayMember({
-      name: 'CallToAction',
-      type: 'CallToAction',
     }),
     defineArrayMember({
       name: 'CallToAction2',

@@ -17,7 +17,7 @@ import { cn } from '@/utils/utils'
  *
  **/
 
-const HeadingVariants = cva('text-balance rwx hyphens-auto', {
+const HeadingVariants = cva('text-balance rwx hyphens-auto uppercase', {
   variants: {
     text: {
       balance: 'text-balance',

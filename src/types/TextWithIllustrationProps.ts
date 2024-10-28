@@ -1,4 +1,4 @@
-export interface TextWithIllustrationProps {
+export interface TextAndImageProps {
     data: any
     popup?: boolean;
     flip?: boolean;

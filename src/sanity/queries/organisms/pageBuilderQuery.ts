@@ -1,6 +1,5 @@
 import groq from 'groq'
 import { ArticlesTypeQuery } from '@/sanity/queries/sections/ArticlesTypeQuery'
-import { CallToActionQuery } from '@/sanity/queries/sections/CallToActionQuery'
 import { CallToActionQuery2 } from '@/sanity/queries/sections/CallToActionQuery2'
 import { ContactFormTypeQuery } from '@/sanity/queries/sections/ContactFormTypeQuery'
 import { EmployeesTypeQuery } from '@/sanity/queries/sections/EmployeesTypeQuery'
@@ -12,6 +11,7 @@ import { heroQuery } from '@/sanity/queries/sections/HeroQuery'
 import { textContainerQuery } from '@/sanity/queries/sections/textContainerQuery'
 import { textWithIllustrationQuery } from '@/sanity/queries/sections/TextWithIllustrationQuery'
 import { companiesTypeQuery } from '../sections/companiesTypeQuery'
+import { TextAndImageQuery } from '../sections/TextAndImage.query'
 
 export const pageBuilderQuery = groq`
   pageBuilder[] {
@@ -20,8 +20,8 @@ export const pageBuilderQuery = groq`
     ${EventTypeQuery},
     ${ContactFormTypeQuery},
     ${heroQuery},
+    ${TextAndImageQuery},
     ${textContainerQuery},
-    ${CallToActionQuery},
     ${CallToActionQuery2},
     ${EmployeesTypeQuery},
     ${companiesTypeQuery},
