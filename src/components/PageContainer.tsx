@@ -47,11 +47,11 @@ export default function PageContainer({
   return (
     <>
       <Header />
-      <Lenis
+      {/*       <Lenis
         options={lenis}
         root={typeof document !== 'undefined' ? document.documentElement : null}
-      />
-      <main className={` min-h-screen bg-lys`}>{children}</main>
+      /> */}
+      <main className={`debug-screens min-h-screen bg-lys`}>{children}</main>
       <Footer />
       {/*  <!-- Google Tag Manager (noscript) -->   */}
       <noscript>

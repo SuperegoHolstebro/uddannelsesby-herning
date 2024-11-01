@@ -2,6 +2,7 @@ import { getServerSession } from 'next-auth/next'
 import { authOptions } from '@/sanity/lib/authOptions'
 import { client } from '@/sanity/lib/sanity.client'
 import EditCompanyForm from '@/components/EditCompanyForm'
+import PageContainer from '~/components/PageContainer'
 
 export default async function EditPage() {
   // Fetch the session server-side
@@ -23,14 +24,16 @@ export default async function EditPage() {
   // Handle case where no company is found
   if (!company) {
     return (
-      <p>Der blev ikke fundet nogen virksomhed tilknyttet denne bruger. </p>
+      <PageContainer>
+        <p>Der blev ikke fundet nogen virksomhed tilknyttet denne bruger. </p>
+      </PageContainer>
     )
   }
 
   return (
-    <div>
+    <PageContainer>
       {/* Pass the session and company data to the client-side form */}
       <EditCompanyForm session={session} company={company} />
-    </div>
+    </PageContainer>
   )
 }
