@@ -71,7 +71,7 @@ export async function loadQuery<QueryResponse>({
   params?: QueryParams
   groqQuery?: string
 }): Promise<QueryResponse> {
-  const isDraftMode = draftMode().isEnabled
+  const isDraftMode = (await draftMode()).isEnabled
   const token = readToken
 
   if (isDraftMode && !token) {
