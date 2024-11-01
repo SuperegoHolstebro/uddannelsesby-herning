@@ -68,7 +68,11 @@ export default async function DynamicRoute({
         </div>
       </Section>
       {/* Include the EventSignUpForm component */}
-      <Section variant="primary">
+      <Section variant="primary" className="col-span-full">
+        <Heading spacing="small" className="col-span-full">
+          Tilmelding
+        </Heading>
+
         <EventSignUpForm event={page} />
       </Section>
 

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import Section from './Section'
 import { AdvancedButton } from '../atoms/AdvancedButton'
+import punycode from 'punycode/'
 
 function EventSignUpForm({ event }) {
   const [formData, setFormData] = useState({
@@ -36,6 +37,13 @@ function EventSignUpForm({ event }) {
 
     setSubmitting(true) // Disable the form while submitting
 
+    // Encode email domain if it contains special characters
+    const emailParts = formData.email.split('@')
+    const encodedEmail =
+      emailParts.length === 2
+        ? `${emailParts[0]}@${punycode.toASCII(emailParts[1])}`
+        : formData.email
+
     try {
       const response = await fetch('/api/event-signup', {
         method: 'POST',
@@ -44,7 +52,7 @@ function EventSignUpForm({ event }) {
         },
         body: JSON.stringify({
           navn: formData.navn,
-          email: formData.email,
+          email: encodedEmail, // Use encoded email
           telefon: formData.telefon,
           skole: formData.skole,
           event: event._id, // Ensure the event ID is being passed correctly

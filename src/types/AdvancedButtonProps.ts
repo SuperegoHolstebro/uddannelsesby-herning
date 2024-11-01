@@ -4,6 +4,6 @@ import { advancedButtonVariants } from '../components/atoms/AdvancedButton'
 export interface AdvancedButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof advancedButtonVariants> {
-  variant: 'default' | 'secondary' | 'primary' | 'none'
+  variant: 'default' | 'secondary' | 'primary' | 'none' | any
   asChild?: boolean
 }

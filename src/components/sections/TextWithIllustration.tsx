@@ -1,7 +1,7 @@
 import React from 'react'
 import InnerBlocks from '@/components/molecules/InnerBlocks'
 import Section from '@/components/sections/Section'
-import { TextWithIllustrationProps } from '@/types/TextWithIllustrationProps'
+import { TextAndImageProps } from '@/types/TextWithIllustrationProps'
 import Media from '@/components/organisms/Media'
 import { clean } from '~/utils/sanitize'
 
@@ -23,8 +23,7 @@ const TextWithIllustration = ({
   data,
   popup,
   flip = false,
-}: TextWithIllustrationProps) => {
-
+}: TextAndImageProps) => {
   const marginOne =
     '-mx-4 md:-mr-3 md:mx-0 md:-ml-24 md:-mt-16 md:-mb-20 2xl:-ml-52 xl:-ml-36 '
   const marginTwo =
@@ -36,7 +35,7 @@ const TextWithIllustration = ({
           id={clean(data?.SectionSettings?.anchor?.current)}
           paddingTop={clean(data.design.padding.spacingTop)}
           paddingBottom={clean(data.design.padding.spacingBottom)}
-          className='overflow-hidden'
+          className="overflow-hidden"
           variant={clean(data?.design?.color?.color)}
         >
           <div
@@ -54,7 +53,7 @@ const TextWithIllustration = ({
           id={clean(data?.SectionSettings?.anchor?.current)}
           paddingTop={clean(data.design.padding.spacingTop)}
           paddingBottom={clean(data.design.padding.spacingBottom)}
-          className='overflow-hidden'
+          className="overflow-hidden"
           variant={data?.design?.color?.color}
         >
           <div

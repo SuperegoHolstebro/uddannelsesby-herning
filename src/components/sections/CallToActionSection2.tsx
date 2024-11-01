@@ -4,6 +4,7 @@ import Section from './Section'
 import { Button } from '../atoms/Button'
 import { clean } from '~/utils/sanitize'
 import Media from '@/components/organisms/Media'
+import { FadeUp } from '../interactions/AnimateFadeIn'
 
 /**
  * @returns: En sektion med en eller flere call-to-action elementer.
@@ -19,12 +20,13 @@ import Media from '@/components/organisms/Media'
 
 const CallToActionSection2 = ({ section }) => {
   return (
-    <Section
-      variant={clean(section?.design?.color?.color || 'default')}
+    /*     <Section
+      variant={'mørk'}
       id={clean(section?.SectionSettings?.anchor?.current)}
       paddingTop={clean(section?.design?.padding?.spacingTop)}
       paddingBottom={clean(section?.design?.padding?.spacingBottom)}
-      className={section?.design?.color?.color === 'secondary' ? 'bg-mørk' : ''}
+      className="px-4 xs:px-4 sm:px-13 md:px-24 lg:px-19 xl:px-36 2xl:px-52"
+      paddingX="none"
     >
       <div className="grid grid-cols-2 col-span-full">
         <div className="h-auto col-span-1">
@@ -46,6 +48,31 @@ const CallToActionSection2 = ({ section }) => {
             </Button>
           </div>
         </div>
+      </div>
+    </Section> */
+
+    <Section
+      variant={'mørk'}
+      id={clean(section?.SectionSettings?.anchor?.current)}
+      paddingTop="none"
+      paddingBottom="none"
+      className="pr-4 xs:pr-4 sm:pr-13 md:pr-24 lg:pr-19 xl:pr-36 2xl:pr-52"
+      paddingX="none"
+    >
+      <div className="col-span-full md:col-span-6 xl:col-span-12 max-h-screen/1.6">
+        <Media data={section.MediaObject?.media} />
+      </div>
+      <div className="mt-auto mb-20 space-y-24 text-right col-span-full md:col-span-6 xl:col-span-12">
+        <FadeUp delay={0.3}>
+          <Heading text="balance" spacing="none" type="h2" tag="h2">
+            {section.heading}
+          </Heading>
+        </FadeUp>
+        <FadeUp delay={0.5}>
+          <Button link={section?.link} variant={'secondary'}>
+            {section?.link?.label}
+          </Button>
+        </FadeUp>
       </div>
     </Section>
   )

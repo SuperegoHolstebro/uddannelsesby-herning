@@ -13,16 +13,8 @@ export const pageBuilder = defineType({
   },
   of: [
     defineArrayMember({
-      name: 'ReusableSection',
-      type: 'ReusableSection',
-    }),
-    defineArrayMember({
       name: 'companiesType',
       type: 'companiesType',
-    }),
-    defineArrayMember({
-      name: 'IconPicker',
-      type: 'IconPicker',
     }),
     defineArrayMember({
       name: 'hero',
@@ -47,18 +39,6 @@ export const pageBuilder = defineType({
     defineArrayMember({
       name: 'CallToAction2',
       type: 'CallToAction2',
-    }),
-    defineArrayMember({
-      name: 'Gallery',
-      type: 'Gallery',
-    }),
-    defineArrayMember({
-      name: 'LogoGallery',
-      type: 'LogoGallery',
-    }),
-    defineArrayMember({
-      name: 'LogoGallery2',
-      type: 'LogoGallery2',
     }),
     defineArrayMember({
       name: 'EventType',

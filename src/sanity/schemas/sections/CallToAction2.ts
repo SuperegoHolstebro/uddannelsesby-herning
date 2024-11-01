@@ -50,14 +50,11 @@ const CallToAction2 = defineType({
   preview: {
     select: {
       title: 'Call to action',
-      amountofCTAs: 'callToActions',
-      media: 'callToActions.0.image',
+      media: 'callToActions.image',
     },
-    prepare({ title, amountofCTAs, media }) {
+    prepare({ title, media }) {
       return {
         title: 'Call to action',
-        subtitle: `Antal ${Object.keys(amountofCTAs).length} Call to actions`,
-
         media: media,
       }
     },
