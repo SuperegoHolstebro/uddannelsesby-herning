@@ -27,17 +27,56 @@ const EventSection = ({ section, amount }) => {
   return (
     <>
       <Section
+        paddingX="none"
         paddingTop={clean(section?.design?.padding?.spacingTop) || 'default'}
-        paddingBottom={clean(section?.design?.padding?.spacingBottom) || 'default'}
+        paddingBottom={
+          clean(section?.design?.padding?.spacingBottom) || 'default'
+        }
         variant={clean(section?.design?.color?.color)}
       >
         {section.design.padding.spacingBottom}
         <EventSection.Title section={section} />
-        <div className="grid grid-cols-4 gap-4 col-span-full xs:grid-cols-4 sm:grid-cols-8 md:grid-cols-12 lg:grid-cols-12 xl:grid-cols-24 2xl:grid-cols-24 xs:gap-4 sm:gap-4 md:gap-6 lg:gap-6 xl:gap-6 2xl:gap-6">
+
+        <Carousel
+          slidesPerView={1.2}
+          spaceBetween={32}
+          initialSlide={5} // This will make the third slide active and centered initially
+          loop={true}
+          breakpoints={{
+            428: {
+              slidesPerView: 1.08,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 2.5,
+              spaceBetween: 32,
+            },
+            1024: {
+              slidesPerView: 2,
+              spaceBetween: 24,
+            },
+            1280: {
+              slidesPerView: 2,
+              spaceBetween: 24,
+            },
+            1440: {
+              slidesPerView: 4.9,
+              spaceBetween: 24,
+            },
+            1920: {
+              slidesPerView: 2.2,
+              spaceBetween: 24,
+            },
+            2500: {
+              slidesPerView: 2.5,
+              spaceBetween: 24,
+            },
+          }}
+        >
           <EventSection.All section={section} />
-          <EventSection.Manual section={section} />
-          <EventSection.Newest section={section} />
-        </div>
+        </Carousel>
+        <EventSection.Manual section={section} />
+        <EventSection.Newest section={section} />
       </Section>
     </>
   )
@@ -95,9 +134,7 @@ function All({ section }) {
 function Title({ section }) {
   return (
     <div className="col-span-full">
-      <Heading size="h2">
-        {section.heading}
-      </Heading>
+      <Heading size="h2">{section.heading}</Heading>
     </div>
   )
 }
