@@ -28,6 +28,9 @@ import Sidebar from '~/components/sanity/Sidebar.component'
 import { createVisualAction } from '~/sanity/lib/sanity.actions'
 import { DownloadAttendeesAction } from '~/utils/DownloadAttendeesAction'
 
+const SANITY_STUDIO_PREVIEW_URL =
+  process.env.SANITY_STUDIO_PREVIEW_URL || 'http://localhost:3333'
+
 const theme = _theme as import('sanity').StudioTheme
 
 const props = {
@@ -135,13 +138,13 @@ export default defineConfig({
     structureTool({ structure, title: 'Indhold' }),
     presentationTool({
       resolve,
-      components: {
+      /*  components: {
         unstable_navigator: {
           component: Sidebar,
           maxWidth: 350,
           minWidth: 150,
         },
-      },
+      }, */
       title: 'Visuel redigering',
       previewUrl: {
         previewMode: {

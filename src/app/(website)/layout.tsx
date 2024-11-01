@@ -6,13 +6,18 @@ import ScrollToTop from '@/components/atoms/ScrollToTop'
 import { client } from '~/sanity/lib/sanity.client'
 import Head from 'next/head'
 import { SITE_SETTINGS_QUERY } from '~/sanity/lib/sanity.queries'
+import { SanityLive } from '~/sanity/lib/sanity.live'
 
 const settings = await client.fetch(SITE_SETTINGS_QUERY)
 const headScripts = settings?.headScripts || ''
 const metaTags = headScripts.match(/<meta[^>]*>/g) || [] // Only meta tags
 const otherHeadContent = headScripts.replace(/<meta[^>]*>/g, '') // Other HTML elements
 
-export default function Root({ children }: { children: React.ReactNode }) {
+export default async function Root({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="da">
       <Head>
@@ -28,10 +33,12 @@ export default function Root({ children }: { children: React.ReactNode }) {
         )}
       </Head>
       <body
-        className={`selection:text-mørk selection:bg-signal-gul ${draftMode().isEnabled ? 'debug-screens' : ''}`}
+        className={`selection:text-mørk selection:bg-signal-gul ${(await draftMode()).isEnabled ? 'debug-screens' : ''}`}
       >
         {children}
-        {draftMode().isEnabled && (
+        <SanityLive />
+
+        {(await draftMode()).isEnabled && (
           <>
             <VisualEditing />
             <AdminBar />

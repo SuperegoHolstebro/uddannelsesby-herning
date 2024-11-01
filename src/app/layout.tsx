@@ -27,7 +27,11 @@ const outfit = Outfit({
   preload: true,
 })
 
-export default function Root({ children }: { children: React.ReactNode }) {
+export default async function Root({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html
       lang="da"
@@ -35,7 +39,7 @@ export default function Root({ children }: { children: React.ReactNode }) {
     >
       <GoogleTagManager gtmId="GTM-" />
       <body
-        className={`selection:text-light-light selection:bg-green ${draftMode().isEnabled ? 'debug-screens' : ''}`}
+        className={`selection:text-light-light selection:bg-green ${(await draftMode()).isEnabled ? 'debug-screens' : ''}`}
       >
         {children}
       </body>
