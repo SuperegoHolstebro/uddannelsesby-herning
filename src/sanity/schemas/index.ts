@@ -71,6 +71,7 @@ import company from './documents/company'
 import companyLogin from './documents/companyLogin'
 import field from './management/field'
 import { TextAndImage } from './sections/TextAndImage.schema'
+import { info } from '@/sanity/schemas/sections/info.schema'
 export const schemaTypes = [
   heroType,
   textWithIllustration,
@@ -91,6 +92,7 @@ export const schemaTypes = [
   CallToAction2,
   IconPicker,
   ReusableSectionType,
+  info,
   // atoms
   figureType,
   headingType,

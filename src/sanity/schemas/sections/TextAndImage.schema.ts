@@ -23,4 +23,20 @@ export const TextAndImage = defineType({
       ],
     }),
   ],
+  preview: {
+    select: {
+      images: 'images',
+      image: 'images.0',
+    },
+    prepare(selection) {
+      const { images, image } = selection
+
+      return {
+        // title from innerBlocks
+        title: `Tekst og billede`,
+        subtitle: `Tekst med ${Object.keys(images).length} billeder`,
+        media: image,
+      }
+    },
+  },
 })

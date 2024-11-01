@@ -1,10 +1,11 @@
-"use client"
+'use client'
 import 'swiper/css'
 import { useRef } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { SwiperOptions } from 'swiper/types'
 import { AdvancedButton } from '../atoms/AdvancedButton'
 import Icon from '../atoms/Icons'
+import { useSwiperSlide } from 'swiper/react'
 import CarouselNavigation from '../atoms/CarouselNavigation'
 
 /**
@@ -69,22 +70,33 @@ interface CarouselProps extends SwiperOptions {
       slidesPerView: number
       spaceBetween: number
     }
-
   }
+  initialSlide?: number // Add this prop to specify the initial active slide
 }
 
-const Carousel = ({ spaceBetween, slidesPerView, loop, breakpoints, children, ...props }: CarouselProps,) => {
+const Carousel = ({
+  spaceBetween,
+  slidesPerView,
+  loop,
+  breakpoints,
+  children,
+  initialSlide = 0, // Default to the first slide
+  ...props
+}: CarouselProps) => {
   const swiperRef = useRef(null)
+  const swiperSlide = useSwiperSlide() || {}
   return (
     <>
-      <div className='relative col-span-full'>
+      <div className="relative col-span-full">
         <Swiper
           {...props}
           ref={swiperRef}
           spaceBetween={spaceBetween}
-          slidesPerView={1}
+          slidesPerView={slidesPerView}
           loop={loop || false}
           breakpoints={breakpoints}
+          centeredSlides={true}
+          initialSlide={initialSlide} // Set the initial active slide
           onSwiper={(swiper) => console.log(swiper)}
         >
           {children.map((child, index) => (
