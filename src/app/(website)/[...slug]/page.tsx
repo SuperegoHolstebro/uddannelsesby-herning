@@ -7,15 +7,11 @@ import { notFound } from 'next/navigation'
 import { generatePageMetadata } from '~/utils/metadataUtils'
 import { stegaClean } from '@sanity/client/stega'
 
-export default async function DynamicRoute({
-  params: { slug: slugArray, locale },
-}: {
-  params: { slug: string[]; locale: string }
-}) {
-  const slug = `${slugArray.join('/')}`
+export default async function DynamicRoute({ params }) {
+  const { slug: slugArray } = await params
+  const slug = slugArray.join('/')
   const page = await loadPage(slug, 'da')
 
-  
   if (!page) {
     notFound()
   }
@@ -27,11 +23,14 @@ export default async function DynamicRoute({
   )
 }
 
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string[] }
+}) {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
+  const slug = `${params.slug.join('/')}`
+  const page = await loadPage(slug, 'da')
 
-export async function generateMetadata({ params }: { params: { slug: string[], } }) {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-  const slug = `${params.slug.join('/')}`;
-  const page = await loadPage(slug, 'da');
-
-  return generatePageMetadata(page, baseUrl);
+  return generatePageMetadata(page, baseUrl)
 }
