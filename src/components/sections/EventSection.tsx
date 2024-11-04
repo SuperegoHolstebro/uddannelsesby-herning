@@ -14,7 +14,7 @@ import { clean } from '~/utils/sanitize'
  * @see: src/components/sections/EventSection.tsx
  * @version: 1.0.0
  * @property: [section, amount]
- * @author: Kasper Buchholtz
+ * @author: Emilie Hjøllund
  *
  **/
 
@@ -34,13 +34,9 @@ const EventSection = ({ section, amount }) => {
         }
         variant={clean(section?.design?.color?.color)}
       >
-        {section.design.padding.spacingBottom}
-        <EventSection.Title section={section} />
-
         <Carousel
           slidesPerView={1.2}
           spaceBetween={32}
-          initialSlide={5} // This will make the third slide active and centered initially
           loop={true}
           breakpoints={{
             428: {

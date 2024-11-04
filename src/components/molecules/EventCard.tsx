@@ -65,7 +65,7 @@ function Portrait({ event }) {
 
 function Content({ event }) {
   return (
-    <div className="">
+    <div className="pt-8 ">
       <Heading text="wrap" type="h4" tag="h4" spacing="none" clamp={3}>
         {event?.title}
       </Heading>
