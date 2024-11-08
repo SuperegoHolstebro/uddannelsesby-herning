@@ -34,13 +34,6 @@ export const Quote = defineType({
     }),
 
     defineField({
-      name: 'image',
-      title: 'Billede',
-      type: 'image',
-      validation: (Rule) => Rule.required(),
-    }),
-
-    defineField({
       name: 'link',
       title: 'Knap',
       type: 'link',

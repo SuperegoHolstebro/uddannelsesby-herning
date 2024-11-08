@@ -1,5 +1,5 @@
 import { groq } from 'next-sanity'
-import { ImageQuery } from '@/sanity/queries/atoms/ImageQuery'
+import { MediaObjectQuery } from '@/sanity/queries/molecules/MediaObjectQuery'
 
 export const QUOTE_QUERY = groq`
   _type == "Quote" => {
@@ -7,8 +7,7 @@ export const QUOTE_QUERY = groq`
    quote,
     student,
     education,
-    "image": {
-        ${ImageQuery}
-      }
+    ${MediaObjectQuery},
+    
   }
 `
