@@ -9,6 +9,7 @@ export default defineType({
   groups: [
     { name: 'content', title: 'Indhold' },
     { name: 'registration', title: 'Tilmelding' }, // New group for registration
+    { name: 'details', title: 'Detaljer' }, // New group for details like time, location, price, and category
     { name: 'seo', title: 'SEO' },
   ],
   fields: [
@@ -88,6 +89,38 @@ export default defineType({
           if (!context.document.isMultiDay || !endDate) return true
           return endDate >= startDate || 'Slutdato skal være efter startdatoen'
         }),
+    }),
+
+    // New fields for price, category, and location
+    defineField({
+      name: 'price',
+      type: 'number',
+      title: 'Pris',
+      description: 'Pris for deltagelse i begivenheden',
+      group: 'details',
+      validation: (Rule) => Rule.min(0),
+    }),
+    defineField({
+      name: 'location',
+      type: 'string',
+      title: 'Lokation',
+      description: 'Stedet hvor begivenheden finder sted',
+      group: 'details',
+    }),
+    defineField({
+      name: 'category',
+      type: 'string',
+      title: 'Kategori',
+      description: 'Kategorier relateret til begivenheden',
+      group: 'details',
+      options: {
+        list: [
+          { title: 'Koncert', value: 'koncert' },
+          { title: 'Workshop', value: 'workshop' },
+          { title: 'Seminar', value: 'seminar' },
+          { title: 'Festival', value: 'festival' },
+        ],
+      },
     }),
 
     defineField({

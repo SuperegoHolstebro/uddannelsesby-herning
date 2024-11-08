@@ -38,6 +38,9 @@
   a, button{
     @apply focus-visible:outline-none  focus-visible:ring-2 focus-visible:ring-green focus-visible:ring-offset-2
   }
+  .event-cards:has(.event-card-item:hover) .event-card-item:not(:hover) {
+    @apply filter blur-sm;
+  }
 }
 
 [data-border="true"] {
