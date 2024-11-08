@@ -18,6 +18,7 @@ import TextAndImage from './sections/TextAndImage'
 import Info from './sections/Info'
 import QuickLinks from './sections/QuickLinks'
 import Quote from './sections/Quote'
+import PageTitle from './sections/PageTitle'
 
 const PageBuilder = ({ sections }) => {
   return (
@@ -45,6 +46,8 @@ const PageBuilder = ({ sections }) => {
             return <QuickLinks data={section} key={index} />
           case 'Quote':
             return <Quote key={index} section={section} />
+          case 'PageTitle':
+            return <PageTitle key={index} data={section} />
           case 'LogoGallery':
             return (
               <React.Fragment key={index}>

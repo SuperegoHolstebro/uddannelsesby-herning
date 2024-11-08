@@ -68,5 +68,9 @@ export const pageBuilder = defineType({
       name: 'Quote',
       type: 'Quote',
     }),
+    defineArrayMember({
+      name: 'PageTitle',
+      type: 'PageTitle',
+    }),
   ],
 })

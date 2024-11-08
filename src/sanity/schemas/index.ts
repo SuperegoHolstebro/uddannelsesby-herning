@@ -24,7 +24,8 @@ export type {
   PhoneLink,
 } from '@/sanity/schemas/customFields/LinkField/Types'
 import { SchemaTypeDefinition } from 'sanity'
-import { IconPicker } from '@/sanity/schemas/sections/atoms/IconPickerInput'
+import { SymbolPicker } from '~/sanity/schemas/sections/atoms/SymbolPickerInput'
+import { IconPicker } from '~/sanity/schemas/sections/atoms/IconPickerInput'
 import blockContent from '@/sanity/schemas/blockContent'
 import { reusable } from '@/sanity/schemas/reusable'
 import category from '@/sanity/schemas/management/category'
@@ -74,6 +75,7 @@ import { TextAndImage } from './sections/TextAndImage.schema'
 import { info } from '@/sanity/schemas/sections/info.schema'
 import { QuickLinks } from './sections/QuickLinks.schema'
 import { Quote } from './sections/quote'
+import { PageTitle } from './sections/PageTitle'
 
 export const schemaTypes = [
   heroType,
@@ -94,10 +96,12 @@ export const schemaTypes = [
   MediaType,
   CallToAction2,
   IconPicker,
+  SymbolPicker,
   ReusableSectionType,
   info,
   QuickLinks,
   Quote,
+  PageTitle,
   // atoms
   figureType,
   headingType,
@@ -145,6 +149,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     CallToAction2,
     ArticlesType,
     IconPicker,
+    SymbolPicker,
     textWithIllustration,
     formType,
     videoType,
@@ -157,6 +162,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     info,
     QuickLinks,
     Quote,
+    PageTitle,
     // Atoms
     figureType,
     headingType,
