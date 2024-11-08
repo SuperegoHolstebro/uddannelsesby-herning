@@ -9,7 +9,6 @@ export const info = defineType({
   type: 'object',
   fields: [
     defineField({
-      group: 'content',
       name: 'heading',
       type: 'string',
     }),
@@ -34,4 +33,12 @@ export const info = defineType({
       ],
     }),
   ],
+  preview: {
+    prepare(selection) {
+      return {
+        title: `Tæller`,
+        subtitle: `Info-banner`,
+      }
+    },
+  },
 })
