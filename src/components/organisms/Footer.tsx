@@ -149,7 +149,7 @@ function ColumnThree({ data }) {
       <div className=" col-span-full sm:col-span-full md:col-span-3 lg:col-span-3 xl:col-span-6">
         <div className="pb-4 uppercase ">
           <Heading
-            className="text-center text-mørk md:text-left"
+            className="text-center text-mørk md:text-right"
             spacing="none"
             tag="h5"
             type="h5"
@@ -157,7 +157,7 @@ function ColumnThree({ data }) {
             {companyName}
           </Heading>
         </div>
-        <div className="space-y-2 text-center md:text-left">
+        <div className="space-y-2 text-center md:text-right">
           <p>{address}</p>
           <p>CVR {cvr}</p>
         </div>

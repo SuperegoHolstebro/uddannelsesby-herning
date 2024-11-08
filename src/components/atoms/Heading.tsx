@@ -29,10 +29,10 @@ const HeadingVariants = cva('text-balance rwx hyphens-auto uppercase', {
       h1: 'text-giant font-bold leading-none tracking-normal',
       h2: 'text-huge leading-none tracking-normal font-bold',
       h3: 'text-large leading-tight tracking-tight font-bold',
-      h4: 'text-medium leading-none tracking-tight font-bold',
-      h5: 'text-increased leading-none tracking-tight font-bold',
-      h6: 'text-regular font-bold',
-      span: 'text-small font-bold',
+      h4: 'text-medium leading-none tracking-tight font-normal',
+      h5: 'text-increased leading-none tracking-tight font-normal',
+      h6: 'text-regular font-normal',
+      span: 'text-small font-normal',
       p: 'text-regular font-normal',
     },
     fontFamily: {
@@ -73,7 +73,7 @@ const HeadingVariants = cva('text-balance rwx hyphens-auto uppercase', {
   },
   defaultVariants: {
     type: 'h2',
-    fontFamily: 'sans',
+    fontFamily: 'outfit',
     tag: 'h2',
     spacing: 'default',
     maxWidth: 'default',
