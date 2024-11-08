@@ -4,7 +4,7 @@ import Section from '@/components/sections/Section'
 import { TextAndImageProps } from '@/types/TextWithIllustrationProps'
 import Media from '@/components/organisms/Media'
 import { clean } from '~/utils/sanitize'
-import Icon from '../atoms/Icons'
+import Symbol from '../atoms/Symbols'
 
 /**
  *
@@ -29,7 +29,7 @@ const TextWithIllustration = ({ data, popup }: TextAndImageProps) => {
       className="overflow-hidden"
       variant={clean(data?.design?.color?.color)}
     >
-      <div className="-mx-4 md:-mr-3 md:mx-0 md:-ml-24 md:-mt-16 md:-mb-20 2xl:-ml-52 xl:-ml-36 relative h-screen/2 md:h-screen/1.6 block col-start-1 -col-end-1 md:col-start-1 md:flex md:-col-end-7 xl:col-start-1 xl:col-end-13 2xl:col-start-1 2xl:col-end-13">
+      <div className="-mx-4 md:-mr-3 md:mx-0 md:-ml-24 md:-mt-16 md:-mb-20 2xl:-ml-52 xl:-ml-36 relative h-screen/2 md:h-screen/1.6 block col-start-1 -col-end-1 md:col-start-1 md:flex md:-col-end-7 xl:col-start-1 xl:col-end-11 2xl:col-start-1 2xl:col-end-13">
         {/* Large image container */}
         <div className="relative">
           <Media popup data={data?.MediaObject?.media} />
@@ -37,13 +37,18 @@ const TextWithIllustration = ({ data, popup }: TextAndImageProps) => {
           {/* Small image overlay in the bottom-right corner */}
           <div className="absolute w-64 h-64 -bottom-8 -right-16">
             <Media data={data?.SmallMediaObject?.media} />
-            <div className="absolute bottom-0 w-64 h-64 my-auto -left-16">
-              <Icon type="f" className="my-auto mt-auto" />
+            <div className="absolute w-64 h-64 -bottom-16 -left-16">
+              {' '}
+              {/* -bottom-16 FIXX */}
+              <Symbol
+                type={data.symbolPicker?.icon}
+                className="my-auto mt-auto"
+              />
             </div>
           </div>
         </div>
       </div>
-      <div className="flex-col col-start-1 -col-end-1 md:-col-start-1 md:flex md:col-end-8 lg:-col-start-1 xl:-col-end-12 ">
+      <div className="flex-col justify-center col-start-1 -col-end-1 md:-col-start-1 md:flex md:col-end-8 lg:-col-start-1 xl:-col-end-12 ">
         <InnerBlocks blocks={data.innerBlocks} />
       </div>
     </Section>

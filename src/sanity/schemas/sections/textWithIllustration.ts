@@ -33,6 +33,12 @@ export const textWithIllustration = defineType({
       type: 'MediaObject',
     },
     {
+      group: 'media',
+      name: 'symbolPicker',
+      title: 'Symbol',
+      type: 'SymbolPicker',
+    },
+    {
       name: 'design',
       type: 'design',
       group: 'content',

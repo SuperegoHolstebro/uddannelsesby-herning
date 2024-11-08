@@ -10,6 +10,7 @@ export const textWithIllustrationQuery = groq`
     _type,
     _key,
     flip,
+    symbolPicker,
     ${MediaObjectQuery},
     design{...,},
     ${InnerBlocksQuery},
