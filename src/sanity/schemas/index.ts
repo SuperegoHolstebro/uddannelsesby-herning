@@ -72,6 +72,9 @@ import companyLogin from './documents/companyLogin'
 import field from './management/field'
 import { TextAndImage } from './sections/TextAndImage.schema'
 import { info } from '@/sanity/schemas/sections/info.schema'
+import { QuickLinks } from './sections/QuickLinks.schema'
+import { Quote } from './sections/quote'
+
 export const schemaTypes = [
   heroType,
   textWithIllustration,
@@ -93,6 +96,8 @@ export const schemaTypes = [
   IconPicker,
   ReusableSectionType,
   info,
+  QuickLinks,
+  Quote,
   // atoms
   figureType,
   headingType,
@@ -149,6 +154,9 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     EventType,
     MediaType,
     ReusableSectionType,
+    info,
+    QuickLinks,
+    Quote,
     // Atoms
     figureType,
     headingType,

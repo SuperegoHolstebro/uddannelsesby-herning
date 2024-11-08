@@ -15,6 +15,9 @@ import LogoGallery2 from './sections/LogoGallery2'
 import ContactFormSection from './sections/ContactFormSection'
 import Companies from './sections/Companies'
 import TextAndImage from './sections/TextAndImage'
+import Info from './sections/Info'
+import QuickLinks from './sections/QuickLinks'
+import Quote from './sections/Quote'
 
 const PageBuilder = ({ sections }) => {
   return (
@@ -36,6 +39,12 @@ const PageBuilder = ({ sections }) => {
             return <TextAndImage key={index} data={section} />
           case 'companiesType':
             return <Companies key={index} section={section} />
+          case 'info':
+            return <Info data={section} key={index} />
+          case 'QuickLinks':
+            return <QuickLinks data={section} key={index} />
+          case 'Quote':
+            return <Quote key={index} section={section} />
           case 'LogoGallery':
             return (
               <React.Fragment key={index}>
@@ -75,8 +84,7 @@ const PageBuilder = ({ sections }) => {
             return (
               <React.Fragment key={index}>
                 <TextContainer
-                  paddingTop={section?.design?.padding?.spacingTop}
-                  paddingBottom={section?.design?.padding?.spacingBottom}
+                  section={section}
                   variant={section?.design?.color?.color}
                 >
                   <InnerBlocks blocks={section.innerBlocks} />
@@ -85,6 +93,7 @@ const PageBuilder = ({ sections }) => {
             )
           case 'MediaType':
             return <Media key={index} data={section} index={undefined} />
+
           default:
             return null
         }

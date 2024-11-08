@@ -56,5 +56,17 @@ export const pageBuilder = defineType({
       name: 'textContainer',
       type: 'textContainer',
     }),
+    defineArrayMember({
+      name: 'info',
+      type: 'info',
+    }),
+    defineArrayMember({
+      name: 'QuickLinks',
+      type: 'QuickLinks',
+    }),
+    defineArrayMember({
+      name: 'Quote',
+      type: 'Quote',
+    }),
   ],
 })

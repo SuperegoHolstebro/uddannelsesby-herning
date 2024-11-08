@@ -12,6 +12,9 @@ import { textContainerQuery } from '@/sanity/queries/sections/textContainerQuery
 import { textWithIllustrationQuery } from '@/sanity/queries/sections/TextWithIllustrationQuery'
 import { companiesTypeQuery } from '../sections/companiesTypeQuery'
 import { TextAndImageQuery } from '../sections/TextAndImage.query'
+import { INFO_QUERY } from '../sections/InfoQuery'
+import { QUICKLINKS_QUERY } from '../sections/QuickLinksQuery'
+import { QUOTE_QUERY } from '../sections/QuoteQuery'
 
 export const pageBuilderQuery = groq`
   pageBuilder[] {
@@ -28,5 +31,8 @@ export const pageBuilderQuery = groq`
     ${GalleryQuery},
     ${LogoGalleryQuery},
     ${LogoGallery2Query},
+    ${INFO_QUERY},
+    ${QUICKLINKS_QUERY},
+    ${QUOTE_QUERY},
   }
 `
