@@ -512,6 +512,22 @@ const Icon: React.FC<IconProps> = ({ type, ...props }) => {
       </svg>
     ),
 
+    stjerne: (
+      <svg
+        {...props}
+        width="463"
+        height="462"
+        viewBox="0 0 463 462"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M352.703 281.09L395.193 394.339L281.698 351.942L231.5 462L181.301 351.942L67.8074 394.339L110.296 281.09L0 231L110.296 180.91L67.8074 67.661L181.301 110.058L231.5 0L281.698 110.058L395.193 67.661L352.703 180.91L463 231L352.703 281.09Z"
+          fill="#D8FD01"
+        />
+      </svg>
+    ),
+
     // Pagebuilder
     Hero: (
       <svg

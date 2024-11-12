@@ -4,6 +4,7 @@ export const TextAndImage = defineType({
   name: 'TextAndImage',
   type: 'object',
   title: 'TextAndImage',
+  groups: [{ title: 'indstillinger', name: 'settings' }],
   fields: [
     defineField({
       name: 'innerBlocks',
@@ -22,6 +23,12 @@ export const TextAndImage = defineType({
         }),
       ],
     }),
+    {
+      group: 'settings',
+      name: 'SectionSettings',
+      title: 'Indstillinger',
+      type: 'SectionSettings',
+    },
   ],
   preview: {
     select: {

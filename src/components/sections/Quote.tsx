@@ -8,6 +8,7 @@ import Image from 'next/image'
 import Media from '@/components/organisms/Media'
 import { AdvancedButton } from '../atoms/AdvancedButton'
 import { Button } from '../atoms/Button'
+import Symbol from '../atoms/Symbols'
 
 /**
  *
@@ -33,6 +34,7 @@ const Quote = ({ section }) => {
       paddingX="left"
     >
       <div className="grid gap-4 grid-cols-24 col-span-full">
+        <Symbol type="t" className="col-start-1 row-start-1 row-end-1 -ml-20" />
         {/* Image in the last 12 columns */}
         <div className="relative col-span-12 col-start-13 row-start-1 row-end-1">
           <Media data={section.MediaObject?.media} />

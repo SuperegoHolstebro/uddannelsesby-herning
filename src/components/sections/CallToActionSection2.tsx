@@ -56,10 +56,10 @@ const CallToActionSection2 = ({ section }) => {
       id={clean(section?.SectionSettings?.anchor?.current)}
       paddingTop="none"
       paddingBottom="none"
-      className="pr-4 xs:pr-4 sm:pr-13 md:pr-24 lg:pr-19 xl:pr-36 2xl:pr-52"
+      className="pr-4 overflow-hidden xs:pr-4 group sm:pr-13 md:pr-24 lg:pr-19 xl:pr-36 2xl:pr-52"
       paddingX="none"
     >
-      <div className="relative col-span-full md:col-span-6 xl:col-span-12 max-h-screen/1.6">
+      <div className="relative group-hover:scale-110 transition-all ease-in-out duration-300 col-span-full md:col-span-6 xl:col-span-12 max-h-screen/1.6">
         {/* Image */}
         <Media data={section.MediaObject?.media} />
 
