@@ -6,9 +6,17 @@ import PageContainer from '@/components/PageContainer'
 import { generatePageMetadata } from '~/utils/metadataUtils'
 import { stegaClean } from '@sanity/client/stega'
 
-export default async function IndexRoute({ params }: { params: { locale: string } }) {
+interface Params {
+  slug: string[]
+  locale: string
+}
+export default async function IndexRoute({
+  params,
+}: {
+  params: Promise<Params>
+}) {
+  const resolvedParams = await params // Await the Promise
   const page = await loadPage('/', 'da')
-
 
   return (
     <PageContainer>
@@ -17,9 +25,11 @@ export default async function IndexRoute({ params }: { params: { locale: string 
   )
 }
 
-export async function generateMetadata({ params }: { params: { slug: string[] } }) {
-  const page = await loadPage('/', 'da')
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+export async function generateMetadata({ params }: { params }) {
+  const { slug: slugArray } = await params
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
+  const slug = slugArray.join('/')
+  const page = await loadPage(slug, 'da')
 
-  return generatePageMetadata(page, baseUrl);
+  return generatePageMetadata(page, baseUrl)
 }

@@ -23,7 +23,10 @@ import { useSession } from 'next-auth/react'
 import Icon from '~/components/atoms/Icons'
 import { AdvancedButton } from '~/components/atoms/AdvancedButton'
 import { CallToAction2 } from '~/sanity/schemas/sections/CallToAction2'
-
+interface Params {
+  slug: string[]
+  locale: string
+}
 export interface UserProfile {
   name?: string
   email?: string
@@ -32,10 +35,12 @@ export interface UserProfile {
   provider?: any
 }
 export default async function DynamicRoute({
-  params: { slug, locale },
+  params,
 }: {
-  params: { slug: string[] | any; locale: string }
+  params: Promise<Params>
 }) {
+  const resolvedParams = await params // Await the Promise
+  const slug = `${resolvedParams.slug.join('/')}`
   const page = await loadPage(slug, 'da', COMPANY_QUERY)
   const session = await getServerSession(authOptions)
 
