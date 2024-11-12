@@ -3,7 +3,7 @@ import { motion, useSpring, useTransform } from 'framer-motion'
 import React, { useRef, useEffect } from 'react'
 import InnerBlocks from '@/components/molecules/InnerBlocks'
 import Section from '@/components/sections/Section'
-import { TextAndImageProps } from '@/types/TextWithIllustrationProps'
+import { TextAndCollageProps } from '@/types/TextWithIllustrationProps'
 import { clean } from '~/utils/sanitize'
 import Image from 'next/image'
 import Icon from '../atoms/Icons'
@@ -23,7 +23,7 @@ import { useRafLoop } from 'react-use'
  * @author: Emilie Hjøllund
  *
  **/
-const TextAndImage = ({ data, popup, flip = false }: TextAndImageProps) => {
+const TextAndCollage = ({ data, popup, flip = false }: TextAndCollageProps) => {
   const marginOne =
     '-mx-4 md:-mr-3 md:mx-0 md:-ml-24 md:-mt-16 md:-mb-20 2xl:-ml-52 xl:-ml-36 '
   const marginTwo =
@@ -52,7 +52,7 @@ const TextAndImage = ({ data, popup, flip = false }: TextAndImageProps) => {
   )
 }
 
-export default TextAndImage
+export default TextAndCollage
 
 function Portrait({ data, index }) {
   const translateX =

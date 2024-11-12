@@ -21,8 +21,8 @@ export const pageBuilder = defineType({
       type: 'hero',
     }),
     defineArrayMember({
-      name: 'TextAndImage',
-      type: 'TextAndImage',
+      name: 'TextAndCollage',
+      type: 'TextAndCollage',
     }),
     defineArrayMember({
       name: 'EmployeesType',

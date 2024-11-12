@@ -14,7 +14,7 @@ import LogoGallery from './sections/LogoGallery'
 import LogoGallery2 from './sections/LogoGallery2'
 import ContactFormSection from './sections/ContactFormSection'
 import Companies from './sections/Companies'
-import TextAndImage from './sections/TextAndImage'
+import TextAndCollage from './sections/TextAndCollage'
 import Info from './sections/Info'
 import QuickLinks from './sections/QuickLinks'
 import Quote from './sections/Quote'
@@ -36,8 +36,8 @@ const PageBuilder = ({ sections }) => {
                 <Breadcrumbs />
               </React.Fragment>
             )
-          case 'TextAndImage':
-            return <TextAndImage key={index} data={section} />
+          case 'TextAndCollage':
+            return <TextAndCollage key={index} data={section} />
           case 'companiesType':
             return <Companies key={index} section={section} />
           case 'info':

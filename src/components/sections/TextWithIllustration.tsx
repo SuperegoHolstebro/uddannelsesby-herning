@@ -1,7 +1,7 @@
 import React from 'react'
 import InnerBlocks from '@/components/molecules/InnerBlocks'
 import Section from '@/components/sections/Section'
-import { TextAndImageProps } from '@/types/TextWithIllustrationProps'
+import { TextAndCollageProps } from '@/types/TextWithIllustrationProps'
 import Media from '@/components/organisms/Media'
 import { clean } from '~/utils/sanitize'
 import Symbol from '../atoms/Symbols'
@@ -20,7 +20,7 @@ import Symbol from '../atoms/Symbols'
  * @author: Kasper Buchholtz
  *
  **/
-const TextWithIllustration = ({ data, popup }: TextAndImageProps) => {
+const TextWithIllustration = ({ data, popup }: TextAndCollageProps) => {
   return (
     <Section
       id={clean(data?.SectionSettings?.anchor?.current)}

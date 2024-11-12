@@ -71,7 +71,7 @@ import { companiesType } from './sections/companies'
 import company from './documents/company'
 import companyLogin from './documents/companyLogin'
 import field from './management/field'
-import { TextAndImage } from './sections/TextAndImage.schema'
+import { TextAndCollage } from './sections/TextAndCollage.schema'
 import { info } from '@/sanity/schemas/sections/info.schema'
 import { QuickLinks } from './sections/QuickLinks.schema'
 import { Quote } from './sections/quote'
@@ -85,7 +85,7 @@ export const schemaTypes = [
   textContainerType,
   EmployeesType,
   blockContent,
-  TextAndImage,
+  TextAndCollage,
   companiesType,
   contactFormType,
   EventType,
@@ -127,7 +127,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     page,
     event,
     article,
-    TextAndImage,
+    TextAndCollage,
     companiesType,
     company,
     companyLogin,
