@@ -14,12 +14,18 @@ import TextContainer from '@/components/sections/textContainer'
 import { generatePageMetadata } from '~/utils/metadataUtils'
 import { stegaClean } from '@sanity/client/stega'
 
+interface Params {
+  slug: string[]
+  locale: string
+}
+
 export default async function DynamicRoute({
-  params: { slug: slugArray, locale },
+  params,
 }: {
-  params: { slug: string[]; locale: string }
+  params: Promise<Params>
 }) {
-  const slug = `${slugArray.join('/')}`
+  const resolvedParams = await params // Await the Promise
+  const slug = `${resolvedParams.slug.join('/')}`
   const page = await loadPage(slug, 'da', ARTICLE_QUERY)
 
   if (!page) {
@@ -62,10 +68,15 @@ export default async function DynamicRoute({
   )
 }
 
-export async function generateMetadata({ params }: { params: { slug: string[], } }) {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-  const slug = `${params.slug.join('/')}`;
-  const page = await loadPage(slug, 'da');
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<Params>
+}) {
+  const resolvedParams = await params // Await the Promise
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
+  const slug = `${resolvedParams.slug.join('/')}`
+  const page = await loadPage(slug, 'da')
 
-  return generatePageMetadata(page, baseUrl);
+  return generatePageMetadata(page, baseUrl)
 }

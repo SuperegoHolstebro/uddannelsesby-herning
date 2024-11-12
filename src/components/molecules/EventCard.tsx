@@ -25,7 +25,7 @@ const EventCard = ({ event }) => {
     <>
       <div
         key={event?._key}
-        className="relative overflow-hidden h-fit col-span-full xs:col-span-2 sm:col-span-4 xl:col-span-6 group"
+        className="relative overflow-hidden transition-all ease-in-out scale-100 h-fit event-card-item hover:scale-125 group isolation-auto"
       >
         <Link className="" href={resolveHref(event._type, event.slug) || '#'}>
           <EventCard.Portrait event={event} />

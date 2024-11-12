@@ -32,39 +32,53 @@ const EventSection = ({ section, amount }) => {
         paddingBottom={
           clean(section?.design?.padding?.spacingBottom) || 'default'
         }
-        variant={clean(section?.design?.color?.color)}
+        className={`relative overflow-hidden 
+        ${clean(section?.design?.color?.color) === 'mørk' ? 'text-lys' : ''}`}
       >
+        {clean(section?.design?.color?.color) === 'lys' ? (
+          <div className="absolute bottom-0 right-0 w-full bg-lys col-span-full h-2/3" />
+        ) : clean(section?.design?.color?.color) === 'mørk' ? (
+          <div className="bg-mørk col-span-full h-3/5 absolute bottom-0 right-0 w-full" />
+        ) : clean(section?.design?.color?.color) == 'lilla' ? (
+          <div className="absolute bottom-0 right-0 w-full bg-signal-pink col-span-full h-2/3" />
+        ) : (
+          <div className="absolute bottom-0 right-0 w-full bg-signal-gul col-span-full h-2/3" />
+        )}
         <Carousel
           slidesPerView={1.2}
           spaceBetween={32}
           loop={true}
           breakpoints={{
+            0: {
+              slidesPerView: 1.1,
+              spaceBetween: 16,
+            },
             428: {
               slidesPerView: 1.08,
               spaceBetween: 20,
             },
             768: {
               slidesPerView: 2.5,
-              spaceBetween: 32,
+              spaceBetween: 20,
             },
             1024: {
-              slidesPerView: 2,
+              slidesPerView: 3.3,
               spaceBetween: 24,
             },
             1280: {
-              slidesPerView: 2,
+              slidesPerView: 3.6,
               spaceBetween: 24,
             },
             1440: {
-              slidesPerView: 4.9,
+              slidesPerView: 3.9,
               spaceBetween: 24,
             },
             1920: {
-              slidesPerView: 2.2,
+              slidesPerView: 3.9,
               spaceBetween: 24,
             },
             2500: {
-              slidesPerView: 2.5,
+              slidesPerView: 4.7,
               spaceBetween: 24,
             },
           }}

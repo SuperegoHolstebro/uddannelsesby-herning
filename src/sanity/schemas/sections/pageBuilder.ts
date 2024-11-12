@@ -21,8 +21,8 @@ export const pageBuilder = defineType({
       type: 'hero',
     }),
     defineArrayMember({
-      name: 'TextAndImage',
-      type: 'TextAndImage',
+      name: 'TextAndCollage',
+      type: 'TextAndCollage',
     }),
     defineArrayMember({
       name: 'EmployeesType',
@@ -55,6 +55,22 @@ export const pageBuilder = defineType({
     defineArrayMember({
       name: 'textContainer',
       type: 'textContainer',
+    }),
+    defineArrayMember({
+      name: 'info',
+      type: 'info',
+    }),
+    defineArrayMember({
+      name: 'QuickLinks',
+      type: 'QuickLinks',
+    }),
+    defineArrayMember({
+      name: 'Quote',
+      type: 'Quote',
+    }),
+    defineArrayMember({
+      name: 'PageTitle',
+      type: 'PageTitle',
     }),
   ],
 })

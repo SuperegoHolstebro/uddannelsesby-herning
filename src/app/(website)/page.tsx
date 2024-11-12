@@ -5,21 +5,24 @@ import PageBuilder from '~/components/PageBuilder'
 import PageContainer from '@/components/PageContainer'
 import { generatePageMetadata } from '~/utils/metadataUtils'
 import { stegaClean } from '@sanity/client/stega'
+import { notFound } from 'next/navigation'
 
-export default async function IndexRoute({ params }: { params: { locale: string } }) {
+export default async function DynamicRoute() {
   const page = await loadPage('/', 'da')
 
+  if (!page) {
+    notFound()
+  }
 
   return (
     <PageContainer>
-      <PageBuilder sections={page.pageBuilder} />
+      {page.pageBuilder && <PageBuilder sections={page.pageBuilder} />}
     </PageContainer>
   )
 }
 
-export async function generateMetadata({ params }: { params: { slug: string[] } }) {
+export async function generateMetadata() {
   const page = await loadPage('/', 'da')
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-
-  return generatePageMetadata(page, baseUrl);
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
+  return generatePageMetadata(page, baseUrl)
 }

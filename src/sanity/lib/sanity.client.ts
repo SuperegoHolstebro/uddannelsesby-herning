@@ -18,7 +18,7 @@ export function getClient(preview?: { token: string }): SanityClient {
     perspective: 'published',
     stega: {
       enabled: true,
-      studioUrl: 'super-login',
+      studioUrl: '/super-login',
     },
   })
 

@@ -5,8 +5,6 @@ import { client } from '@/sanity/lib/sanity.client'
 import { readToken } from '@/sanity/lib/sanity.api'
 import { groq } from 'next-sanity'
 
-
-
 export const homePageQuery = groq`
   *[_type == "home"][0]{
     _id,
@@ -60,7 +58,6 @@ export const settingsQuery = groq`
   }
 `
 
-
 export const FOOTER_QUERY = groq`*[_type == "footer"][0] {
   title,
   logo {
@@ -94,7 +91,6 @@ export const FOOTER_QUERY = groq`*[_type == "footer"][0] {
   }
 }`
 
-
 const token = readToken
 
 const serverClient = client.withConfig({
@@ -113,9 +109,9 @@ queryStore.setServerClient(serverClient)
 
 const usingCdn = serverClient.config().useCdn
 // Automatically handle draft mode
-export const loadQuery = ((query, params = {}, options = {}) => {
+export const loadQuery = (async (query, params = {}, options = {}) => {
   const {
-    perspective = draftMode().isEnabled ? 'previewDrafts' : 'published',
+    perspective = (await draftMode()).isEnabled ? 'previewDrafts' : 'published',
   } = options
   // Don't cache by default
   let revalidate: NextFetchRequestConfig['revalidate'] = 0
@@ -133,7 +129,7 @@ export const loadQuery = ((query, params = {}, options = {}) => {
     },
     perspective,
     // Enable stega if in Draft Mode, to enable overlays when outside Sanity Studio
-    stega: draftMode().isEnabled,
+    stega: (await draftMode()).isEnabled,
   })
 }) satisfies typeof queryStore.loadQuery
 
@@ -150,11 +146,7 @@ export function loadSettings() {
 }
 
 export function loadHomePage() {
-  return loadQuery(
-    homePageQuery,
-    {},
-    { next: { tags: ['home', 'project'] } },
-  )
+  return loadQuery(homePageQuery, {}, { next: { tags: ['home', 'project'] } })
 }
 
 export function loadProject(slug: string) {

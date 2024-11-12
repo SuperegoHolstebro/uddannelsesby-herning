@@ -1,8 +1,8 @@
 import groq from 'groq'
 import { ImageQuery } from '../atoms/ImageQuery'
 
-export const TextAndImageQuery = groq`
-  _type == 'TextAndImage' => {
+export const TextAndCollageQuery = groq`
+  _type == 'TextAndCollage' => {
     ...,
 
     images[]{

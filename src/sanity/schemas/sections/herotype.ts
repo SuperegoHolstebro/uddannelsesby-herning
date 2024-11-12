@@ -41,7 +41,7 @@ export const heroType = defineType({
     },
     prepare({ title, media }) {
       return {
-        title: title || 'Ingen titel',
+        title: 'Afskrabende video',
         type: 'Hero',
         subtitle: 'Topbanner',
         media,

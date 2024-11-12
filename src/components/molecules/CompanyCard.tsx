@@ -19,7 +19,7 @@ import { resolveHref } from '~/sanity/lib/sanity.links'
 
 const CompanyCard = ({ company }) => {
   return (
-    <div className="relative col-span-2 sm:col-span-4 xl:col-span-6 group ">
+    <div className="relative col-span-2 sm:col-span-4 xl:col-span-8 group ">
       <Link
         href={resolveHref(company._type, company.slug)}
         title={company.name}
@@ -34,9 +34,9 @@ export default CompanyCard
 
 function CompanyCardPortrait({ data }) {
   return (
-    <div className="relative object-cover w-full overflow-hidden rounded-md">
+    <div className="relative object-cover w-full overflow-hidden ">
       {data.image && (
-        <div className="aspect-w-4 aspect-h-5">
+        <div className="aspect-w-4 aspect-h-2">
           <Image
             className="object-cover"
             src={urlFor(data.image).dpr(2).url()}

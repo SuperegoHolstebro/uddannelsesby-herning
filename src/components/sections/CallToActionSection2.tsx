@@ -56,12 +56,17 @@ const CallToActionSection2 = ({ section }) => {
       id={clean(section?.SectionSettings?.anchor?.current)}
       paddingTop="none"
       paddingBottom="none"
-      className="pr-4 xs:pr-4 sm:pr-13 md:pr-24 lg:pr-19 xl:pr-36 2xl:pr-52"
+      className="pr-4 overflow-hidden xs:pr-4 group sm:pr-13 md:pr-24 lg:pr-19 xl:pr-36 2xl:pr-52"
       paddingX="none"
     >
-      <div className="col-span-full md:col-span-6 xl:col-span-12 max-h-screen/1.6">
+      <div className="relative group-hover:scale-110 transition-all ease-in-out duration-300 col-span-full md:col-span-6 xl:col-span-12 max-h-screen/1.6">
+        {/* Image */}
         <Media data={section.MediaObject?.media} />
+
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent to-mørk z-10"></div>
       </div>
+
       <div className="mt-auto mb-20 space-y-24 text-right col-span-full md:col-span-6 xl:col-span-12">
         <FadeUp delay={0.3}>
           <Heading text="balance" spacing="none" type="h2" tag="h2">

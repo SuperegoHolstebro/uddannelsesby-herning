@@ -1,5 +1,5 @@
-export interface TextAndImageProps {
-    data: any
-    popup?: boolean;
-    flip?: boolean;
+export interface TextAndCollageProps {
+  data: any
+  popup?: boolean
+  flip?: boolean
 }

@@ -72,7 +72,8 @@ export default function Footer() {
   const gridCols =
     'xs:grid-cols-4 sm:grid-cols-8 md:grid-cols-12 lg:grid-cols-12 xl:grid-cols-24 2xl:grid-cols-24'
   const gridGap = 'gap-4 xs:gap-4 sm:gap-4 md:gap-6 lg:gap-6 xl:gap-6 2xl:gap-6'
-  const paddingX = 'px-4 xs:px-4 sm:px-13 md:px-24 lg:px-19 xl:px-36 2xl:px-52'
+  const paddingX =
+    'px-4 xs:px-4 sm:px-13 md:pr-24 md:pl-[10rem] lg:pr-19 lg:pl-[9.5rem] xl:pl-[200px] 2xl:pl-[351px]'
   const paddingY = 'pt-[15vw] sm:pt-[5vw]'
 
   return (
@@ -149,7 +150,7 @@ function ColumnThree({ data }) {
       <div className=" col-span-full sm:col-span-full md:col-span-3 lg:col-span-3 xl:col-span-6">
         <div className="pb-4 uppercase ">
           <Heading
-            className="text-center text-mørk md:text-left"
+            className="text-center text-mørk md:text-right"
             spacing="none"
             tag="h5"
             type="h5"
@@ -157,7 +158,7 @@ function ColumnThree({ data }) {
             {companyName}
           </Heading>
         </div>
-        <div className="space-y-2 text-center md:text-left">
+        <div className="space-y-2 text-center md:text-right">
           <p>{address}</p>
           <p>CVR {cvr}</p>
         </div>

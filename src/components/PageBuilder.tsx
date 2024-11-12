@@ -14,7 +14,11 @@ import LogoGallery from './sections/LogoGallery'
 import LogoGallery2 from './sections/LogoGallery2'
 import ContactFormSection from './sections/ContactFormSection'
 import Companies from './sections/Companies'
-import TextAndImage from './sections/TextAndImage'
+import TextAndCollage from './sections/TextAndCollage'
+import Info from './sections/Info'
+import QuickLinks from './sections/QuickLinks'
+import Quote from './sections/Quote'
+import PageTitle from './sections/PageTitle'
 
 const PageBuilder = ({ sections }) => {
   return (
@@ -32,10 +36,18 @@ const PageBuilder = ({ sections }) => {
                 <Breadcrumbs />
               </React.Fragment>
             )
-          case 'TextAndImage':
-            return <TextAndImage key={index} data={section} />
+          case 'TextAndCollage':
+            return <TextAndCollage key={index} data={section} />
           case 'companiesType':
             return <Companies key={index} section={section} />
+          case 'info':
+            return <Info data={section} key={index} />
+          case 'QuickLinks':
+            return <QuickLinks data={section} key={index} />
+          case 'Quote':
+            return <Quote key={index} section={section} />
+          case 'PageTitle':
+            return <PageTitle key={index} data={section} />
           case 'LogoGallery':
             return (
               <React.Fragment key={index}>
@@ -75,8 +87,7 @@ const PageBuilder = ({ sections }) => {
             return (
               <React.Fragment key={index}>
                 <TextContainer
-                  paddingTop={section?.design?.padding?.spacingTop}
-                  paddingBottom={section?.design?.padding?.spacingBottom}
+                  section={section}
                   variant={section?.design?.color?.color}
                 >
                   <InnerBlocks blocks={section.innerBlocks} />
@@ -85,6 +96,7 @@ const PageBuilder = ({ sections }) => {
             )
           case 'MediaType':
             return <Media key={index} data={section} index={undefined} />
+
           default:
             return null
         }

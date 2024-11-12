@@ -1,9 +1,10 @@
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
-export const TextAndImage = defineType({
-  name: 'TextAndImage',
+export const TextAndCollage = defineType({
+  name: 'TextAndCollage',
   type: 'object',
-  title: 'TextAndImage',
+  title: 'Tekst og Collage',
+  groups: [{ title: 'indstillinger', name: 'settings' }],
   fields: [
     defineField({
       name: 'innerBlocks',
@@ -22,6 +23,12 @@ export const TextAndImage = defineType({
         }),
       ],
     }),
+    {
+      group: 'settings',
+      name: 'SectionSettings',
+      title: 'Indstillinger',
+      type: 'SectionSettings',
+    },
   ],
   preview: {
     select: {

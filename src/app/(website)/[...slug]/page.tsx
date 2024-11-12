@@ -5,7 +5,6 @@ import PageBuilder from '~/components/PageBuilder'
 import PageContainer from '@/components/PageContainer'
 import { notFound } from 'next/navigation'
 import { generatePageMetadata } from '~/utils/metadataUtils'
-import { stegaClean } from '@sanity/client/stega'
 
 export default async function DynamicRoute({ params }) {
   const { slug: slugArray } = await params
@@ -23,13 +22,10 @@ export default async function DynamicRoute({ params }) {
   )
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string[] }
-}) {
+export async function generateMetadata({ params }: { params }) {
+  const { slug: slugArray } = await params
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
-  const slug = `${params.slug.join('/')}`
+  const slug = slugArray.join('/')
   const page = await loadPage(slug, 'da')
 
   return generatePageMetadata(page, baseUrl)
