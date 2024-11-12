@@ -7,6 +7,9 @@ import { readToken } from '@/sanity/lib/sanity.api'
 import { PAGE_QUERY } from '@/sanity/lib/sanity.queries'
 
 export type PagePayload = {
+  location?: string
+  price?: string
+  category?: string
   isMultiDay(
     startDate: (
       startDate: any,
