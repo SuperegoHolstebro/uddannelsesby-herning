@@ -38,6 +38,11 @@ export default async function DynamicRoute({
     notFound()
   }
 
+  // Calculate remaining tickets
+  const maxAttendees = page.maxAttendees || 0
+  const bookedAttendees = page.attendees?.length || 0
+  const ticketsLeft = maxAttendees - bookedAttendees
+
   return (
     <PageContainer>
       <Section
@@ -55,14 +60,14 @@ export default async function DynamicRoute({
           </div>
         </div>
 
-        <div className="flex gap-3 col-span-full">
+        <div className="flex gap-3 uppercase col-span-full">
           <Paragraph spacing="none" className="leading-none">
-            <span className="bg-mørk p-2 text-lys rounded-xl">
+            <span className="bg-mørk p-2 text-lys rounded-full ">
               {page.category}
             </span>
           </Paragraph>
           <Paragraph spacing="none" className="leading-none">
-            <span className="bg-mørk p-2 text-lys rounded-xl">
+            <span className="bg-mørk p-2 text-lys rounded-full">
               {page.price} KR.
             </span>
           </Paragraph>
@@ -101,10 +106,9 @@ export default async function DynamicRoute({
           <div className="flex flex-col items-center justify-start space-y-5 md:border-l md:border-grå md:pl-4">
             <Icon type="tickets" className="w-8 h-8" />
             <Heading type="h5" tag="h5" spacing="default">
-              {/* Use eventDateRange and pass the correct properties */}
-              {eventDateRange(page.startDate, page.endDate, page.isMultiDay)}
+              {ticketsLeft > 0 ? `${ticketsLeft}` : 'Udsolgt'}
             </Heading>
-            <Paragraph spacing="none">Billetter tilgængelige</Paragraph>
+            <Paragraph spacing="none"> Billetter tilgængelige</Paragraph>
           </div>
         </div>
       </Section>

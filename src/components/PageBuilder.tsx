@@ -19,6 +19,7 @@ import Info from './sections/Info'
 import QuickLinks from './sections/QuickLinks'
 import Quote from './sections/Quote'
 import PageTitle from './sections/PageTitle'
+import DownloadsAndLinks from './sections/DownloadsAndLinks'
 
 const PageBuilder = ({ sections }) => {
   return (
@@ -60,6 +61,9 @@ const PageBuilder = ({ sections }) => {
                 <LogoGallery2 data={section} />
               </React.Fragment>
             )
+
+          case 'DownloadsAndLinksType':
+            return <DownloadsAndLinks key={index} data={section} />
 
           case 'textWithIllustration':
             return <TextWithIllustration key={index} data={section} />

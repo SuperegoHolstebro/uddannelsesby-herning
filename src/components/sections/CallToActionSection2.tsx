@@ -5,6 +5,7 @@ import { Button } from '../atoms/Button'
 import { clean } from '~/utils/sanitize'
 import Media from '@/components/organisms/Media'
 import { FadeUp } from '../interactions/AnimateFadeIn'
+import Symbol from '../atoms/Symbols'
 
 /**
  * @returns: En sektion med en eller flere call-to-action elementer.
@@ -56,16 +57,20 @@ const CallToActionSection2 = ({ section }) => {
       id={clean(section?.SectionSettings?.anchor?.current)}
       paddingTop="none"
       paddingBottom="none"
-      className="pr-4 overflow-hidden xs:pr-4 group sm:pr-13 md:pr-24 lg:pr-19 xl:pr-36 2xl:pr-52"
+      className="relative pr-4 xs:pr-4 group sm:pr-13 md:pr-24 lg:pr-19 xl:pr-36 2xl:pr-52"
       paddingX="none"
     >
-      <div className="relative group-hover:scale-110 transition-all ease-in-out duration-300 col-span-full md:col-span-6 xl:col-span-12 max-h-screen/1.6">
+      <div className="relative overflow-hidden col-span-full md:col-span-6 xl:col-span-12 max-h-screen/1.6">
         {/* Image */}
-        <Media data={section.MediaObject?.media} />
-
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent to-mørk z-10"></div>
+        <div className="">
+          <div className="transition-all duration-300 ease-in-out group-hover:scale-110">
+            <Media data={section.MediaObject?.media} />
+          </div>
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-mørk z-10"></div>
+        </div>
       </div>
+      <Symbol type="e" className="absolute z-50 -bottom-12 left-64" />
 
       <div className="mt-auto mb-20 space-y-24 text-right col-span-full md:col-span-6 xl:col-span-12">
         <FadeUp delay={0.3}>

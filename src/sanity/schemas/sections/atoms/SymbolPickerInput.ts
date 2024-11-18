@@ -17,6 +17,7 @@ export const SymbolPicker = defineType({
           { title: 'R', value: 'r' },
           { title: 'G', value: 'g' },
           { title: 'T', value: 't' },
+          { title: 'D', value: 'd' },
         ],
       },
       initialValue: 'f',

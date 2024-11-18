@@ -39,6 +39,16 @@ export const PageTitle = defineType({
         layout: 'grid',
       },
     },
+    {
+      name: 'symbolPickerLeft',
+      title: 'Symbol Venstre',
+      type: 'SymbolPicker',
+    },
+    {
+      name: 'symbolPickerRight',
+      title: 'Symbol Højre',
+      type: 'SymbolPicker',
+    },
   ],
   preview: {
     select: {

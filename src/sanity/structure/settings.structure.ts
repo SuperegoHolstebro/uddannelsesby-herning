@@ -28,7 +28,7 @@ export default defineStructure<ListItemBuilder>((S) =>
             .child(S.document().schemaType('footer').views([S.view.form()])),
           S.listItem()
             .icon(CornerUpRight)
-            .title('redirect')
+            .title('Redirect')
             .child((documentId) =>
               S.document()
                 .documentId(documentId)

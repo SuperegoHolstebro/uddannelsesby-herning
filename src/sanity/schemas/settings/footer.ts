@@ -43,7 +43,7 @@ export default defineType({
           name: 'email',
           type: 'email',
           title: 'Email',
-          description: 'Email address',
+          description: 'Email adresse',
         }),
         defineField({
           name: 'cvr',
