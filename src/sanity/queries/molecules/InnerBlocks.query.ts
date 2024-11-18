@@ -1,5 +1,6 @@
-import { groq } from "next-sanity";
-import { ButtonQuery } from "../atoms/ButtonQuery";
+import { groq } from 'next-sanity'
+import { ButtonQuery } from '../atoms/ButtonQuery'
+import { DownloadsAndLinksQuery } from '../sections/DownloadsAndLinksQuery'
 
 export const InnerBlocksQuery = groq`
       innerBlocks[]{
@@ -7,5 +8,6 @@ export const InnerBlocksQuery = groq`
         _type == "button" => {
           ${ButtonQuery}
         },
+          ${DownloadsAndLinksQuery}
       }
 `

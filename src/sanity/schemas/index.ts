@@ -76,6 +76,7 @@ import { info } from '@/sanity/schemas/sections/info.schema'
 import { QuickLinks } from './sections/QuickLinks.schema'
 import { Quote } from './sections/quote'
 import { PageTitle } from './sections/PageTitle'
+import { DownloadsAndLinksType } from './sections/DownloadsAndLinksType'
 
 export const schemaTypes = [
   heroType,
@@ -102,6 +103,7 @@ export const schemaTypes = [
   QuickLinks,
   Quote,
   PageTitle,
+  DownloadsAndLinksType,
   // atoms
   figureType,
   headingType,
@@ -163,6 +165,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     QuickLinks,
     Quote,
     PageTitle,
+    DownloadsAndLinksType,
     // Atoms
     figureType,
     headingType,

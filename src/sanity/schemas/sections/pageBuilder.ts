@@ -72,5 +72,9 @@ export const pageBuilder = defineType({
       name: 'PageTitle',
       type: 'PageTitle',
     }),
+    defineArrayMember({
+      name: 'DownloadsAndLinksType',
+      type: 'DownloadsAndLinksType',
+    }),
   ],
 })

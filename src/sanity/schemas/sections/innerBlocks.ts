@@ -30,5 +30,9 @@ export const innerBlocks = defineType({
       name: 'button',
       type: 'button',
     }),
+    defineArrayMember({
+      name: 'DownloadsAndLinksType',
+      type: 'DownloadsAndLinksType',
+    }),
   ],
 })

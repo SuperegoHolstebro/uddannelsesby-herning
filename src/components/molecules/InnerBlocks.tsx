@@ -3,6 +3,7 @@ import Heading from '@/components/atoms/Heading'
 import { Button } from '@/components/atoms/Button'
 import Paragraph from '@/components/atoms/Paragraph'
 import Accordion from '@/components/molecules/Accordion'
+import DownloadsAndLinks from '@/components/sections/DownloadsAndLinks'
 import { clean } from '~/utils/sanitize'
 
 const InnerBlocks = ({ blocks }) => {
@@ -26,6 +27,8 @@ const InnerBlocks = ({ blocks }) => {
             )
           case 'accordion':
             return <InnerBlocks.Accordions key={index} data={block} />
+          case 'DownloadsAndLinksType':
+            return <DownloadsAndLinks key={index} data={block} />
           default:
             return null
         }

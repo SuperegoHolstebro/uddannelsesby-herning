@@ -16,6 +16,7 @@ import { INFO_QUERY } from '../sections/InfoQuery'
 import { QUICKLINKS_QUERY } from '../sections/QuickLinksQuery'
 import { QUOTE_QUERY } from '../sections/QuoteQuery'
 import { PAGETITLE_QUERY } from '../sections/PageTitleQuery'
+import { DownloadsAndLinksQuery } from '../sections/DownloadsAndLinksQuery'
 
 export const pageBuilderQuery = groq`
   pageBuilder[] {
@@ -36,5 +37,6 @@ export const pageBuilderQuery = groq`
     ${QUICKLINKS_QUERY},
     ${QUOTE_QUERY},
     ${PAGETITLE_QUERY},
+    ${DownloadsAndLinksQuery}
   }
 `
