@@ -47,7 +47,7 @@
   "src/app/(studio)/studio/[[...index]]/page.jsx",
   "src/app/(studio)/studio/[[...tool]]/page.jsx",
   "src/app/schemas/**/*.ts"  // Add this line to include schema files
-, "src/app/components/molecules/Seo.jsx"],
+, "src/app/components/molecules/Seo.jsx", "next.config.js"],
   "exclude": [
     "node_modules"
   ]
