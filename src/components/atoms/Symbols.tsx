@@ -17,32 +17,7 @@ import React from 'react'
 **/
 
 type SymbolProps = {
-  type:
-    | 'facebook'
-    | 'slack'
-    | 'twitter'
-    | 'instagram'
-    | 'google'
-    | 'youtube'
-    | 'apple'
-    | 'snapchat'
-    | 'pinterest'
-    | 'linkedin'
-    | 'figma'
-    | 'dribble'
-    | 'reddit'
-    | 'discord'
-    | 'tiktok'
-    | 'clubhouse'
-    | 'chevronDown'
-    | 'chevronUp'
-    | 'ArrowLeft'
-    | 'ArrowRight'
-    | 'Phone'
-    | 'Envelope'
-    | 'Search'
-    | 'x'
-    | any
+  type: 'f' | 'r' | 'g' | 't' | 'd' | 'x' | any
   [key: string]: React.SVGProps<SVGSVGElement> | string
 }
 
@@ -113,12 +88,12 @@ const Symbol: React.FC<SymbolProps> = ({ type, ...props }) => {
           <path
             d="M65.0331 36.6955H1.65083V1.65083H166.762V36.6955H65.0331Z"
             stroke="#D9FC00"
-            stroke-width="3.30165"
+            strokeWidth="3.30165"
           />
           <path
             d="M66.7404 77.2209L66.7404 1.65082L102.115 1.65083L102.115 198.324L66.7404 198.324L66.7404 77.2209Z"
             stroke="#D9FC00"
-            stroke-width="3.30165"
+            strokeWidth="3.30165"
           />
         </g>
         <defs>
@@ -126,6 +101,37 @@ const Symbol: React.FC<SymbolProps> = ({ type, ...props }) => {
             <rect width="168.422" height="199.75" fill="white" />
           </clipPath>
         </defs>
+      </svg>
+    ),
+
+    d: (
+      <svg
+        {...props}
+        width="155"
+        height="201"
+        viewBox="0 0 155 201"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M53.9487 200.4H0V0H53.9582C109.3 0 154.158 44.8578 154.158 100.2C154.158 155.542 109.3 200.4 53.9582 200.4H53.9487Z"
+          fill="#D9FC00"
+        />
+      </svg>
+    ),
+
+    e: (
+      <svg
+        {...props}
+        width="128"
+        height="200"
+        viewBox="0 0 128 200"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M0 0V33.7735H127.757V0H0Z" fill="#D9FC00" />
+        <path d="M0 83.2393V117.013H127.757V83.2393H0Z" fill="#D9FC00" />
+        <path d="M0 199.6V165.827H127.757V199.6H0Z" fill="#D9FC00" />
       </svg>
     ),
   }
