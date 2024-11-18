@@ -7,6 +7,7 @@ import { client } from '~/sanity/lib/sanity.client'
 import Head from 'next/head'
 import { SITE_SETTINGS_QUERY } from '~/sanity/lib/sanity.queries'
 import { SanityLive } from '~/sanity/lib/sanity.live'
+import FaviconToggler from '@/components/FaviconToggler' // Import the new component
 
 const settings = await client.fetch(SITE_SETTINGS_QUERY)
 const headScripts = settings?.headScripts || ''
@@ -32,12 +33,13 @@ export default async function Root({
           <script dangerouslySetInnerHTML={{ __html: settings.headScripts }} />
         )}
       </Head>
+
       <body
         className={`selection:text-mørk selection:bg-signal-gul ${(await draftMode()).isEnabled ? 'debug-screens' : ''}`}
       >
+        <FaviconToggler /> {/* Use the FaviconToggler component here */}
         {children}
         <SanityLive />
-
         {(await draftMode()).isEnabled && (
           <>
             <VisualEditing />
