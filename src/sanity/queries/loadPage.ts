@@ -10,6 +10,8 @@ export type PagePayload = {
   location?: string
   price?: string
   category?: string
+  maxAttendees?: number
+  attendees?: { name: string; email: string; phone: string; school: string }[]
   isMultiDay(
     startDate: (
       startDate: any,
