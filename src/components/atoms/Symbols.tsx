@@ -17,7 +17,7 @@ import React from 'react'
 **/
 
 type SymbolProps = {
-  type: 'f' | 'r' | 'g' | 't' | 'd' | 'x' | any
+  type: 'f' | 'r' | 'g' | 't' | 'd' | any
   [key: string]: React.SVGProps<SVGSVGElement> | string
 }
 
