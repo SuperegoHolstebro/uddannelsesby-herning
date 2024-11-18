@@ -38,6 +38,10 @@ interface CarouselProps extends SwiperOptions {
   children: any
   loop?: boolean
   breakpoints?: {
+    0?: {
+      slidesPerView: number
+      spaceBetween: number
+    }
     428?: {
       slidesPerView: number
       spaceBetween: number
@@ -71,16 +75,14 @@ interface CarouselProps extends SwiperOptions {
       spaceBetween: number
     }
   }
-  initialSlide?: number // Add this prop to specify the initial active slide
 }
 
 const Carousel = ({
   spaceBetween,
-  slidesPerView,
+  slidesPerView = 1.2,
   loop,
   breakpoints,
   children,
-  initialSlide = 0, // Default to the first slide
   ...props
 }: CarouselProps) => {
   const swiperRef = useRef(null)
@@ -91,16 +93,19 @@ const Carousel = ({
         <Swiper
           {...props}
           ref={swiperRef}
-          spaceBetween={spaceBetween}
+          spaceBetween={spaceBetween || '24'}
           slidesPerView={slidesPerView}
           loop={loop || false}
+          centeredSlidesBounds={true}
           breakpoints={breakpoints}
           centeredSlides={true}
-          initialSlide={initialSlide} // Set the initial active slide
           onSwiper={(swiper) => console.log(swiper)}
+          className="!overflow-visible transition-all event-cards !overflow-x-clip"
         >
           {children.map((child, index) => (
-            <SwiperSlide key={index}>{child}</SwiperSlide>
+            <SwiperSlide className="hover:z-50" key={index}>
+              {child}
+            </SwiperSlide>
           ))}
         </Swiper>
         <CarouselNavigation swiperRef={swiperRef} />

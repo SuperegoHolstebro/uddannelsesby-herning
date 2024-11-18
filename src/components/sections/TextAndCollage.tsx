@@ -12,11 +12,11 @@ import { useRafLoop } from 'react-use'
 /**
  *
  * @returns: En sektion med tekst og illustration.
- * @example: <TextWithIllustration />
- * @alias: TextWithIllustration
- * @module: components/sections/TextWithIllustration
- * @summary: Denne komponent bruges til at vise en sektion med tekst og illustration.
- * @see: src/components/sections/TextWithIllustration.tsx
+ * @example: <TextAndCollage />
+ * @alias: TextAndCollage
+ * @module: components/sections/TextAndCollage
+ * @summary: Dette komponent bruges til at vise en sektion med tekst og en collage.
+ * @see: src/components/sections/TextAndCollage.tsx
  * @version: 1.0.0
  * @property: [data]
  * @todo: implementer bedre håndtering af innerBlocks

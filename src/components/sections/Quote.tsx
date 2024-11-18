@@ -28,37 +28,44 @@ import Symbol from '../atoms/Symbols'
 const Quote = ({ section }) => {
   return (
     <Section
+      paddingX="left"
+      className="px-0 xs:px-0 sm:px-0 md:pr-0 md:pl-[10rem] lg:pr- lg:pl-[9.5rem] xl:pl-[200px] 2xl:pl-[351px] bg-mørk text-lys relative overflow-x-clip"
       paddingTop={clean(section?.design?.padding?.spacingTop) || 'none'}
       paddingBottom={clean(section?.design?.padding?.spacingBottom) || 'none'}
-      className="bg-mørk text-lys relative"
-      paddingX="left"
     >
-      <div className="grid gap-4 grid-cols-24 col-span-full">
-        <Symbol type="t" className="col-start-1 row-start-1 row-end-1 -ml-20" />
-        {/* Image in the last 12 columns */}
-        <div className="relative col-span-12 col-start-13 row-start-1 row-end-1">
-          <Media data={section.MediaObject?.media} />
-          {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-mørk/50 to-transparent z-10"></div>
-          <div className="absolute inset-0 bg-mørk/20 z-10"></div>
-        </div>
+      <Symbol type="t" className="absolute z-10 hidden left-4 top-8 lg:block" />
+      {/* Image in the last 12 columns */}
+      <div className="relative sm:row-start-1 col-span-full sm:col-start-4 sm:-col-end-1 xl:col-start-12">
+        <Symbol
+          type="t"
+          className="absolute z-10 -right-1/4 xs:-right-20 -bottom-8 lg:hidden"
+        />
+        <Media data={section.MediaObject?.media} />
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-mørk/50 to-transparent z-10"></div>
+        <div className="absolute inset-0 bg-mørk/20 z-10"></div>
+      </div>
 
-        {/* Quote in columns 4 to 14, overlapping the image slightly */}
-        <div className="relative z-10 col-start-4 row-start-1 row-end-1 my-auto text-right bg-opacity-75 col-end-14">
-          <Heading type="h3" tag="h3" className="text-2xl font-bold">
-            {section?.quote}
+      {/* Quote in columns 4 to 14, overlapping the image slightly */}
+      <div className="z-10 px-4 md:text-right sm:row-start-1 pt-14 col-span-full xs:px-4 sm:px-13 sm:pr-0 sm:col-span-6 sm:col-start-1 xl:col-start-4 xl:col-span-10 md:pl-0 xl:pt-0 xl:my-auto">
+        <Heading type="h3" tag="h3" className="font-bold" spacing="none">
+          {section?.quote}
+        </Heading>
+        <div className="mt-12">
+          <Heading type="h4" tag="h4" className="font-semibold" spacing="none">
+            {section?.student}
           </Heading>
-          <div className="mt-4">
-            <Heading type="h4" tag="h4" className="text-lg font-semibold">
-              {section?.student}
-            </Heading>
-            <Paragraph className="text-sm">{section?.education}</Paragraph>
-          </div>
+          <Paragraph className="mt-0 text-small first-of-type:mt-0">
+            {section?.education}
+          </Paragraph>
         </div>
-
         {/* Button */}
-        <div className="col-start-4 mt-auto -col-end-1 text-left row-start-1 row-end-1 pb-12 bg-mørk/50">
-          <Button link={section?.link} variant={'secondary'}>
+        <div className="pt-16 xl:absolute xl:bottom-0 ">
+          <Button
+            link={section?.link}
+            variant={'secondary'}
+            className="relative"
+          >
             {section?.link?.label}
           </Button>
         </div>

@@ -66,11 +66,11 @@ export default function Header() {
   return (
     <>
       <header
-        className={` fixed top-0 left-0 translate-x-0 w-full md:w-[100px] h-20 md:h-full bg-mørk z-[9999999999] transition-all flex flex-col-reverse justify-between items-center ${
+        className={` fixed top-0 left-0 translate-x-0 w-full md:w-[100px] h-20 md:h-full bg-mørk z-[9999999999] transition-all flex flex-row md:flex-col-reverse justify-between items-center ${
           isScrolled ? '!bg-mørk' : ''
         }`}
       >
-        <div className="flex items-center justify-center h-[300px] w-full">
+        <div className="flex items-center justify-between md:justify-center h-auto md:h-[300px] w-full">
           {' '}
           <Link className="text-lys" href="/">
             <Logo className="w-[250px] md:rotate-90" />

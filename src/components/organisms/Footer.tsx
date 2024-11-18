@@ -81,7 +81,7 @@ export default function Footer() {
       <footer
         className={`${gridCols} ${gridGap} ${paddingX} ${paddingY} pb-6 text-mørk bg-signal-pink`}
       >
-        <div className="flex justify-between pb-12 col-span-full">
+        <div className="flex flex-col justify-between pb-12 sm:flex-row col-span-full">
           <Footer.ColumnOne data={data} />
           <Footer.ColumnTwo data={data} />
           <Footer.ColumnThree data={data} />
@@ -131,7 +131,7 @@ function ColumnTwo({ data }) {
     <div className="col-span-full sm:col-span-full md:col-span-3 lg:col-span-3 xl:col-span-6">
       <div className="">
         <Link className="text-mørk" href="/">
-          <Logo className="w-full h-auto max-w-xs" />
+          <Logo className="w-full h-auto max-w-xs mx-auto sm:mx-0" />
         </Link>
       </div>
     </div>
@@ -148,17 +148,15 @@ function ColumnThree({ data }) {
   return (
     <>
       <div className=" col-span-full sm:col-span-full md:col-span-3 lg:col-span-3 xl:col-span-6">
-        <div className="pb-4 uppercase ">
-          <Heading
-            className="text-center text-mørk md:text-right"
+        <div className="uppercase ">
+          <Paragraph
+            className="text-center text-mørk font-bold md:text-right"
             spacing="none"
-            tag="h5"
-            type="h5"
           >
             {companyName}
-          </Heading>
+          </Paragraph>
         </div>
-        <div className="space-y-2 text-center md:text-right">
+        <div className="text-center md:text-right">
           <p>{address}</p>
           <p>CVR {cvr}</p>
         </div>
@@ -173,8 +171,8 @@ function Legal({ data }) {
     <div className="space-y-6 col-span-full">
       <div className="h-px w-full hidden sm:block bg-mørk"></div>
       <div className="flex flex-col justify-center gap-1 text-center sm:text-left sm:flex-row sm:justify-between text-[14px]">
-        <div className="flex justify-start gap-12">
-          <p className="text-[14px]">{`© ${new Date().getFullYear()} ${companyName}`}</p>
+        <div className="flex flex-col justify-start gap-4 sm:gap-8 md:gap-12 sm:flex-row">
+          <p className="text-[14px]">{`© ${companyName} ${new Date().getFullYear()}`}</p>
           <p className="text-[14px]">
             <a href="/" target="_blank" rel="noreferrer">
               Cookiepolitik
