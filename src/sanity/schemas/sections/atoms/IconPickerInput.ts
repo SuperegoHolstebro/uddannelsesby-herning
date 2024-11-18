@@ -1,5 +1,5 @@
-import { defineField, defineType } from 'sanity';
-import IconPickerInput from '@/components/sanity/IconPickerInput';
+import { defineField, defineType } from 'sanity'
+import IconPickerInput from '@/components/sanity/IconPickerInput'
 
 export const IconPicker = defineType({
   title: 'Ikoner',
@@ -16,23 +16,19 @@ export const IconPicker = defineType({
       options: {
         layout: 'dropdown',
         list: [
-          { title: 'Facebook', value: 'facebook' },
-          { title: 'Instagram', value: 'instagram' },
-          { title: 'LinkedIn', value: 'linkedin' },
-          { title: 'Twitter', value: 'twitter' },
-          { title: 'Github', value: 'github' },
-          { title: 'Google', value: 'google' },
-          { title: 'Youtube', value: 'youtube' },
-          { title: 'Apple', value: 'apple' },
-          { title: 'Snapchat', value: 'snapchat' },
-          { title: 'Pinterest', value: 'pinterest' },
-          { title: 'Figma', value: 'figma' },
-          { title: 'Dribble', value: 'dribble' },
-          { title: 'Reddit', value: 'reddit' },
-          { title: 'Discord', value: 'discord' },
-          { title: 'Tiktok', value: 'tiktok' },
-          { title: 'Clubhouse', value: 'clubhouse' },
-          { title: 'Slack', value: 'slack' },
+          { title: 'Træ', value: 'tree' },
+          { title: 'Bølge', value: 'wave' },
+          { title: 'Kalender', value: 'calendar' },
+          { title: 'Ur', value: 'clock' },
+          { title: 'Vejskilt', value: 'streetSign' },
+          { title: 'Billetter', value: 'tickets' },
+          { title: 'Sport', value: 'sport' },
+          { title: 'Palette', value: 'palette' },
+          { title: 'Tavle', value: 'board' },
+          { title: 'Restaurant', value: 'restaurant' },
+          { title: 'Bar', value: 'bar' },
+          { title: 'Fitness', value: 'fitness' },
+          { title: 'Shopping', value: 'shopping' },
         ],
       },
       initialValue: 'facebook',
@@ -45,7 +41,7 @@ export const IconPicker = defineType({
     prepare(selection) {
       return {
         title: selection.icon.charAt(0).toUpperCase() + selection.icon.slice(1),
-      };
+      }
     },
   },
-});
+})
