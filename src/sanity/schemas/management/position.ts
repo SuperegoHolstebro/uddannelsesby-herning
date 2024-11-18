@@ -1,24 +1,24 @@
 export default {
-  name: "position",
-  title: "position",
-  type: "document",
+  name: 'position',
+  title: 'position',
+  type: 'document',
   fields: [
     {
-      name: "title",
-      title: "Navn",
-      description: "titel på stillingen",
-      type: "string",
+      name: 'title',
+      title: 'Navn',
+      description: 'Titel på afdelingen',
+      type: 'string',
     },
   ],
   preview: {
     select: {
-      title: "title",
+      title: 'title',
     },
-    prepare(selection: { title: any; }) {
-      const { title } = selection;
+    prepare(selection: { title: any }) {
+      const { title } = selection
       return {
         title: title,
-      };
+      }
     },
   },
-};
+}
