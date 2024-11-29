@@ -3,6 +3,7 @@ import InnerBlocks from '@/components/molecules/InnerBlocks'
 import ArticlesSection from '@/components/sections/ArticlesSection'
 import CallToActionSection2 from './sections/CallToActionSection2'
 import EventSection from '@/components/sections/EventSection'
+import EventWithFilter from '@/components/sections/EventWithFilter'
 import GallerySection from '@/components/sections/GallerySection'
 import Hero from '@/components/sections/HeroSection'
 import Media from '@/components/sections/MediaSection'
@@ -20,6 +21,7 @@ import QuickLinks from './sections/QuickLinks'
 import Quote from './sections/Quote'
 import PageTitle from './sections/PageTitle'
 import DownloadsAndLinks from './sections/DownloadsAndLinks'
+import Map from './sections/Map'
 
 const PageBuilder = ({ sections }) => {
   return (
@@ -30,6 +32,8 @@ const PageBuilder = ({ sections }) => {
             return <EmployeesSection key={index} section={section} />
           case 'CallToAction2':
             return <CallToActionSection2 key={index} section={section} />
+          case 'mapType':
+            return <Map data={section} key={index} />
           case 'hero':
             return (
               <React.Fragment key={index}>
@@ -50,18 +54,9 @@ const PageBuilder = ({ sections }) => {
           case 'PageTitle':
             return <PageTitle key={index} data={section} />
           case 'LogoGallery':
-            return (
-              <React.Fragment key={index}>
-                <LogoGallery data={section} />
-              </React.Fragment>
-            )
+            return <LogoGallery data={section} key={index} />
           case 'LogoGallery2':
-            return (
-              <React.Fragment key={index}>
-                <LogoGallery2 data={section} />
-              </React.Fragment>
-            )
-
+            return <LogoGallery2 data={section} key={index} />
           case 'DownloadsAndLinksType':
             return <DownloadsAndLinks key={index} data={section} />
 
@@ -87,17 +82,11 @@ const PageBuilder = ({ sections }) => {
                 key={index}
               />
             )
+          case 'EventWithFilterType':
+            return <EventWithFilter section={section} key={index} />
+
           case 'textContainer':
-            return (
-              <React.Fragment key={index}>
-                <TextContainer
-                  section={section}
-                  variant={section?.design?.color?.color}
-                >
-                  <InnerBlocks blocks={section.innerBlocks} />
-                </TextContainer>
-              </React.Fragment>
-            )
+            return <TextContainer key={index} data={section} />
           case 'MediaType':
             return <Media key={index} data={section} index={undefined} />
 

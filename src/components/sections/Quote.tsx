@@ -47,7 +47,7 @@ const Quote = ({ section }) => {
       </div>
 
       {/* Quote in columns 4 to 14, overlapping the image slightly */}
-      <div className="z-10 px-4 md:text-right sm:row-start-1 pt-14 col-span-full xs:px-4 sm:px-13 sm:pr-0 sm:col-span-6 sm:col-start-1 xl:col-start-4 xl:col-span-10 md:pl-0 xl:pt-0 xl:my-auto">
+      <div className="z-10 px-4 pt-8 md:text-right sm:row-start-1 md:pt-14 col-span-full xs:px-4 sm:px-13 sm:pr-0 sm:col-span-6 sm:col-start-1 xl:col-start-4 xl:col-span-10 md:pl-0 xl:pt-0 xl:my-auto">
         <Heading type="h3" tag="h3" className="font-bold" spacing="none">
           {section?.quote}
         </Heading>
@@ -60,7 +60,7 @@ const Quote = ({ section }) => {
           </Paragraph>
         </div>
         {/* Button */}
-        <div className="pt-16 xl:absolute xl:bottom-0 ">
+        <div className="pt-8 pb-16 md:pt-16 xl:pb-8 xl:absolute xl:bottom-0 ">
           <Button
             link={section?.link}
             variant={'secondary'}

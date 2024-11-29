@@ -9,13 +9,20 @@ interface EventSignUpRequestBody {
   telefon: string
   skole: string
   event: string
+  numberOfTickets: number
 }
 
 // POST handler
 export async function POST(req: NextRequest) {
   try {
-    const { navn, email, telefon, skole, event }: EventSignUpRequestBody =
-      await req.json()
+    const {
+      navn,
+      email,
+      telefon,
+      skole,
+      event,
+      numberOfTickets,
+    }: EventSignUpRequestBody = await req.json()
 
     console.log('Event ID being fetched:', event)
 
@@ -42,6 +49,7 @@ export async function POST(req: NextRequest) {
       email: email, // Email of the attendee
       phone: telefon, // Phone number of the attendee
       school: skole, // School of the attendee
+      numberOfTickets: numberOfTickets, // Number of tickets booked by the attendee
     }
 
     // Add the new attendee to the event's attendees array

@@ -91,6 +91,11 @@ module.exports = {
         display: ['var(--display)'],
         outfit: ['var(--font-outfit)'],
       },
+
+      listStyleImage: {
+        star: "url('/icons/Vector.png')",
+      },
+
       colors: {
         mørk: '#262723',
         grå: '#C7C9C2',

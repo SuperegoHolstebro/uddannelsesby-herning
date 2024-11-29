@@ -2,6 +2,7 @@ import { cva } from 'class-variance-authority'
 import * as React from 'react'
 import { SectionProps } from '@/types/SectionProps'
 import { cn } from '@/utils/utils'
+import { clean } from '~/utils/sanitize'
 
 /**
  * @returns: En sektion.
@@ -34,7 +35,7 @@ const sectionVariants = cva('grid', {
     },
     paddingX: {
       default:
-        'px-4 xs:px-4 sm:px-13 md:pr-24 md:pl-[10rem] lg:pr-19 lg:pl-[9.5rem] xl:pl-[200px] 2xl:pl-[351px]',
+        'px-4 xs:px-4 sm:px-13 md:pr-24 md:pl-[10rem] lg:pr-19 lg:pl-[9.5rem] xl:pl-[200px]',
       none: '',
       right: 'pr-4 xs:pr-4 sm:pr-13 md:pr-24 lg:pr-19 xl:pr-36 2xl:pr-52',
       left: 'pl-4 xs:pl-4 sm:pl-13 md:pl-24 lg:pl-19 xl:pl-36 2xl:pl-52',
@@ -75,15 +76,24 @@ export default function Section({
   return (
     <>
       <SectionComponent
+        id={data?.SectionSettings?.anchor?.current || undefined}
         {...props}
         className={cn(
           sectionVariants({
-            variant,
+            variant: variant ?? clean(data?.design?.color?.color),
             columns,
             gap,
             paddingX,
-            paddingBottom,
-            paddingTop,
+            paddingBottom:
+              paddingBottom ??
+              (data?.design?.padding
+                ? clean(data?.design?.padding.spacingBottom)
+                : 'default'),
+            paddingTop:
+              paddingTop ??
+              (data?.design?.padding
+                ? clean(data?.design?.padding.spacingTop)
+                : 'default'),
             className,
           }),
         )}

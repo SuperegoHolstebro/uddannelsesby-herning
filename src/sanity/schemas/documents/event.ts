@@ -115,10 +115,12 @@ export default defineType({
       group: 'details',
       options: {
         list: [
-          { title: 'Koncert', value: 'koncert' },
-          { title: 'Workshop', value: 'workshop' },
-          { title: 'Seminar', value: 'seminar' },
-          { title: 'Festival', value: 'festival' },
+          { title: 'Oplevelser', value: 'oplevelser' },
+          { title: 'Vandaktivitet', value: 'vandaktivitet' },
+          { title: 'Sport', value: 'sport' },
+          { title: 'Håndværk', value: 'håndværk' },
+          { title: 'Foredrag og viden', value: 'foredrag-og-viden' },
+          { title: 'I naturen', value: 'i-naturen' },
         ],
       },
     }),
@@ -168,8 +170,32 @@ export default defineType({
               title: 'Telefon',
               type: 'string',
             }),
-            defineField({ name: 'school', title: 'School', type: 'string' }),
+            defineField({
+              name: 'school',
+              title: 'School',
+              type: 'string',
+            }),
+            defineField({
+              name: 'numberOfTickets',
+              title: 'Antal billetter',
+              type: 'number',
+              validation: (Rule) => Rule.min(1).required(),
+            }),
           ],
+          // Add a preview for the attendee object
+          preview: {
+            select: {
+              name: 'name',
+              tickets: 'numberOfTickets',
+            },
+            prepare(selection) {
+              const { name, tickets } = selection
+              return {
+                title: name,
+                subtitle: `Billetter: ${tickets || 0}`,
+              }
+            },
+          },
         }),
       ],
     }),
@@ -205,18 +231,29 @@ export default defineType({
       title: 'title',
       startDate: 'startDate',
       attendeeCount: 'attendees',
-      maxAttendees: 'maxAttendees', // Select maxAttendees for comparison
+      maxAttendees: 'maxAttendees',
     },
     prepare(selection) {
       const { title, attendeeCount, maxAttendees } = selection
-      const numAttendees = attendeeCount ? attendeeCount.length : 0
-      const isEventFull = maxAttendees ? numAttendees >= maxAttendees : false
+
+      // Calculate the total tickets booked
+      const totalTicketsBooked = attendeeCount
+        ? attendeeCount.reduce(
+            (sum, attendee) => sum + (attendee.numberOfTickets || 0),
+            0,
+          )
+        : 0
+
+      const ticketsAvailable = maxAttendees
+        ? maxAttendees - totalTicketsBooked
+        : '∞'
+      const isEventFull = maxAttendees
+        ? totalTicketsBooked >= maxAttendees
+        : false
 
       return {
         title: title,
-        subtitle: `${numAttendees} deltagere ${
-          isEventFull ? '(Ikke flere pladser)' : ''
-        }`,
+        subtitle: `${totalTicketsBooked} billetter booket${isEventFull ? ' (Ikke flere pladser)' : ` (${ticketsAvailable} tilbage)`}`,
       }
     },
   },

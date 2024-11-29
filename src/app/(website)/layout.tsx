@@ -39,7 +39,7 @@ export default async function Root({
       >
         <FaviconToggler /> {/* Use the FaviconToggler component here */}
         {children}
-        <SanityLive />
+        <SanityLive refreshOnFocus={false} />
         {(await draftMode()).isEnabled && (
           <>
             <VisualEditing />

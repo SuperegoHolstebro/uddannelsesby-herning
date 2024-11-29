@@ -1,7 +1,6 @@
 'use client'
 import React, { useEffect, useRef, useState } from 'react'
 import useWindow from './useWindow'
-import Image from 'next/image'
 
 export default function Scene() {
   const { dimension } = useWindow()
@@ -31,7 +30,6 @@ export default function Scene() {
     ctx.fillStyle = '#262723'
     ctx.fillRect(0, 0, dimension.width, dimension.height)
     ctx.globalCompositeOperation = 'destination-out'
-
     // Save that the animation has been shown
     localStorage.setItem('hasAnimated', 'true')
   }

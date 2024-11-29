@@ -30,7 +30,7 @@ export const TextAndCollage = defineType({
       type: 'SectionSettings',
     },
   ],
-  preview: {
+  /*   preview: {
     select: {
       images: 'images',
       image: 'images.0',
@@ -43,6 +43,21 @@ export const TextAndCollage = defineType({
         title: `Tekst og billede`,
         subtitle: `Tekst med ${Object.keys(images).length} billeder`,
         media: image,
+      }
+    },
+  },
+})
+ */
+  preview: {
+    select: {
+      title: 'innerBlocks.0.heading.heading',
+      image: 'images.0',
+      images: 'images',
+    },
+    prepare({ title, images }) {
+      return {
+        title: title,
+        subtitle: `Tekst og billede med ${Object.keys(images).length} billeder`,
       }
     },
   },

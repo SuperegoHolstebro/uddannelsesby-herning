@@ -32,7 +32,7 @@ const EventSection = ({ section, amount }) => {
         paddingBottom={
           clean(section?.design?.padding?.spacingBottom) || 'default'
         }
-        className={`relative overflow-hidden 
+        className={`relative 
         ${clean(section?.design?.color?.color) === 'mørk' ? 'text-lys' : ''}`}
       >
         {clean(section?.design?.color?.color) === 'lys' ? (
@@ -70,11 +70,11 @@ const EventSection = ({ section, amount }) => {
               spaceBetween: 24,
             },
             1440: {
-              slidesPerView: 3.9,
+              slidesPerView: 4.9,
               spaceBetween: 24,
             },
             1920: {
-              slidesPerView: 3.9,
+              slidesPerView: 4.9,
               spaceBetween: 24,
             },
             2500: {
@@ -85,8 +85,8 @@ const EventSection = ({ section, amount }) => {
         >
           <EventSection.All section={section} />
         </Carousel>
-        <EventSection.Manual section={section} />
         <EventSection.Newest section={section} />
+        <EventSection.Manual section={section} />
       </Section>
     </>
   )

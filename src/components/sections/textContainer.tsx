@@ -1,38 +1,52 @@
 import React from 'react'
 import Section from '@/components/sections/Section'
 import { TextContainerProps } from '@/types/TextContainerProps'
-import { clean } from '@/utils/sanitize'
+import InnerBlocks from '../molecules/InnerBlocks'
 /**
  *
  * @returns: En tekstcontainer.
- * @example: <TextContainer />
+ * @example: <TextContainer data={data} /> || <TextContainer data={data} asChild>Children</TextContainer>
  * @alias: TextContainer
- * @module: components/sektions/TextContainer
  * @summary: Denne komponent bruges til at vise en tekstcontainer.
- * @see: src/components/sections/TextContainer.tsx
- * @version: 1.0.0
- * @property: [variant, children]
- * @todo: Tilføj en anden bedre måde at groq items på og tilføj en bedre måde at vise dem på.
- 
+ * @version: 2.0.0
+ * @property: [data, children, asChild]
  * @author: Kasper Buchholtz
  *
-**/
+ **/
 
 const TextContainer: React.FC<TextContainerProps> = ({
-  variant,
+  data,
+  asChild = false,
   children,
-  section,
+  paddingX,
+  paddingTop,
+  paddingBottom,
 }) => {
+  function placement(data) {
+    switch (data?.placement) {
+      case 'left':
+        return 'col-start-1 -col-end-1 sm:col-start-2 sm:-col-end-2 lg:col-start-1 lg:-col-end-6 xl:col-start-1 xl:-col-end-14 2xl:col-start-1 2xl:-col-end-14'
+      case 'center':
+        return 'col-start-1 -col-end-1 sm:col-start-2 sm:-col-end-2 lg:col-start-3 lg:-col-end-3 xl:col-start-6 xl:-col-end-6 2xl:col-start-6 2xl:-col-end-6'
+      case 'right':
+        return 'col-start-1 -col-end-1 sm:col-start-2 sm:-col-end-2 lg:col-start-6 lg:-col-end-1 xl:col-start-12 xl:-col-end-1 2xl:col-start-12 2xl:-col-end-1'
+      default:
+        return 'col-start-1 -col-end-1 sm:col-start-2 sm:-col-end-2 lg:col-start-3 lg:-col-end-3 xl:col-start-7 xl:-col-end-7 2xl:col-start-7 2xl:-col-end-7'
+    }
+  }
   return (
     <Section
-      variant={variant}
-      paddingTop={clean(section?.design?.padding?.spacingTop) || 'default'}
-      paddingBottom={
-        clean(section?.design?.padding?.spacingBottom) || 'default'
-      }
+      data={data}
+      paddingX={paddingX}
+      paddingTop={paddingTop}
+      paddingBottom={paddingBottom}
     >
-      <div className="col-start-1 -col-end-1 sm:col-start-2 sm:-col-end-2 lg:col-start-3 lg:-col-end-3 xl:col-start-6 xl:-col-end-6 2xl:col-start-6 2xl:-col-end-6">
-        {children}
+      <div className={placement(data)}>
+        {asChild ? (
+          <div>{children}</div>
+        ) : (
+          <InnerBlocks index={12} blocks={data?.innerBlocks} />
+        )}
       </div>
     </Section>
   )

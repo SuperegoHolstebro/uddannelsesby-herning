@@ -85,7 +85,7 @@ function MenuItem({ item }) {
             {item.link.label}
             <Icon
               type={'chevronUp'}
-              className={`size-6 transition-all transform fill-mørk ${isSubmenuOpen ? 'rotate-180' : 'rotate-0'}`}
+              className={`size-6 transition-all transform fill-mørk ${isSubmenuOpen ? 'rotate-0' : 'rotate-180'}`}
             />
           </AdvancedButton>
           <AnimatePresence>
@@ -106,6 +106,7 @@ function MenuItem({ item }) {
         </>
       ) : (
         <Button
+          showSvg={false}
           className="relative block w-full h-auto px-0 py-0 pb-2 text-left "
           variant="none"
           link={item.link}
@@ -121,6 +122,7 @@ function SubMenuItem({ item }) {
   return (
     <li className="h-auto border-b last-of-type:border-b-0 border-mørk last-of-type:mb-6">
       <Button
+        showSvg={false}
         className="relative block w-full px-0 py-0 pb-2 text-left "
         variant="none"
         link={item}

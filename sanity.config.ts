@@ -109,11 +109,6 @@ export default defineConfig({
           layout: { width: 'full' }, // You can adjust the layout width ('small', 'medium', 'full')
         },
         {
-          name: 'BannerWidget',
-          component: BannerWidget,
-          layout: { width: 'full' }, // You can adjust the layout width ('small', 'medium', 'full')
-        },
-        {
           name: 'links',
           component: LinksWidget,
           layout: { width: 'auto', height: 'large' },

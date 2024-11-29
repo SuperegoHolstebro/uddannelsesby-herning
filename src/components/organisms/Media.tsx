@@ -85,7 +85,7 @@ const Media = ({ data, popup }: MediaProps) => {
     setIsPopupOpen(!isPopupOpen) // Toggle the value of isPopupOpen
   }
   return (
-    <div className="relative w-full h-full max-w-full max-h-full">
+    <div className="relative w-full h-full max-w-full max-h-full ">
       {image ? (
         <>
           <Media.MediaImage image={image} />
@@ -97,7 +97,7 @@ const Media = ({ data, popup }: MediaProps) => {
           <figure>
             <PlayPause />
             <Image
-              className="absolute inset-0 object-cover w-full h-full"
+              className="absolute inset-0 object-cover w-full h-full "
               src={thumbnail?.asset.url}
               alt={thumbnail?.asset.altText}
               width={thumbnail?.asset.metadata?.dimensions.width || 800}

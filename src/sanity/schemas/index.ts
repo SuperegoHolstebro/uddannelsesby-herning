@@ -44,6 +44,7 @@ import { CallToAction2 } from '@/sanity/schemas/sections/CallToAction2'
 import { contactFormType } from '@/sanity/schemas/sections/contactForm'
 import { EmployeesType } from '@/sanity/schemas/sections/EmployeesType'
 import { EventType } from '@/sanity/schemas/sections/EventsType'
+import { EventWithFilterType } from './sections/EventWithFilterType'
 import { formType } from '@/sanity/schemas/sections/formType'
 import { Gallery } from '@/sanity/schemas/sections/GalleryType'
 import { LogoGallery } from '@/sanity/schemas/sections/LogoGalleryType'
@@ -77,6 +78,8 @@ import { QuickLinks } from './sections/QuickLinks.schema'
 import { Quote } from './sections/quote'
 import { PageTitle } from './sections/PageTitle'
 import { DownloadsAndLinksType } from './sections/DownloadsAndLinksType'
+import { mapType } from './sections/mapType'
+import school from './documents/school'
 
 export const schemaTypes = [
   heroType,
@@ -90,11 +93,13 @@ export const schemaTypes = [
   companiesType,
   contactFormType,
   EventType,
+  EventWithFilterType,
   ArticlesType,
   Gallery,
   LogoGallery,
   LogoGallery2,
   MediaType,
+  mapType,
   CallToAction2,
   IconPicker,
   SymbolPicker,
@@ -127,6 +132,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     // Pages
     reusable,
     page,
+    school,
     event,
     article,
     TextAndCollage,
@@ -141,6 +147,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     navigation,
     position,
     heroType,
+    mapType,
     employee,
     category,
     // Objects
@@ -159,6 +166,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     EmployeesType,
     contactFormType,
     EventType,
+    EventWithFilterType,
     MediaType,
     ReusableSectionType,
     info,

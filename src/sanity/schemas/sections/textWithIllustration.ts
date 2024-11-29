@@ -52,15 +52,14 @@ export const textWithIllustration = defineType({
   ],
   preview: {
     select: {
-      title: 'title.heading',
+      title: 'innerBlocks.0.heading.heading',
       tagline: 'tagline',
       type: 'type',
       media: 'image',
     },
     prepare({ title, tagline, media }) {
       return {
-        title: 'Tekst og medie',
-        type: 'Tekst og medie',
+        title: title,
         subtitle: 'Tekst og medie',
         media,
       }

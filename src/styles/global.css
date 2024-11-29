@@ -1,4 +1,3 @@
-/* Path: src/styles/tailwind.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -26,137 +25,160 @@
 }
 
 @font-face {
-  font-family: "Arflex";
-  src: url("/font/Arflex.otf");
+  font-family: 'Arflex';
+  src: url('/font/Arflex.otf');
 }
-
 
 @layer utilities {
   .se-grid {
     @apply grid grid-cols-4 gap-4 px-4 xs:grid-cols-4 xs:gap-4 xs:px-4 sm:grid-cols-8 sm:gap-4 sm:px-13 md:grid-cols-12 md:gap-6 md:px-24 lg:grid-cols-12 lg:gap-6 lg:px-19 xl:grid-cols-24 xl:gap-6 xl:px-36 2xl:grid-cols-24 2xl:gap-6 2xl:px-52;
   }
-  a, button{
-    @apply focus-visible:outline-none  focus-visible:ring-2 focus-visible:ring-green focus-visible:ring-offset-2
+  a,
+  button {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green focus-visible:ring-offset-2;
   }
   .event-cards:has(.event-card-item:hover) .event-card-item:not(:hover) {
     @apply filter blur-sm;
   }
 }
 
-[data-border="true"] {
+[data-border='true'] {
   box-shadow: none !important;
 }
 
-[data-ui="PreviewCard"] [data-ui="Box"] span img {
+[data-ui='PreviewCard'] [data-ui='Box'] span img {
   border-radius: 3px;
 }
 
-
-[data-ui="fieldHeaderContentBox"] label span, legend span {
-  font-size: large ;
+[data-ui='fieldHeaderContentBox'] label span,
+legend span {
+  font-size: large;
 }
 
-[data-testid="document-panel-document-title"] {
+[data-testid='document-panel-document-title'] {
   font-weight: 300 !important;
-  
 }
-[data-testid="field-groups"] {
-  background-color: #EFF1F2 !important;
+[data-testid='field-groups'] {
+  background-color: #eff1f2 !important;
   padding-bottom: 0% !important;
 }
 
-[data-testid="document-panel-scroller"]  {
-  background-color: #EFF1F2;
+[data-testid='document-panel-scroller'] {
+  background-color: #eff1f2;
 }
 
-[data-ui="Tab"] {
-  background-color: #FCFCFC;
+[data-ui='Tab'] {
+  background-color: #fcfcfc;
 }
 
-
-[data-ui="Tab"][data-selected] span {
-  background-color: #242B31;
-  color: #FCFCFC;
+[data-ui='Tab'][data-selected] span {
+  background-color: #242b31;
+  color: #fcfcfc;
 }
 
-[data-ui="Stack"]>[data-ui="Flex"]>[data-ui="Button"] {
-  background-color: #9DA2A5;
+[data-ui='Stack'] > [data-ui='Flex'] > [data-ui='Button'] {
+  background-color: #9da2a5;
 }
 
-[data-ui="Stack"]>[data-ui="Flex"]>[data-ui="Button"] span {
-  color: #FCFCFC;
+[data-ui='Stack'] > [data-ui='Flex'] > [data-ui='Button'] span {
+  color: #fcfcfc;
 }
 
-[data-ui="Stack"]>[data-ui="Flex"]>[data-ui="Button"]:hover {
-  background-color: #242B31;
+[data-ui='Stack'] > [data-ui='Flex'] > [data-ui='Button']:hover {
+  background-color: #242b31;
 }
 
-[data-testid="action-Publicér"] {
-  background-color: #3BE086 !important;
-  color: #242B31 !important;
+[data-testid='action-Publicér'] {
+  background-color: #3be086 !important;
+  color: #242b31 !important;
 }
 
-[data-testid="action-Publicér"] span {
-  color: #242B31 !important;
+[data-testid='action-Publicér'] span {
+  color: #242b31 !important;
 }
-[data-testid="action-Publicér"] span span svg {
-  color: #242B31 !important;
+[data-testid='action-Publicér'] span span svg {
+  color: #242b31 !important;
 }
-[data-as="form"]>[data-as="div"]>[data-ui="Text"]{
+[data-as='form'] > [data-as='div'] > [data-ui='Text'] {
   display: none;
 }
 
-[data-ui="Navbar"] {
-  background-color: #242B31 !important;
+[data-ui='Navbar'] {
+  background-color: #242b31 !important;
 }
-[data-ui="Navbar"]>[data-ui="Button"] {
-  background-color: #242B31 !important;
+[data-ui='Navbar'] > [data-ui='Button'] {
+  background-color: #242b31 !important;
 }
 
-[data-ui="Navbar"]>[data-ui="Grid"]>[data-ui="Flex"] a {
-  background-color: #242B31;
+[data-ui='Navbar'] > [data-ui='Grid'] > [data-ui='Flex'] a {
+  background-color: #242b31;
   box-shadow: none;
 }
 
-[data-ui="Navbar"]>[data-ui="Grid"]>[data-ui="Flex"] a[data-selected] {
-  background-color: #3BE086;
+[data-ui='Navbar'] > [data-ui='Grid'] > [data-ui='Flex'] a[data-selected] {
+  background-color: #3be086;
 }
 
-[data-ui="Navbar"]>[data-ui="Grid"]>[data-ui="Flex"] a span {
-  color: #FCFCFC;
+[data-ui='Navbar'] > [data-ui='Grid'] > [data-ui='Flex'] a span {
+  color: #fcfcfc;
 }
 
-[data-ui="Navbar"]>[data-ui="Grid"]>[data-ui="Flex"] a[data-selected] span, [data-ui="Navbar"]>[data-ui="Grid"]>[data-ui="Flex"] a[data-selected] span svg {
-  color: #242B31 !important;
+[data-ui='Navbar'] > [data-ui='Grid'] > [data-ui='Flex'] a[data-selected] span,
+[data-ui='Navbar']
+  > [data-ui='Grid']
+  > [data-ui='Flex']
+  a[data-selected]
+  span
+  svg {
+  color: #242b31 !important;
 }
 
-
-
-[data-ui="Navbar"]>[data-ui="Grid"]>[data-ui="Flex"] button{
-  background-color: #242B31;
+[data-ui='Navbar'] > [data-ui='Grid'] > [data-ui='Flex'] button {
+  background-color: #242b31;
   box-shadow: none;
-  color: #FCFCFC;
-
+  color: #fcfcfc;
 }
 
-[data-ui="Navbar"]>[data-ui="Grid"]>[data-ui="Flex"] button [data-ui="Box"]>[data-ui="Flex"]>[data-ui="Text"],
-[data-ui="Navbar"]>[data-ui="Grid"]>[data-ui="Flex"] button [data-ui="Box"]>[data-ui="Flex"]>[data-ui="Text"] svg  {
-  color: #FCFCFC;
+[data-ui='Navbar']
+  > [data-ui='Grid']
+  > [data-ui='Flex']
+  button
+  [data-ui='Box']
+  > [data-ui='Flex']
+  > [data-ui='Text'],
+[data-ui='Navbar']
+  > [data-ui='Grid']
+  > [data-ui='Flex']
+  button
+  [data-ui='Box']
+  > [data-ui='Flex']
+  > [data-ui='Text']
+  svg {
+  color: #fcfcfc;
 }
 
-[data-ui="Navbar"] > [data-ui="Grid"] > [data-ui="Flex"] button[id="menu-button-resources"] {
+[data-ui='Navbar']
+  > [data-ui='Grid']
+  > [data-ui='Flex']
+  button[id='menu-button-resources'] {
   display: none;
 }
 
-button[data-ui="Button"]>[data-ui="Box"]>[data-ui="Flex"]>[data-ui="Text"],
-button[data-ui="Button"]>[data-ui="Box"]>[data-ui="Flex"]>[data-ui="Text"] span svg[data-sanity-icon="add"] {
-    color: white !important;
+button[data-ui='Button']
+  > [data-ui='Box']
+  > [data-ui='Flex']
+  > [data-ui='Text'],
+button[data-ui='Button']
+  > [data-ui='Box']
+  > [data-ui='Flex']
+  > [data-ui='Text']
+  span
+  svg[data-sanity-icon='add'] {
+  color: white !important;
 }
 
-
-
-
-html.lenis, html.lenis body {
+html.lenis,
+html.lenis body {
   height: auto;
 }
 
@@ -178,6 +200,14 @@ html.lenis, html.lenis body {
 
 @font-face {
   font-family: 'SuperSans';
-  src: url('/backend/fonts/SuperWorkSans-Regular.otf'), url('/backend/fonts/SuperWorkSans-Regular.woff2'),
-    url('/backend/fonts/SuperWorkSans-Regular.woff'), url('/backend/fonts/SuperWorkSans-Regular.ttf');
+  src: url('/backend/fonts/SuperWorkSans-Regular.otf'),
+    url('/backend/fonts/SuperWorkSans-Regular.woff2'),
+    url('/backend/fonts/SuperWorkSans-Regular.woff'),
+    url('/backend/fonts/SuperWorkSans-Regular.ttf');
+}
+
+.map path:focus,
+.map polygon:focus {
+  outline: 2px solid blue;
+  outline-offset: 2px;
 }

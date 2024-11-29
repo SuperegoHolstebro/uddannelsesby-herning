@@ -13,6 +13,10 @@ export const pageBuilder = defineType({
   },
   of: [
     defineArrayMember({
+      name: 'mapType',
+      type: 'mapType',
+    }),
+    defineArrayMember({
       name: 'companiesType',
       type: 'companiesType',
     }),
@@ -43,6 +47,10 @@ export const pageBuilder = defineType({
     defineArrayMember({
       name: 'EventType',
       type: 'EventType',
+    }),
+    defineArrayMember({
+      name: 'EventWithFilterType',
+      type: 'EventWithFilterType',
     }),
     defineArrayMember({
       name: 'MediaType',

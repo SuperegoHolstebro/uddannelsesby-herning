@@ -1,12 +1,5 @@
-'use client'
 import React from 'react'
-import Heading from '@/components/atoms/Heading'
-import Paragraph from '@/components/atoms/Paragraph'
-import Media from '@/components/organisms/Media'
 import Section from '@/components/sections/Section'
-import Modal from '../molecules/Modal'
-import { useState } from 'react'
-import { AnimatePresence } from 'framer-motion'
 import Scene from '~/components/Scene'
 import Text from '~/components/Text'
 
@@ -28,27 +21,18 @@ interface HeroProps {
   data?: any
 }
 
-const before =
-  'before:bg-gradient-to-b before:from-mørk/0 before:to-mørk/60 before:absolute before:inset-0 before:z-10 '
 const Hero: React.FC<HeroProps> = ({ data, ...props }) => {
-  const [isOpen, setIsOpen] = useState(false)
-
-  const OpenModal = () => {
-    setIsOpen(!isOpen)
-  }
   return (
-    <>
-      <Section
-        paddingBottom={'none'}
-        paddingTop={'none'}
-        paddingX={'none'}
-        variant="lys"
-        className="flex items-center justify-center w-full h-screen"
-      >
-        <Scene />
-        <Text textContent={data.text} videoSrc={data.media} />
-      </Section>
-    </>
+    <Section
+      paddingBottom={'none'}
+      paddingTop={'none'}
+      paddingX={'none'}
+      variant="lys"
+      className="flex items-center justify-center w-full h-screen"
+    >
+      <Scene />
+      <Text textContent={data.text} videoSrc={data.media} />
+    </Section>
   )
 }
 

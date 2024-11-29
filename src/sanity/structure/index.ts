@@ -7,6 +7,7 @@ import settings from './settings.structure'
 import companies from './company.structure'
 import companyLogins from './companyLogin.structure'
 import fields from './field.structure'
+import school from './school.structure'
 
 export const structure: StructureResolver = (S, context) =>
   S.list()
@@ -15,6 +16,7 @@ export const structure: StructureResolver = (S, context) =>
       pages(S, context),
       events(S, context),
       articles(S, context),
+      school(S, context),
       employees(S, context),
       S.divider(),
       companies(S, context),

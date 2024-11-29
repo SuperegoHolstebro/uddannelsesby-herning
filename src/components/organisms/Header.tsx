@@ -66,7 +66,7 @@ export default function Header() {
   return (
     <>
       <header
-        className={` fixed top-0 left-0 translate-x-0 w-full md:w-[100px] h-20 md:h-full bg-mørk z-[9999999999] transition-all flex flex-row md:flex-col-reverse justify-between items-center ${
+        className={`px-4 xs:px-4 sm:px-13 md:px-0 fixed top-0 left-0 translate-x-0 w-full md:w-[100px] h-20 md:h-full bg-mørk z-[9999999999] transition-all flex flex-row md:flex-col-reverse justify-between items-center ${
           isScrolled ? '!bg-mørk' : ''
         }`}
       >
@@ -81,7 +81,7 @@ export default function Header() {
           aria-controls="menu"
           aria-label="Menu"
           onClick={() => setIsOpen(!isOpen)}
-          className="relative z-[999999999] mt-4 size-11.5 group  "
+          className="relative z-[999999999] md:mt-4 size-11.5 group"
         >
           <div className="relative w-full h-auto translate-y-1/2">
             <span
