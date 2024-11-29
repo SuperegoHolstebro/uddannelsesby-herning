@@ -8,6 +8,7 @@ import { clean } from '~/utils/sanitize'
 import Image from 'next/image'
 import Icon from '../atoms/Icons'
 import { useRafLoop } from 'react-use'
+import { FadeUp } from '../interactions/AnimateFadeIn'
 
 /**
  *
@@ -37,15 +38,24 @@ const TextAndCollage = ({ data, popup, flip = false }: TextAndCollageProps) => {
         className="overflow-hidden"
         variant={data?.design?.color?.color}
       >
-        <div
-          className={`${marginTwo} relative h-screen/2 md:h-screen/1.6 block col-start-1 -col-end-1 md:-col-start-1 md:col-end-7 xl:-col-start-1 xl:-col-end-13 2xl:-col-start-1 2xl:-col-end-13 ${flip ? 'md:flex-row-reverse' : ''}`}
+        <div /* h-screen/2 md:h-screen/1.6 */
+          className={`${marginTwo} md:h-screen/1.6 relative col-start-1 -col-end-1 md:-col-start-1 md:col-end-7 xl:-col-start-1 xl:-col-end-13 2xl:-col-start-1 2xl:-col-end-13 ${flip ? 'md:flex-row-reverse' : ''}`}
         >
-          {data?.images?.map((image, index) => (
-            <Portrait key={index} data={image.image} index={index} />
-          ))}
+          {/* hidden md:block */}
+          <div className="hidden md:block">
+            {data?.images?.map((image, index) => (
+              <Portrait key={index} data={image.image} index={index} />
+            ))}
+          </div>
+          {/* gird grid-cols-3 md:hidden */}
+          <div className="grid h-auto grid-cols-4 md:hidden">
+            {data?.images?.map((image, index) => (
+              <Portraitmd key={index} data={image.image} index={index} />
+            ))}
+          </div>
         </div>
         <div className="justify-center col-start-1 -col-end-1 md:col-start-1 md:row-start-1 md:flex md:flex-col md:col-end-6 lg:col-start-1 xl:col-end-12">
-          <InnerBlocks blocks={data.innerBlocks} />
+          <InnerBlocks blocks={data.innerBlocks} index={0} />
         </div>
       </Section>
     </>
@@ -63,40 +73,42 @@ function Portrait({ data, index }) {
         : 'translate-x-[50%]'
 
   return (
-    <motion.div
-      variants={{
-        hidden: {
-          opacity: 0,
-          y: 15,
-          filter: index === 0 || index === 1 ? 'blur(0px)' : 'blur(0px)',
-        },
-        visible: {
-          opacity: 1,
-          y: 0,
-          filter: index === 0 || index === 1 ? 'blur(8px)' : 'blur(0px)',
-        },
-      }}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      transition={{ type: 'spring', duration: 1, delay: 0.5 * index }}
-    >
-      <div
-        className={`absolute w-full flex justify-center h-full transform aspect-w-4 aspect-h-3 max-w-96 right-1/2 ${translateX}`}
+    <>
+      <motion.div
+        variants={{
+          hidden: {
+            opacity: 0,
+            y: 15,
+            filter: index === 0 || index === 1 ? 'blur(0px)' : 'blur(0px)',
+          },
+          visible: {
+            opacity: 1,
+            y: 0,
+            filter: index === 0 || index === 1 ? 'blur(8px)' : 'blur(0px)',
+          },
+        }}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        transition={{ type: 'spring', duration: 1, delay: 0.5 * index }}
       >
-        <>
+        <div
+          className={`absolute w-full flex justify-center h-full transform aspect-w-3 aspect-h-2 max-w-96 right-1/2 ${translateX}`}
+        >
           {index === 2 && (
-            <motion.div
-              className="absolute mt-auto -bottom-20 -left-20 h-52 w-52"
-              animate={{ rotate: 360 }} // Full rotation
-              transition={{
-                repeat: Infinity,
-                ease: 'linear',
-                duration: 20, // Duration for one full rotation; adjust as needed
-              }}
-            >
-              <Icon type="stjerne" className="w-full h-full" />
-            </motion.div>
+            <FadeUp delay={1.5}>
+              <motion.div
+                className="absolute mt-auto -bottom-20 -left-20 h-52 w-52"
+                animate={{ rotate: 360 }} // Full rotation
+                transition={{
+                  repeat: Infinity,
+                  ease: 'linear',
+                  duration: 20, // Duration for one full rotation; adjust as needed
+                }}
+              >
+                <Icon type="stjerne" className="w-full h-full" />
+              </motion.div>
+            </FadeUp>
           )}
           <Image
             src={data?.asset.url}
@@ -105,7 +117,36 @@ function Portrait({ data, index }) {
             height={500}
             className="object-cover"
           />
-        </>
+        </div>
+      </motion.div>
+    </>
+  )
+}
+
+function Portraitmd({ data, index }) {
+  return (
+    <motion.div className="last:col-span-full last:row-start-1 first:col-span-1 even:col-span-3 even:h-screen/5 first:h-screen/5 last:h-screen/2.5">
+      <div className={`w-full flex justify-center h-full`}>
+        {index === 2 && (
+          <motion.div
+            className="absolute mt-auto transform translate-x-1/2 -top-20 -right-20 h-52 w-52"
+            animate={{ rotate: 360 }} // Full rotation
+            transition={{
+              repeat: Infinity,
+              ease: 'linear',
+              duration: 20, // Duration for one full rotation; adjust as needed
+            }}
+          >
+            <Icon type="stjerne" className="w-full h-full" />
+          </motion.div>
+        )}
+        <Image
+          src={data?.asset.url}
+          alt={data?.alt}
+          width={500}
+          height={500}
+          className="object-cover w-full"
+        />
       </div>
     </motion.div>
   )
