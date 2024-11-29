@@ -37,11 +37,14 @@ export default async function DynamicRoute({
   if (!page) {
     notFound()
   }
-
-  // Calculate remaining tickets
+  // Calculate remaining tickets based on the number of tickets booked
   const maxAttendees = page.maxAttendees || 0
-  const bookedAttendees = page.attendees?.length || 0
-  const ticketsLeft = maxAttendees - bookedAttendees
+  const bookedTickets =
+    page.attendees?.reduce(
+      (sum, attendee) => sum + (attendee.numberOfTickets || 0),
+      0,
+    ) || 0
+  const ticketsLeft = maxAttendees - bookedTickets
 
   return (
     <PageContainer>
@@ -146,10 +149,6 @@ export default async function DynamicRoute({
 
       {/* Include the EventSignUpForm component */}
       <Section variant="primary" className="col-span-full">
-        <Heading spacing="small" className="col-span-full">
-          Tilmelding
-        </Heading>
-
         <EventSignUpForm event={page} />
       </Section>
 
