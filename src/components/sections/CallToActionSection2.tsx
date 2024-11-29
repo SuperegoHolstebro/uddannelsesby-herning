@@ -52,7 +52,7 @@ const CallToActionSection2 = ({ section }) => {
       </div>
     </Section> */
 
-    <Section
+    /* <Section
       variant={'mørk'}
       id={clean(section?.SectionSettings?.anchor?.current)}
       paddingTop="none"
@@ -61,16 +61,17 @@ const CallToActionSection2 = ({ section }) => {
       paddingX="none"
     >
       <div className="relative overflow-hidden col-span-full md:col-span-6 xl:col-span-12 max-h-screen/1.6">
-        {/* Image */}
         <div className="">
           <div className="transition-all duration-300 ease-in-out group-hover:scale-110">
             <Media data={section.MediaObject?.media} />
           </div>
-          {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent to-mørk z-10"></div>
         </div>
       </div>
-      <Symbol type="e" className="absolute z-50 -bottom-12 left-64" />
+      <Symbol
+        type="e"
+        className="absolute z-50 h-20 md:h-40 md:-bottom-12 md:left-64 left-8 bottom-6"
+      />
 
       <div className="mt-auto mb-20 space-y-24 text-right col-span-full md:col-span-6 xl:col-span-12">
         <FadeUp delay={0.3}>
@@ -79,7 +80,40 @@ const CallToActionSection2 = ({ section }) => {
           </Heading>
         </FadeUp>
         <FadeUp delay={0.5}>
-          <Button link={section?.link} variant={'secondary'}>
+          <Button link={section?.link} variant={'secondary'} direction="left">
+            {section?.link?.label}
+          </Button>
+        </FadeUp>
+      </div>
+    </Section> */
+    <Section
+      variant={'mørk'}
+      id={clean(section?.SectionSettings?.anchor?.current)}
+      paddingTop="none"
+      paddingBottom="none"
+      className="relative pb-10 pr-0 xs:pr-0 group sm:pr-13 md:pr-24 lg:pr-19 xl:pr-36 2xl:pr-52 sm:pb-0"
+      paddingX="right"
+    >
+      <div className="relative overflow-hidden col-span-full sm:col-span-4 md:col-span-7 xl:col-span-12 ">
+        <div className="transition-all duration-300 ease-in-out group-hover:scale-110">
+          <Media data={section.MediaObject?.media} />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent to-mørk z-10"></div>
+      </div>
+
+      <Symbol
+        type="e"
+        className="absolute z-50 h-20 md:h-40 md:-bottom-12 md:left-64 left-8 bottom-6"
+      />
+
+      <div className="px-4 pt-16 pb-16 my-auto space-y-12 md:text-right xs:px-4 sm:px-13 md:px-0 col-span-full sm:col-span-4 md:col-span-5 xl:col-span-12 sm:pt-20 md:pt-24 lg:pt-32 xl:pt-40 2xl:pt-48 sm:pb-20 md:pb-24 lg:pb-32 xl:pb-40 2xl:pb-48">
+        <FadeUp delay={0.3}>
+          <Heading text="balance" spacing="none" type="h2" tag="h2">
+            {section.heading}
+          </Heading>
+        </FadeUp>
+        <FadeUp delay={0.5}>
+          <Button link={section?.link} variant={'secondary'} direction="left">
             {section?.link?.label}
           </Button>
         </FadeUp>
