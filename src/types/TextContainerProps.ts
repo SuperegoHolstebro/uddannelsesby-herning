@@ -1,5 +1,9 @@
 export interface TextContainerProps {
-    children: React.ReactNode;
-    variant?: "default" | "secondary";
-    [key: string]: any;
+  data?: Record<string, unknown>
+  asChild?: boolean
+  paddingX?: 'default' | 'none' | 'right' | 'left'
+  paddingTop?: 'default' | 'none' | any
+  paddingBottom?: 'default' | 'none' | any
+  children?: React.ReactNode
+  [key: string]: any
 }

@@ -63,6 +63,9 @@ export type PagePayload = {
   }
   description?: string
   date?: string
+  schoolInfo?: any
+  educationInfo?: any
+  mainImage?: any
 }
 
 const DEFAULT_PARAMS = {} as QueryParams
