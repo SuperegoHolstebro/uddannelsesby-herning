@@ -173,4 +173,8 @@ const MapArrayInput = React.forwardRef(
     )
   },
 )
+
+// Add displayName to the component
+MapArrayInput.displayName = 'MapArrayInput'
+
 export default MapArrayInput
