@@ -26,7 +26,7 @@ const advancedButtonVariants = cva(
   {
     variants: {
       variant: {
-        default: 'bg-signal-pink px-4 py-2 text-mørk hover:bg-green/90', // @deprecated
+        default: 'pr-4 py-2 text-mørk font-bold hover:', // @deprecated
         primary: 'pr-4 py-2 text-mørk font-bold hover:',
         secondary: 'pr-4 py-2 text-signal-gul font-bold hover:',
         none: '',
