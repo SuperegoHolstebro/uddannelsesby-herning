@@ -19,12 +19,13 @@ export const DownloadAttendeesAction = (props) => {
 
     // Create CSV content from the attendees array
     const csvContent = [
-      ['Navn', 'Email', 'Telefon', 'Skole'], // CSV headers
+      ['Navn', 'Email', 'Telefon', 'Skole', 'Antal Billetter'], // CSV headers
       ...event.attendees.map((attendee) => [
-        attendee.name,
-        attendee.email,
-        attendee.phone,
-        attendee.school,
+        attendee.name || 'N/A',
+        attendee.email || 'N/A',
+        attendee.phone || 'N/A',
+        attendee.school || 'N/A',
+        attendee.numberOfTickets || 0, // Include the number of tickets
       ]),
     ]
       .map((row) => row.join(';')) // Use semicolon (;) as the delimiter
