@@ -152,14 +152,22 @@ const MapArrayInput = React.forwardRef(
                 placeholder="Title"
                 value={placement.title}
                 onChange={(e) =>
-                  handleFieldChange(index, 'title', e.target.value)
+                  handleFieldChange(
+                    index,
+                    'title',
+                    (e.target as HTMLInputElement).value,
+                  )
                 }
               />
               <TextInput
                 placeholder="Category"
                 value={placement.category}
                 onChange={(e) =>
-                  handleFieldChange(index, 'category', e.target.value)
+                  handleFieldChange(
+                    index,
+                    'category',
+                    (e.target as HTMLInputElement).value,
+                  )
                 }
               />
               <IconPickerInput
