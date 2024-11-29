@@ -41,7 +41,16 @@ export default async function DynamicRoute({
   const maxAttendees = page.maxAttendees || 0
   const bookedTickets =
     page.attendees?.reduce(
-      (sum, attendee) => sum + (attendee.numberOfTickets || 0),
+      (
+        sum,
+        attendee: {
+          name: string
+          email: string
+          phone: string
+          school: string
+          numberOfTickets: number
+        },
+      ) => sum + (attendee.numberOfTickets || 0),
       0,
     ) || 0
   const ticketsLeft = maxAttendees - bookedTickets
