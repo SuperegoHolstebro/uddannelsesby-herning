@@ -49,6 +49,27 @@ export const EVENT_QUERY = groq`
   description[]{
     ...,
   }
+  
+}
+`
+
+export const SCHOOLPAGE_QUERY = groq`
+*[_type == "school" && slug.current == $slug][0] {
+  ...,
+  _type,
+  ${SEO_QUERY},
+  mainImage{
+    ${ImageQuery}
+  },
+  schoolInfo {
+    ...,
+    description[]{
+    ...,
+  }
+  },
+  description[]{
+    ...,
+  }
 }
 `
 
