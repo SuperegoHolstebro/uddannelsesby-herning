@@ -34,21 +34,19 @@ function InfoBlock({ data }) {
 
   return (
     <motion.div
-      className=" col-span-full md:col-span-4 xl:col-span-8"
+      className="col-span-full md:col-span-4 xl:col-span-8 prose-headings:text-center md:prose-headings:text-left"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <motion.div>
-        <Heading
-          tag="h2"
-          type="h2"
-          spacing="none"
-          className="pb-2 lg:pb-4 xl:pb-6"
-        >
-          <motion.span>{roundedCount}</motion.span>
-        </Heading>
-      </motion.div>
+      <Heading
+        tag="h2"
+        type="h2"
+        spacing="none"
+        className="pb-1 lg:pb-2 xl:pb-3"
+      >
+        <motion.span>{roundedCount}</motion.span>
+      </Heading>
       <Heading tag="h5" type="h5" spacing="none" className="font-extralight">
         {data.title}
       </Heading>
