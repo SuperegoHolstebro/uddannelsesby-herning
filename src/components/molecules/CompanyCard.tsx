@@ -4,6 +4,7 @@ import React from 'react'
 import Heading from '@/components/atoms/Heading'
 import { urlFor } from '~/sanity/lib/sanity.image'
 import { resolveHref } from '~/sanity/lib/sanity.links'
+import { clean } from '~/utils/sanitize'
 
 /**
  *
@@ -19,10 +20,10 @@ import { resolveHref } from '~/sanity/lib/sanity.links'
 
 const CompanyCard = ({ company }) => {
   return (
-    <div className="relative col-span-2 sm:col-span-4 xl:col-span-8 group ">
+    <div className="relative col-span-full sm:col-span-4 xl:col-span-8 group ">
       <Link
-        href={resolveHref(company._type, company.slug)}
-        title={company.name}
+        href={clean(resolveHref(company._type, company.slug))}
+        title={clean(company.name)}
       >
         <CompanyCardPortrait data={company} />
         <CompanyCardInfo data={company} />
@@ -63,8 +64,6 @@ function CompanyCardInfo({ data }) {
           {data.name}
         </Heading>
       )}
-      {data.phone && <div>tlf: {data.phone}</div>}
-      {data.email && <div>email: {data.email}</div>}
     </div>
   )
 }

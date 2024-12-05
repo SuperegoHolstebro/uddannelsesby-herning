@@ -4,10 +4,9 @@ import events from '@/sanity/structure/event.structure'
 import articles from './article.structure'
 import employees from './employee.structure'
 import settings from './settings.structure'
-import companies from './company.structure'
-import companyLogins from './companyLogin.structure'
 import fields from './field.structure'
 import school from './school.structure'
+import companyInfo from './companyInfo.structure'
 
 export const structure: StructureResolver = (S, context) =>
   S.list()
@@ -19,8 +18,7 @@ export const structure: StructureResolver = (S, context) =>
       school(S, context),
       employees(S, context),
       S.divider(),
-      companies(S, context),
-      companyLogins(S, context),
+      companyInfo(S, context),
       fields(S, context),
       S.divider(),
       settings(S, context),
