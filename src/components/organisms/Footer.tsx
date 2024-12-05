@@ -99,7 +99,7 @@ Footer.Legal = Legal
 function ColumnOne({ data }) {
   const social = data?.social
   return (
-    <div className=" col-span-full sm:col-span-full md:col-span-3 lg:col-span-3 xl:col-span-6">
+    <div className="order-2 md:order-1">
       <div className="texcol-span-full sm:col-span-full md:col-span-3 lg:col-span-3 xl:col-span-6t-center md:pb-4 md:text-left">
         <Paragraph className="text-mørk" spacing="none">
           {' '}
@@ -111,7 +111,7 @@ function ColumnOne({ data }) {
           (item: { platform: string; url: string }, index: number) => (
             <li key={index}>
               <Link
-                className="fill-mørk *:size-6 hover:fill-signal-gul transition-colors"
+                className="fill-mørk *:size-6 hover:fill-signal-gul transition-colors w-full block"
                 href={item.url}
                 target="_blank"
                 rel="noreferrer"
@@ -128,9 +128,9 @@ function ColumnOne({ data }) {
 
 function ColumnTwo({ data }) {
   return (
-    <div className="col-span-full sm:col-span-full md:col-span-3 lg:col-span-3 xl:col-span-6">
+    <div className="order-1 md:order-2">
       <div className="">
-        <Link className="text-mørk" href="/">
+        <Link className="text-mørk w-full block" href="/">
           <Logo className="w-full h-auto max-w-xs mx-auto sm:mx-0" />
         </Link>
       </div>
@@ -147,7 +147,7 @@ function ColumnThree({ data }) {
   const companyName = data?.object?.companyName
   return (
     <>
-      <div className=" col-span-full sm:col-span-full md:col-span-3 lg:col-span-3 xl:col-span-6">
+      <div className="order-3 ">
         <div className="uppercase ">
           <Paragraph
             className="text-center text-mørk font-bold md:text-right"
@@ -174,19 +174,25 @@ function Legal({ data }) {
         <div className="flex flex-col justify-start gap-4 sm:gap-8 md:gap-12 sm:flex-row">
           <p className="text-[14px]">{`© ${companyName} ${new Date().getFullYear()}`}</p>
           <p className="text-[14px]">
-            <a href="/" target="_blank" rel="noreferrer">
+            <Link href="/" target="_blank" rel="noreferrer">
               Cookiepolitik
-            </a>
+            </Link>
           </p>
           <p className="text-[14px]">
-            <a href="/" target="_blank" rel="noreferrer">
+            <Link href="/" target="_blank" rel="noreferrer">
               Tilgængelighedserklæring
-            </a>
+            </Link>
           </p>
           <p className="text-[14px]">
-            <a href="/signin" target="" rel="noreferrer">
+            <Link
+              className="group"
+              href="/signin"
+              target=""
+              rel="noreferrer"
+              title="Virksomhedslogin"
+            >
               Virksomhedslogin
-            </a>
+            </Link>
           </p>
         </div>
         <p className="relative transition-all text-[14px] group">

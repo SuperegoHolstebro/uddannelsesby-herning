@@ -66,14 +66,13 @@ export default function Header() {
   return (
     <>
       <header
-        className={`px-4 xs:px-4 sm:px-13 md:px-0 fixed top-0 left-0 translate-x-0 w-full md:w-[100px] h-20 md:h-full bg-mørk z-[9999999999] transition-all flex flex-row md:flex-col-reverse justify-between items-center ${
+        className={`px-4 xs:px-4 sm:px-13 md:px-0 fixed top-0 left-0 translate-x-0 w-full md:w-[100px] h-auto md:h-full bg-mørk z-[9999999999] transition-all flex flex-row md:flex-col-reverse justify-between items-center ${
           isScrolled ? '!bg-mørk' : ''
         }`}
       >
         <div className="flex items-center justify-between md:justify-center h-auto md:h-[300px] w-full">
-          {' '}
-          <Link className="text-lys" href="/">
-            <Logo className="w-[250px] md:rotate-90" />
+          <Link className="text-lys md:rotate-90" href="/">
+            <Logo className="w-40 md:w-[250px] group" />
           </Link>
         </div>
 
@@ -83,20 +82,18 @@ export default function Header() {
           onClick={() => setIsOpen(!isOpen)}
           className="relative z-[999999999] md:mt-4 size-11.5 group"
         >
-          <div className="relative w-full h-auto translate-y-1/2">
-            <span
-              className={`block absolute transition-all h-2.5 w-10 bg-signal-gul group-hover:bg-signal-gul transform duration-500 ease-in-out ${isOpen ? 'rotate-45 ' : '-translate-y-5  group-hover:translate-y-0'}`}
-              aria-hidden="true"
-            ></span>
-            <span
-              className={`block absolute transition-all h-2.5 w-10 bg-signal-gul group-hover:bg-signal-gul transform duration-500 ease-in-out ${isOpen ? 'opacity-0 ' : ''}`}
-              aria-hidden="true"
-            ></span>
-            <span
-              className={`block absolute transition-all h-2.5 w-10 bg-signal-gul group-hover:bg-signal-gul transform duration-500 ease-in-out ${isOpen ? '-rotate-45 ' : 'translate-y-5 group-hover:translate-y-0'}`}
-              aria-hidden="true"
-            ></span>
-          </div>
+          <span
+            className={`block absolute transition-all h-2.5 w-10 bg-signal-gul group-hover:bg-signal-gul transform duration-500 ease-in-out ${isOpen ? 'rotate-0 !bg-signal-pink ' : '-translate-y-5  group-hover:translate-y-0'}`}
+            aria-hidden="true"
+          ></span>
+          <span
+            className={`block absolute transition-all h-2.5 w-10 bg-signal-gul group-hover:bg-signal-gul transform duration-500 ease-in-out ${isOpen ? 'opacity-0  ' : ''}`}
+            aria-hidden="true"
+          ></span>
+          <span
+            className={`block absolute transition-all h-2.5 w-10 bg-signal-gul group-hover:bg-signal-gul transform duration-500 ease-in-out ${isOpen ? '-rotate-0 !bg-signal-pink' : 'translate-y-5 group-hover:translate-y-0'}`}
+            aria-hidden="true"
+          ></span>
         </button>
       </header>
       <AnimatePresence mode="wait">
