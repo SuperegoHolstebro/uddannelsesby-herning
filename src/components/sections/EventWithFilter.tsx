@@ -27,7 +27,9 @@ const EventWithFilter = ({ section }) => {
 
   return (
     <Section>
-      {/* Title */}
+      {/* Filter */}
+      <div className="col-span-full"></div>
+      {/* cards */}
       <div className="col-span-full">
         <Section tag={'ul'} paddingX="none">
           {clean(section.view) === 'all' && (

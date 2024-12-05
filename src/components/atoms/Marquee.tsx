@@ -51,7 +51,7 @@ const MarqueeItem = (props) => {
 
   return (
     <motion.div
-      className="inline-block pr-4 space-x-16 select-none item whitespace-nowrap"
+      className="inline-block pr-4 space-x-8 select-none md:space-x-16 item whitespace-nowrap"
       ref={itemRef}
     >
       {children}

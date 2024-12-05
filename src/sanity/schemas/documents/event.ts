@@ -5,6 +5,7 @@ export default defineType({
   name: 'event',
   title: 'Begivenhed',
   type: 'document',
+  liveEdit: true,
   icon: CalendarUp,
   groups: [
     { name: 'content', title: 'Indhold' },
@@ -89,6 +90,13 @@ export default defineType({
           if (!context.document.isMultiDay || !endDate) return true
           return endDate >= startDate || 'Slutdato skal være efter startdatoen'
         }),
+      // initialValue = 2 days from startdate
+      initialValue: () => {
+        const startDate = new Date().toISOString()
+        const endDate = new Date(startDate)
+        endDate.setDate(endDate.getDate() + 2)
+        return endDate.toISOString()
+      },
     }),
 
     // New fields for price, category, and location
@@ -124,15 +132,6 @@ export default defineType({
         ],
       },
     }),
-
-    defineField({
-      group: 'seo',
-      title: 'SEO',
-      description: 'SEO indstillinger',
-      name: 'seoGroup',
-      type: 'seoGroup',
-    }),
-
     // New fields for sign-ups and external event handling
     defineField({
       name: 'maxAttendees',
@@ -224,6 +223,13 @@ export default defineType({
       description: 'Link til ekstern begivenhed eller betalingsside',
       group: 'registration',
       hidden: ({ document }) => !document?.isExternal, // Hide field if the event is not external
+    }),
+    defineField({
+      group: 'seo',
+      title: 'SEO',
+      description: 'SEO indstillinger',
+      name: 'seoGroup',
+      type: 'seoGroup',
     }),
   ],
   preview: {

@@ -234,7 +234,7 @@ function EventSignUpForm({ event }) {
                 </label>
               </div>
               <div>
-                <label htmlFor="school" className="grid text-small">
+                <label htmlFor="school" className="relative grid text-small">
                   <select
                     value={formData.skole}
                     onChange={(e) =>

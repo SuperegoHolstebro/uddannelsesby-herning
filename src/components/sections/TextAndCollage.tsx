@@ -145,7 +145,7 @@ function Portraitmd({ data, index }) {
           alt={data?.alt}
           width={500}
           height={500}
-          className="object-cover w-full"
+          className="object-cover w-full h-full"
         />
       </div>
     </motion.div>

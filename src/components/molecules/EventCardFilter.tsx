@@ -4,6 +4,8 @@ import React from 'react'
 import Heading from '@/components/atoms/Heading'
 import { urlFor } from '~/sanity/lib/sanity.image'
 import { resolveHref } from '~/sanity/lib/sanity.links'
+import { formatNumberDate } from '~/utils/date'
+import { formatPrice } from '~/utils/price'
 
 /**
  *
@@ -18,9 +20,30 @@ import { resolveHref } from '~/sanity/lib/sanity.links'
  **/
 
 const EventCardFilter = ({ event }) => {
+  const maxAttendees = event.maxAttendees || 0
+  const bookedTickets =
+    event.attendees?.reduce(
+      (
+        sum,
+        attendee: {
+          name: string
+          email: string
+          phone: string
+          school: string
+          numberOfTickets: number
+        },
+      ) => sum + (attendee.numberOfTickets || 0),
+      0,
+    ) || 0
+  const ticketsLeft = maxAttendees - bookedTickets
+
   return (
-    <div className="relative col-span-2 sm:col-span-4 xl:col-span-8 group ">
-      <Link href={resolveHref(event._type, event.slug)} title={event.name}>
+    <div className="relative col-span-full sm:col-span-4 xl:col-span-8 group ">
+      <Link
+        className={`block w-full  ${event.isFull === true ? 'opacity-50' : ''}`}
+        href={resolveHref(event._type, event.slug)}
+        title={event.name}
+      >
         <EventCardFilterPortrait data={event} />
         <EventCardFilterInfo data={event} />
       </Link>
@@ -31,7 +54,7 @@ export default EventCardFilter
 
 function EventCardFilterPortrait({ data }) {
   return (
-    <div className="relative object-cover w-full overflow-hidden ">
+    <div className="relative object-cover w-full overflow-hidden">
       {data.image && (
         <div className="aspect-w-4 aspect-h-3">
           <Image
@@ -49,19 +72,40 @@ function EventCardFilterPortrait({ data }) {
           />
         </div>
       )}
+      {/* maxAttendees match the attendeeCount */}
+      {data.isFull == true && (
+        <div className="absolute inset-0 size-full">
+          <span className="absolute p-2 leading-none translate-x-1/2 -translate-y-1/2 rounded-full whitespace-nowrap top-1/2 right-1/2 bg-signal-gul">
+            IKKE FLERE BILLETTER
+          </span>
+        </div>
+      )}
+      {data?.date.startDate && (
+        <span className="absolute p-2 leading-none rounded-full bg-signal-pink left-3 top-3">
+          <time>{formatNumberDate(data.date.startDate)}</time>
+        </span>
+      )}
+      {data?.price && (
+        <span className="absolute p-2 leading-none rounded-full bg-signal-pink right-3 top-3">
+          {formatPrice(data.price)}
+        </span>
+      )}
     </div>
   )
 }
 function EventCardFilterInfo({ data }) {
   return (
-    <div className="mt-4">
-      {data.name && (
+    <div className="mt-4 space-y-5">
+      {data.title && (
         <Heading spacing="none" type="h5" tag="h5">
-          {data.name}
+          {data.title}
         </Heading>
       )}
-      {data.phone && <div>tlf: {data.phone}</div>}
-      {data.email && <div>email: {data.email}</div>}
+      {data.category && (
+        <span className="p-2 block w-fit  pt-1 rounded-full bg-mørk text-lys">
+          {data.category}
+        </span>
+      )}
     </div>
   )
 }

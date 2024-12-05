@@ -1,5 +1,5 @@
 'use client'
-import { default as NextLink } from 'next/link'
+import Link, { default as NextLink } from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { client } from '@/sanity/lib/sanity.client'
 import { Button } from '../atoms/Button'
@@ -7,7 +7,8 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { AdvancedButton } from '../atoms/AdvancedButton'
 import Icon from '../atoms/Icons'
 import { stegaClean } from '@sanity/client/stega'
-import { NAVIGATION_QUERY } from '~/sanity/lib/sanity.queries'
+import { FOOTER_QUERY, NAVIGATION_QUERY } from '~/sanity/lib/sanity.queries'
+import Heading from '../atoms/Heading'
 
 /**
  *
@@ -36,99 +37,196 @@ export default function Navigation({ onClose }) {
     }, [])
     return data
   }
-  const data = useNavigationData()
+  const useFooterData = () => {
+    const [footer, setFooter] = useState(null)
+    useEffect(() => {
+      const fetchData = async () => {
+        let result = await client.fetch(FOOTER_QUERY)
+        result = await stegaClean(result)
+        setFooter(result)
+      }
+      fetchData()
+    }, [])
+    return footer
+  }
 
+  const data = useNavigationData()
+  const getFooter = useFooterData()
+  const footer = getFooter
   return (
     <>
       <motion.nav
         data-lenis-prevent="true"
         initial={{ x: '-100%' }}
-        transition={{ stiffness: 100 }}
+        transition={{ stiffness: 100, ease: 'easeInOut', duration: 0.3 }}
         animate={{ x: 0 }}
-        exit={{ x: '-100%', opacity: 0 }}
-        className="fixed z-[999] top-0 left-[100px] w-screen h-screen sm:w-[50vw] md:w-[50vw] lg:w-[33vw] overflow-auto bg-lys"
+        exit={{ x: '-100%' }}
+        className="fixed z-[999] md:pl-[100px] top-0 left-0 w-full h-full overflow-auto bg-mørk flex flex-col justify-between"
       >
-        <ul className="h-full px-6 pb-6 space-y-6 overflow-auto md:px-24 lg:px-19 xl:px-16 sm:px-13 pt-44 sm:pt-32 md:pt-28 lg:pt-28">
+        <motion.ul
+          initial={{ opacity: 0 }}
+          transition={{
+            stiffness: 100,
+            ease: 'easeInOut',
+            duration: 0.3,
+            delay: 0.3,
+          }}
+          animate={{ opacity: 1 }}
+          className="px-6 pt-20 pb-6 pl-8 my-auto space-y-6 overflow-auto md:h-fit navigation-items md:pl-16 xl:pl-20 md:px-24 lg:px-19 xl:px-16 sm:px-13 sm:pt-32 md:pt-0 lg:pt-28 text-lys"
+        >
           {data?.links?.map((item, index) => (
-            <MenuItem key={index} item={item} />
+            <MenuItem index={index} key={index} item={item} />
           ))}
-        </ul>
+        </motion.ul>
+        <div className="px-6 overflow-auto h-fit navigation-items md:pl-16 xl:pl-20 md:px-24 lg:px-19 xl:px-16 sm:px-13 text-lys ">
+          <div className="flex justify-between py-5 border-t border-lys">
+            <Heading tag="h6" type="h6" spacing="none" className="!font-bold">
+              <Link
+                className="group"
+                href="/signin"
+                target=""
+                rel="noreferrer"
+                title="Virksomhedslogin"
+              >
+                Virksomhedslogin
+              </Link>
+            </Heading>
+            <ul className="flex flex-wrap justify-center max-w-64 md:mx-0 gap-x-4 gap-y-2 md:justify-start">
+              {footer?.social?.map(
+                (item: { platform: string; url: string }, index: number) => (
+                  <li key={index}>
+                    <Link
+                      className="fill-lys text-lys *:size-6 hover:fill-signal-gul transition-colors w-full block"
+                      href={item.url}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <Icon className="" type={item.platform} />
+                    </Link>
+                  </li>
+                ),
+              )}
+            </ul>
+          </div>
+        </div>
       </motion.nav>
-      <motion.button
-        title="Luk menu"
-        className="fixed z-[998] top-0 right-0 w-screen h-screen bg-mørk/50 backdrop-blur-sm"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.5, stiffness: 100 }}
-        onClick={onClose}
-      />
     </>
   )
 }
 
-function MenuItem({ item }) {
+function MenuItem({ item, index }) {
   const [isSubmenuOpen, setIsSubmenuOpen] = useState(false)
+  const [showSvgOnClick, setShowSvgOnClick] = useState(false)
 
   const toggleSubmenu = () => {
     setIsSubmenuOpen(!isSubmenuOpen)
   }
+  const clicked = () => {
+    setShowSvgOnClick(!showSvgOnClick)
+  }
+
+  const doBoth = () => {
+    clicked()
+    toggleSubmenu()
+  }
+
   return (
-    <li className={`h-auto border-b border-mørk text-medium `}>
+    <li
+      className={`h-auto transition overflow-hidden text-huge navigation-item md:hover:pl-0 hover:pl-4  ${isSubmenuOpen ? 'pl-4 md:pl-0' : ''}`}
+    >
       {item?.subLinks?.length > 0 ? (
         <>
           <AdvancedButton
-            onClick={toggleSubmenu}
-            className="relative flex items-start justify-between w-full px-0 py-0 pb-2 text-left "
+            onClick={doBoth}
+            className="relative flex items-start justify-between w-full px-0 py-0 pb-2 text-left group "
             variant="none"
           >
-            {item.link.label}
-            <Icon
-              type={'chevronUp'}
-              className={`size-6 transition-all transform fill-mørk ${isSubmenuOpen ? 'rotate-0' : 'rotate-180'}`}
-            />
+            <span
+              className={`relative flex gap-4 font-bold hover:text-signal-gul ${isSubmenuOpen ? 'text-signal-gul' : ''}`}
+            >
+              <AnimatePresence mode="wait">
+                {showSvgOnClick && (
+                  <span className="absolute size-6 md:size-8 -left-[5%] md:-translate-x-full -translate-x-1/2 translate-y-1/2">
+                    <motion.span
+                      transition={{ stiffness: 100, duration: 0.5 }}
+                      exit={{ scale: 0, opacity: 0 }}
+                      initial={{ scale: 0, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                    >
+                      <motion.svg
+                        className="size-full"
+                        animate={{ rotate: 360 }}
+                        transition={{
+                          duration: 2.5,
+                          repeat: Infinity,
+                          repeatType: 'loop',
+                          ease: 'linear',
+                        }}
+                        width="64"
+                        height="64"
+                        viewBox="0 0 64 64"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M48.7538 38.9389L54.6271 54.6271L38.9389 48.7538L32 64L25.0611 48.7538L9.37294 54.6271L15.2462 38.9389L0 32L15.2462 25.0611L9.37294 9.37295L25.0611 15.2462L32 0L38.9389 15.2462L54.6271 9.37295L48.7538 25.0611L64 32L48.7538 38.9389Z"
+                          fill="#D9FC00"
+                        />
+                      </motion.svg>
+                    </motion.span>
+                  </span>
+                )}
+              </AnimatePresence>
+              <span dangerouslySetInnerHTML={{ __html: item.link.label }} />
+            </span>
           </AdvancedButton>
-          <AnimatePresence>
+          <AnimatePresence mode="wait" presenceAffectsLayout>
             {isSubmenuOpen && (
-              <motion.ul
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 10 }}
-                transition={{ duration: 0.2 }}
-                className="flex flex-col gap-4"
-              >
+              <ul className="flex flex-row flex-wrap gap-0 gap-x-4 md:gap-4 text-medium">
                 {item.subLinks.map((subItem, index) => (
-                  <SubMenuItem key={index} item={subItem} />
+                  <SubMenuItem index={index} key={index} item={subItem} />
                 ))}
-              </motion.ul>
+              </ul>
             )}
           </AnimatePresence>
         </>
       ) : (
         <Button
           showSvg={false}
-          className="relative block w-full h-auto px-0 py-0 pb-2 text-left "
+          className="relative block w-full h-auto px-0 py-0 pb-2 text-left hover:text-signal-gul"
           variant="none"
           link={item.link}
         >
-          {item.link.label}
+          <span
+            className="font-bold hover:text-signal-gul"
+            dangerouslySetInnerHTML={{ __html: item.link.label }}
+          />
         </Button>
       )}
     </li>
   )
 }
 
-function SubMenuItem({ item }) {
+function SubMenuItem({ item, index }) {
   return (
-    <li className="h-auto border-b last-of-type:border-b-0 border-mørk last-of-type:mb-6">
+    <motion.li
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.1 }}
+      exit={{ opacity: 0, y: -20 }}
+      className="h-auto"
+    >
       <Button
         showSvg={false}
-        className="relative block w-full px-0 py-0 pb-2 text-left "
+        className="relative block w-full px-0 py-0 pb-2 text-left"
         variant="none"
         link={item}
       >
-        {item.label}
+        <span
+          className="font-light hover:text-signal-gul *:overflow-visible"
+          dangerouslySetInnerHTML={{ __html: item.label }}
+        />
       </Button>
-    </li>
+    </motion.li>
   )
 }

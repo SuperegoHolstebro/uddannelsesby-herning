@@ -160,7 +160,7 @@ const myPortableTextComponents = {
   },
   listItem: {
     bullet: ({ children }) => (
-      <li className="py-2 list-disc list-outside custom-li marker:text-red-500 marker:size-7 list-image-star">
+      <li className="list-disc list-outside custom-li list-image-star">
         {children}
       </li>
     ),

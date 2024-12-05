@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect, useRef, useState } from 'react'
-import useWindow from './useWindow'
+import useWindow from '../hooks/useWindow'
 
 export default function Scene() {
   const { dimension } = useWindow()
@@ -73,7 +73,7 @@ export default function Scene() {
   }
 
   return (
-    <div className="relative w-full h-full z-[5]">
+    <div className="relative w-full h-screen z-[5]">
       {dimension.width == 0 && (
         <div className="absolute w-full h-full bg-mørk" />
       )}

@@ -2,14 +2,25 @@ import groq from 'groq'
 import { ImageQuery } from '../atoms/ImageQuery'
 
 const EventCardQuery = groq`
-  title, 
+  title,
   "slug": slug.current,
-  date,
+  "date": {
+    startDate,
+    isMultiDay,
+    endDate
+  },
+  _type,
+  maxAttendees,
+  isFull,
+  location,
+  price,
+  category,
+  isExternal,
   image {
     ${ImageQuery},
   },
-  _type,
-  description
+  "attendeeCount": count(attendees),
+  "totalTickets": count(attendees[].numberOfTickets[]),
 `
 const Manual = groq`
   view == "manual" => events[]->{

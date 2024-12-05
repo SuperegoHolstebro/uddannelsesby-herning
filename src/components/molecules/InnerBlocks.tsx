@@ -3,6 +3,7 @@ import Heading from '@/components/atoms/Heading'
 import { Button } from '@/components/atoms/Button'
 import Paragraph from '@/components/atoms/Paragraph'
 import Accordion from '@/components/molecules/Accordion'
+import DownloadsAndLinks from '../sections/DownloadsAndLinks'
 
 interface InnerBlocks_Type {
   blocks: any
@@ -26,6 +27,8 @@ const InnerBlocks = ({ blocks, index }: InnerBlocks_Type) => {
             )
           case 'accordion':
             return <InnerBlocks.AccordionGroup key={index} data={block} />
+          case 'DownloadsAndLinksType':
+            return <DownloadsAndLinks key={index} data={block} />
           default:
             return null
         }
@@ -43,7 +46,7 @@ InnerBlocks.Paragraphs = Paragraphs
 /* compound components */
 function Title({ data }) {
   return (
-    <Heading size={data.heading.tag} type={data.heading.tag}>
+    <Heading size={data.heading.tag} type={data.heading.tag} spacing="small">
       {data.heading.heading}
     </Heading>
   )
@@ -66,5 +69,9 @@ function AccordionGroup({ data }) {
 }
 
 function Paragraphs({ data }) {
-  return <Paragraph portableText>{data.body}</Paragraph>
+  return (
+    <Paragraph spacing="small" portableText>
+      {data.body}
+    </Paragraph>
+  )
 }

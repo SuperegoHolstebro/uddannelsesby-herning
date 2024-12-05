@@ -1,4 +1,3 @@
-import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/utils/utils'
 import React, { type ElementType, type ForwardedRef, forwardRef } from 'react'
 import { generateHref } from '@/sanity/schemas/customFields/LinkField/helpers/generateHref'
@@ -66,7 +65,11 @@ const Button = forwardRef(
     }
 
     return (
-      <AdvancedButton asChild variant={variant} className={cn(variant, size)}>
+      <AdvancedButton
+        asChild
+        variant={variant}
+        className={cn(variant, className, size)}
+      >
         <Link
           href={clean(
             String(
@@ -85,11 +88,11 @@ const Button = forwardRef(
           ref={ref}
           {...props}
         >
-          <span className="overflow-hidden">
-            {children}
+          <span className="flex flex-col overflow-hidden">
+            <span className="block">{children}</span>
             {showSvg && (
               <span
-                className={`block w-10 overflow-hidden duration-500 ease-in-out group-hover/button:w-full ${direction === 'left' ? 'ml-auto' : 'mr-auto '}`}
+                className={`inline-grid w-10 overflow-hidden duration-500 ease-in-out group-hover/button:w-full ${direction === 'left' ? 'ml-auto' : 'mr-auto '}`}
               >
                 <svg
                   className="w-full"

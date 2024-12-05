@@ -46,12 +46,20 @@ export default function PageContainer({
 }) {
   return (
     <>
+      <a
+        className="absolute z-[99999999] left-0 p-3 m-3 transition -translate-y-16 bg-signal-pink text-mørk focus-visible:translate-y-0 translate-x-1/2"
+        href="#indhold"
+      >
+        Spring frem til indhold
+      </a>
       <Header />
-      {/*       <Lenis
+      <Lenis
         options={lenis}
         root={typeof document !== 'undefined' ? document.documentElement : null}
-      /> */}
-      <main className={`debug-screens min-h-screen bg-lys`}>{children}</main>
+      />
+      <main id="indhold" className={`debug-screens min-h-screen bg-lys`}>
+        {children}
+      </main>
       <Footer />
       {/*  <!-- Google Tag Manager (noscript) -->   */}
       <noscript>

@@ -1,7 +1,7 @@
 import '@/styles/global.css'
 import { draftMode } from 'next/headers'
 import { GoogleTagManager } from '@next/third-parties/google'
-import { Inter, PT_Serif, Outfit } from 'next/font/google'
+import { PT_Serif, Outfit } from 'next/font/google'
 
 const sans = Outfit({
   variable: '--font-sans',

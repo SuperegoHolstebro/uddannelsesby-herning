@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+'use client'
+import { SanityClient } from 'sanity'
+import React, { useState, useEffect } from 'react'
 import {
   Box,
   Card,
@@ -11,6 +13,7 @@ import {
 } from '@sanity/ui'
 import { PatchEvent, set, unset } from 'sanity'
 import IconPickerInput from './IconPickerInput'
+import { client } from '~/sanity/lib/sanity.client'
 type MapArrayInputProps = {
   value?: any[] // Current value from the Sanity document
   onChange?: (newValue: any[] | undefined) => void // Emit raw value or undefined
@@ -38,7 +41,7 @@ const MapArrayInput = React.forwardRef(
         _key: `${Date.now()}-${Math.random().toString(36).substring(2, 15)}`,
         x: cursorPoint.x,
         y: cursorPoint.y,
-        title: 'New Placement',
+        title: 'Nyt punkt',
         category: '',
         icon: '',
       }
@@ -95,10 +98,10 @@ const MapArrayInput = React.forwardRef(
         >
           <Flex justify="space-between" align="center" paddingBottom={2}>
             <Text size={2} weight="semibold">
-              Map Editor
+              Kort redigering
             </Text>
             <Button
-              text={isPlacementMode ? 'Disable Placement' : 'Enable Placement'}
+              text={isPlacementMode ? 'Slå placering fra' : 'Slå placering til'}
               tone={isPlacementMode ? 'critical' : 'primary'}
               onClick={() => setPlacementMode(!isPlacementMode)}
             />
@@ -129,18 +132,18 @@ const MapArrayInput = React.forwardRef(
         </Card>
         <Stack space={3}>
           <Text size={1} weight="semibold">
-            Placements
+            Placeringer
           </Text>
           {value.map((placement, index) => (
             <Card key={placement._key} padding={2} radius={2} shadow={1}>
               <Flex justify="space-between" align="center">
                 <Box>
-                  <Text weight="bold">{placement.title || 'Untitled'}</Text>
+                  <Text weight="bold">{placement.title || 'Ingen titel'}</Text>
                 </Box>
                 <Button
                   mode="ghost"
                   tone="critical"
-                  text="Remove"
+                  text="Slet"
                   onClick={() => handleRemovePlacement(index)}
                 />
               </Flex>
@@ -149,7 +152,7 @@ const MapArrayInput = React.forwardRef(
                 <Label>Y: {placement.y.toFixed(2)}</Label>
               </Box>
               <TextInput
-                placeholder="Title"
+                placeholder="Titel"
                 value={placement.title}
                 onChange={(e) =>
                   handleFieldChange(
@@ -159,20 +162,12 @@ const MapArrayInput = React.forwardRef(
                   )
                 }
               />
-              <TextInput
-                placeholder="Category"
+
+              <RelationSelector
                 value={placement.category}
-                onChange={(e) =>
-                  handleFieldChange(
-                    index,
-                    'category',
-                    (e.target as HTMLInputElement).value,
-                  )
+                onChange={(newValue) =>
+                  handleFieldChange(index, 'category', newValue)
                 }
-              />
-              <IconPickerInput
-                value={placement.icon}
-                onChange={(icon) => handleFieldChange(index, 'icon', icon)}
               />
             </Card>
           ))}
@@ -186,3 +181,32 @@ const MapArrayInput = React.forwardRef(
 MapArrayInput.displayName = 'MapArrayInput'
 
 export default MapArrayInput
+
+const RelationSelector = ({
+  value,
+  onChange,
+}: {
+  value: string
+  onChange: (id: string) => void
+}) => {
+  const [categories, setCategories] = useState<any[]>([])
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      const data = await client.fetch('*[_type == "page"]{_id, title}')
+      setCategories(data)
+    }
+    fetchCategories()
+  }, [])
+
+  return (
+    <select value={value} onChange={(e) => onChange(e.target.value)}>
+      <option value="">Select a category</option>
+      {categories.map((category) => (
+        <option key={category._id} value={category._id}>
+          {category.title}
+        </option>
+      ))}
+    </select>
+  )
+}

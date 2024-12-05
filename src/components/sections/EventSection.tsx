@@ -50,7 +50,7 @@ const EventSection = ({ section, amount }) => {
           loop={true}
           breakpoints={{
             0: {
-              slidesPerView: 1.1,
+              slidesPerView: 1.2,
               spaceBetween: 16,
             },
             428: {
