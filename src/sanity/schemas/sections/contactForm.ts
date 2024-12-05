@@ -1,8 +1,10 @@
+import { Envelope } from '@mynaui/icons-react'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
 const contactFormType = defineType({
   name: 'contactFormType',
   title: 'Kontaktformular',
+  icon: Envelope,
   type: 'object',
   // {title: 'indstillinger', name: 'settings'}
   fields: [

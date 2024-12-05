@@ -1,10 +1,10 @@
 import { defineField, defineType } from 'sanity'
-import { TextIcon } from '@/components/sanity/PageBuilderIcons'
+import { FileText } from '@mynaui/icons-react'
 
 export const textContainerType = defineType({
   name: 'textContainer',
   type: 'object',
-  icon: TextIcon,
+  icon: FileText,
   title: 'Indholdsblok',
   groups: [
     { title: 'Indhold', name: 'content' },

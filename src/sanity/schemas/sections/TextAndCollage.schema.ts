@@ -1,9 +1,11 @@
+import { TextAlignLeft } from '@mynaui/icons-react'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export const TextAndCollage = defineType({
   name: 'TextAndCollage',
   type: 'object',
   title: 'Tekst og Collage',
+  icon: TextAlignLeft,
   groups: [{ title: 'indstillinger', name: 'settings' }],
   fields: [
     defineField({

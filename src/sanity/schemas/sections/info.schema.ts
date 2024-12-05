@@ -1,10 +1,11 @@
 // ./schemas/videoType.js
 
 import { defineArrayMember, defineField, defineType } from 'sanity'
-import { EmployeesIcon } from '@/components/sanity/PageBuilderIcons'
+import { ChartBarTwo } from '@mynaui/icons-react'
+
 export const info = defineType({
   name: 'info',
-  icon: EmployeesIcon,
+  icon: ChartBarTwo,
   title: 'Tæller',
   type: 'object',
   fields: [

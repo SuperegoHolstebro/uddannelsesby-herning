@@ -1,10 +1,10 @@
 import { defineType } from 'sanity'
-import { MediaIcon } from '@/components/sanity/PageBuilderIcons'
+import { PanelTop } from '@mynaui/icons-react'
 
 export const PageTitle = defineType({
   name: 'PageTitle',
   type: 'object',
-  icon: MediaIcon,
+  icon: PanelTop,
   title: 'Side titel',
   fields: [
     {

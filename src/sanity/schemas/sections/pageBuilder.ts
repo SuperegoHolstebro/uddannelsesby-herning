@@ -1,15 +1,39 @@
 import { defineArrayMember, defineType } from 'sanity'
-import PageBuilderInput from '@/components/sanity/PageBuilderInput'
 
 export const pageBuilder = defineType({
   name: 'pageBuilder',
   type: 'array',
   title: 'Indhold',
-  components: {
-    input: PageBuilderInput,
-  },
   options: {
     sortable: true,
+    layout: 'tags',
+    insertMenu: {
+      filter: true,
+      showIcons: true,
+      views: [
+        {
+          name: 'grid',
+        },
+        { name: 'list' },
+      ],
+      groups: [
+        {
+          name: 'hero',
+          title: 'Topbanner',
+          of: ['hero', 'PageTitle'],
+        },
+        {
+          name: 'gallery',
+          title: 'Galleri',
+          of: ['Gallery', 'LogoGallery', 'LogoGallery2'],
+        },
+        {
+          name: 'content',
+          title: 'Indhold',
+          of: ['textWithIllustration', 'textContainer'],
+        },
+      ],
+    },
   },
   of: [
     defineArrayMember({
