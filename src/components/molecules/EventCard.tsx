@@ -25,7 +25,7 @@ const EventCard = ({ event }) => {
     <>
       <div
         key={event?._key}
-        className="relative overflow-hidden transition-all ease-in-out scale-100 h-fit event-card-item hover:scale-125 group isolation-auto"
+        className="relative overflow-hidden transition-all ease-in-out scale-100 h-fit event-card-item md:hover:scale-125 group isolation-auto"
       >
         <Link className="" href={resolveHref(event._type, event.slug) || '#'}>
           <EventCard.Portrait event={event} />
@@ -43,8 +43,8 @@ EventCard.Content = Content
 
 function Portrait({ event }) {
   return (
-    <div className="aspect-w-4 aspect-h-6">
-      {event.image && (
+    <div className="aspect-w-5 md:aspect-w-4 aspect-h-6">
+      {event.image ? (
         <Image
           className="object-cover"
           src={urlFor(event.image).dpr(2).url()}
@@ -57,6 +57,12 @@ function Portrait({ event }) {
                   (max-width: 768px) 100vw,
                   (max-width: 1200px) 50vw,
                   40vw"
+        />
+      ) : (
+        <img
+          className="object-cover"
+          src="/placeholder.svg"
+          alt={event.title}
         />
       )}
     </div>
