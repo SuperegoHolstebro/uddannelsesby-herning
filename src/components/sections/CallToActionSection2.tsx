@@ -95,7 +95,7 @@ const CallToActionSection2 = ({ section }) => {
       paddingX="right"
     >
       <div className="relative overflow-hidden col-span-full sm:col-span-4 md:col-span-7 xl:col-span-12 ">
-        <div className="transition-all duration-300 ease-in-out group-hover:scale-110">
+        <div className="h-full transition-all duration-300 ease-in-out group-hover:scale-110">
           <Media data={section.MediaObject?.media} />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-transparent to-mørk z-10"></div>
@@ -103,7 +103,7 @@ const CallToActionSection2 = ({ section }) => {
 
       <Symbol
         type="e"
-        className="absolute z-50 h-20 md:h-40 md:-bottom-12 md:left-64 left-8 bottom-6"
+        className="absolute z-50 h-20 md:h-40 md:-bottom-12 md:left-64 left-8 -bottom-10"
       />
 
       <div className="px-4 pt-16 pb-16 my-auto space-y-12 md:text-right xs:px-4 sm:px-13 md:px-0 col-span-full sm:col-span-4 md:col-span-5 xl:col-span-12 sm:pt-20 md:pt-24 lg:pt-32 xl:pt-40 2xl:pt-48 sm:pb-20 md:pb-24 lg:pb-32 xl:pb-40 2xl:pb-48">

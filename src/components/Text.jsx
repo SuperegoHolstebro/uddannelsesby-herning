@@ -2,7 +2,6 @@
 import React from 'react'
 import Image from 'next/image'
 import { DotLottieReact } from '@lottiefiles/dotlottie-react'
-
 export default function Text({ videoSrc, textContent }) {
   return (
     <>
@@ -15,7 +14,7 @@ export default function Text({ videoSrc, textContent }) {
       >
         <source src={videoSrc} type="video/mp4" />
       </video>
-      <div className="absolute right-0 z-10 w-1/3 h-screen py-16 pointer-events-none top-28 xl:top-0 ">
+      <div className="absolute right-0 z-10 w-1/3 h-screen py-16 pointer-events-none xl:pb-0 top-28 md:top-20 xl:top-0 ">
         <DotLottieReact
           src="lottie/SE-DET-FOR-DIG.lottie"
           loop

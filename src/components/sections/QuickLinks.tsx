@@ -30,7 +30,7 @@ const QuickLinks = ({ data }) => {
               onMouseLeave={() => setHovered(null)}
               key={index}
             >
-              <Heading tag="h4" type="h4" spacing="none">
+              <Heading tag="h3" type="h3" spacing="none">
                 {link.label}
               </Heading>
             </Link>
