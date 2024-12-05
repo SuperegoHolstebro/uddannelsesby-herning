@@ -2,22 +2,18 @@
 
 import { defineArrayMember, defineType } from 'sanity'
 import PageBuilderInput from '@/components/sanity/PageBuilderInput'
+import { FileText } from '@mynaui/icons-react'
 
 export const innerBlocks = defineType({
   name: 'innerBlocks',
   type: 'array',
   title: 'Inner blocks',
-  components: {
-    input: PageBuilderInput,
-  },
+  icon: FileText,
   options: {
     sortable: true,
   },
+
   of: [
-    defineArrayMember({
-      name: 'accordion',
-      type: 'accordion',
-    }),
     defineArrayMember({
       name: 'heading',
       type: 'heading',
@@ -29,6 +25,10 @@ export const innerBlocks = defineType({
     defineArrayMember({
       name: 'button',
       type: 'button',
+    }),
+    defineArrayMember({
+      name: 'accordion',
+      type: 'accordion',
     }),
     defineArrayMember({
       name: 'DownloadsAndLinksType',

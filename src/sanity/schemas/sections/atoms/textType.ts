@@ -1,15 +1,16 @@
-import { defineField, defineType } from "sanity";
-import { TextIcon } from "@/components/sanity/PageBuilderIcons";
+import { defineField, defineType } from 'sanity'
+import { TextJustify } from '@mynaui/icons-react'
 export const textType = defineType({
-  name: "textBlock",
-  icon: TextIcon,
-  type: "object",
-  description: 'Tekstblokken anvendes til generel brødtekst, der giver brugeren den relevante information. Afsnittene anbefales at være kortfattede og opdelte med bl.a. overskrifter og medier.',
-  title: "Brødtekst",
+  name: 'textBlock',
+  icon: TextJustify,
+  type: 'object',
+  description:
+    'Tekstblokken anvendes til generel brødtekst, der giver brugeren den relevante information. Afsnittene anbefales at være kortfattede og opdelte med bl.a. overskrifter og medier.',
+  title: 'Brødtekst',
   fields: [
     defineField({
-      name: "body",
-      type: "blockContent",
+      name: 'body',
+      type: 'blockContent',
     }),
   ],
   preview: {
@@ -19,7 +20,7 @@ export const textType = defineType({
       type: 'type',
       media: 'image',
     },
-    prepare({title, tagline, media}) {
+    prepare({ title, tagline, media }) {
       return {
         title: 'Brødtekst',
         type: 'Brødtekst',
@@ -28,4 +29,4 @@ export const textType = defineType({
       }
     },
   },
-});
+})

@@ -1,8 +1,8 @@
 import { defineField, defineType } from 'sanity'
-import { ButtonIcon } from '@/components/sanity/PageBuilderIcons'
+import { LinkOne } from '@mynaui/icons-react'
 export const buttonType = defineType({
   name: 'button',
-  icon: ButtonIcon,
+  icon: LinkOne,
   type: 'object',
   groups: [
     { title: 'Design', name: 'design' },

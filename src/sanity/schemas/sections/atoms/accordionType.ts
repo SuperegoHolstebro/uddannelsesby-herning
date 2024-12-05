@@ -1,13 +1,14 @@
-import { defineArrayMember, defineField, defineType } from 'sanity';
-import { AccordionIcon } from '@/components/sanity/PageBuilderIcons'
+import { defineArrayMember, defineField, defineType } from 'sanity'
+import { PanelTopOpen } from '@mynaui/icons-react'
 
 export const accordionType = defineType({
   name: 'accordion',
   type: 'object',
-  icon: AccordionIcon,
+  icon: PanelTopOpen,
 
   title: 'Accordions',
-  description: 'Udfoldelige faner, som kan indeholde en overskrift og uddybende tekst. En accordion hjælper med at spare plads og gør hjemmesiden mere overskuelig og lettere at navigere i.',
+  description:
+    'Udfoldelige faner, som kan indeholde en overskrift og uddybende tekst. En accordion hjælper med at spare plads og gør hjemmesiden mere overskuelig og lettere at navigere i.',
   fields: [
     {
       name: 'accordions',
@@ -36,7 +37,8 @@ export const accordionType = defineType({
             },
             defineField({
               name: 'unfloded',
-              description: 'Hvis denne er sat til "Ja", vil accordionen være udfoldet som standard.',
+              description:
+                'Hvis denne er sat til "Ja", vil accordionen være udfoldet som standard.',
               title: 'Udfoldet',
               type: 'boolean',
               initialValue: false,
@@ -51,9 +53,9 @@ export const accordionType = defineType({
               return {
                 title: title,
                 subtitle: `Foldet ud: ${unfloded ? 'Ja' : 'Nej'}`,
-              };
+              }
             },
-          }
+          },
         },
       ],
     },
@@ -64,11 +66,11 @@ export const accordionType = defineType({
       subtitle: 'Accordions',
       accordions: 'accordions',
     },
-    prepare({ title, accordions,}) {
+    prepare({ title, accordions }) {
       return {
         title: 'Accordion',
         subtitle: `Der er ${accordions.length} accordions i denne sektion.`,
-      };
+      }
     },
   },
-});
+})
