@@ -1,4 +1,4 @@
-import { cva } from 'class-variance-authority'
+import { cva, VariantProps } from 'class-variance-authority'
 import React from 'react'
 import { HeadingProps } from '@/types/HeadingProps'
 import { cn } from '@/utils/utils'
@@ -82,7 +82,9 @@ const HeadingVariants = cva('text-balance rwx hyphens-auto uppercase', {
   },
 })
 
-const Heading: React.FC<HeadingProps> = ({
+type ExtendedHeadingProps = HeadingProps & VariantProps<typeof HeadingVariants>
+
+const Heading: React.FC<ExtendedHeadingProps> = ({
   type,
   text,
   children,
