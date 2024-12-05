@@ -1,30 +1,32 @@
-import { defineArrayMember, defineField, defineType } from 'sanity'
+import { Download } from '@mynaui/icons-react'
+import { defineField, defineType } from 'sanity'
 
 const DownloadsAndLinksType = defineType({
   name: 'DownloadsAndLinksType',
   title: 'Downloads og links',
   type: 'object',
+  icon: Download,
   fields: [
-    defineField({
-      name: 'title',
-      type: 'string',
-      title: 'Title',
-      description: 'Title of the link list section',
-    }),
-    defineField({
-      name: 'description',
-      type: 'text',
-      title: 'Description',
-      description: 'A brief description for the link list section',
-    }),
     defineField({
       name: 'links',
       type: 'array',
       title: 'Links',
-      description: 'Add links to resources or pages',
+      description: 'Tiløj links til downloads eller andre sider',
       of: [
         {
           type: 'object',
+          preview: {
+            select: {
+              title: 'title',
+              icon: 'iconPicker.icon',
+            },
+            prepare(selection) {
+              return {
+                title: selection.title || 'Ingen titel',
+                subtitle: `Ikon: ${selection.icon}` || 'Ingen ikon',
+              }
+            },
+          },
           fields: [
             {
               name: 'title',
@@ -66,6 +68,18 @@ const DownloadsAndLinksType = defineType({
       type: 'SectionSettings',
     },
   ],
+  preview: {
+    select: {
+      amount: 'links',
+    },
+    prepare(selection) {
+      const { amount } = selection
+      return {
+        title: 'Downloads og links',
+        amount: amount.length + ' links' || '0 links',
+      }
+    },
+  },
 })
 
 export { DownloadsAndLinksType }
