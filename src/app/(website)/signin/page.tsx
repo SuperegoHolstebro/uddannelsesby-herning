@@ -49,8 +49,8 @@ export default function SignIn() {
   return (
     <PageContainer>
       <Section variant="lys">
-        <div className="flex items-center justify-center h-screen/1.5 col-span-full text-center">
-          <div className="w-1/3">
+        <div className="flex items-center justify-center min-h-screen/1.5 col-span-full text-center">
+          <div className="md:w-1/3">
             <Heading type="h2" tag="h2" fontFamily="outfit">
               Log ind som virksomhed
             </Heading>

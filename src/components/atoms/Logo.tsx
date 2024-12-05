@@ -56,14 +56,17 @@ const Logo = ({ ...props }) => {
           fill="currentColor"
         />
         <path
+          className="transition-colors ease-in-out group-hover:fill-signal-pink"
           d="M219.364 13.2544L199.92 13.2544V18.4396L219.364 18.4396V13.2544Z"
           fill="currentColor"
         />
         <path
+          className="transition-colors ease-in-out group-hover:fill-signal-pink"
           d="M219.364 0.476074L199.92 0.476074V5.66123L219.364 5.66123V0.476074Z"
           fill="currentColor"
         />
         <path
+          className="transition-colors ease-in-out group-hover:fill-signal-pink"
           d="M219.364 25.9336L199.92 25.9336V31.1187L219.364 31.1187V25.9336Z"
           fill="currentColor"
         />
@@ -104,14 +107,17 @@ const Logo = ({ ...props }) => {
           fill="currentColor"
         />
         <path
+          className="transition-colors ease-in-out group-hover:fill-signal-pink"
           d="M240.497 69.3384H221.053V74.5235H240.497V69.3384Z"
           fill="currentColor"
         />
         <path
+          className="transition-colors ease-in-out group-hover:fill-signal-pink"
           d="M240.497 43.8813H221.053V49.0665H240.497V43.8813Z"
           fill="currentColor"
         />
         <path
+          className="transition-colors ease-in-out group-hover:fill-signal-pink"
           d="M240.497 56.6597H221.053V61.8448H240.497V56.6597Z"
           fill="currentColor"
         />

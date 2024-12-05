@@ -22,7 +22,7 @@ import { cn } from '@/utils/utils'
  **/
 
 const advancedButtonVariants = cva(
-  'inline-flex items-center uppercase gap-4 justify-center rounded-md text-sm font-medium ring-offset-background group/button transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50', // whitespace-nowrap
+  'inline-flex items-center uppercase gap-4 justify-center rounded-md text-sm font-medium ring-offset-background group/button transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#325FF3] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50', // whitespace-nowrap
   {
     variants: {
       variant: {
