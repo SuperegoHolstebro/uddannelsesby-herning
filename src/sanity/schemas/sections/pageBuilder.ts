@@ -69,6 +69,10 @@ export const pageBuilder = defineType({
       type: 'CallToAction2',
     }),
     defineArrayMember({
+      name: 'DiscountsType',
+      type: 'DiscountsType',
+    }),
+    defineArrayMember({
       name: 'EventType',
       type: 'EventType',
     }),
