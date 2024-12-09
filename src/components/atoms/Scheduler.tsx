@@ -26,8 +26,6 @@ export default function Scheduler({
   children: React.ReactNode
   hasText: boolean
 }>) {
-  if (!start && !end) return children
-
   function checkActive() {
     const now = new Date()
     return (!start || new Date(start) < now) && (!end || new Date(end) > now)
@@ -38,19 +36,19 @@ export default function Scheduler({
   useEffect(() => {
     const interval = setInterval(() => setIsActive(checkActive()), 1000) // check every second
     return () => clearInterval(interval)
-  }, [])
+  }, [start, end])
+
+  if (!start && !end) {
+    return children
+  }
 
   if (!isActive) {
     return hasText ? (
       <AdvancedButton variant="primary">
-        <span
-        // href="#signup"
-        >
+        <span>
           Tilmelding åbnes d. kl.
           <span className="overflow-hidden">
-            <span
-              className={`block w-10 overflow-hidden duration-500 ease-in-out group-hover/button:w-full`}
-            >
+            <span className="block w-10 overflow-hidden duration-500 ease-in-out group-hover/button:w-full">
               <svg
                 className="w-full"
                 preserveAspectRatio="xMinYMin meet"
