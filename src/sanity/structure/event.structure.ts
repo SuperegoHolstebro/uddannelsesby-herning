@@ -55,6 +55,10 @@ export default defineStructure<ListItemBuilder>((S) =>
                   S.document().documentId(documentId).schemaType('event'),
                 ),
             ),
+          S.divider(),
+          S.documentTypeListItem('eventCategory').title(
+            'Begivenhedskategorier',
+          ),
         ]),
     ),
 )

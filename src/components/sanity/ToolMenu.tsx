@@ -24,7 +24,8 @@ export function CustomToolMenu(props: ToolMenuProps) {
           padding={2}
           selected={tool.name === activeToolName}
           text={tool.title === 'Media' ? 'Medier' : tool.title}
-          tone="positive"
+          tone="default"
+          mode="bleed"
         />
       ))}
     </Flex>

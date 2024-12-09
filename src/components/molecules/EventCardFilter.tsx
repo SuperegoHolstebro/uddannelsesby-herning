@@ -85,11 +85,9 @@ function EventCardFilterPortrait({ data }) {
           <time>{formatNumberDate(data.date.startDate)}</time>
         </span>
       )}
-      {data?.price && (
-        <span className="absolute p-2 leading-none rounded-full bg-signal-pink right-3 top-3">
-          {formatPrice(data.price)}
-        </span>
-      )}
+      <span className="absolute p-2 leading-none rounded-full bg-signal-pink right-3 top-3">
+        {formatPrice(data.price)}
+      </span>
     </div>
   )
 }
@@ -102,8 +100,8 @@ function EventCardFilterInfo({ data }) {
         </Heading>
       )}
       {data.category && (
-        <span className="p-2 block w-fit  pt-1 rounded-full bg-mørk text-lys">
-          {data.category}
+        <span className="p-2 block w-fit uppercase pt-1 rounded-full bg-mørk text-lys">
+          {data?.category?.title}
         </span>
       )}
     </div>

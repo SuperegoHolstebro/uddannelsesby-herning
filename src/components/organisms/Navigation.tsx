@@ -75,46 +75,16 @@ export default function Navigation({ onClose }) {
           className="px-6 pt-20 pb-6 pl-8 my-auto space-y-6 overflow-auto md:h-fit navigation-items md:pl-16 xl:pl-20 md:px-24 lg:px-19 xl:px-16 sm:px-13 sm:pt-32 md:pt-0 lg:pt-28 text-lys"
         >
           {data?.links?.map((item, index) => (
-            <MenuItem index={index} key={index} item={item} />
+            <MenuItem key={index} item={item} />
           ))}
         </motion.ul>
-        <div className="px-6 overflow-auto h-fit navigation-items md:pl-16 xl:pl-20 md:px-24 lg:px-19 xl:px-16 sm:px-13 text-lys ">
-          <div className="flex justify-between py-5 border-t border-lys">
-            <Heading tag="h6" type="h6" spacing="none" className="!font-bold">
-              <Link
-                className="group"
-                href="/signin"
-                target=""
-                rel="noreferrer"
-                title="Virksomhedslogin"
-              >
-                Virksomhedslogin
-              </Link>
-            </Heading>
-            <ul className="flex flex-wrap justify-center max-w-64 md:mx-0 gap-x-4 gap-y-2 md:justify-start">
-              {footer?.social?.map(
-                (item: { platform: string; url: string }, index: number) => (
-                  <li key={index}>
-                    <Link
-                      className="fill-lys text-lys *:size-6 hover:fill-signal-gul transition-colors w-full block"
-                      href={item.url}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <Icon className="" type={item.platform} />
-                    </Link>
-                  </li>
-                ),
-              )}
-            </ul>
-          </div>
-        </div>
+        <BottomNavigation footer={footer} />
       </motion.nav>
     </>
   )
 }
 
-function MenuItem({ item, index }) {
+function MenuItem({ item }) {
   const [isSubmenuOpen, setIsSubmenuOpen] = useState(false)
   const [showSvgOnClick, setShowSvgOnClick] = useState(false)
 
@@ -132,17 +102,17 @@ function MenuItem({ item, index }) {
 
   return (
     <li
-      className={`h-auto transition overflow-hidden text-huge navigation-item md:hover:pl-0 hover:pl-4  ${isSubmenuOpen ? 'pl-4 md:pl-0' : ''}`}
+      className={`h-auto transition overflow-hidden text-huge navigation-item focus-within:text-signal-gul md:hover:pl-0 hover:pl-4  ${isSubmenuOpen ? 'pl-4 md:pl-0' : ''}`}
     >
       {item?.subLinks?.length > 0 ? (
         <>
           <AdvancedButton
             onClick={doBoth}
-            className="relative flex items-start justify-between w-full px-0 py-0 pb-2 text-left group "
+            className="relative flex items-start justify-between w-full px-0 py-0 pb-2 text-left group focus-within:text-signal-gul"
             variant="none"
           >
             <span
-              className={`relative flex gap-4 font-bold hover:text-signal-gul ${isSubmenuOpen ? 'text-signal-gul' : ''}`}
+              className={`relative flex gap-4 font-bold focus-within:text-signal-gul hover:text-signal-gul ${isSubmenuOpen ? 'text-signal-gul' : ''}`}
             >
               <AnimatePresence mode="wait">
                 {showSvgOnClick && (
@@ -193,12 +163,12 @@ function MenuItem({ item, index }) {
       ) : (
         <Button
           showSvg={false}
-          className="relative block w-full h-auto px-0 py-0 pb-2 text-left hover:text-signal-gul"
+          className="relative block w-full h-auto px-0 py-0 pb-2 text-left focus-within:text-signal-gul hover:text-signal-gul"
           variant="none"
           link={item.link}
         >
           <span
-            className="font-bold hover:text-signal-gul"
+            className="font-bold focus-within:text-signal-gul hover:text-signal-gul"
             dangerouslySetInnerHTML={{ __html: item.link.label }}
           />
         </Button>
@@ -214,7 +184,7 @@ function SubMenuItem({ item, index }) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.1 }}
       exit={{ opacity: 0, y: -20 }}
-      className="h-auto"
+      className="h-auto text-lys"
     >
       <Button
         showSvg={false}
@@ -223,10 +193,52 @@ function SubMenuItem({ item, index }) {
         link={item}
       >
         <span
-          className="font-light hover:text-signal-gul *:overflow-visible"
+          className="font-light hover:text-signal-gul focus-within:text-signal-gul *:overflow-visible"
           dangerouslySetInnerHTML={{ __html: item.label }}
         />
       </Button>
     </motion.li>
+  )
+}
+
+const IconItem = ({ item }) => {
+  return (
+    <li>
+      <Link
+        className="fill-lys text-lys *:size-6 focus-within:fill-signal-gul hover:fill-signal-gul transition-colors w-full block"
+        href={item.url}
+        target="_blank"
+        rel="noreferrer"
+      >
+        <Icon className="" type={item.platform} />
+      </Link>
+    </li>
+  )
+}
+
+const BottomNavigation = ({ footer }) => {
+  return (
+    <div className="px-6 overflow-auto h-fit navigation-items md:pl-16 xl:pl-20 md:px-24 lg:px-19 xl:px-16 sm:px-13 text-lys ">
+      <div className="flex justify-between py-5 border-t border-lys">
+        <Heading tag="h6" type="h6" spacing="none" className="!font-bold">
+          <Link
+            className="group"
+            href="/signin"
+            target=""
+            rel="noreferrer"
+            title="Virksomhedslogin"
+          >
+            Virksomhedslogin
+          </Link>
+        </Heading>
+        <ul className="flex flex-wrap justify-center max-w-64 md:mx-0 gap-x-4 gap-y-2 md:justify-start">
+          {footer?.social?.map(
+            (item: { platform: string; url: string }, index: number) => (
+              <IconItem key={index} item={item} />
+            ),
+          )}
+        </ul>
+      </div>
+    </div>
   )
 }

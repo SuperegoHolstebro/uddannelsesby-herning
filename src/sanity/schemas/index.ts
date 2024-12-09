@@ -80,6 +80,10 @@ import { PageTitle } from './sections/PageTitle'
 import { DownloadsAndLinksType } from './sections/DownloadsAndLinksType'
 import { mapType } from './sections/mapType'
 import school from './documents/school'
+import eventCategory from './documents/eventCategory'
+import { DiscountsType } from './sections/discounts.schema'
+import discounts from './documents/Discounts'
+import discountsTag from './documents/discountsTag'
 
 export const schemaTypes = [
   heroType,
@@ -90,6 +94,7 @@ export const schemaTypes = [
   EmployeesType,
   blockContent,
   TextAndCollage,
+  DiscountsType,
   companiesType,
   contactFormType,
   EventType,
@@ -132,12 +137,16 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     // Pages
     reusable,
     page,
+    eventCategory,
     school,
     event,
     article,
+    discountsTag,
+    discounts,
     TextAndCollage,
     companiesType,
     company,
+    DiscountsType,
     companyLogin,
     field,
     // Management

@@ -42,6 +42,9 @@ export const EVENT_QUERY = groq`
 *[_type == "event" && slug.current == $slug][0] {
   ...,
   _type,
+  category->{
+    title,
+  },
   ${SEO_QUERY},
   image{
     ${ImageQuery}

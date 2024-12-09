@@ -3,6 +3,9 @@ import { ImageQuery } from '../atoms/ImageQuery'
 
 const EventCardQuery = groq`
   title,
+  category->{
+    title,
+  },
   "slug": slug.current,
   "date": {
     startDate,
@@ -14,7 +17,6 @@ const EventCardQuery = groq`
   isFull,
   location,
   price,
-  category,
   isExternal,
   image {
     ${ImageQuery},
@@ -41,6 +43,11 @@ const Newest = groq`
 export const EventWithFilterQuery = groq`
   _type == "EventWithFilterType" => {
     amount,
+    // fetch all used categories for filtering
+"categoriesInUse":*[_type == "event" && defined(category)]{
+    "category": category->title, "icon":category->icon.icon,
+  } | order(category asc),
+
     ...,
     "events": select(
       ${All},

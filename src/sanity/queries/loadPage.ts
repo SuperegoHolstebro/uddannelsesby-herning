@@ -9,9 +9,15 @@ import { PAGE_QUERY } from '@/sanity/lib/sanity.queries'
 export type PagePayload = {
   location?: string
   price?: string
-  category?: string
+  category?: { title: string }
   maxAttendees?: number
   attendees?: { name: string; email: string; phone: string; school: string }[]
+  isExternal?: boolean
+  isFull?: boolean
+  externalLink?: string
+  startDate?: string
+  endDate?: string
+  open?: string
   isMultiDay(
     startDate: (
       startDate: any,
@@ -27,20 +33,6 @@ export type PagePayload = {
       endDate: any,
       isMultiDay: any,
     ) => import('react').ReactNode,
-    isMultiDay: any,
-  ): import('react').ReactNode
-  endDate(
-    startDate: (
-      startDate: any,
-      endDate: any,
-      isMultiDay: any,
-    ) => import('react').ReactNode,
-    endDate: any,
-    isMultiDay: any,
-  ): import('react').ReactNode
-  startDate(
-    startDate: any,
-    endDate: any,
     isMultiDay: any,
   ): import('react').ReactNode
   address: any

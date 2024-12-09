@@ -92,7 +92,7 @@ const Button = forwardRef(
             <span className="block">{children}</span>
             {showSvg && (
               <span
-                className={`inline-grid w-10 overflow-hidden duration-500 ease-in-out group-hover/button:w-full ${direction === 'left' ? 'ml-auto' : 'mr-auto '}`}
+                className={`inline-grid w-10 overflow-hidden duration-500 ease-in-out group-focus-within/button:w-full group-hover/button:w-full ${direction === 'left' ? 'ml-auto' : 'mr-auto '}`}
               >
                 <svg
                   className="w-full"

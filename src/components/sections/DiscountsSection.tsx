@@ -6,7 +6,7 @@ import { clean } from '~/utils/sanitize'
 import Icon from '../atoms/Icons'
 import { AnimatePresence, motion } from 'framer-motion'
 
-const EventWithFilter = ({ section }) => {
+const DiscountsSection = ({ section }) => {
   const { events, categoriesInUse } = section
   const [selectedCategory, setSelectedCategory] = useState('all')
 
@@ -60,7 +60,7 @@ const EventWithFilter = ({ section }) => {
   )
 }
 
-export default EventWithFilter
+export default DiscountsSection
 
 function FilterButton({
   category,

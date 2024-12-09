@@ -2,6 +2,8 @@ import React from 'react'
 import Section from '@/components/sections/Section'
 import { TextContainerProps } from '@/types/TextContainerProps'
 import InnerBlocks from '../molecules/InnerBlocks'
+import { clean } from '~/utils/sanitize'
+
 /**
  *
  * @returns: En tekstcontainer.
@@ -31,7 +33,7 @@ const TextContainer: React.FC<TextContainerProps> = ({
       case 'right':
         return 'col-start-1 -col-end-1 sm:col-start-2 sm:-col-end-2 lg:col-start-6 lg:-col-end-1 xl:col-start-12 xl:-col-end-1 2xl:col-start-12 2xl:-col-end-1'
       default:
-        return 'col-start-1 -col-end-1 sm:col-start-2 sm:-col-end-2 lg:col-start-3 lg:-col-end-3 xl:col-start-7 xl:-col-end-7 2xl:col-start-7 2xl:-col-end-7'
+        return 'col-start-1 -col-end-1 sm:col-start-2 sm:-col-end-2 lg:col-start-3 lg:-col-end-3 xl:col-start-6 xl:-col-end-6 2xl:col-start-6 2xl:-col-end-6'
     }
   }
   return (
@@ -41,7 +43,7 @@ const TextContainer: React.FC<TextContainerProps> = ({
       paddingTop={paddingTop}
       paddingBottom={paddingBottom}
     >
-      <div className={placement(data)}>
+      <div className={clean(placement(data))}>
         {asChild ? (
           <div>{children}</div>
         ) : (

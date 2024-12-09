@@ -6,6 +6,13 @@ export function formatDate(date: string) {
   })
 }
 
+export function formatTime(date: string) {
+  return new Date(date).toLocaleTimeString('da-DK', {
+    hour: 'numeric',
+    minute: 'numeric',
+  })
+}
+
 export function formatNumberDate(date: string) {
   return new Date(date).toLocaleDateString('da-DK', {
     month: 'numeric',
@@ -37,14 +44,19 @@ export const eventDateRange = (startDate, endDate, isMultiDay) => {
     month: 'long',
     year: 'numeric',
   })
-  const formattedEnd =
-    isMultiDay && endDate
-      ? new Date(endDate).toLocaleDateString('da-DK', {
-          day: 'numeric',
-          month: 'long',
-          year: 'numeric',
-        })
-      : null
 
-  return formattedEnd ? `${formattedStart} - ${formattedEnd}` : formattedStart
+  let formattedEnd = null
+  if (isMultiDay && endDate && startDate !== endDate) {
+    formattedEnd = new Date(endDate).toLocaleDateString('da-DK', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    })
+  }
+
+  return isMultiDay && startDate === endDate
+    ? formattedStart
+    : formattedEnd
+      ? `${formattedStart} - ${formattedEnd}`
+      : formattedStart
 }
