@@ -100,6 +100,7 @@ function EventSignUpForm({ event }) {
     <Section
       variant="primary"
       paddingX="none"
+      paddingTop="none"
       className=" col-span-full"
       tag={'div'}
     >

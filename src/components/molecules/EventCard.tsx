@@ -23,15 +23,16 @@ import { urlFor } from '~/sanity/lib/sanity.image'
 const EventCard = ({ event }) => {
   return (
     <>
-      <div
+      <Link
         key={event?._key}
-        className="relative overflow-hidden transition-all ease-in-out scale-100 h-fit event-card-item md:hover:scale-125 group isolation-auto"
+        className="relative block w-full overflow-hidden transition-all ease-in-out scale-100 event-card-item md:hover:scale-125 group focus-within:scale-125"
+        href={resolveHref(event._type, event.slug) || '#'}
       >
-        <Link className="" href={resolveHref(event._type, event.slug) || '#'}>
+        <div className=" h-fit isolation-auto">
           <EventCard.Portrait event={event} />
           <EventCard.Content event={event} />
-        </Link>
-      </div>
+        </div>
+      </Link>
     </>
   )
 }

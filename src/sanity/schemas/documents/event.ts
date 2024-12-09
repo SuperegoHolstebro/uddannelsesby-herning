@@ -115,7 +115,7 @@ export default defineType({
       description: 'Stedet hvor begivenheden finder sted',
       group: 'details',
     }),
-    defineField({
+    /*     defineField({
       name: 'category',
       type: 'string',
       title: 'Kategori',
@@ -131,6 +131,31 @@ export default defineType({
           { title: 'I naturen', value: 'i-naturen' },
         ],
       },
+    }), */
+    defineField({
+      name: 'category',
+      type: 'reference',
+      title: 'Kategori',
+      group: 'details',
+      description: 'Kategorier relateret til begivenheden',
+      to: [{ type: 'eventCategory' }],
+    }),
+    defineField({
+      name: 'isExternal',
+      title: 'Ekstern begivenhed?',
+      type: 'boolean',
+      description:
+        'Skal deltageren blive dirigeret til en ekstern side i stedet for tilmelding?',
+      group: 'registration',
+      initialValue: false,
+    }),
+    defineField({
+      name: 'externalLink',
+      title: 'Ekstern begivenhed link',
+      type: 'url',
+      description: 'Link til ekstern begivenhed eller betalingsside',
+      group: 'registration',
+      hidden: ({ document }) => !document?.isExternal, // Hide field if the event is not external
     }),
     // New fields for sign-ups and external event handling
     defineField({
@@ -140,6 +165,7 @@ export default defineType({
       description: 'Maks antal personer, der kan tilmelde sig begivenheden',
       group: 'registration',
       validation: (Rule) => Rule.min(1).required(),
+      hidden: ({ document }) => !!document?.isExternal, // Hide field if the event is external
     }),
 
     // Store the list of attendees directly inside the event document
@@ -147,6 +173,7 @@ export default defineType({
       name: 'attendees',
       title: 'Deltagere',
       type: 'array',
+      hidden: ({ document }) => !!document?.isExternal, // Hide field if the event is external
       of: [
         defineField({
           name: 'attendee',
@@ -207,29 +234,19 @@ export default defineType({
       description: 'Angiv om begivenheden er fyldt op',
       group: 'registration',
     }),
-    defineField({
-      name: 'isExternal',
-      title: 'Ekstern begivenhed?',
-      type: 'boolean',
-      description:
-        'Skal deltageren blive dirigeret til en ekstern side i stedet for tilmelding?',
-      group: 'registration',
-      initialValue: false,
-    }),
-    defineField({
-      name: 'externalLink',
-      title: 'Ekstern begivenhed link',
-      type: 'url',
-      description: 'Link til ekstern begivenhed eller betalingsside',
-      group: 'registration',
-      hidden: ({ document }) => !document?.isExternal, // Hide field if the event is not external
-    }),
+
     defineField({
       group: 'seo',
       title: 'SEO',
       description: 'SEO indstillinger',
       name: 'seoGroup',
       type: 'seoGroup',
+    }),
+    /* test */
+    defineField({
+      name: 'open',
+      title: 'Åbnes for tilmelding',
+      type: 'datetime',
     }),
   ],
   preview: {
