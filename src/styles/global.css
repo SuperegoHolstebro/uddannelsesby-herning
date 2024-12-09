@@ -45,7 +45,7 @@
   }
 }
 
-[data-border='true'] {
+/*  [data-border='true'] {
   box-shadow: none !important;
 }
 
@@ -167,7 +167,7 @@ legend span {
   display: none;
 }
 
-button[data-ui='Button']
+ button[data-ui='Button']
   > [data-ui='Box']
   > [data-ui='Flex']
   > [data-ui='Text'],
@@ -178,7 +178,7 @@ button[data-ui='Button']
   span
   svg[data-sanity-icon='add'] {
   color: white !important;
-}
+} */
 
 html.lenis,
 html.lenis body {
