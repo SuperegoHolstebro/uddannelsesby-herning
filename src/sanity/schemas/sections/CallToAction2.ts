@@ -1,10 +1,10 @@
 import { defineField, defineType } from 'sanity'
-import { CallToActionIcon } from '@/components/sanity/PageBuilderIcons'
+import { Click } from '@mynaui/icons-react'
 
 const CallToAction2 = defineType({
   name: 'CallToAction2',
-  title: 'Call to action 2',
-  icon: CallToActionIcon,
+  title: 'Call to action',
+  icon: Click,
   description:
     'Call to actions er fremtrædende bokse eller knapper, der opfordrer brugeren til at udføre en bestemt handling, f.eks. at klikke videre på relaterede sider på hjemmesiden eller tage kontakt til Jer. Call to actions gør oplevelsen mere intuitiv og flydende for brugeren.',
   type: 'object',

@@ -1,11 +1,12 @@
 // ./schemas/heroType.ts
+import { PanelTop } from '@mynaui/icons-react'
 
 import { defineField, defineType } from 'sanity'
 import { HeroIcon } from '@/components/sanity/PageBuilderIcons'
 export const heroType = defineType({
   name: 'hero',
   type: 'object',
-  icon: HeroIcon,
+  icon: PanelTop,
   groups: [
     { title: 'Media', name: 'media' },
     { title: 'Design', name: 'design' },

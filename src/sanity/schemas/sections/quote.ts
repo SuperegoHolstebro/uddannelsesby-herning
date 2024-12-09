@@ -1,8 +1,10 @@
 import { defineField, defineType } from 'sanity'
+import { MessageDots } from '@mynaui/icons-react'
 
 export const Quote = defineType({
   name: 'Quote',
   title: 'Citat',
+  icon: MessageDots,
   description: 'Beskrivelse',
   type: 'object',
   groups: [

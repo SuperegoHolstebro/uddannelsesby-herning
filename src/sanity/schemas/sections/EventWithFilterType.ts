@@ -1,12 +1,12 @@
-// ./schemas/videoType.js
 import { defineArrayMember, defineField, defineType } from 'sanity'
-import { EventIcon } from '@/components/sanity/PageBuilderIcons'
+import { Calendar } from '@mynaui/icons-react'
+
 export const EventWithFilterType = defineType({
   name: 'EventWithFilterType',
   title: 'Begivenheder med Filterring',
   description: 'Viser en liste af begivenheder',
   type: 'object',
-  icon: EventIcon,
+  icon: Calendar,
   groups: [
     { title: 'Indhold', name: 'content' },
     { title: 'Design', name: 'design' },

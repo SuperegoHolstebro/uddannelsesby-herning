@@ -1,10 +1,10 @@
-// ./schemas/textWithIllustration.js
-
+import { TextAlignLeft } from '@mynaui/icons-react'
 import { defineField, defineType } from 'sanity'
 
 export const textWithIllustration = defineType({
   name: 'textWithIllustration',
   type: 'object',
+  icon: TextAlignLeft,
   title: 'Tekst og medie',
   description:
     'Blokken er en kombination af tekst og medie, der præsenterer information på en visuelt tiltalende måde ved at inkludere både ord og billede. Det giver besøgende en mere informativ og engagerende oplevelse af hjemmesiden. På længere sider anbefales det at anvende tekst- og medie-blokken i kombination med andre tekstopsætninger',
