@@ -82,7 +82,7 @@ import { mapType } from './sections/mapType'
 import school from './documents/school'
 import eventCategory from './documents/eventCategory'
 import { DiscountsType } from './sections/discounts.schema'
-import discounts from './documents/Discounts'
+import discounts from './documents/discounts'
 import discountsTag from './documents/discountsTag'
 
 export const schemaTypes = [
