@@ -29,9 +29,10 @@ export const IconPicker = defineType({
           { title: 'Bar', value: 'bar' },
           { title: 'Fitness', value: 'fitness' },
           { title: 'Shopping', value: 'shopping' },
+          { title: 'Kort', value: 'map' },
         ],
       },
-      initialValue: 'facebook',
+      initialValue: 'wave',
     }),
   ],
   preview: {
