@@ -146,15 +146,13 @@ export default async function DynamicRoute({
           <div className="flex flex-col items-center justify-start space-y-5 md:border-l md:border-grå md:pl-4">
             <Icon type="tickets" className="w-8 h-8" />
             <Heading type="h5" tag="h5" spacing="default">
-              <Heading type="h5" tag="h5" spacing="default">
-                {page.isFull
-                  ? 'Ingen'
-                  : page.isExternal
-                    ? 'Stadig'
-                    : ticketsLeft > 0
-                      ? `${ticketsLeft}`
-                      : 'Ingen'}
-              </Heading>
+              {page.isFull
+                ? 'Ingen'
+                : page.isExternal
+                  ? 'Stadig'
+                  : ticketsLeft > 0
+                    ? `${ticketsLeft}`
+                    : 'Ingen'}
             </Heading>
 
             <Paragraph spacing="none"> Billetter tilgængelige</Paragraph>
