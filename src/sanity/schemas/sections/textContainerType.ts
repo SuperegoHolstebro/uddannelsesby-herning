@@ -32,8 +32,8 @@ export const textContainerType = defineType({
       options: {
         list: [
           { title: 'Venstre', value: 'left' },
-          { title: 'Højre', value: 'right' },
           { title: 'Midten', value: 'center' },
+          { title: 'Højre', value: 'right' },
         ],
         layout: 'radio',
       },
