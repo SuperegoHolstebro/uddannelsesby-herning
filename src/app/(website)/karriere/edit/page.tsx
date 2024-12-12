@@ -3,6 +3,7 @@ import { authOptions } from '@/sanity/lib/authOptions'
 import { client } from '@/sanity/lib/sanity.client'
 import EditCompanyForm from '@/components/EditCompanyForm'
 import PageContainer from '~/components/PageContainer'
+import { notFound } from 'next/navigation'
 
 export default async function EditPage() {
   // Fetch the session server-side
@@ -12,7 +13,7 @@ export default async function EditPage() {
   console.log('Session data:', session)
 
   if (!session) {
-    return <p>Du skal være logget ind for at se denne side.</p>
+    return notFound()
   }
 
   // Fetch the company data server-side using companyId from session

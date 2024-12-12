@@ -7,6 +7,7 @@ export default defineType({
   title: 'Virksomheds Login',
   type: 'document',
   icon: User,
+  liveEdit: true,
   groups: [
     { name: 'loginInfo', title: 'Login Information' },
     { name: 'companyInfo', title: 'Virksomheds Information' },

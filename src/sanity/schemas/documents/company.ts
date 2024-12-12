@@ -1,11 +1,11 @@
 import { defineField, defineType } from 'sanity'
-import { Store } from '@mynaui/icons-react'
+import { BuildingOne } from '@mynaui/icons-react'
 
 export default defineType({
   name: 'company',
   title: 'Virksomhed',
   type: 'document',
-  icon: Store,
+  icon: BuildingOne,
   groups: [
     { name: 'companyDetails', title: 'Virksomhedens detaljer' },
     { name: 'contactInfo', title: 'Kontaktinformation' },

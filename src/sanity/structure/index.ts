@@ -8,6 +8,7 @@ import fields from './field.structure'
 import school from './school.structure'
 import companyInfo from './companyInfo.structure'
 import discounts from './discounts.structure'
+import company from './company.structure'
 
 export const structure: StructureResolver = (S, context) =>
   S.list()
@@ -19,7 +20,7 @@ export const structure: StructureResolver = (S, context) =>
       school(S, context),
       employees(S, context),
       S.divider(),
-      companyInfo(S, context),
+      company(S, context),
       fields(S, context),
       S.divider(),
       discounts(S, context),

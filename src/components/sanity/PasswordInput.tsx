@@ -1,17 +1,22 @@
-// /components/PasswordInput.tsx
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import bcrypt from 'bcryptjs'
 import { set, unset } from 'sanity'
 
 type PasswordInputProps = {
   onChange: (value: any) => void
+  value?: string // Accept an initial value prop
 }
 
 const PasswordInputComponent = React.forwardRef<
   HTMLInputElement,
   PasswordInputProps
->((props: PasswordInputProps, ref) => {
+>(({ onChange, value = '' }, ref) => {
   const [password, setPassword] = useState('')
+
+  // Initialize the state with the value prop
+  useEffect(() => {
+    setPassword(value)
+  }, [value])
 
   const handlePasswordChange = (event) => {
     const plainPassword = event.target.value
@@ -23,9 +28,9 @@ const PasswordInputComponent = React.forwardRef<
 
     // Trigger the onChange handler passed by Sanity to store the hashed value
     if (!plainPassword) {
-      props.onChange(unset())
+      onChange(unset())
     } else {
-      props.onChange(set(hashedPassword))
+      onChange(set(hashedPassword))
     }
   }
 

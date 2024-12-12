@@ -4,25 +4,17 @@ import { loadPage } from '@/sanity/queries/loadPage'
 import PageBuilder from '~/components/PageBuilder'
 import PageContainer from '@/components/PageContainer'
 import { notFound } from 'next/navigation'
-import { Metadata } from 'next'
 import Section from '@/components/sections/Section'
 import Heading from '@/components/atoms/Heading'
 import Paragraph from '@/components/atoms/Paragraph'
-import { formatDate } from '@/utils/date'
 import { COMPANY_QUERY } from '@/sanity/lib/sanity.queries'
 import TextContainer from '@/components/sections/textContainer'
-import { generatePageMetadata } from '~/utils/metadataUtils'
-import { stegaClean } from '@sanity/client/stega'
 import Image from 'next/image'
 import { urlFor } from '~/sanity/lib/sanity.image'
 import EditButton from '~/components/atoms/EditButton'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/sanity/lib/authOptions'
-import { useSession } from 'next-auth/react'
-
 import Icon from '~/components/atoms/Icons'
-import { AdvancedButton } from '~/components/atoms/AdvancedButton'
-import { CallToAction2 } from '~/sanity/schemas/sections/CallToAction2'
 interface Params {
   slug: string[]
   locale: string
@@ -39,8 +31,8 @@ export default async function DynamicRoute({
 }: {
   params: Promise<Params>
 }) {
-  const resolvedParams = await params // Await the Promise
-  const slug = `${resolvedParams.slug.join('/')}`
+  const { slug: slugArray } = await params
+  const slug = slugArray.join('/')
   const page = await loadPage(slug, 'da', COMPANY_QUERY)
   const session = await getServerSession(authOptions)
 
