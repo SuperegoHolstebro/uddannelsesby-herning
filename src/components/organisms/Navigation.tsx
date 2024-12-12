@@ -182,7 +182,7 @@ function SubMenuItem({ item, index }) {
     <motion.li
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.1 }}
+      transition={{ delay: index * 0.1, ease: [0.215, 0.61, 0.355, 1] }}
       exit={{ opacity: 0, y: -20 }}
       className="h-auto text-lys"
     >

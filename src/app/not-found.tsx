@@ -22,9 +22,6 @@ const ErrorPage: React.FC = () => {
             <AdvancedButton variant="default">
               <Link href="/">Gå til forsiden</Link>
             </AdvancedButton>
-            <AdvancedButton variant="none">
-              <Link href="/kontakt">Kontakt </Link>
-            </AdvancedButton>
           </div>
         </div>
       </Section>

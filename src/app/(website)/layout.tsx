@@ -34,9 +34,7 @@ export default async function Root({
         )}
       </Head>
 
-      <body
-        className={`selection:text-mørk selection:bg-signal-gul ${(await draftMode()).isEnabled ? 'debug-screens' : ''}`}
-      >
+      <body>
         <FaviconToggler /> {/* Use the FaviconToggler component here */}
         {children}
         <SanityLive refreshOnFocus={false} />

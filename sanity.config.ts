@@ -16,17 +16,17 @@ import '@/styles/global.css'
 import SuperegoLogo from '@/components/sanity/SuperegoLogo'
 import { dashboardTool } from '@sanity/dashboard'
 import HeroWidget from '@/components/sanity/HeroWidget'
-import BannerWidget from '@/components/sanity/BannerWidget'
 import NewsWidget from '@/components/sanity/NewsWidget'
 import ProjectManagerWidget from '@/components/sanity/ProjectManagerWidget'
 import SuperegoWidget from '@/components/sanity/SuperegoWidget'
 import LinksWidget from '@/components/sanity/LinksWidget'
-import { buildLegacyTheme } from 'sanity'
 import { DocumentStatus } from '~/sanity/lib/sanity.badge'
 import { CustomToolMenu } from '~/components/sanity/ToolMenu'
-import Sidebar from '~/components/sanity/Sidebar.component'
 import { createVisualAction } from '~/sanity/lib/sanity.actions'
 import { DownloadAttendeesAction } from '~/utils/DownloadAttendeesAction'
+import { imageHotspotArrayPlugin } from 'sanity-plugin-hotspot-array'
+import { CreateCompanyLoginAction } from '~/sanity/actions/createCompanyLogin.action'
+import { GoToCompanyLoginAction } from '~/sanity/actions/goToCompantLogin.action'
 
 const SANITY_STUDIO_PREVIEW_URL =
   process.env.SANITY_STUDIO_PREVIEW_URL || 'http://localhost:3333'
@@ -46,6 +46,7 @@ export default defineConfig({
     },
   },
   plugins: [
+    imageHotspotArrayPlugin(),
     dashboardTool({
       title: 'Startside',
       widgets: [
@@ -105,6 +106,11 @@ export default defineConfig({
       if (context.schemaType === 'event') {
         return [...prev, DownloadAttendeesAction] // Add the custom action
       }
+
+      if (context.schemaType === 'company') {
+        return [...prev, CreateCompanyLoginAction, GoToCompanyLoginAction]
+      }
+
       return prev.map((originalAction) =>
         originalAction.action === 'publish'
           ? createVisualAction(originalAction)
