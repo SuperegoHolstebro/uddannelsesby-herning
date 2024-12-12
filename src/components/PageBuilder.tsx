@@ -4,6 +4,7 @@ import ArticlesSection from '@/components/sections/ArticlesSection'
 import CallToActionSection2 from './sections/CallToActionSection2'
 import EventSection from '@/components/sections/EventSection'
 import EventWithFilter from '@/components/sections/EventWithFilter'
+import DiscountsSection from '@/components/sections/DiscountsSection'
 import GallerySection from '@/components/sections/GallerySection'
 import Hero from '@/components/sections/HeroSection'
 import Media from '@/components/sections/MediaSection'
@@ -84,6 +85,9 @@ const PageBuilder = ({ sections }) => {
             )
           case 'EventWithFilterType':
             return <EventWithFilter section={section} key={index} />
+
+          case 'DiscountsType':
+            return <DiscountsSection key={index} section={section} />
 
           case 'textContainer':
             return <TextContainer key={index} data={section} />

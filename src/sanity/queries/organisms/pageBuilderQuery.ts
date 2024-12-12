@@ -5,6 +5,7 @@ import { ContactFormTypeQuery } from '@/sanity/queries/sections/ContactFormTypeQ
 import { EmployeesTypeQuery } from '@/sanity/queries/sections/EmployeesTypeQuery'
 import { EventTypeQuery } from '@/sanity/queries/sections/EventTypeQuery'
 import { EventWithFilterQuery } from '@/sanity/queries/sections/EventWithFilterQuery'
+import { DiscountQuery } from '@/sanity/queries/sections/DiscountQuery'
 import { GalleryQuery } from '@/sanity/queries/sections/GalleryQuery'
 import { LogoGalleryQuery } from '@/sanity/queries/sections/LogoGalleryQuery'
 import { LogoGallery2Query } from '@/sanity/queries/sections/LogoGallery2Query'
@@ -27,6 +28,7 @@ export const pageBuilderQuery = groq`
     ${ArticlesTypeQuery},
     ${EventTypeQuery},
     ${EventWithFilterQuery},
+    ${DiscountQuery},
     ${ContactFormTypeQuery},
     ${heroQuery},
     ${TextAndCollageQuery},
