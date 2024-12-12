@@ -20,7 +20,7 @@ const EventWithFilter = ({ section }) => {
   return (
     <Section>
       {/* Filter Buttons */}
-      <div className="divide-x-2 pb-6 col-span-full divide-solid divide-grå grid grid-cols-6">
+      <div className="divide-x pb-6 col-span-full divide-solid divide-grå grid grid-cols-6">
         <FilterButton
           icon="map"
           category="all"
@@ -78,9 +78,9 @@ function FilterButton({
       <span className="block">
         <span className="block">{children}</span>
         <AnimatePresence mode="wait" presenceAffectsLayout>
-          <span
-            className={`block translate-y-6 absolute -mt-1 overflow-hidden duration-500 ease-in-out w-full ml-auto`}
-          >
+          className=
+          {`block translate-y-6 absolute -mt-1 overflow-hidden duration-500 ease-in-out w-11/12 ml-auto translate-x-1/2 right-1/2`}
+          <span>
             <svg
               className="w-full"
               preserveAspectRatio="xMinYMin meet"

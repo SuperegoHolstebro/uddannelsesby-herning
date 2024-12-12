@@ -146,7 +146,7 @@ function EventSignUpForm({ event }) {
                       setFormData({ ...formData, navn: e.target.value })
                     }
                     required
-                    className="p-0 border-t-0 border-b-2 border-grå border-x-0 bg-lys [appearance:textfield] focus:ring-2 focus:ring-primary [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none h-16 peer "
+                    className="p-0 pb-1 border-t-0 border-b-2 placeholder-mørk border-grå border-x-0 bg-lys [appearance:textfield] focus:ring-2 focus:ring-primary pt-6 peer"
                   />
                   <span className="absolute transition-all opacity-100 bottom-7 peer-placeholder-shown:opacity-0 peer-placeholder-shown:left-5 text-small peer-placeholder-shown:text-regular peer-placeholder-shown:bottom-5">
                     {' '}
@@ -234,7 +234,7 @@ function EventSignUpForm({ event }) {
                   </span>
                 </label>
               </div>
-              <div>
+              <div className="mb-4">
                 <label htmlFor="school" className="relative grid text-small">
                   <select
                     value={formData.skole}
@@ -269,7 +269,7 @@ function EventSignUpForm({ event }) {
               </div>
               {/* Use the correct isFull state and disable the button during submission */}
               <AdvancedButton
-                variant="primary"
+                variant="default"
                 type="submit"
                 disabled={isFull || submitting} // Disable if the event is full or the form is submitting
               >

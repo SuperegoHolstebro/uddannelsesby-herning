@@ -17,18 +17,16 @@ import { AdvancedButton } from './AdvancedButton'
 
 export default function Scheduler({
   start,
-  end,
   children,
   hasText,
 }: Partial<{
   start: string
-  end: string
   children: React.ReactNode
   hasText: boolean
 }>) {
   function checkActive() {
     const now = new Date()
-    return (!start || new Date(start) < now) && (!end || new Date(end) > now)
+    return !start || new Date(start) < now
   }
 
   const [isActive, setIsActive] = useState(checkActive())
@@ -36,9 +34,9 @@ export default function Scheduler({
   useEffect(() => {
     const interval = setInterval(() => setIsActive(checkActive()), 1000) // check every second
     return () => clearInterval(interval)
-  }, [start, end])
+  }, [start])
 
-  if (!start && !end) {
+  if (!start) {
     return children
   }
 
