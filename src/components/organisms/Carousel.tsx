@@ -35,8 +35,11 @@ import CarouselNavigation from '../atoms/CarouselNavigation'
 interface CarouselProps extends SwiperOptions {
   spaceBetween?: number
   slidesPerView?: number
+  hideNavigation?: boolean
   children: any
   loop?: boolean
+  centeredSlidesBounds?: boolean
+  centeredSlides?: boolean
   breakpoints?: {
     0?: {
       slidesPerView: number
@@ -80,8 +83,11 @@ interface CarouselProps extends SwiperOptions {
 const Carousel = ({
   spaceBetween,
   slidesPerView = 1.2,
-  loop,
+  loop = true,
+  centeredSlidesBounds = true,
+  centeredSlides = true,
   breakpoints,
+  hideNavigation = false,
   children,
   ...props
 }: CarouselProps) => {
@@ -95,10 +101,10 @@ const Carousel = ({
           ref={swiperRef}
           spaceBetween={spaceBetween || '24'}
           slidesPerView={slidesPerView}
-          loop={true}
-          centeredSlidesBounds={true}
+          loop={loop}
+          centeredSlidesBounds={centeredSlidesBounds}
           breakpoints={breakpoints}
-          centeredSlides={true}
+          centeredSlides={centeredSlides}
           onSwiper={(swiper) => console.log(swiper)}
           className="!overflow-visible transition-all event-cards !overflow-x-clip"
         >
@@ -108,7 +114,7 @@ const Carousel = ({
             </SwiperSlide>
           ))}
         </Swiper>
-        <CarouselNavigation swiperRef={swiperRef} />
+        {!hideNavigation && <CarouselNavigation swiperRef={swiperRef} />}
       </div>
     </>
   )

@@ -19,6 +19,15 @@ const IconPickerInput = ({ value, onChange }) => {
     { title: 'Fitness', value: 'fitness' },
     { title: 'Shopping', value: 'shopping' },
     { title: 'Kort', value: 'map' },
+    { title: 'Bibliotek', value: 'bibliotek' },
+    { title: 'Cafe', value: 'Cafe' },
+    { title: 'Purchase', value: 'purchase' },
+    { title: 'Coffee', value: 'coffee' },
+    { title: 'Games', value: 'games' },
+    { title: 'Transport', value: 'transport' },
+    { title: 'Health', value: 'health' },
+    { title: 'Link Arrow', value: 'linkArrow' },
+    { title: 'House', value: 'house' },
   ]
 
   const [searchQuery, setSearchQuery] = useState('')

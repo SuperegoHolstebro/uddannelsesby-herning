@@ -84,6 +84,7 @@ import eventCategory from './documents/eventCategory'
 import { DiscountsType } from './sections/discounts.schema'
 import discounts from './documents/discounts'
 import discountsTag from './documents/discountsTag'
+import MapCategory from './documents/MapCategory'
 
 export const schemaTypes = [
   heroType,
@@ -148,6 +149,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     company,
     DiscountsType,
     companyLogin,
+    MapCategory,
     field,
     // Management
     settings,

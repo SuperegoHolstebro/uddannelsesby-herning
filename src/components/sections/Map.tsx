@@ -1,16 +1,78 @@
 'use client'
+import 'swiper/css/grid'
 import Section from './Section'
 import React, { useEffect, useRef } from 'react'
 import * as d3 from 'd3'
 import Icon from '../atoms/Icons'
+import { useMediaQuery } from '~/hooks/useMediaQuery'
+import Carousel from '../organisms/Carousel'
+
+import { Grid, Pagination } from 'swiper/modules'
 
 const Map = ({ data }) => {
   // console.log('Data:', data)
+  // Deduplicate categories
+
+  const uniqueCategories = data.categoriesInUse.filter(
+    (category, index, self) =>
+      index ===
+      self.findIndex(
+        (t) => t.title === category.title && t.icon === category.icon,
+      ),
+  )
+
   return (
     <Section id="map-section">
       <div className="col-span-full">
-        <SvgMap pins={data.mapArrayField} />
+        <SvgMap pins={data.hotspots} />
       </div>
+      {useMediaQuery('(max-width: 768px)') ? (
+        <ul className="col-span-full">
+          <Carousel
+            grid={{
+              rows: 3,
+              fill: 'row',
+            }}
+            modules={[Grid]}
+            centeredSlides={false}
+            loop={false}
+            hideNavigation
+            breakpoints={{
+              '0': {
+                slidesPerView: 2,
+                spaceBetween: 16,
+              },
+              '428': {
+                slidesPerView: 2,
+                spaceBetween: 16,
+              },
+              '768': {
+                slidesPerView: 1,
+                spaceBetween: 16,
+              },
+            }}
+          >
+            {uniqueCategories.map((category, index) => (
+              <li key={index} className="flex w-full gap-6">
+                <Icon className="size-8" type={category.icon} />
+                {category.title}
+              </li>
+            ))}
+          </Carousel>
+        </ul>
+      ) : (
+        <ul className="grid grid-cols-1 gap-6 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 col-span-full">
+          {uniqueCategories.map((category, index) => (
+            <li
+              key={index}
+              className="flex w-full gap-6 border-r border-grå [&:nth-child(6)]:border-r-0 [&:nth-child(12)]:border-r-0 [&:nth-child(18)]:border-r-0 [&:nth-child(24)]:border-r-0 [&:nth-child(30)]:border-r-0"
+            >
+              <Icon className="size-8" type={category.icon} />
+              {category.title}
+            </li>
+          ))}
+        </ul>
+      )}
     </Section>
   )
 }
@@ -19,30 +81,41 @@ export default Map
 
 const SvgMap = ({ pins }) => {
   const svgRef = useRef<SVGSVGElement>(null)
-  const zoomRef = useRef(null) // Store D3 zoom instance
-  const [clusters, setClusters] = React.useState([]) // Store clustered data
-  const zoomLevel = useRef(1) // Track current zoom level
+  const zoomRef = useRef(null)
+  const [clusters, setClusters] = React.useState([])
+  const zoomLevel = useRef(1)
+
+  const svgWidth = 1920
+  const svgHeight = 1080
+
+  // Convert percentage-based pins to absolute positions
+  const convertToAbsolute = (pins) =>
+    pins.map((pin) => ({
+      ...pin,
+      absX: (pin.x / 100) * svgWidth,
+      absY: (pin.y / 100) * svgHeight,
+    }))
 
   // Group pins into clusters based on zoom level
   const clusterPins = (pins, zoom) => {
-    const threshold = 50 / zoom // Adjust threshold dynamically based on zoom level
+    const threshold = 50 / zoom
     const clusters = []
 
     pins.forEach((pin) => {
       let addedToCluster = false
 
       for (const cluster of clusters) {
-        const dx = cluster.x - pin.x
-        const dy = cluster.y - pin.y
+        const dx = cluster.absX - pin.absX
+        const dy = cluster.absY - pin.absY
         const distance = Math.sqrt(dx * dx + dy * dy)
 
         if (distance < threshold) {
           cluster.pins.push(pin)
-          cluster.x =
-            (cluster.x * cluster.pins.length + pin.x) /
+          cluster.absX =
+            (cluster.absX * cluster.pins.length + pin.absX) /
             (cluster.pins.length + 1)
-          cluster.y =
-            (cluster.y * cluster.pins.length + pin.y) /
+          cluster.absY =
+            (cluster.absY * cluster.pins.length + pin.absY) /
             (cluster.pins.length + 1)
           addedToCluster = true
           break
@@ -50,7 +123,7 @@ const SvgMap = ({ pins }) => {
       }
 
       if (!addedToCluster) {
-        clusters.push({ x: pin.x, y: pin.y, pins: [pin] })
+        clusters.push({ absX: pin.absX, absY: pin.absY, pins: [pin] })
       }
     })
 
@@ -63,21 +136,30 @@ const SvgMap = ({ pins }) => {
     // Initialize D3 zoom
     const zoom = d3
       .zoom()
-      .scaleExtent([1, 5]) // Set min and max zoom levels
+      .scaleExtent([1, 5])
+      .translateExtent([
+        [0, 0],
+        [svgWidth, svgHeight],
+      ])
       .on('zoom', (event) => {
-        zoomLevel.current = event.transform.k // Update zoom level
-        setClusters(clusterPins(pins, zoomLevel.current)) // Recluster pins based on zoom level
-        svg.select('g').attr('transform', event.transform) // Apply zoom
+        zoomLevel.current = event.transform.k
+        setClusters(clusterPins(convertToAbsolute(pins), zoomLevel.current))
+
+        svg.select('g').attr('transform', event.transform)
+
+        svg
+          .selectAll('.pin, .cluster-icon')
+          .attr('transform', `scale(${1 / event.transform.k})`)
       })
 
     svg.call(zoom)
-    zoomRef.current = zoom // Store zoom instance for programmatic access
+    zoomRef.current = zoom
 
     // Initial clustering
-    setClusters(clusterPins(pins, zoomLevel.current))
+    setClusters(clusterPins(convertToAbsolute(pins), zoomLevel.current))
 
     return () => {
-      svg.on('.zoom', null) // Cleanup on unmount
+      svg.on('.zoom', null)
     }
   }, [pins])
 
@@ -89,18 +171,15 @@ const SvgMap = ({ pins }) => {
       svgRef.current.clientHeight,
     ]
 
-    const zoomScale = Math.max(zoomLevel.current * 2, 2) // Adjust zoom level (ensure it's at least 2)
-    const xOffset = svgWidth / 2 - cluster.x * zoomScale
-    const yOffset = svgHeight / 2 - cluster.y * zoomScale
+    const zoomScale = Math.max(zoomLevel.current * 2, 2)
+    const xOffset = svgWidth / 2 - cluster.absX * zoomScale
+    const yOffset = svgHeight / 2 - cluster.absY * zoomScale
 
     const transform = d3.zoomIdentity
       .translate(xOffset, yOffset)
       .scale(zoomScale)
 
-    svg
-      .transition()
-      .duration(500) // Smooth transition
-      .call(zoomRef.current.transform, transform) // Apply zoom programmatically
+    svg.transition().duration(500).call(zoomRef.current.transform, transform)
   }
 
   return (
@@ -124,39 +203,41 @@ const SvgMap = ({ pins }) => {
         {clusters.map((cluster, index) => (
           <g
             key={index}
-            transform={`translate(${cluster.x}, ${cluster.y})`}
-            onClick={() => zoomToCluster(cluster)} // Zoom to this cluster on click
+            transform={`translate(${cluster.absX}, ${cluster.absY})`}
+            onClick={() => zoomToCluster(cluster)}
             style={{ cursor: 'pointer' }}
           >
             {cluster.pins.length === 1 ? (
               // Single Pin
               <foreignObject
+                className="pin"
+                width="74"
+                height="74"
                 style={{ overflow: 'visible' }}
-                width="50"
-                height="50"
-                className="overflow-[initial]"
               >
-                <div className="grid p-3 transition-all duration-200 ease-in-out rounded-full hover:z-10 group hover:bg-signal-pink bg-lys size-12 aspect-1 place-content-center">
+                <div className="grid p-3 transition-all duration-200 ease-in-out rounded-full hover:z-10 group hover:bg-signal-pink bg-lys size-19 aspect-1 place-content-center">
                   <Icon
-                    type={cluster.pins[0].icon.patches[0].value}
-                    className="w-full h-full"
+                    type={cluster.pins[0].category?.icon || 'default-icon'} // Fallback icon
+                    className="w-[2.5rem] h-[2.5rem]"
                   />
-                  <div className="absolute invisible transition-all duration-200 ease-in-out translate-x-1/2 translate-y-1/2 rounded-md opacity-0 group-hover:opacity-100 group-hover:visible group-hover:bg-signal-pink -bottom-1/2 right-1/2 w-max">
-                    <p className="p-2 text-center">{cluster.pins[0].title}</p>
+                  <div className="absolute invisible transition-all duration-300 ease-in-out translate-x-1/2 translate-y-1/2 rounded-md opacity-0 right-1/2 group-hover:opacity-100 group-hover:visible group-hover:bg-signal-pink -bottom-1/2 w-max">
+                    <p className="p-2 text-center">
+                      {cluster.pins[0].title || 'Untitled'}
+                    </p>
                   </div>
                 </div>
               </foreignObject>
             ) : (
               // Cluster with Multiple Pins
-              <foreignObject width="65" height="65">
+              <foreignObject className="cluster-icon" width="74" height="74">
                 <div className="relative grid place-content-center group">
-                  <span className="absolute font-bold text-mørk translate-x-1/2 -translate-y-1/2 top-1/2 right-1/2">
+                  <span className="absolute font-bold text-mørk translate-x-1/2 text-medium -translate-y-1/2 top-1/2 right-1/2">
                     {cluster.pins.length}
                   </span>
                   <svg
-                    className="group-hover:text-signal-pink text-lys"
-                    width="64"
-                    height="64"
+                    className="transition-all ease-in-out group-hover:text-signal-pink text-lys"
+                    width="80"
+                    height="80"
                     viewBox="0 0 64 64"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"

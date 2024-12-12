@@ -3,16 +3,24 @@ import groq from 'groq'
 export const mapTypeQuery = groq`
     _type == "mapType" => {
       ...,
-      _key,
+      "categoriesInUse": array::unique(
+    *[_type == "page" && slug.current == $slug][0].pageBuilder[_type == "mapType"].hotspots[].category-> {
       title,
-      mapArrayField[] {
-        _key,
-        title,
-        category,
-        ...,
-        x,
-        y
-      }
+      "icon": icon.icon
     }
+  ),
 
+      _key,
+      hotspots[]{
+        _key,
+        _type,
+        title,
+        x,
+        y,
+        category->{
+          title,
+          "icon": icon.icon
+        }
+      },
+    }
 `

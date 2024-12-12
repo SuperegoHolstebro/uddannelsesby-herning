@@ -1,7 +1,5 @@
 import { defineField, defineType } from 'sanity'
-import { Map } from '@mynaui/icons-react'
-import MapArrayInput from '@/components/sanity/MapArrayInput'
-import { map } from 'rxjs'
+import { Map, Pin } from '@mynaui/icons-react'
 export const mapType = defineType({
   name: 'mapType',
   type: 'object',
@@ -14,38 +12,79 @@ export const mapType = defineType({
       title: 'Titel',
     }),
     defineField({
-      name: 'mapArrayField',
-      title: 'Placeringer',
-      type: 'array',
+      name: 'featuredImage',
+      type: 'image',
+      title: 'Feature Image',
+    }),
+    defineField({
+      name: `hotspots`,
+      type: `array`,
       of: [
-        {
-          name: 'placement',
-          title: 'Placement',
+        defineField({
+          icon: Pin,
+          name: 'spot',
           type: 'object',
+          fieldsets: [{ name: 'position', options: { columns: 2 } }],
           fields: [
-            { name: 'x', type: 'number', title: 'X Position', readOnly: true },
-            { name: 'y', type: 'number', title: 'Y Position', readOnly: true },
             { name: 'title', type: 'string', title: 'Title' },
-            { name: 'category', type: 'string', title: 'Category' },
-            { name: 'icon', type: 'IconPicker', title: 'Icon' },
+            {
+              name: 'category',
+              type: 'reference',
+              to: [{ type: 'MapCategory' }],
+              title: 'Category',
+            },
+            {
+              name: 'x',
+              type: 'number',
+              readOnly: true,
+              fieldset: 'position',
+              initialValue: 50,
+              validation: (Rule) => Rule.required().min(0).max(100),
+            },
+            {
+              name: 'y',
+              type: 'number',
+              readOnly: true,
+              fieldset: 'position',
+              initialValue: 50,
+              validation: (Rule) => Rule.required().min(0).max(100),
+            },
           ],
-        },
+          preview: {
+            select: {
+              title: 'title',
+              x: 'x',
+              y: 'y',
+            },
+            prepare({ title, x, y }) {
+              return {
+                title,
+                subtitle: x && y ? `${x}% x ${y}%` : `No position set`,
+              }
+            },
+          },
+        }),
       ],
-      components: {
-        input: MapArrayInput,
+      options: {
+        /* @ts-ignore */
+        imageHotspot: {
+          imagePath: `featuredImage`,
+          pathRoot: 'parent',
+          descriptionPath: `details`,
+        },
       },
     }),
   ],
   preview: {
     select: {
-      mapArrayField: 'mapArrayField',
+      hotspots: 'hotspots',
     },
     prepare(selection) {
-      const { mapArrayField } = selection
+      const { hotspots } = selection
       return {
         title: 'Kort',
-        subtitle: mapArrayField
-          ? `${mapArrayField.length} placeringer`
+        subtitle: hotspots
+          ? `${hotspots.length} placeringer`
           : 'Ingen placeringer',
       }
     },
