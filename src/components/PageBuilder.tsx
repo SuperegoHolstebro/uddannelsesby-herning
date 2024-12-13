@@ -10,7 +10,6 @@ import Hero from '@/components/sections/HeroSection'
 import Media from '@/components/sections/MediaSection'
 import TextWithIllustration from '@/components/sections/TextWithIllustration'
 import EmployeesSection from './sections/EmployeesSection'
-import Breadcrumbs from './molecules/Breadcrumbs'
 import TextContainer from './sections/textContainer'
 import LogoGallery from './sections/LogoGallery'
 import LogoGallery2 from './sections/LogoGallery2'
@@ -36,12 +35,7 @@ const PageBuilder = ({ sections }) => {
           case 'mapType':
             return <Map data={section} key={index} />
           case 'hero':
-            return (
-              <React.Fragment key={index}>
-                <Hero data={section} />
-                <Breadcrumbs />
-              </React.Fragment>
-            )
+            return <Hero data={section} key={index} />
           case 'TextAndCollage':
             return <TextAndCollage key={index} data={section} />
           case 'companiesType':

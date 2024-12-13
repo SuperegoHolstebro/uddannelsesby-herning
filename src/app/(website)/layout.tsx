@@ -9,6 +9,33 @@ import { SITE_SETTINGS_QUERY } from '~/sanity/lib/sanity.queries'
 import { SanityLive } from '~/sanity/lib/sanity.live'
 import FaviconToggler from '@/components/FaviconToggler' // Import the new component
 
+import { PT_Serif, Outfit } from 'next/font/google'
+
+const sans = Outfit({
+  variable: '--font-sans',
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  display: 'swap',
+  preload: true,
+})
+
+const serif = PT_Serif({
+  variable: '--font-serif',
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  display: 'swap',
+  preload: true,
+})
+
+const outfit = Outfit({
+  variable: '--font-outfit',
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  display: 'swap',
+  preload: true,
+})
+
 const settings = await client.fetch(SITE_SETTINGS_QUERY)
 const headScripts = settings?.headScripts || ''
 const metaTags = headScripts.match(/<meta[^>]*>/g) || [] // Only meta tags
@@ -34,7 +61,9 @@ export default async function Root({
         )}
       </Head>
 
-      <body>
+      <body
+        className={` ${serif.className} ${outfit.className} ${sans.className}`}
+      >
         <FaviconToggler /> {/* Use the FaviconToggler component here */}
         {children}
         <SanityLive refreshOnFocus={false} />
