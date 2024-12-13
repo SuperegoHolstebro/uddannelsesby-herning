@@ -4,16 +4,16 @@ import { Calendar, CalendarDown, CalendarUp } from '@mynaui/icons-react'
 
 export default defineStructure<ListItemBuilder>((S) =>
   S.listItem()
-    .title('Discounts')
+    .title('Rabatter')
     .icon(Calendar)
     .child(
       S.list()
-        .title('Discounts')
+        .title('Rabatter')
         .id('discounts')
         .items([
           // All events
           S.listItem()
-            .title('All discounts')
+            .title('Alle rabatter')
             .icon(Calendar)
             .child(
               S.documentTypeList('discounts').child((documentId) =>
@@ -21,7 +21,7 @@ export default defineStructure<ListItemBuilder>((S) =>
               ),
             ),
           S.divider(),
-          S.documentTypeListItem('discountsTag').title('Discounts Tags'),
+          S.documentTypeListItem('discountsTag').title('Rabat kategorier'),
         ]),
     ),
 )

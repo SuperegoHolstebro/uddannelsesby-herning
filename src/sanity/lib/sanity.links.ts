@@ -9,8 +9,6 @@ export function resolveHref(
       return slug ? `/${slug}` : undefined
     case 'event':
       return slug ? `/begivenheder/${slug}` : undefined
-    case 'article':
-      return slug ? `/artikler/${slug}` : undefined
     case 'company':
       return slug ? `/karriere/${slug}` : undefined
     case 'school':

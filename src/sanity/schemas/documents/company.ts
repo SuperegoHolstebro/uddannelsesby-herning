@@ -4,6 +4,7 @@ import { BuildingOne } from '@mynaui/icons-react'
 export default defineType({
   name: 'company',
   title: 'Virksomhed',
+  liveEdit: true,
   type: 'document',
   icon: BuildingOne,
   groups: [
@@ -27,11 +28,6 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'logo',
-      type: 'image',
-      title: 'Logo',
-    }),
-    defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -48,12 +44,6 @@ export default defineType({
       type: 'text',
       group: 'companyDetails',
       description: 'Kort beskrivelse af virksomheden',
-    }),
-    defineField({
-      name: 'industry',
-      title: 'Industri',
-      type: 'string',
-      group: 'companyDetails',
     }),
     defineField({
       name: 'fields',

@@ -12,8 +12,22 @@ export default defineType({
     { name: 'content', title: 'Indhold' },
     { name: 'pageBuilder', title: 'Sideopbygning' },
     { name: 'seo', title: 'SEO' },
+    { name: 'infomation', title: 'Information' },
   ],
   fields: [
+    defineField({
+      name: 'infomation',
+      type: 'object',
+      title: 'Information',
+      fields: [
+        defineField({
+          name: 'address',
+          title: 'Adresse',
+          type: 'string',
+        }),
+      ],
+    }),
+
     defineField({
       name: 'title',
       title: 'Titel',
@@ -21,7 +35,6 @@ export default defineType({
       description: 'Titlen på uddannelsesstedet',
       group: 'content',
     }),
-
     defineField({
       name: 'slug',
       title: 'Slug',
@@ -46,14 +59,6 @@ export default defineType({
       description: 'Indholdet på siden (Sektioner / Blokke)',
       name: 'pageBuilder',
       type: 'pageBuilder',
-    }),
-
-    defineField({
-      group: 'seo',
-      title: 'SEO',
-      description: 'SEO indstillinger',
-      name: 'seoGroup',
-      type: 'seoGroup',
     }),
     defineField({
       type: 'object',
@@ -83,6 +88,17 @@ export default defineType({
       name: 'CallToAction2',
       title: 'Call to action',
       type: 'CallToAction2',
+      options: {
+        collapsed: true,
+        collapsible: true,
+      },
+    }),
+    defineField({
+      group: 'seo',
+      title: 'SEO',
+      description: 'SEO indstillinger',
+      name: 'seoGroup',
+      type: 'seoGroup',
     }),
   ],
   preview: {

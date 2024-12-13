@@ -16,9 +16,7 @@ export const structure: StructureResolver = (S, context) =>
     .items([
       pages(S, context),
       events(S, context),
-      articles(S, context),
       school(S, context),
-      employees(S, context),
       S.divider(),
       company(S, context),
       fields(S, context),
