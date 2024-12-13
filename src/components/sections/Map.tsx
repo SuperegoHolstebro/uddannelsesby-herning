@@ -17,7 +17,7 @@ const Map = ({ data }) => {
     (category, index, self) =>
       index ===
       self.findIndex(
-        (t) => t.title === category.title && t.icon === category.icon,
+        (t) => t?.title === category?.title && t?.icon === category?.icon,
       ),
   )
 
@@ -54,8 +54,8 @@ const Map = ({ data }) => {
           >
             {uniqueCategories.map((category, index) => (
               <li key={index} className="flex w-full gap-6">
-                <Icon className="size-8" type={category.icon} />
-                {category.title}
+                <Icon className="size-8" type={category?.icon} />
+                {category?.title}
               </li>
             ))}
           </Carousel>
@@ -67,8 +67,8 @@ const Map = ({ data }) => {
               key={index}
               className="flex w-full gap-6 border-r border-grå [&:nth-child(6)]:border-r-0 [&:nth-child(12)]:border-r-0 [&:nth-child(18)]:border-r-0 [&:nth-child(24)]:border-r-0 [&:nth-child(30)]:border-r-0"
             >
-              <Icon className="size-8" type={category.icon} />
-              {category.title}
+              <Icon className="size-8" type={category?.icon} />
+              {category?.title}
             </li>
           ))}
         </ul>
