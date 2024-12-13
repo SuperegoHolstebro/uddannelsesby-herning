@@ -1,4 +1,7 @@
+'use client'
+
 import React from 'react'
+import { Player, Controls } from '@lottiefiles/react-lottie-player'
 
 /**
  *
@@ -76,32 +79,42 @@ const Symbol: React.FC<SymbolProps> = ({ type, ...props }) => {
     ),
 
     t: (
-      <svg
-        {...props}
-        width="169"
-        height="200"
-        viewBox="0 0 169 200"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <g clipPath="url(#clip0_980_1044)">
-          <path
-            d="M65.0331 36.6955H1.65083V1.65083H166.762V36.6955H65.0331Z"
-            stroke="#D9FC00"
-            strokeWidth="3.30165"
-          />
-          <path
-            d="M66.7404 77.2209L66.7404 1.65082L102.115 1.65083L102.115 198.324L66.7404 198.324L66.7404 77.2209Z"
-            stroke="#D9FC00"
-            strokeWidth="3.30165"
-          />
-        </g>
-        <defs>
-          <clipPath id="clip0_980_1044">
-            <rect width="168.422" height="199.75" fill="white" />
-          </clipPath>
-        </defs>
-      </svg>
+      <>
+        <Player
+          {...props}
+          autoplay
+          loop
+          src="/lottie/T/T.json"
+          style={{ height: '300px', width: '300px' }}
+        ></Player>
+        {/*         <svg
+          {...props}
+          width="169"
+          height="200"
+          viewBox="0 0 169 200"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g clipPath="url(#clip0_980_1044)">
+            <path
+              d="M65.0331 36.6955H1.65083V1.65083H166.762V36.6955H65.0331Z"
+              stroke="#D9FC00"
+              strokeWidth="3.30165"
+            />
+            <path
+              d="M66.7404 77.2209L66.7404 1.65082L102.115 1.65083L102.115 198.324L66.7404 198.324L66.7404 77.2209Z"
+              stroke="#D9FC00"
+              strokeWidth="3.30165"
+            />
+          </g>
+          <defs>
+            <clipPath id="clip0_980_1044">
+              <rect width="168.422" height="199.75" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+ */}{' '}
+      </>
     ),
 
     d: (
