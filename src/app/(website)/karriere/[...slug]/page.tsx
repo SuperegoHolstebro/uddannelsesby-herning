@@ -164,14 +164,10 @@ export default async function DynamicRoute({
             </ul>
           </>
         )}
-        <Button
-          href={page.website}
-          variant="primary"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Besøg hjemmeside
-        </Button>
+
+        <Heading type="h6" tag="h6" spacing="none">
+          Fagområder
+        </Heading>
       </TextContainer>
       {isUserAssignedToCompany && <EditButton />}
       {page.pageBuilder && <PageBuilder sections={page.pageBuilder} />}
