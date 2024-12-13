@@ -1,6 +1,6 @@
-import { ImageAsset, PortableTextBlock, Slug } from "sanity"
-import { Seo } from "./Seo.types"
-import { PageBuilderTypes } from "./PageBuilder.types"
+import { ImageAsset, PortableTextBlock, Slug } from 'sanity'
+import { Seo } from './Seo.types'
+import { PageBuilderTypes } from './PageBuilder.types'
 
 export interface Page {
   _type: 'page'
@@ -13,9 +13,9 @@ export interface Page {
   }
   slug: Slug
   excerpt?: string
+  document?: any
   mainImage?: ImageAsset
   body: PortableTextBlock[]
   pageBuilder: PageBuilderTypes
-  seoGroup: Seo;
+  seoGroup: Seo
 }
-
