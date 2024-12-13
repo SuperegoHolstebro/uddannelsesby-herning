@@ -188,6 +188,9 @@ export const COMPANY_QUERY = groq`
   ...,
   image{
     ${ImageQuery}
+  },
+  fields[]->{
+    title,
   }
 }
 `

@@ -1,6 +1,6 @@
 import 'swiper/css'
 import React from 'react'
-import { loadPage } from '@/sanity/queries/loadPage'
+import { loadPage, PagePayload } from '@/sanity/queries/loadPage'
 import PageBuilder from '~/components/PageBuilder'
 import PageContainer from '@/components/PageContainer'
 import { notFound } from 'next/navigation'
@@ -15,6 +15,8 @@ import EditButton from '~/components/atoms/EditButton'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/sanity/lib/authOptions'
 import Icon from '~/components/atoms/Icons'
+import { getMonth } from '~/utils/date'
+import { Button } from '~/components/atoms/Button'
 interface Params {
   slug: string[]
   locale: string
@@ -25,7 +27,20 @@ export interface UserProfile {
   image?: string
   company?: string
   provider?: any
+  webiste?: string
 }
+// extend the PagePayload
+export type ExtendedPagePayload = PagePayload & {
+  dates: {
+    startdate: string
+    enddate: string
+  }
+  address: string
+  email: string
+  phone: string
+  website: string
+}
+
 export default async function DynamicRoute({
   params,
 }: {
@@ -33,7 +48,11 @@ export default async function DynamicRoute({
 }) {
   const { slug: slugArray } = await params
   const slug = slugArray.join('/')
-  const page = await loadPage(slug, 'da', COMPANY_QUERY)
+  const page = (await loadPage(
+    slug,
+    'da',
+    COMPANY_QUERY,
+  )) as ExtendedPagePayload
   const session = await getServerSession(authOptions)
 
   if (!page) {
@@ -66,21 +85,24 @@ export default async function DynamicRoute({
       <Section paddingBottom="none" paddingTop="none" tag={'div'}>
         {' '}
         <div className="grid grid-cols-1 gap-4 text-center col-span-full sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 md:p-12 md:flex-row rounded-2xl">
-          <div className="flex flex-col items-center justify-start space-y-5 ">
-            <Icon type="calendar" className="w-8 h-8" />
-            <Heading type="h5" tag="h5" spacing="default">
-              {/* Use eventDateRange and pass the correct properties */}
-              hej{' '}
-            </Heading>
-            <Paragraph spacing="none">Dato</Paragraph>
+          <div className="flex flex-col items-center justify-start ">
+            <Icon type="calendar" className="mb-3 size-8" />
+            <div className="space-y-.5">
+              <Heading type="h5" tag="p" spacing="none">
+                Information
+              </Heading>
+              <Paragraph spacing="none">Dato</Paragraph>
+            </div>
           </div>
 
-          <div className="flex flex-col items-center justify-start space-y-5 md:border-l md:border-grå md:pl-4">
-            <Icon type="clock" className="w-8 h-8" />
-            <Heading type="h5" tag="h5" spacing="default">
-              18.30-21.00
-            </Heading>
-            <Paragraph spacing="none">Tidspunkt</Paragraph>
+          <div className="flex flex-col items-center justify-start  md:border-l md:border-grå md:pl-4">
+            <Icon type="clock" className="mb-3 size-8" />
+            <div className="space-y-.5">
+              <Heading type="h5" tag="h5" spacing="none">
+                {page?.address}
+              </Heading>
+              <Paragraph spacing="none">Tidspunkt</Paragraph>
+            </div>
           </div>
         </div>
       </Section>
@@ -92,7 +114,7 @@ export default async function DynamicRoute({
         paddingBottom="none"
         className="col-span-full"
       >
-        <div className="col-span-full h-screen/3">
+        <div className="col-span-full h-screen/2">
           <Image
             className="object-cover h-full"
             src={urlFor(page.image).dpr(2).url()}
@@ -109,7 +131,7 @@ export default async function DynamicRoute({
         </div>
       </Section>
 
-      <TextContainer>
+      <TextContainer asChild>
         {page.description && (
           <>
             <Heading type="h3" tag="h3">
@@ -135,8 +157,21 @@ export default async function DynamicRoute({
             <Heading type="h6" tag="h6" spacing="none">
               Fagområder
             </Heading>
+            <ul>
+              {page.fields.map((field) => (
+                <li key={field._id}>{field.title}</li>
+              ))}
+            </ul>
           </>
         )}
+        <Button
+          href={page.website}
+          variant="primary"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Besøg hjemmeside
+        </Button>
       </TextContainer>
       {isUserAssignedToCompany && <EditButton />}
       {page.pageBuilder && <PageBuilder sections={page.pageBuilder} />}

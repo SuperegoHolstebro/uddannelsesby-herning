@@ -95,6 +95,12 @@ export default defineType({
       type: 'string',
       group: 'contactInfo',
     }),
+    defineField({
+      name: 'website',
+      title: 'Hjemmeside',
+      type: 'string',
+      group: 'contactInfo',
+    }),
   ],
   preview: {
     select: {
@@ -109,7 +115,6 @@ export default defineType({
         month: 'long',
         year: 'numeric',
       })
-
       return {
         title: title,
         subtitle: `Sidst ændret: ${formattedDate}`, // Show the formatted date as the subtitle

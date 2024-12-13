@@ -11,6 +11,7 @@ view == "all" => *[_type == "company"] {
   phone,
   address,
   name,
+  website,
   _id,
   image {
     ${ImageQuery}

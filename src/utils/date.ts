@@ -60,3 +60,9 @@ export const eventDateRange = (startDate, endDate, isMultiDay) => {
       ? `${formattedStart} - ${formattedEnd}`
       : formattedStart
 }
+
+export const getMonth = (date: string) => {
+  return new Date(date).toLocaleString('da-DK', {
+    month: 'long',
+  })
+}

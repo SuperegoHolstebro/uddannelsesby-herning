@@ -58,11 +58,23 @@ function CompanyCardPortrait({ data }) {
 }
 function CompanyCardInfo({ data }) {
   return (
-    <div className="mt-4">
+    <div className="py-4 border-b border-b-grå">
       {data.name && (
         <Heading spacing="none" type="h5" tag="h5">
           {data.name}
         </Heading>
+      )}
+      {data.fields && data.fields.length > 0 && (
+        <ul className="flex flex-row flex-wrap gap-2.5 pt-5">
+          <li className="inline-flex p-3 py-2 leading-none uppercase rounded-full bg-dark text-lys text-small">
+            {data.fields[0].title}
+          </li>
+          {data.fields.length > 1 && (
+            <li className="inline-flex p-3 py-2 leading-none uppercase rounded-full bg-dark text-lys text-small">
+              + {data.fields.length - 1} FLERE
+            </li>
+          )}
+        </ul>
       )}
     </div>
   )
