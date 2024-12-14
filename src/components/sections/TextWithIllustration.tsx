@@ -32,7 +32,7 @@ const TextWithIllustration = ({ data, popup }: TextAndCollageProps) => {
     >
       <div className="-mx-4 md:-mr-3 md:mx-0 md:-ml-24 md:-mt-16 md:-mb-20 2xl:-ml-52 xl:-ml-36 relative h-screen/2 md:h-screen/1.6 block col-start-1 -col-end-1 md:col-start-1 md:flex md:-col-end-7 xl:col-start-1 xl:col-end-11 2xl:col-start-1 2xl:col-end-13">
         {/* Large image container */}
-        <div className="relative h-full">
+        <div className="relative w-full h-full">
           <Media popup data={data?.MediaObject?.media} />
 
           {/* Small image overlay in the bottom-right corner */}
