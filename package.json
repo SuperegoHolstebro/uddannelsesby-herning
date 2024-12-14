@@ -34,7 +34,7 @@
     "@portabletext/react": "^3.0.11",
     "@radix-ui/react-slot": "^1.0.2",
     "@react-hook/window-size": "^3.1.1",
-    "@react-three/drei": "9.13.2",
+    "@react-three/drei": "^9.120.4",
     "@react-three/fiber": "8.0.26",
     "@sanity/base": "^2.36.2",
     "@sanity/cli": "^3.62.0",
