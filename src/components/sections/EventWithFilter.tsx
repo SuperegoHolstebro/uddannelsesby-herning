@@ -44,7 +44,12 @@ const EventWithFilter = ({ section }) => {
 
       {/* Event Cards */}
       <div className="pt-4 col-span-full">
-        <Section tag={'ul'} paddingX="none" paddingTop="none">
+        <Section
+          tag={'ul'}
+          paddingX="none"
+          paddingTop="none"
+          paddingBottom="none"
+        >
           {events
             .filter(
               (event) =>
@@ -75,12 +80,12 @@ function FilterButton({
       className={`relative w-full mx-6 px-6 space-y-5 ${selectedCategory === category ? '' : 'bg-hvid'}`}
     >
       <Icon className="mx-auto size-8" type={icon} />
-      <span className="block">
+      <span className="block space-y-2">
         <span className="block">{children}</span>
         <AnimatePresence mode="wait" presenceAffectsLayout>
           className=
           {`block translate-y-6 absolute -mt-1 overflow-hidden duration-500 ease-in-out w-11/12 ml-auto translate-x-1/2 right-1/2`}
-          <span>
+          <span className="block">
             <svg
               className="w-full"
               preserveAspectRatio="xMinYMin meet"
