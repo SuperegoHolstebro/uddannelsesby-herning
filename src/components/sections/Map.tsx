@@ -65,7 +65,7 @@ const Map = ({ data }) => {
           {uniqueCategories.map((category, index) => (
             <li
               key={index}
-              className="flex w-full gap-6 border-r border-grå [&:nth-child(6)]:border-r-0 [&:nth-child(12)]:border-r-0 [&:nth-child(18)]:border-r-0 [&:nth-child(24)]:border-r-0 [&:nth-child(30)]:border-r-0"
+              className="flex items-center w-full gap-6 border-r border-grå [&:nth-child(6)]:border-r-0 [&:nth-child(12)]:border-r-0 [&:nth-child(18)]:border-r-0 [&:nth-child(24)]:border-r-0 [&:nth-child(30)]:border-r-0"
             >
               <Icon className="size-8" type={category?.icon} />
               {category?.title}
