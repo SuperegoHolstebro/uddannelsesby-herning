@@ -80,7 +80,7 @@ export default function Header() {
           aria-controls="menu"
           aria-label="Menu"
           onClick={() => setIsOpen(!isOpen)}
-          className="relative z-[999999999] md:mt-4 size-11.5 group"
+          className="relative z-[999999999] md:mt-6 size-11.5 group"
         >
           <span
             className={`block absolute transition-all h-2.5 w-10 bg-signal-gul group-hover:bg-signal-gul transform duration-500 ease-in-out ${isOpen ? 'rotate-0 !bg-signal-pink ' : '-translate-y-5  group-hover:translate-y-0'}`}

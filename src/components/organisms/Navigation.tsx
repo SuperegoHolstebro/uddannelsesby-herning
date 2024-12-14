@@ -73,7 +73,7 @@ export default function Navigation({ onClose }) {
             delay: 0.3,
           }}
           animate={{ opacity: 1 }}
-          className="px-6 pt-20 pb-6 pl-8 my-auto space-y-6 overflow-auto md:h-fit navigation-items md:pl-16 xl:pl-20 md:px-24 lg:px-19 xl:px-16 sm:px-13 sm:pt-32 md:pt-0 lg:pt-28 text-lys"
+          className="px-6 pt-20 pb-6 pl-8 my-auto space-y-6 overflow-hidden md:h-fit navigation-items md:pl-16 xl:pl-20 md:px-24 lg:px-19 xl:px-16 sm:px-13 sm:pt-32 md:pt-0 lg:pt-28 text-lys"
         >
           {data?.links?.map((item, index) => (
             <MenuItem key={index} item={item} />
@@ -103,63 +103,69 @@ function MenuItem({ item }) {
 
   return (
     <li
-      className={`h-auto transition  text-huge navigation-item focus-within:text-signal-gul md:hover:pl-0 hover:pl-4  ${isSubmenuOpen ? 'pl-4 md:pl-0' : ''}`}
+      className={`h-auto transition text-huge navigation-item focus-within:text-signal-gul ${isSubmenuOpen ? 'pl-4 md:pl-0' : ''}`}
     >
       {item?.subLinks?.length > 0 ? (
         <>
           <AdvancedButton
             onClick={doBoth}
-            className="relative flex items-start justify-between w-full px-0 py-0 pb-2 text-left group focus-within:text-signal-gul"
+            className="relative flex items-start justify-between w-full px-0 py-0 pb-2 text-left group/button focus-within:text-signal-gul"
             variant="none"
           >
             <span
-              className={`relative flex gap-4 font-bold focus-within:text-signal-gul hover:text-signal-gul ${isSubmenuOpen ? 'text-signal-gul' : ''}`}
+              className={`relative transition-all flex gap-4 font-bold group-hover/button:text-signal-gul ${isSubmenuOpen ? 'text-signal-gul' : ''}`}
             >
-              <AnimatePresence mode="wait">
-                <span
-                  className={`
-                ${showSvgOnClick ? 'visible opacity-100' : 'invisible opacity-0 group-hover:visible group-hover:opacity-100'}
+              <span
+                className={`
+                ${showSvgOnClick ? 'visible opacity-100' : 'invisible opacity-0 group-hover/button:visible group-hover/button:opacity-100'}
                   transition-all ease-in-out absolute size-6 md:size-8 -left-[5%] md:-translate-x-full -translate-x-1/2 translate-y-1/2 `}
+              >
+                <motion.span
+                  transition={{ stiffness: 100, duration: 0.5 }}
+                  exit={{ scale: 0, opacity: 0 }}
+                  initial={{ scale: 0, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
                 >
-                  <motion.span
-                    transition={{ stiffness: 100, duration: 0.5 }}
-                    exit={{ scale: 0, opacity: 0 }}
-                    initial={{ scale: 0, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
+                  <motion.svg
+                    className="size-full"
+                    animate={{ rotate: 360 }}
+                    transition={{
+                      duration: 2.5,
+                      repeat: Infinity,
+                      repeatType: 'loop',
+                      ease: 'linear',
+                    }}
+                    width="64"
+                    height="64"
+                    viewBox="0 0 64 64"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    <motion.svg
-                      className="size-full"
-                      animate={{ rotate: 360 }}
-                      transition={{
-                        duration: 2.5,
-                        repeat: Infinity,
-                        repeatType: 'loop',
-                        ease: 'linear',
-                      }}
-                      width="64"
-                      height="64"
-                      viewBox="0 0 64 64"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M48.7538 38.9389L54.6271 54.6271L38.9389 48.7538L32 64L25.0611 48.7538L9.37294 54.6271L15.2462 38.9389L0 32L15.2462 25.0611L9.37294 9.37295L25.0611 15.2462L32 0L38.9389 15.2462L54.6271 9.37295L48.7538 25.0611L64 32L48.7538 38.9389Z"
-                        fill="#D9FC00"
-                      />
-                    </motion.svg>
-                  </motion.span>
-                </span>
-              </AnimatePresence>
+                    <path
+                      d="M48.7538 38.9389L54.6271 54.6271L38.9389 48.7538L32 64L25.0611 48.7538L9.37294 54.6271L15.2462 38.9389L0 32L15.2462 25.0611L9.37294 9.37295L25.0611 15.2462L32 0L38.9389 15.2462L54.6271 9.37295L48.7538 25.0611L64 32L48.7538 38.9389Z"
+                      fill="#D9FC00"
+                    />
+                  </motion.svg>
+                </motion.span>
+              </span>
+
               <span dangerouslySetInnerHTML={{ __html: item.link.label }} />
             </span>
           </AdvancedButton>
-          <AnimatePresence mode="popLayout" presenceAffectsLayout>
+
+          <AnimatePresence>
             {isSubmenuOpen && (
-              <ul className="flex flex-row flex-wrap gap-0 gap-x-8 md:gap-8 text-medium">
+              <motion.ul
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.4, ease: 'easeInOut' }}
+                className="flex flex-row flex-wrap overflow-hidden gap-x-8 md:gap-8 text-medium"
+              >
                 {item.subLinks.map((subItem, index) => (
                   <SubMenuItem index={index} key={index} item={subItem} />
                 ))}
-              </ul>
+              </motion.ul>
             )}
           </AnimatePresence>
         </>
