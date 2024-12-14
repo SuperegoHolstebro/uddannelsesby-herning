@@ -3,6 +3,7 @@ import { cva } from 'class-variance-authority'
 import React from 'react'
 import { cn } from '@/utils/utils'
 import { ParagraphProps } from '@/types/ParagraphProps'
+import Heading from './Heading'
 
 /**
  *
@@ -89,39 +90,49 @@ const myPortableTextComponents = {
   },
   block: {
     normal: ({ children }) => (
-      <p className="font-sans custom-p text-regular ">{children}</p>
+      <p className="font-sans custom-p text-regular empty:mb-4 ">{children}</p>
     ),
     h1: ({ children }) => (
-      <h1 className="mt-8 mb-4 font-bold custom-h1 max-w-prose text-balance text-giant">
-        {children}
-      </h1>
+      <Heading
+        tag="h1"
+        type="h1"
+        dangerouslySetInnerHTML={{ __html: children }}
+      />
     ),
     h2: ({ children }) => (
-      <h2 className="mt-8 mb-4 font-bold custom-h2 max-w-prose text-balance text-huge">
-        {children}
-      </h2>
+      <Heading
+        tag="h2"
+        type="h2"
+        dangerouslySetInnerHTML={{ __html: children }}
+      />
     ),
     h3: ({ children }) => (
-      <h3 className="font-bold custom-h3 max-w-prose text-balance text-large">
-        {children}
-      </h3>
+      <Heading
+        tag="h3"
+        type="h3"
+        dangerouslySetInnerHTML={{ __html: children }}
+      />
     ),
     h4: ({ children }) => (
-      <h4 className="font-bold custom-h4 max-w-prose text-balance text-medium">
-        {children}
-      </h4>
+      <Heading
+        tag="h4"
+        type="h4"
+        dangerouslySetInnerHTML={{ __html: children }}
+      />
     ),
     h5: ({ children }) => (
-      <h5 className="font-bold custom-h5 max-w-prose text-balance text-increased">
-        {' '}
-        {children}{' '}
-      </h5>
+      <Heading
+        tag="h5"
+        type="h5"
+        dangerouslySetInnerHTML={{ __html: children }}
+      />
     ),
     h6: ({ children }) => (
-      <h6 className="font-bold custom-h6 max-w-prose text-balance text-small">
-        {' '}
-        {children}{' '}
-      </h6>
+      <Heading
+        tag="h6"
+        type="h6"
+        dangerouslySetInnerHTML={{ __html: children }}
+      />
     ),
     ul: ({ children }) => (
       <ul className="ml-5 list-disc list-outside custom-ul"> {children} </ul>
