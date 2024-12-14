@@ -1,9 +1,13 @@
 'use client'
 import React from 'react'
 import dynamic from 'next/dynamic'
-const Player = dynamic(() => import('@lottiefiles/react-lottie-player'), {
-  ssr: false,
-})
+
+const Player = dynamic(
+  () => import('@lottiefiles/react-lottie-player').then((mod) => mod.Player),
+  {
+    ssr: false,
+  },
+)
 
 export default function Text({ videoSrc, textContent }) {
   return (
