@@ -99,12 +99,12 @@ const Symbol: React.FC<SymbolProps> = ({ type, ...props }) => {
           <g clipPath="url(#clip0_980_1044)">
             <path
               d="M65.0331 36.6955H1.65083V1.65083H166.762V36.6955H65.0331Z"
-              stroke="#D9FC00"
+              stroke="currentColor"
               strokeWidth="3.30165"
             />
             <path
               d="M66.7404 77.2209L66.7404 1.65082L102.115 1.65083L102.115 198.324L66.7404 198.324L66.7404 77.2209Z"
-              stroke="#D9FC00"
+              stroke="currentColor"
               strokeWidth="3.30165"
             />
           </g>
