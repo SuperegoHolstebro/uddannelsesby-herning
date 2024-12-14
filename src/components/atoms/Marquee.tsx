@@ -52,8 +52,15 @@ const MarqueeItem = (props) => {
   return (
     <motion.div
       className="inline-block pr-4 space-x-8 select-none md:space-x-16 item whitespace-nowrap"
+      animate={{ x: [0, -width] }} // Move from 0 to -width
+      transition={{
+        ease: 'linear',
+        duration: speed, // Adjust duration based on the speed
+        repeat: Infinity,
+      }}
       ref={itemRef}
     >
+      {children}
       {children}
     </motion.div>
   )
