@@ -22,7 +22,7 @@ export default function Text({ videoSrc, textContent }) {
       >
         <source src={videoSrc} type="video/mp4" />
       </video>
-      <div className="absolute right-0 z-10 py-0 pointer-events-none xl:pb-0 top-28 md:top-20 xl:top-0 scale-[.9] ">
+      <div className="absolute right-0 z-10 py-0 pointer-events-none xl:pb-0 top-28 md:top-20 xl:top-1/2 xl:-translate-y-1/2 scale-[.9] ">
         <Player
           autoplay
           loop
