@@ -9,6 +9,7 @@ import Icon from '../atoms/Icons'
 import { stegaClean } from '@sanity/client/stega'
 import { FOOTER_QUERY, NAVIGATION_QUERY } from '~/sanity/lib/sanity.queries'
 import Heading from '../atoms/Heading'
+import { FadeUp } from '../interactions/AnimateFadeIn'
 
 /**
  *
@@ -150,7 +151,7 @@ function MenuItem({ item }) {
               <span dangerouslySetInnerHTML={{ __html: item.link.label }} />
             </span>
           </AdvancedButton>
-          <AnimatePresence mode="wait" presenceAffectsLayout>
+          <AnimatePresence mode="popLayout" presenceAffectsLayout>
             {isSubmenuOpen && (
               <ul className="flex flex-row flex-wrap gap-0 gap-x-4 md:gap-4 text-medium">
                 {item.subLinks.map((subItem, index) => (
@@ -218,27 +219,29 @@ const IconItem = ({ item }) => {
 
 const BottomNavigation = ({ footer }) => {
   return (
-    <div className="px-6 overflow-auto h-fit navigation-items md:pl-16 xl:pl-20 md:px-24 lg:px-19 xl:px-16 sm:px-13 text-lys ">
-      <div className="flex justify-between py-5 border-t border-lys">
-        <Heading tag="h6" type="h6" spacing="none" className="!font-bold">
-          <Link
-            className="group"
-            href="/signin"
-            target=""
-            rel="noreferrer"
-            title="Virksomhedslogin"
-          >
-            Virksomhedslogin
-          </Link>
-        </Heading>
-        <ul className="flex flex-wrap justify-center max-w-64 md:mx-0 gap-x-4 gap-y-2 md:justify-start">
-          {footer?.social?.map(
-            (item: { platform: string; url: string }, index: number) => (
-              <IconItem key={index} item={item} />
-            ),
-          )}
-        </ul>
-      </div>
+    <div className="px-6 overflow-hidden h-fit navigation-items md:pl-16 xl:pl-20 md:px-24 lg:px-19 xl:px-16 sm:px-13 text-lys ">
+      <FadeUp delay={0.5}>
+        <div className="flex justify-between py-5 border-t border-lys">
+          <Heading tag="h6" type="h6" spacing="none" className="!font-bold">
+            <Link
+              className="group"
+              href="/signin"
+              target=""
+              rel="noreferrer"
+              title="Virksomhedslogin"
+            >
+              Virksomhedslogin
+            </Link>
+          </Heading>
+          <ul className="flex flex-wrap justify-center max-w-64 md:mx-0 gap-x-4 gap-y-2 md:justify-start">
+            {footer?.social?.map(
+              (item: { platform: string; url: string }, index: number) => (
+                <IconItem key={index} item={item} />
+              ),
+            )}
+          </ul>
+        </div>
+      </FadeUp>
     </div>
   )
 }

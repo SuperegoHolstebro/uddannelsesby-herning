@@ -75,10 +75,11 @@ export default function Scene() {
   return (
     <div className="relative w-full h-screen z-[5]">
       {dimension.width == 0 && (
-        <div className="absolute w-full h-full bg-mørk" />
+        <div className="absolute w-full h-screen bg-mørk" />
       )}
       {!hasAnimated && (
         <canvas
+          className="h-screen"
           ref={canvas}
           onMouseMove={manageMouseMove}
           height={dimension.height}

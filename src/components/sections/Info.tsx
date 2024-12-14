@@ -1,6 +1,12 @@
 'use client'
-import React, { useEffect } from 'react'
-import { motion, useMotionValue, useTransform, animate } from 'framer-motion'
+import React, { useEffect, useRef } from 'react'
+import {
+  motion,
+  useMotionValue,
+  useTransform,
+  animate,
+  useInView,
+} from 'framer-motion'
 import Section from './Section'
 import Heading from '../atoms/Heading'
 
@@ -24,19 +30,26 @@ function InfoBlock({ data }) {
   const count = useMotionValue(0)
   const roundedCount = useTransform(count, (value) => Math.round(value))
 
+  // Create a ref to track the component's visibility
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: '0px 0px -100px 0px' })
+
   useEffect(() => {
-    const targetDuration = 3 // Duration in seconds for all counters to finish around the same time
-    animate(count, data.number, {
-      duration: targetDuration,
-      ease: [0.16, 1, 0.3, 1], // Custom cubic bezier for a smooth ease-out
-    })
-  }, [data.number, count])
+    if (isInView) {
+      const targetDuration = 3 // Duration in seconds for all counters to finish around the same time
+      animate(count, data.number, {
+        duration: targetDuration,
+        ease: [0.16, 1, 0.3, 1], // Custom cubic bezier for a smooth ease-out
+      })
+    }
+  }, [isInView, data.number, count])
 
   return (
     <motion.div
+      ref={ref}
       className="col-span-full md:col-span-4 xl:col-span-8 prose-headings:text-center md:prose-headings:text-left"
       initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
+      animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 50 }}
       transition={{ duration: 0.5 }}
     >
       <Heading
