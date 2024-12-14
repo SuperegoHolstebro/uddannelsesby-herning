@@ -164,7 +164,7 @@ export const FOOTER_QUERY = groq`
 
 // GROQ Settings Query
 export const SITE_SETTINGS_QUERY = groq`
-*[_type == "settings"][1] {
+*[_type == "settings"][0] {
   siteTitle,
   siteDescription,
   headMeta,
