@@ -5,6 +5,7 @@ import Section from './Section'
 import Heading from '@/components/atoms/Heading'
 import { clean } from '~/utils/sanitize'
 import Symbol from '../atoms/Symbols'
+import { FadeUp } from '../interactions/AnimateFadeIn'
 
 /**
  *
@@ -37,35 +38,50 @@ const PageTitle = ({ data }) => {
       paddingX="left"
     >
       <div className="col-span-full">
-        <Heading
-          type="h1"
-          tag="h1"
-          spacing="none"
-          className="w-full pb-8 xs:w-2/3 sm:pb-12 sm:w-2/3 md:w-1/2 "
-          dangerouslySetInnerHTML={{ __html: data.title }}
-        />
+        <div className="w-full pb-8 xs:w-2/3 sm:pb-12 sm:w-2/3 md:w-1/2 ">
+          <FadeUp delay={0.25}>
+            <Heading
+              type="h1"
+              tag="h1"
+              spacing="none"
+              dangerouslySetInnerHTML={{ __html: data.title }}
+            />
+          </FadeUp>
+        </div>
 
-        <div className="relative flex justify-start h-full max-w-3xl pr-0 ml-auto -mb-12 -mr-6 space-x-4 xs:-mr-12 w-fit sm:w-full flex-nowrap sm:h-auto sm:justify-end md:space-x-6 xl:max-w-5xl lg:max-w-4xl ">
+        <div className="relative flex justify-start h-full max-w-3xl pr-0 ml-auto -mb-12 -mr-6 space-x-4 xs:-mr-12 w-fit sm:w-full flex-nowrap sm:h-auto sm:justify-end md:space-x-6 xl:max-w-6xl lg:max-w-4xl ">
           {data.images.map((image, index) => (
-            <div className={imageStyles} key={index}>
-              <Image
-                width={image.width || 800}
-                height={image.height || 800}
-                src={image.asset.url || ''}
-                alt={image.alt || ''}
-                className="object-cover w-full h-full max-h-screen/1.6"
-              />
+            <div
+              className={`${imageStyles} overflow-hidden *:size-full`}
+              key={index}
+            >
+              <FadeUp delay={index * 0.25}>
+                <Image
+                  width={image.width || 800}
+                  height={image.height || 800}
+                  src={image.asset.url || ''}
+                  alt={image.alt || ''}
+                  className="object-cover w-full h-full max-h-screen/1.6 shadow-lg"
+                />
+              </FadeUp>
             </div>
           ))}
-
-          <Symbol
-            type={data.symbolPickerRight?.icon}
-            className="absolute top-4 right-1/2 xs:-top-6 xs:right-5 sm:-top-24 sm:right-4 md:right-48 size-20 sm:size-36 md:size-44"
-          />
-          <Symbol
-            type={data.symbolPickerLeft?.icon}
-            className="absolute bottom-4 -left-4 xs:bottom-24 xs:-left-20 size-20 sm:size-36 md:size-44"
-          />
+          <span className="absolute top-4 right-1/2 xs:-top-6 xs:right-5 sm:-top-24 sm:right-4 md:right-48">
+            <FadeUp delay={0.625}>
+              <Symbol
+                type={data.symbolPickerRight?.icon}
+                className="size-20 sm:size-36 md:size-44"
+              />
+            </FadeUp>
+          </span>
+          <span className="absolute bottom-4 -left-4 xs:bottom-24 xs:-left-20">
+            <FadeUp delay={0.725}>
+              <Symbol
+                type={data.symbolPickerLeft?.icon}
+                className="size-20 sm:size-36 md:size-44"
+              />
+            </FadeUp>
+          </span>
         </div>
       </div>
     </Section>
