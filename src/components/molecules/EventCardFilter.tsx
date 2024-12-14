@@ -6,6 +6,7 @@ import { urlFor } from '~/sanity/lib/sanity.image'
 import { resolveHref } from '~/sanity/lib/sanity.links'
 import { formatNumberDate } from '~/utils/date'
 import { formatPrice } from '~/utils/price'
+import Badge from '../atoms/badge'
 
 /**
  *
@@ -38,9 +39,9 @@ const EventCardFilter = ({ event }) => {
   const ticketsLeft = maxAttendees - bookedTickets
 
   return (
-    <div className="relative col-span-full sm:col-span-4 xl:col-span-8 group ">
+    <div className="relative col-span-full sm:col-span-4 xl:col-span-8  border-b-grå border-b pb-6 mb-6">
       <Link
-        className={`block w-full  ${event.isFull === true ? 'opacity-50' : ''}`}
+        className={`block w-full group ${event.isFull === true ? 'opacity-50' : ''}`}
         href={resolveHref(event._type, event.slug)}
         title={event.name}
       >
@@ -58,7 +59,7 @@ function EventCardFilterPortrait({ data }) {
       {data.image && (
         <div className="aspect-w-4 aspect-h-3">
           <Image
-            className="object-cover"
+            className="object-cover transition-transform group-hover:scale-110 group-focus-within:scale-110"
             src={urlFor(data.image).dpr(2).url()}
             alt={data.altText || 'Billede af ' + data.title}
             width={1920}
@@ -81,13 +82,13 @@ function EventCardFilterPortrait({ data }) {
         </div>
       )}
       {data?.date.startDate && (
-        <span className="absolute p-2 leading-none rounded-full bg-signal-pink left-3 top-3">
+        <Badge variant="pink" className="absolute left-3 top-3">
           <time>{formatNumberDate(data.date.startDate)}</time>
-        </span>
+        </Badge>
       )}
-      <span className="absolute p-2 leading-none rounded-full bg-signal-pink right-3 top-3">
+      <Badge variant="pink" className="absolute right-3 top-3">
         {formatPrice(data.price)}
-      </span>
+      </Badge>
     </div>
   )
 }
@@ -95,14 +96,16 @@ function EventCardFilterInfo({ data }) {
   return (
     <div className="mt-4 space-y-5">
       {data.title && (
-        <Heading spacing="none" type="h5" tag="h5">
+        <Heading spacing="none" type="h4" tag="h4">
           {data.title}
         </Heading>
       )}
       {data.category && (
-        <span className="p-2 block w-fit uppercase pt-1 rounded-full bg-mørk text-lys">
-          {data?.category?.title}
-        </span>
+        <>
+          <Badge className="block" variant="dark">
+            {data?.category?.title}
+          </Badge>
+        </>
       )}
     </div>
   )

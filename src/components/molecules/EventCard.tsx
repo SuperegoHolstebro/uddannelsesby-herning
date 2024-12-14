@@ -84,7 +84,7 @@ function Portrait({ event }) {
 
 function Content({ event, isActive, isAnyActive }) {
   return (
-    <div className="pt-8 space-y-4">
+    <div className="pt-8 space-y-4 ">
       <Heading
         text="wrap"
         type="h4"

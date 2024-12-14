@@ -17,6 +17,7 @@ import { authOptions } from '@/sanity/lib/authOptions'
 import Icon from '~/components/atoms/Icons'
 import { getMonth } from '~/utils/date'
 import { Button } from '~/components/atoms/Button'
+import Badge from '~/components/atoms/badge'
 interface Params {
   slug: string[]
   locale: string
@@ -74,9 +75,7 @@ export default async function DynamicRoute({
             <Heading spacing="none">{page.name}</Heading>
           </div>
           <div className="flex col-span-full h-fit">
-            <Paragraph className="bg-mørk uppercase text-lys rounded-full px-2 py-1">
-              kategori{' '}
-            </Paragraph>
+            <Badge variant="dark">kategori </Badge>
           </div>
         </div>
       </Section>

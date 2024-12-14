@@ -5,6 +5,7 @@ import Heading from '@/components/atoms/Heading'
 import { urlFor } from '~/sanity/lib/sanity.image'
 import { resolveHref } from '~/sanity/lib/sanity.links'
 import { clean } from '~/utils/sanitize'
+import Badge from '../atoms/badge'
 
 /**
  *
@@ -66,13 +67,13 @@ function CompanyCardInfo({ data }) {
       )}
       {data.fields && data.fields.length > 0 && (
         <ul className="flex flex-row flex-wrap gap-2.5 pt-5">
-          <li className="inline-flex p-3 py-2 leading-none uppercase rounded-full bg-dark text-lys text-small">
+          <Badge variant="dark" className="text-small">
             {data.fields[0].title}
-          </li>
+          </Badge>
           {data.fields.length > 1 && (
-            <li className="inline-flex p-3 py-2 leading-none uppercase rounded-full bg-dark text-lys text-small">
+            <Badge variant="dark" className="text-small">
               + {data.fields.length - 1} FLERE
-            </li>
+            </Badge>
           )}
         </ul>
       )}
