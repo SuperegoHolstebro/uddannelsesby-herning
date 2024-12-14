@@ -35,9 +35,9 @@ const TextWithIllustration = ({ data, popup }: TextAndCollageProps) => {
           <Media popup data={data?.MediaObject?.media} />
 
           {/* Small image overlay in the bottom-right corner */}
-          <div className="absolute w-64 h-64 -bottom-8 -right-16 *:hidden *:md:block">
+          <div className="absolute size-64 -bottom-8 -right-16 *:hidden *:md:block">
             <Media data={data?.SmallMediaObject?.media} />
-            <div className="absolute !block w-64 h-64 -bottom-4 md:-bottom-16 left-12 md:-left-16">
+            <div className="absolute !block siez-64 -bottom-4 md:-bottom-16 left-12 md:-left-16">
               {/* -bottom-16 FIXX */}
               <Symbol
                 type={data.symbolPicker?.icon}
