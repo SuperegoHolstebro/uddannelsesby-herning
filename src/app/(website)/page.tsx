@@ -6,6 +6,7 @@ import PageContainer from '@/components/PageContainer'
 import { generatePageMetadata } from '~/utils/metadataUtils'
 import { notFound } from 'next/navigation'
 
+
 export default async function DynamicRoute() {
   const page = await loadPage('/', 'da')
 
