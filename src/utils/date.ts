@@ -6,6 +6,14 @@ export function formatDate(date: string) {
   })
 }
 
+export function formatDateToNumber(date: string) {
+  return new Date(date).toLocaleDateString('da-DK', {
+    month: 'numeric',
+    day: 'numeric',
+    year: 'numeric',
+  })
+}
+
 export function formatTime(date: string) {
   return new Date(date).toLocaleTimeString('da-DK', {
     hour: 'numeric',
