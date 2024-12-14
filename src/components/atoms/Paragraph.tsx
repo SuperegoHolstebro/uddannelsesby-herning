@@ -148,7 +148,7 @@ const myPortableTextComponents = {
 
   list: {
     bullet: ({ children }) => (
-      <ul className="prose-li:ml-6 prose-li:list-disc prose-li:list-item">
+      <ul className="mt-1 space-y-2 prose-li:ml-6 prose-li:list-disc prose-li:list-item">
         {children}
       </ul>
     ),
