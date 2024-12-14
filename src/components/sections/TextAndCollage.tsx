@@ -93,7 +93,7 @@ function Portrait({ data, index }) {
         transition={{ type: 'spring', duration: 1, delay: 0.5 * index }}
       >
         <div
-          className={`absolute w-full flex justify-center h-full transform aspect-w-3 aspect-h-2 max-w-96 right-1/2 ${translateX}`}
+          className={`absolute w-full flex justify-center h-full transform aspect-w-3 aspect-h-2 max-w-[24rem] xl:max-w-[29rem] right-1/2 ${translateX}`}
         >
           {index === 2 && (
             <FadeUp delay={1.5}>
