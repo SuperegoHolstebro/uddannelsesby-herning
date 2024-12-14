@@ -1,117 +1,82 @@
-import { defineField, defineType } from "sanity";
+import { defineField, defineType } from 'sanity'
 
 export const MediaObject = defineType({
-  title: "Medie",
-  name: "MediaObject",
-  type: "object",
+  title: 'Medie',
+  name: 'MediaObject',
+  type: 'object',
   fields: [
     {
-      name: "media",
-      type: "object",
-      title: "Medie",
+      name: 'media',
+      type: 'object',
+      title: 'Medie',
       options: {
         collapsible: true,
         collapsed: false,
       },
       fields: [
         defineField({
-          name: "select",
-          type: "string",
-          title: "Vælg medie",
+          name: 'select',
+          type: 'string',
+          title: 'Vælg medie',
           options: {
-            layout: "dropdown",
+            layout: 'dropdown',
             list: [
-              { title: "Billede", value: "image" },
-              { title: "Video", value: "video" },
-              { title: "Vimeo", value: "vimeo" },
+              { title: 'Billede', value: 'image' },
+              { title: 'Video', value: 'video' },
+              { title: 'Vimeo', value: 'vimeo' },
             ],
           },
-          initialValue: "image",
+          initialValue: 'image',
         }),
         /* Billede */
         {
-          name: "imageObject",
-          title: "Billede",
-          type: "object",
+          name: 'imageObject',
+          title: 'Billede',
+          type: 'object',
           fields: [
             defineField({
-              name: "image",
-              type: "image",
+              name: 'image',
+              type: 'image',
             }),
-            {
-              name: "object",
-              type: "object",
-              options: {
-                collapsed: false,
-                collapsible: true,
-                columns: 2,
-              },
-              fields: [
-                defineField({
-                  name: "objectFit",
-                  type: "string",
-                  options: {
-                    list: [
-                      { title: "Fill", value: "fill" },
-                      { title: "Contain", value: "contain" },
-                      { title: "Cover", value: "cover" },
-                      { title: "None", value: "none" },
-                    ],
-                  },
-                }),
-                defineField({
-                  name: "aspectRatio",
-                  type: "string",
-                  options: {
-                    list: [
-                      { title: "Landskab", value: "landscape" },
-                      { title: "Portræt", value: "portrait" },
-                      { title: "Kvadrat", value: "square" },
-                    ],
-                  },
-                }),
-              ],
-            },
           ],
-          hidden: ({ parent }) => parent?.select !== "image",
+          hidden: ({ parent }) => parent?.select !== 'image',
         },
         /* Video */
         {
-          name: "videoObject",
-          title: "Video",
-          description: "Vælg en video",
-          type: "object",
-          hidden: ({ parent }) => parent?.select !== "video",
+          name: 'videoObject',
+          title: 'Video',
+          description: 'Vælg en video',
+          type: 'object',
+          hidden: ({ parent }) => parent?.select !== 'video',
           fields: [
             {
-              name: "video",
-              type: "file",
-              title: "Video",
+              name: 'video',
+              type: 'file',
+              title: 'Video',
             },
             {
-              name: "thumbnail",
-              type: "image",
-              title: "Billede",
+              name: 'thumbnail',
+              type: 'image',
+              title: 'Billede',
             },
           ],
         },
         /* Vimeo */
         {
-          name: "vimeoObject",
-          title: "Vimeo",
-          description: "Vælg en Vimeo video",
-          type: "object",
-          hidden: ({ parent }) => parent?.select !== "vimeo",
+          name: 'vimeoObject',
+          title: 'Vimeo',
+          description: 'Vælg en Vimeo video',
+          type: 'object',
+          hidden: ({ parent }) => parent?.select !== 'vimeo',
           fields: [
             {
-              name: "vimeo",
-              type: "url",
-              title: "Vimeo",
+              name: 'vimeo',
+              type: 'url',
+              title: 'Vimeo',
               validation: (Rule) =>
                 Rule.required().uri({
-                  scheme: ["http", "https"],
+                  scheme: ['http', 'https'],
                   allowRelative: false,
-
                 }),
             },
           ],
@@ -119,4 +84,4 @@ export const MediaObject = defineType({
       ],
     },
   ],
-});
+})
