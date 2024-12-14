@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
-import { Player } from '@lottiefiles/react-lottie-player'
-
+/* import { Player } from '@lottiefiles/react-lottie-player'
+ */
 /**
  *
  * @returns: En ikon-komponent, der viser et ikon.
@@ -79,16 +79,16 @@ const Symbol: React.FC<SymbolProps> = ({ type, ...props }) => {
 
     t: (
       <>
-        <Player
+        {/*         <Player
           //@ts-ignore
           autoplay={true}
           loop
           hover
           src="/lottie/T/T.json"
           className="bg-cover "
-        ></Player>
+        ></Player> */}
 
-        {/* <svg
+        <svg
           {...props}
           width="169"
           height="200"
@@ -113,7 +113,7 @@ const Symbol: React.FC<SymbolProps> = ({ type, ...props }) => {
               <rect width="168.422" height="199.75" fill="white" />
             </clipPath>
           </defs>
-        </svg> */}
+        </svg>
       </>
     ),
 
