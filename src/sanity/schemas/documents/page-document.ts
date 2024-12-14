@@ -38,6 +38,8 @@ export default defineType({
     defineField({
       name: 'mainImage',
       title: 'Udvalgt billede',
+      description:
+        'Billedet er det primære visuelle element, der repræsenterer indholdet på siden',
       type: 'image',
     }),
     defineField({
@@ -65,7 +67,9 @@ export default defineType({
     prepare({ title, slug, media }) {
       return {
         title: title,
-        subtitle: slug ? `/${slug.startsWith('/') ? slug.slice(1) : slug}` : 'Mangler slug',
+        subtitle: slug
+          ? `/${slug.startsWith('/') ? slug.slice(1) : slug}`
+          : 'Mangler slug',
         media: media,
       }
     },

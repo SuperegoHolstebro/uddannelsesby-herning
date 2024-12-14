@@ -52,6 +52,8 @@ export default defineType({
       name: 'mainImage',
       title: 'Udvalgt billede',
       type: 'image',
+      description:
+        'Billedet er det primære visuelle element, der repræsenterer indholdet på siden',
     }),
     defineField({
       group: 'pageBuilder',
