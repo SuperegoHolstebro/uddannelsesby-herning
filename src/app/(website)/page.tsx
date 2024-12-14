@@ -4,7 +4,6 @@ import { loadPage } from '@/sanity/queries/loadPage'
 import PageBuilder from '~/components/PageBuilder'
 import PageContainer from '@/components/PageContainer'
 import { generatePageMetadata } from '~/utils/metadataUtils'
-import { stegaClean } from '@sanity/client/stega'
 import { notFound } from 'next/navigation'
 
 export default async function DynamicRoute() {
