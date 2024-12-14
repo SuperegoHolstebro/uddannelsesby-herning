@@ -33,7 +33,10 @@ const Quote = ({ section }) => {
       paddingTop={clean(section?.design?.padding?.spacingTop) || 'none'}
       paddingBottom={clean(section?.design?.padding?.spacingBottom) || 'none'}
     >
-      <Symbol type="t" className="absolute z-10 hidden left-4 top-8 lg:block" />
+      <Symbol
+        type="t"
+        className="absolute z-10 hidden size-52 left-4 top-8 lg:block"
+      />
       {/* Image in the last 12 columns */}
       <div className="relative sm:row-start-1 col-span-full sm:col-start-4 sm:-col-end-1 xl:col-start-12">
         <Symbol
@@ -51,11 +54,11 @@ const Quote = ({ section }) => {
         <Heading type="h3" tag="h3" className="font-bold" spacing="none">
           {section?.quote}
         </Heading>
-        <div className="mt-12">
+        <div className="mt-12 space-y-4">
           <Heading type="h4" tag="h4" className="font-semibold" spacing="none">
             {section?.student}
           </Heading>
-          <Paragraph className="mt-0 text-small first-of-type:mt-0">
+          <Paragraph className="mt-0 uppercase first-of-type:mt-0">
             {section?.education}
           </Paragraph>
         </div>
