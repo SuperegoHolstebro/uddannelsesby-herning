@@ -1,10 +1,6 @@
 'use client'
-
 import React from 'react'
-import dynamic from 'next/dynamic'
-const Player = dynamic(() => import('@lottiefiles/react-lottie-player'), {
-  ssr: false,
-})
+import { Player } from '@lottiefiles/react-lottie-player'
 
 /**
  *
