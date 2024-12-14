@@ -23,7 +23,7 @@ const serif = PT_Serif({
 const outfit = Outfit({
   variable: '--font-outfit',
   subsets: ['latin'],
-  weight: ['400', '600', '700'],
+  weight: ['400', '700'],
   display: 'swap',
   preload: true,
 })
