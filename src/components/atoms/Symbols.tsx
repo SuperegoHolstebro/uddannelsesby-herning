@@ -1,7 +1,10 @@
 'use client'
 
 import React from 'react'
-import { Player, Controls } from '@lottiefiles/react-lottie-player'
+import dynamic from 'next/dynamic'
+const Player = dynamic(() => import('@lottiefiles/react-lottie-player'), {
+  ssr: false,
+})
 
 /**
  *
@@ -81,13 +84,15 @@ const Symbol: React.FC<SymbolProps> = ({ type, ...props }) => {
     t: (
       <>
         <Player
-          {...props}
-          autoplay
+          //@ts-ignore
+          autoplay={true}
           loop
+          hover
           src="/lottie/T/T.json"
-          style={{ height: '300px', width: '300px' }}
+          className="bg-cover "
         ></Player>
-        {/*         <svg
+
+        {/* <svg
           {...props}
           width="169"
           height="200"
@@ -112,8 +117,7 @@ const Symbol: React.FC<SymbolProps> = ({ type, ...props }) => {
               <rect width="168.422" height="199.75" fill="white" />
             </clipPath>
           </defs>
-        </svg>
- */}{' '}
+        </svg> */}
       </>
     ),
 
