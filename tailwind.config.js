@@ -33,7 +33,7 @@ module.exports = {
           // Paragraph
           lineHeight: '1.5',
           letterSpacing: '0',
-          fontWeight: '400',
+          fontWeight: '300',
         },
       ],
       increased: [
