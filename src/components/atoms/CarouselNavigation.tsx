@@ -1,5 +1,6 @@
+'use client'
 import { AdvancedButton } from './AdvancedButton'
-import Icon from './Icons'
+import { motion } from 'framer-motion'
 
 /**
  *
@@ -15,11 +16,16 @@ import Icon from './Icons'
 
 const CarouselNavigation = ({ swiperRef }) => {
   return (
-    <div className="px-4 xs:px-4 sm:px-13 md:pr-24 md:pl-[10rem] lg:pr-19 lg:pl-[9.5rem] xl:pl-[200px] 2xl:pl-[351px] w-full justify-between flex">
+    <motion.div
+      initial={{ opacity: 0, y: -24 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -24 }}
+      className="px-4 xs:px-4 sm:px-13 md:pr-24 md:pl-[10rem] lg:pr-19 lg:pl-[9.5rem] xl:pl-[200px] 2xl:pl-[351px] w-full justify-between flex"
+    >
       <span className="my-auto pointer-events-auto">
         <AdvancedButton
-          className="flex flex-col gap-0 text-lys"
-          variant="secondary"
+          className="flex flex-col items-end gap-0 px-0 py-0 text-lys"
+          variant="none"
           onClick={() => swiperRef.current.swiper.slidePrev()}
         >
           <span>FORRIGE</span>
@@ -49,8 +55,8 @@ const CarouselNavigation = ({ swiperRef }) => {
 
       <span className="my-auto pointer-events-auto">
         <AdvancedButton
-          variant="secondary"
-          className="flex flex-col gap-0 text-lys"
+          variant="none"
+          className="flex flex-col items-start gap-0 px-0 py-0 text-lys"
           onClick={() => swiperRef.current.swiper.slideNext()}
         >
           <span>NÆSTE</span>
@@ -77,7 +83,7 @@ const CarouselNavigation = ({ swiperRef }) => {
           </span>
         </AdvancedButton>
       </span>
-    </div>
+    </motion.div>
   )
 }
 
