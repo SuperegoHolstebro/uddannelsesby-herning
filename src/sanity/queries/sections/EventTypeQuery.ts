@@ -1,17 +1,15 @@
 import groq from 'groq'
 import { ImageQuery } from '../atoms/ImageQuery'
 
-
-
 const EventCardQuery = groq`
   title, 
   "slug": slug.current,
-  date,
+  startDate,
   image {
     ${ImageQuery},
   },
   _type,
-  description
+  price
 `
 const Manual = groq`
   view == "manual" => events[]->{
