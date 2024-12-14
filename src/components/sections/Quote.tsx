@@ -9,6 +9,7 @@ import Media from '@/components/organisms/Media'
 import { AdvancedButton } from '../atoms/AdvancedButton'
 import { Button } from '../atoms/Button'
 import Symbol from '../atoms/Symbols'
+import Icon from '../atoms/Icons'
 
 /**
  *
@@ -51,9 +52,15 @@ const Quote = ({ section }) => {
 
       {/* Quote in columns 4 to 14, overlapping the image slightly */}
       <div className="z-10 px-4 pt-8 md:text-right sm:row-start-1 md:pt-14 col-span-full xs:px-4 sm:px-13 sm:pr-0 sm:col-span-6 sm:col-start-1 xl:col-start-4 xl:col-span-10 md:pl-0 xl:pt-0 xl:my-auto">
-        <Heading type="h3" tag="h3" className="font-bold" spacing="none">
-          {section?.quote}
-        </Heading>
+        <div className="relative">
+          <Icon
+            type="quote"
+            className="absolute z-10 translate-x-full translate-y-full right-full md:translate-x-0 md:right-0 -top-full"
+          />
+          <Heading type="h3" tag="h3" className="font-bold" spacing="none">
+            {section?.quote}
+          </Heading>
+        </div>
         <div className="mt-12 space-y-4">
           <Heading type="h4" tag="h4" className="font-semibold" spacing="none">
             {section?.student}
