@@ -3,10 +3,9 @@ import 'swiper/css'
 import { useRef } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { SwiperOptions } from 'swiper/types'
-import { AdvancedButton } from '../atoms/AdvancedButton'
-import Icon from '../atoms/Icons'
 import { useSwiperSlide } from 'swiper/react'
 import CarouselNavigation from '../atoms/CarouselNavigation'
+import { AnimatePresence } from 'framer-motion'
 
 /**
  *
@@ -114,7 +113,9 @@ const Carousel = ({
             </SwiperSlide>
           ))}
         </Swiper>
-        {!hideNavigation && <CarouselNavigation swiperRef={swiperRef} />}
+        <AnimatePresence presenceAffectsLayout>
+          {!hideNavigation && <CarouselNavigation swiperRef={swiperRef} />}
+        </AnimatePresence>
       </div>
     </>
   )
