@@ -61,7 +61,7 @@ function AccordionGroup({ data }) {
   return (
     <div className="w-full mb-8 space-y-4">
       {data.accordions.map((accordion, index) => (
-        <FadeUp delay={0.1 * index}>
+        <FadeUp key={accordion._key} delay={0.1 * index}>
           <Accordion
             unfloded={accordion.unfloded}
             title={accordion.title}
