@@ -7,7 +7,7 @@ import EventWithFilter from '@/components/sections/EventWithFilter'
 import DiscountsSection from '@/components/sections/DiscountsSection'
 import GallerySection from '@/components/sections/GallerySection'
 import Hero from '@/components/sections/HeroSection'
-import Media from '@/components/sections/MediaSection'
+import MediaSection from '@/components/sections/MediaSection'
 import TextWithIllustration from '@/components/sections/TextWithIllustration'
 import EmployeesSection from './sections/EmployeesSection'
 import TextContainer from './sections/textContainer'
@@ -86,7 +86,7 @@ const PageBuilder = ({ sections }) => {
           case 'textContainer':
             return <TextContainer key={index} data={section} />
           case 'MediaType':
-            return <Media key={index} data={section} index={undefined} />
+            return <MediaSection key={index} data={section} />
 
           default:
             return null
