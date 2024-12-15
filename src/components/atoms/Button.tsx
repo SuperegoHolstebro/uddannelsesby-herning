@@ -11,9 +11,11 @@ import {
   InternalLink,
   LinkValue,
 } from '@/sanity/schemas/customFields/LinkField/Types'
-import { AdvancedButton } from './AdvancedButton'
+import { AdvancedButton, advancedButtonVariants } from './AdvancedButton'
 import { clean } from '~/utils/sanitize'
 import Link from 'next/link'
+import { AdvancedButtonProps } from '~/types/AdvancedButtonProps'
+import { VariantProps } from 'class-variance-authority'
 
 /**
  *
@@ -31,12 +33,14 @@ import Link from 'next/link'
 type LinkProps = {
   link?: LinkValue
   as?: ElementType
-  variant?: 'default' | 'primary' | 'secondary' | 'none' | string
   direction?: 'left' | 'right'
   showSvg?: boolean
   hrefResolver?: (link: InternalLink) => string
-  size?: 'default' | 'sm' | 'lg' | 'icon' | 'full'
 } & Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href' | 'target'>
+
+type ExtendedButtonProps = AdvancedButtonProps &
+  VariantProps<typeof advancedButtonVariants> &
+  LinkProps
 
 const Button = forwardRef(
   (
@@ -45,14 +49,13 @@ const Button = forwardRef(
       as,
       hrefResolver,
       children,
-      variant,
+      variant = 'default',
       className = '',
-      size,
       direction = 'right',
       showSvg = true,
       ...props
-    }: LinkProps,
-    ref: ForwardedRef<HTMLAnchorElement>,
+    }: ExtendedButtonProps,
+    ref: ForwardedRef<HTMLButtonElement> | any,
   ) => {
     if (!link) {
       return null
@@ -68,7 +71,7 @@ const Button = forwardRef(
       <AdvancedButton
         asChild
         variant={variant}
-        className={cn(variant, className, size)}
+        className={cn(variant, className)}
       >
         <Link
           href={clean(
