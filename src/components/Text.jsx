@@ -31,7 +31,7 @@ export default function Text({ videoSrc, textContent }) {
             loop
             hover
             src="/lottie/SE-DET-FOR-DIG.json"
-            className="max-w-40 sm:max-w-xs md:max-w-md xl:max-w-lg "
+            className="max-w-52 sm:max-w-xs md:max-w-md xl:max-w-lg "
           ></Player>
         </FadeUp>
       </div>
