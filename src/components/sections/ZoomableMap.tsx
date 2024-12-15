@@ -109,7 +109,7 @@ export const ZoomableMap = ({ pins }) => {
 
   return (
     <svg
-      className="map"
+      className="relative map"
       ref={svgRef}
       style={{
         border: '1px solid black',
