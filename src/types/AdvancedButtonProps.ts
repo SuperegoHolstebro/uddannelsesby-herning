@@ -1,3 +1,5 @@
+import { HtmlHTMLAttributes } from 'react'
+
 export type AdvancedButtonProps = {
   asChild?: boolean
   props?: React.AnchorHTMLAttributes<HTMLAnchorElement>
@@ -7,4 +9,5 @@ export type AdvancedButtonProps = {
   ref?: React.ForwardedRef<HTMLButtonElement>
   type?: 'button' | 'submit' | 'reset'
   disabled?: any
+  [key: string]: HtmlHTMLAttributes<HTMLButtonElement> | any
 }
