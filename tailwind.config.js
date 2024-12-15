@@ -46,7 +46,7 @@ module.exports = {
         },
       ],
       medium: [
-        'clamp(1.25rrem, calc(1.25rrem + 2.7778vw), 1.5rrem);',
+        'clamp(1.25rem, calc(1.25rem + 2.7778vw), 1.5rem);',
         {
           // H4 // prev —— medium
           lineHeight: '1.5',

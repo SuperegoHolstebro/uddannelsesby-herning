@@ -127,7 +127,7 @@ function MenuItem({ item }) {
               <span
                 className={`
                 ${showSvgOnClick ? 'visible opacity-100' : 'invisible opacity-0 group-hover/button:visible group-hover/button:opacity-100'}
-                  transition-all ease-custom duration-735 absolute size-6 md:size-8 -left-[5%] md:-translate-x-full -translate-x-1/2 translate-y-1/2 `}
+                  transition-all ease-custom duration-735 absolute size-6 md:size-8 -left-[5%] md:-translate-x-full -translate-x-1/2 -translate-y-1/2 top-1/2 `}
               >
                 <motion.span
                   transition={{ stiffness: 100, duration: 0.5 }}

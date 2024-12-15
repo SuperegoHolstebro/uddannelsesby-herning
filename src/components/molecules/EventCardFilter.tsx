@@ -40,16 +40,16 @@ const EventCardFilter = ({ event }) => {
   const ticketsLeft = maxAttendees - bookedTickets
 
   return (
-    <div className="relative col-span-full sm:col-span-4 xl:col-span-8  border-b-grå border-b pb-6 mb-6">
+    <li className="relative col-span-full sm:col-span-4 xl:col-span-8  border-b-grå border-b pb-6 mb-6">
       <Link
-        className={`block w-full group ${event.isFull === true ? 'opacity-50' : ''}`}
+        className={`flex flex-col h-full w-full group ${event.isFull === true ? 'opacity-50' : ''}`}
         href={resolveHref(event._type, event.slug)}
         title={event.name}
       >
         <EventCardFilterPortrait data={event} />
         <EventCardFilterInfo data={event} />
       </Link>
-    </div>
+    </li>
   )
 }
 export default EventCardFilter
@@ -83,19 +83,19 @@ function EventCardFilterPortrait({ data }) {
 }
 function EventCardFilterInfo({ data }) {
   return (
-    <div className="mt-4 space-y-5">
+    <>
       {data.title && (
-        <Heading spacing="none" type="h4" tag="h4">
+        <Heading spacing="none" type="h4" tag="h4" className="my-4">
           {data.title}
         </Heading>
       )}
       {data.category && (
         <>
-          <Badge className="block" variant="dark">
+          <Badge className="block mt-auto" variant="dark">
             {data?.category?.title}
           </Badge>
         </>
       )}
-    </div>
+    </>
   )
 }

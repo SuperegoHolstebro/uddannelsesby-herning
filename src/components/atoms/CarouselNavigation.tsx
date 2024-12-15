@@ -20,7 +20,7 @@ const CarouselNavigation = ({ swiperRef }) => {
       initial={{ opacity: 0, y: -24 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -24 }}
-      className="px-4 xs:px-4 sm:px-13 md:pr-24 md:pl-[10rem] lg:pr-19 lg:pl-[9.5rem] xl:pl-[200px] 2xl:pl-[351px] w-full justify-between flex"
+      className="px-4 xs:px-4 sm:px-13 md:pr-24 md:pl-[10rem] lg:pr-19 lg:pl-[9.5rem] xl:pl-[200px] 2xl:pl-[351px] w-full justify-between flex pt-10"
     >
       <span className="my-auto pointer-events-auto">
         <AdvancedButton

@@ -38,7 +38,7 @@
     @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#325FF3] focus-visible:ring-offset-2;
   }
   .event-cards:has(.event-card-item:hover) .event-card-item:not(:hover) {
-    @apply filter blur-sm;
+    @apply md:filter md:blur-sm;
   }
   .navigation-items:has(.navigation-item:hover) .navigation-item:not(:hover) {
     @apply filter blur-sm;

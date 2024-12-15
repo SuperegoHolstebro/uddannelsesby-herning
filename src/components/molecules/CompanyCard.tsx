@@ -22,15 +22,16 @@ import Photo from '../atoms/Photo'
 
 const CompanyCard = ({ company }) => {
   return (
-    <div className="relative col-span-full sm:col-span-4 xl:col-span-8 group ">
+    <li className="relative col-span-full sm:col-span-4 xl:col-span-8  border-b-grå border-b pb-6 mb-6">
       <Link
+        className={`flex flex-col h-full w-full group `}
         href={clean(resolveHref(company._type, company.slug))}
         title={clean(company.name)}
       >
         <CompanyCardPortrait data={company} />
         <CompanyCardInfo data={company} />
       </Link>
-    </div>
+    </li>
   )
 }
 export default CompanyCard
@@ -48,24 +49,24 @@ function CompanyCardPortrait({ data }) {
 }
 function CompanyCardInfo({ data }) {
   return (
-    <div className="py-4 border-b border-b-grå">
+    <>
       {data.name && (
-        <Heading spacing="none" type="h5" tag="h5">
+        <Heading spacing="none" type="h4" tag="h4" className="my-4">
           {data.name}
         </Heading>
       )}
       {data.fields && data.fields.length > 0 && (
-        <ul className="flex flex-row flex-wrap gap-2.5 pt-5">
-          <Badge variant="dark" className="text-small">
+        <ul className="flex flex-row flex-wrap gap-2.5  mt-auto">
+          <Badge variant="dark" className="">
             {data.fields[0].title}
           </Badge>
           {data.fields.length > 1 && (
-            <Badge variant="dark" className="text-small">
+            <Badge variant="dark" className="">
               + {data.fields.length - 1} FLERE
             </Badge>
           )}
         </ul>
       )}
-    </div>
+    </>
   )
 }
