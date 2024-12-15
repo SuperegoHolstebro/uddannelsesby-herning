@@ -75,8 +75,6 @@ export const mapType = defineType({
         /* @ts-ignore */
         imageHotspot: {
           imagePath: `featuredImage`,
-          pathRoot: 'parent',
-          descriptionPath: `details`,
         },
       },
     }),
