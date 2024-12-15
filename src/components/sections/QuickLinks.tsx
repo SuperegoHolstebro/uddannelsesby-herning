@@ -7,6 +7,7 @@ import Section from './Section'
 import { clean } from '~/utils/sanitize'
 import { resolveHref } from '~/sanity/lib/sanity.links'
 import { useState } from 'react'
+import { Button } from '../atoms/Button'
 
 const QuickLinks = ({ data }) => {
   const [hovered, setHovered] = useState(null)
@@ -23,17 +24,35 @@ const QuickLinks = ({ data }) => {
       <div className="col-span-full *:w-full">
         <InteractiveMarquee speed={hovered ? 0 : 1}>
           {data?.quickLinks.map((link, index) => (
-            <Link
-              href={'#'}
-              className={`inline-flex transition-all ease-custom duration-735 prose-headings:font-bold ${hovered !== null && hovered !== index ? 'blur-sm' : ''}`}
-              onMouseEnter={() => setHovered(index)}
-              onMouseLeave={() => setHovered(null)}
-              key={index}
-            >
-              <Heading tag="h3" type="h3" spacing="none">
-                {link.label}
-              </Heading>
-            </Link>
+            <>
+              <Button
+                variant="none"
+                showSvg={false}
+                title={link.label}
+                className={`inline-flex px-0 transition-all ease-custom duration-735 prose-headings:font-bold ${hovered !== null && hovered !== index ? 'blur-sm' : ''}`}
+                onMouseEnter={() => setHovered(index)}
+                onMouseLeave={() => setHovered(null)}
+                key={index}
+                link={link}
+              >
+                <Heading tag="h3" type="h3" spacing="none">
+                  {link.label}
+                </Heading>
+              </Button>
+              {/*               <Link
+                title={link.label}
+                href={'#'}
+                className={`inline-flex transition-all ease-custom duration-735 prose-headings:font-bold ${hovered !== null && hovered !== index ? 'blur-sm' : ''}`}
+                onMouseEnter={() => setHovered(index)}
+                onMouseLeave={() => setHovered(null)}
+                key={index}
+              >
+                <Heading tag="h3" type="h3" spacing="none">
+                  {link.label}
+                </Heading>
+              </Link>
+ */}{' '}
+            </>
           ))}
         </InteractiveMarquee>
       </div>
