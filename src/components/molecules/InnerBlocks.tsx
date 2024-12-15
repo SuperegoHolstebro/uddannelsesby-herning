@@ -60,8 +60,8 @@ function Title({ data, index }) {
 function AccordionGroup({ data }) {
   return (
     <div className="w-full mb-8 space-y-4">
-      {data.accordions.map((accordion, accordionIndex) => (
-        <FadeUp delay={0.1 * accordionIndex}>
+      {data.accordions.map((accordion, index) => (
+        <FadeUp delay={0.1 * index}>
           <Accordion
             unfloded={accordion.unfloded}
             title={accordion.title}
