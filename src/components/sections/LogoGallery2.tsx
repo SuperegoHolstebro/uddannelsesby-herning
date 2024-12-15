@@ -6,15 +6,16 @@ import Section from './Section'
 import Heading from '@/components/atoms/Heading'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { clean } from '~/utils/sanitize'
+import Photo from '../atoms/Photo'
 
 const LogoGallery2 = ({ data }) => {
   return (
-    <Section 
-    className="bg-green"
-    id={clean(data?.SectionSettings?.anchor?.current)}
-    paddingTop={clean(data?.design?.padding?.spacingTop)}
-    paddingBottom={clean(data?.design?.padding?.spacingBottom)}
->
+    <Section
+      className="bg-green"
+      id={clean(data?.SectionSettings?.anchor?.current)}
+      paddingTop={clean(data?.design?.padding?.spacingTop)}
+      paddingBottom={clean(data?.design?.padding?.spacingBottom)}
+    >
       <div className="col-span-full">
         <Heading size="h2" className="mb-4">
           {data.title}
@@ -68,13 +69,7 @@ const LogoGallery2 = ({ data }) => {
           {data.images.map((image, index) => (
             <SwiperSlide className="" key={index}>
               <div className="aspect-w-16 aspect-h-9">
-                <Image
-                  width={300}
-                  height={300}
-                  src={image.asset.url}
-                  alt={image.alt || ''}
-                  className="object-cover mx-auto"
-                />
+                <Photo image={image} objectFit="contain" />
               </div>
             </SwiperSlide>
           ))}

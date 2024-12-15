@@ -8,6 +8,7 @@ import { formatDateToNumber } from '@/utils/date'
 import { urlFor } from '~/sanity/lib/sanity.image'
 import { formatPrice } from '~/utils/price'
 import { AnimatePresence, motion } from 'framer-motion'
+import Photo from '../atoms/Photo'
 
 /**
  *
@@ -58,19 +59,7 @@ function Portrait({ event }) {
   return (
     <div className="aspect-w-5 md:aspect-w-4 aspect-h-6">
       {event.image ? (
-        <Image
-          className="object-cover"
-          src={urlFor(event.image).dpr(2).url()}
-          alt={event.altText || 'Billede af ' + event.title}
-          width={1920}
-          height={1080}
-          placeholder="blur"
-          blurDataURL={urlFor(event.image).width(24).height(24).blur(10).url()}
-          sizes="
-            (max-width: 768px) 100vw,
-            (max-width: 1200px) 50vw,
-            40vw"
-        />
+        <Photo image={event.image} objectFit="cover" />
       ) : (
         <img
           className="object-cover"

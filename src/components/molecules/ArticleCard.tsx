@@ -5,6 +5,7 @@ import Heading from '@/components/atoms/Heading'
 import Paragraph from '@/components/atoms/Paragraph'
 import { resolveHref } from '@/sanity/lib/sanity.links'
 import { formatDate } from '@/utils/date'
+import Photo from '../atoms/Photo'
 
 /**
  *
@@ -34,15 +35,7 @@ const ArticleCard = ({ article }) => {
         )}
         {article?.image && (
           <div className="relative object-cover w-full overflow-hidden aspect-w-4 aspect-h-3">
-            <Image
-              src={article.image}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              loading="lazy"
-              width={article.imageWidth || 800}
-              height={article.imageHeight || 600}
-              alt={article.image || 'Default image description'}
-              className="object-cover w-full h-full transition-all ease-custom duration-735 group-hover:scale-110"
-            />
+            <Photo image={article.image} objectFit="cover" />
           </div>
         )}
         <div className="flex flex-col justify-between p-8 space-y-10 xs:p-10 min-h-40 ">

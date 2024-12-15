@@ -4,6 +4,7 @@ import React from 'react'
 import Heading from '@/components/atoms/Heading'
 import Icon from '@/components/atoms/Icons'
 import { urlFor } from '~/sanity/lib/sanity.image'
+import Photo from '../atoms/Photo'
 
 /**
  *
@@ -41,23 +42,7 @@ function Portrait({ employee }) {
   return (
     <div className="relative object-cover w-full overflow-hidden rounded-md">
       <div className="aspect-w-4 aspect-h-5">
-        <Image
-          className="object-cover"
-          src={urlFor(employee.image).dpr(2).url()}
-          alt={employee.altText || 'Billede af ' + employee.title}
-          width={1920}
-          height={1080}
-          placeholder="blur"
-          blurDataURL={urlFor(employee.image)
-            .width(24)
-            .height(24)
-            .blur(10)
-            .url()}
-          sizes="
-            (max-width: 768px) 100vw,
-            (max-width: 1200px) 50vw,
-            40vw"
-        />
+        <Photo image={employee.image} objectFit="cover" />
       </div>
       {employee.socials && (
         <div className="absolute z-10 flex flex-col gap-2 right-2 bottom-2">

@@ -6,6 +6,7 @@ import { urlFor } from '~/sanity/lib/sanity.image'
 import { resolveHref } from '~/sanity/lib/sanity.links'
 import { clean } from '~/utils/sanitize'
 import Badge from '../atoms/badge'
+import Photo from '../atoms/Photo'
 
 /**
  *
@@ -39,19 +40,7 @@ function CompanyCardPortrait({ data }) {
     <div className="relative object-cover w-full overflow-hidden ">
       {data.image && (
         <div className="aspect-w-4 aspect-h-2">
-          <Image
-            className="object-cover transition-all ease-custom duration-735 group-hover:scale-110"
-            src={urlFor(data.image).dpr(2).url()}
-            alt={data.altText || 'Billede af ' + data.title}
-            width={1920}
-            height={1080}
-            placeholder="blur"
-            blurDataURL={urlFor(data.image).width(24).height(24).blur(10).url()}
-            sizes="
-            (max-width: 768px) 100vw,
-            (max-width: 1200px) 50vw,
-            40vw"
-          />
+          <Photo image={data.image} objectFit="cover" />
         </div>
       )}
     </div>

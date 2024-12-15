@@ -2,6 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import Carousel from '../organisms/Carousel'
 import Section from './Section'
+import Photo from '../atoms/Photo'
 
 /**
  *
@@ -19,8 +20,8 @@ import Section from './Section'
 
 const GallerySection = ({ section }) => {
   return (
-    <Section paddingX='left'>
-      <Carousel 
+    <Section paddingX="left">
+      <Carousel
         slidesPerView={1.2}
         spaceBetween={32}
         loop={true}
@@ -57,14 +58,7 @@ const GallerySection = ({ section }) => {
       >
         {section.images.map((image, index) => (
           <div key={index} className="aspect-w-16 aspect-h-12">
-            <Image
-              width={image.width || 800}
-              height={image.height || 600}
-              key={index}
-              src={image.image}
-              alt={image.alt || ''}
-              className='object-cover'
-            />
+            <Photo image={image} objectFit="cover" />
           </div>
         ))}
       </Carousel>

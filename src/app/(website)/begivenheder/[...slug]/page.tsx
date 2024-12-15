@@ -21,6 +21,7 @@ import Link from 'next/link'
 import Scheduler from '~/components/atoms/Scheduler'
 import Badge from '~/components/atoms/badge'
 import Box from '~/components/atoms/box'
+import Photo from '~/components/atoms/Photo'
 interface Params {
   slug: string[]
   locale: string
@@ -172,19 +173,7 @@ export default async function DynamicRoute({
         className="col-span-full "
       >
         <div className="col-span-full">
-          <Image
-            className="object-cover h-full max-h-screen/1.5"
-            src={urlFor(page.image).dpr(2).url()}
-            alt=""
-            width={1920}
-            height={1080}
-            placeholder="blur"
-            blurDataURL={urlFor(page.image).width(24).height(24).blur(10).url()}
-            sizes="
-                  (max-width: 768px) 100vw,
-                  (max-width: 1200px) 50vw,
-                  40vw"
-          />
+          <Photo image={page.image} objectFit="cover" />
         </div>
       </Section>
 

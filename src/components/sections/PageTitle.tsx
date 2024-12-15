@@ -6,6 +6,7 @@ import Heading from '@/components/atoms/Heading'
 import { clean } from '~/utils/sanitize'
 import Symbol from '../atoms/Symbols'
 import { FadeUp } from '../interactions/AnimateFadeIn'
+import Photo from '../atoms/Photo'
 
 /**
  *
@@ -56,13 +57,7 @@ const PageTitle = ({ data }) => {
               key={index}
             >
               <FadeUp delay={index * 0.25}>
-                <Image
-                  width={image.width || 800}
-                  height={image.height || 800}
-                  src={image.asset.url || ''}
-                  alt={image.alt || ''}
-                  className="object-cover w-full h-full max-h-screen/1.6 shadow-lg"
-                />
+                <Photo image={image} objectFit="cover" />
               </FadeUp>
             </div>
           ))}

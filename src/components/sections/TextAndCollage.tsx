@@ -9,6 +9,7 @@ import Image from 'next/image'
 import Icon from '../atoms/Icons'
 import { useRafLoop } from 'react-use'
 import { FadeUp } from '../interactions/AnimateFadeIn'
+import Photo from '../atoms/Photo'
 
 /**
  *
@@ -115,13 +116,9 @@ function Portrait({ data, index }) {
               </motion.div>
             </FadeUp>
           )}
-          <Image
-            src={data?.asset.url}
-            alt={data?.alt}
-            width={500}
-            height={500}
-            className="object-cover"
-          />
+          <>
+            <Photo image={data} objectFit="cover" />
+          </>
         </div>
       </motion.div>
     </>
@@ -145,12 +142,10 @@ function Portraitmd({ data, index }) {
             <Icon type="stjerne" className="w-full h-full" />
           </motion.div>
         )}
-        <Image
-          src={data?.asset.url}
-          alt={data?.alt}
-          width={500}
-          height={500}
+        <Photo
           className="object-cover w-full h-full"
+          image={data}
+          objectFit="cover"
         />
       </div>
     </motion.div>
