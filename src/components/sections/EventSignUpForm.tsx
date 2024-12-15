@@ -133,7 +133,7 @@ function EventSignUpForm({ event }) {
               {ticketsLeft} tilgængelige billetter
             </Paragraph>
 
-            <form onSubmit={handleSubmit} className="">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div className="text-grå ">
                 <label htmlFor="event" className="relative grid text-small">
                   <input
@@ -146,7 +146,7 @@ function EventSignUpForm({ event }) {
                       setFormData({ ...formData, navn: e.target.value })
                     }
                     required
-                    className="p-0 pb-1 border-t-0 border-b-2 placeholder-mørk border-grå border-x-0 bg-lys [appearance:textfield] focus:ring-2 focus:ring-primary pt-6 peer"
+                    className="p-0 pb-1 border-t-0 border-b-2 placeholder-mørk border-grå border-x-0 bg-lys  pt-6 peer"
                   />
                   <span className="absolute transition-all opacity-100 bottom-7 peer-placeholder-shown:opacity-0 peer-placeholder-shown:left-5 text-small peer-placeholder-shown:text-regular peer-placeholder-shown:bottom-5">
                     {' '}
@@ -173,7 +173,7 @@ function EventSignUpForm({ event }) {
                       })
                     }
                     required
-                    className="p-0 pb-1 border-t-0 border-b-2 placeholder-mørk border-grå border-x-0 bg-lys [appearance:textfield] focus:ring-2 focus:ring-primary pt-6 peer"
+                    className="p-0 pb-1 border-t-0 border-b-2 placeholder-mørk border-grå border-x-0 bg-lys  pt-6 peer"
                   />
                   <span className="absolute text-grå transition-all opacity-100 bottom-7 peer-placeholder-shown:opacity-0 text-small peer-placeholder-shown:text-regular peer-placeholder-shown:bottom-5">
                     Antal billetter *
@@ -190,7 +190,7 @@ function EventSignUpForm({ event }) {
                       setFormData({ ...formData, navn: e.target.value })
                     }
                     required
-                    className="p-0 pb-1 border-t-0 border-b-2 placeholder-mørk border-grå border-x-0 bg-lys [appearance:textfield] focus:ring-2 focus:ring-primary [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none pt-6 peer "
+                    className=" p-0 pb-1 border-t-0 border-b-2 placeholder-mørk border-grå border-x-0 bg-lys pt-6 peer "
                   />
                   <span className="absolute text-grå transition-all opacity-100 bottom-7 peer-placeholder-shown:opacity-0 text-small peer-placeholder-shown:text-regular peer-placeholder-shown:bottom-5">
                     {' '}
@@ -208,7 +208,7 @@ function EventSignUpForm({ event }) {
                     onChange={(e) =>
                       setFormData({ ...formData, telefon: e.target.value })
                     }
-                    className="p-0 pb-1 border-t-0 border-b-2 placeholder-mørk border-grå border-x-0 bg-lys [appearance:textfield] focus:ring-2 focus:ring-primary [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none pt-6 peer "
+                    className="p-0 pb-1 border-t-0 border-b-2 placeholder-mørk border-grå border-x-0 bg-lys  appearance-none pt-6 peer "
                   />
                   <span className="absolute text-grå transition-all opacity-100 bottom-7 peer-placeholder-shown:opacity-0 text-small peer-placeholder-shown:text-regular peer-placeholder-shown:bottom-5">
                     {' '}
@@ -226,7 +226,7 @@ function EventSignUpForm({ event }) {
                       setFormData({ ...formData, email: e.target.value })
                     }
                     required
-                    className="p-0 pb-1 border-t-0 border-b-2 placeholder-mørk border-grå border-x-0 bg-lys [appearance:textfield] focus:ring-2 focus:ring-primary [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none pt-6 peer "
+                    className="p-0 pb-1 border-t-0 border-b-2 placeholder-mørk border-grå border-x-0 bg-lys  appearance-none pt-6 peer "
                   />
                   <span className="absolute text-grå transition-all opacity-100 bottom-7 peer-placeholder-shown:opacity-0 text-small peer-placeholder-shown:text-regular peer-placeholder-shown:bottom-5">
                     {' '}
@@ -242,7 +242,7 @@ function EventSignUpForm({ event }) {
                       setFormData({ ...formData, skole: e.target.value })
                     }
                     required
-                    className="p-0 pb-1 border-t-0 border-b-2 placeholder-mørk border-grå border-x-0 bg-lys [appearance:textfield] focus:ring-2 focus:ring-primary [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none pt-6 peer "
+                    className="p-0 pb-1 border-t-0 border-b-2 placeholder-mørk border-grå border-x-0 bg-lys  appearance-none pt-6 peer "
                   >
                     <option value="">Uddannelsesinstitution *</option>
                     <option value="Aarhus Universitet i Herning">

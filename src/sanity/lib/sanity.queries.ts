@@ -101,6 +101,7 @@ export const PAGE_QUERY = groq`
   }
 }
 `
+
 // GROQ Article Query
 export const ARTICLE_QUERY = groq`
 *[_type == "article" && slug.current == $slug][0] {
@@ -165,12 +166,16 @@ export const FOOTER_QUERY = groq`
 // GROQ Settings Query
 export const SITE_SETTINGS_QUERY = groq`
 *[_type == "settings"][0] {
+  ...,
+  bodyScripts,
   siteTitle,
   siteDescription,
-  headMeta,
-  headScripts,
   footerScripts,
-  ...,
+  headScripts,
+  googleTagManager {
+    id,
+    verification,
+  }
 }
 `
 

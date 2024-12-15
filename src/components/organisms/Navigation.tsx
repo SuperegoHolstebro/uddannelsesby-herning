@@ -69,6 +69,9 @@ export default function Navigation({ onClose }) {
         className="fixed z-[999] md:pl-[100px] top-0 left-0 w-full h-full overflow-auto bg-mørk flex flex-col justify-between"
       >
         <motion.ul
+          id="menu"
+          aria-labelledby="menubutton"
+          role="menu"
           initial={{ opacity: 0 }}
           transition={{
             stiffness: 100,
@@ -107,11 +110,13 @@ function MenuItem({ item }) {
 
   return (
     <li
+      role="presentation"
       className={`h-auto transition text-huge navigation-item focus-within:text-signal-gul ${isSubmenuOpen ? 'pl-4 md:pl-0' : ''}`}
     >
       {item?.subLinks?.length > 0 ? (
         <>
           <AdvancedButton
+            role="menuitem"
             onClick={doBoth}
             className="relative flex items-start justify-between w-full px-0 py-0 pb-2 text-left group/button focus-within:text-signal-gul"
             variant="none"
@@ -175,6 +180,7 @@ function MenuItem({ item }) {
         </>
       ) : (
         <Button
+          role="menuitem"
           showSvg={false}
           className="relative block w-full h-auto px-0 py-0 pb-2 text-left focus-within:text-signal-gul hover:text-signal-gul"
           variant="none"
@@ -193,6 +199,7 @@ function MenuItem({ item }) {
 function SubMenuItem({ item, index }) {
   return (
     <motion.li
+      role="presentation"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.1, ease: [0.86, 0, 0.07, 1] }}
@@ -200,6 +207,7 @@ function SubMenuItem({ item, index }) {
       className="h-auto text-lys"
     >
       <Button
+        role="menuitem"
         showSvg={false}
         className="relative block w-full px-0 py-0 pb-2 text-left"
         variant="none"

@@ -20,6 +20,7 @@ import { formatPrice } from '~/utils/price'
 import Link from 'next/link'
 import Scheduler from '~/components/atoms/Scheduler'
 import Badge from '~/components/atoms/badge'
+import Box from '~/components/atoms/box'
 interface Params {
   slug: string[]
   locale: string
@@ -111,33 +112,43 @@ export default async function DynamicRoute({
       {/* info boxes */}
       <Section paddingBottom="none" paddingTop="none" tag={'div'}>
         {' '}
-        <div className="grid grid-cols-1 gap-4 text-center col-span-full sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 md:p-12 md:flex-row rounded-2xl">
-          <div className="flex flex-col items-center justify-start space-y-5 ">
-            <Icon type="calendar" className="w-8 h-8" />
-            <Heading type="h5" tag="h5" spacing="default">
-              {/* Use eventDateRange and pass the correct properties */}
-              {eventDateRange(page.startDate, page.endDate, page.isMultiDay)}
-            </Heading>
-            <Paragraph spacing="none">Dato</Paragraph>
-          </div>
+        <div
+          className={`grid grid-cols-1 gap-4 text-center col-span-full sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 md:p-12 md:flex-row divide-x border-grå`}
+        >
+          {page.startDate && (
+            <Box>
+              <Icon type="calendar" className="w-8 h-8" />
+              <Heading type="h5" tag="h5" spacing="default">
+                {/* Use eventDateRange and pass the correct properties */}
+                {eventDateRange(page.startDate, page.endDate, page.isMultiDay)}
+              </Heading>
+              <Paragraph spacing="none">Dato</Paragraph>
+            </Box>
+          )}
 
-          <div className="flex flex-col items-center justify-start space-y-5 md:border-l md:border-grå md:pl-4">
-            <Icon type="clock" className="w-8 h-8" />
-            <Heading type="h5" tag="h5" spacing="default">
-              {formatTime(page.startDate)}-{formatTime(page.endDate)}
-            </Heading>
-            <Paragraph spacing="none">Tidspunkt</Paragraph>
-          </div>
+          {page.startDate && (
+            <Box>
+              <Icon type="clock" className="w-8 h-8" />
+              <Heading type="h5" tag="h5" spacing="default">
+                {formatTime(page.startDate)}
+                {page?.endDate && <span>-</span>}
+                {formatTime(page?.endDate)}
+              </Heading>
+              <Paragraph spacing="none">Tidspunkt</Paragraph>
+            </Box>
+          )}
 
-          <div className="flex flex-col items-center justify-start space-y-5 md:border-l md:border-grå md:pl-4">
-            <Icon type="streetSign" className="w-8 h-8" />
-            <Heading type="h5" tag="h5" spacing="default">
-              {page.location}
-            </Heading>
-            <Paragraph spacing="none">Lokation</Paragraph>
-          </div>
+          {page.location && (
+            <Box>
+              <Icon type="streetSign" className="w-8 h-8" />
+              <Heading type="h5" tag="h5" spacing="default">
+                {page.location}
+              </Heading>
+              <Paragraph spacing="none">Lokation</Paragraph>
+            </Box>
+          )}
 
-          <div className="flex flex-col items-center justify-start space-y-5 md:border-l md:border-grå md:pl-4">
+          <Box>
             <Icon type="tickets" className="w-8 h-8" />
             <Heading type="h5" tag="h5" spacing="default">
               {page.isFull
@@ -148,9 +159,8 @@ export default async function DynamicRoute({
                     ? `${ticketsLeft}`
                     : 'Ingen'}
             </Heading>
-
             <Paragraph spacing="none"> Billetter tilgængelige</Paragraph>
-          </div>
+          </Box>
         </div>
       </Section>
 

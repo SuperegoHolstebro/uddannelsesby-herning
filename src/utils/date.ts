@@ -15,6 +15,10 @@ export function formatDateToNumber(date: string) {
 }
 
 export function formatTime(date: string) {
+  if (!date) {
+    return null
+  }
+
   return new Date(date).toLocaleTimeString('da-DK', {
     hour: 'numeric',
     minute: 'numeric',

@@ -71,14 +71,19 @@ export default function Header() {
         }`}
       >
         <div className="flex items-center justify-between md:justify-center h-auto md:h-[300px] w-full">
-          <Link className="text-lys md:rotate-90" href="/">
+          <Link
+            title="Gå til forsiden"
+            className="text-lys md:rotate-90"
+            href="/"
+          >
             <Logo className="w-40 md:w-[250px] group" />
           </Link>
         </div>
 
         <button
+          title={isOpen ? 'Luk menu' : 'Åben menu'}
+          id="menubutton"
           aria-controls="menu"
-          aria-label="Menu"
           onClick={() => setIsOpen(!isOpen)}
           className="relative z-[999999999] md:mt-6 size-11.5 group"
         >

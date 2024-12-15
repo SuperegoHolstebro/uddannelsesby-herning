@@ -10,6 +10,8 @@ import { SanityLive } from '~/sanity/lib/sanity.live'
 import FaviconToggler from '@/components/FaviconToggler' // Import the new component
 
 import { PT_Serif, Outfit } from 'next/font/google'
+import { GoogleTagManager } from '@next/third-parties/google'
+import Script from 'next/script'
 
 const sans = Outfit({
   variable: '--font-sans',
@@ -56,14 +58,18 @@ export default async function Root({
           data-gcm-version="2.0"
           type="text/javascript"
         ></script>
-        {settings?.headScripts && (
-          <script dangerouslySetInnerHTML={{ __html: settings.headScripts }} />
-        )}
       </Head>
-
+      <GoogleTagManager gtmId={settings?.googleTagManager?.id} />
       <body
         className={` ${serif.className} ${outfit.className} ${sans.className}`}
       >
+        <Script
+          id="show-banner"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: settings?.headScripts,
+          }}
+        />
         <FaviconToggler /> {/* Use the FaviconToggler component here */}
         {children}
         <SanityLive refreshOnFocus={false} />

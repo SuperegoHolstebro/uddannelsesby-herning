@@ -16,7 +16,7 @@ export const Color = defineType({
           { title: 'Lilla', value: 'lilla' },
         ],
       },
-      initialValue: 'default',
+      initialValue: 'lys',
     }),
   ],
 })
