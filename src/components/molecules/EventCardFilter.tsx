@@ -59,7 +59,7 @@ function EventCardFilterPortrait({ data }) {
       {data.image && (
         <div className="aspect-w-4 aspect-h-3">
           <Image
-            className="object-cover transition-transform group-hover:scale-110 group-focus-within:scale-110"
+            className="object-cover transition-all ease-custom duration-735 group-hover:scale-110 group-focus-within:scale-110"
             src={urlFor(data.image).dpr(2).url()}
             alt={data.altText || 'Billede af ' + data.title}
             width={1920}

@@ -78,7 +78,7 @@ export default async function DynamicRoute({
                   Book billet
                   <span className="overflow-hidden">
                     <span
-                      className={`block ml-auto w-10 overflow-hidden duration-500 ease-in-out group-hover/button:w-full`}
+                      className={`block ml-auto w-10 overflow-hidden transition-all ease-custom duration-735 group-hover/button:w-full`}
                     >
                       <svg
                         className="w-full"

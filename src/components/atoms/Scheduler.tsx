@@ -46,7 +46,7 @@ export default function Scheduler({
         <span>
           Tilmelding åbnes d. kl.
           <span className="overflow-hidden">
-            <span className="block w-10 overflow-hidden duration-500 ease-in-out group-hover/button:w-full">
+            <span className="block w-10 overflow-hidden transition-all ease-custom duration-735 group-hover/button:w-full">
               <svg
                 className="w-full"
                 preserveAspectRatio="xMinYMin meet"

@@ -59,7 +59,11 @@ export default function Navigation({ onClose }) {
       <motion.nav
         data-lenis-prevent="true"
         initial={{ x: '-100%' }}
-        transition={{ stiffness: 100, ease: 'easeInOut', duration: 0.3 }}
+        transition={{
+          stiffness: 100,
+          ease: [0.86, 0, 0.07, 1],
+          duration: 0.725,
+        }}
         animate={{ x: 0 }}
         exit={{ x: '-100%' }}
         className="fixed z-[999] md:pl-[100px] top-0 left-0 w-full h-full overflow-auto bg-mørk flex flex-col justify-between"
@@ -68,7 +72,7 @@ export default function Navigation({ onClose }) {
           initial={{ opacity: 0 }}
           transition={{
             stiffness: 100,
-            ease: 'easeInOut',
+            ease: [0.86, 0, 0.07, 1],
             duration: 0.3,
             delay: 0.3,
           }}
@@ -118,7 +122,7 @@ function MenuItem({ item }) {
               <span
                 className={`
                 ${showSvgOnClick ? 'visible opacity-100' : 'invisible opacity-0 group-hover/button:visible group-hover/button:opacity-100'}
-                  transition-all ease-in-out absolute size-6 md:size-8 -left-[5%] md:-translate-x-full -translate-x-1/2 translate-y-1/2 `}
+                  transition-all ease-custom duration-735 absolute size-6 md:size-8 -left-[5%] md:-translate-x-full -translate-x-1/2 translate-y-1/2 `}
               >
                 <motion.span
                   transition={{ stiffness: 100, duration: 0.5 }}
@@ -159,7 +163,7 @@ function MenuItem({ item }) {
                 initial={{ height: 0, opacity: 0 }}
                 animate={{ height: 'auto', opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.4, ease: 'easeInOut' }}
+                transition={{ duration: 0.4, ease: [0.86, 0, 0.07, 1] }}
                 className="flex flex-row flex-wrap overflow-hidden gap-x-8 md:gap-8 text-medium"
               >
                 {item.subLinks.map((subItem, index) => (
@@ -191,7 +195,7 @@ function SubMenuItem({ item, index }) {
     <motion.li
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.1, ease: [0.215, 0.61, 0.355, 1] }}
+      transition={{ delay: index * 0.1, ease: [0.86, 0, 0.07, 1] }}
       exit={{ opacity: 0, y: -20 }}
       className="h-auto text-lys"
     >

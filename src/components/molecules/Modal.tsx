@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import React, { useState } from 'react'
 import Icon from '../atoms/Icons'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -16,11 +16,11 @@ Modal.CloseButton = CloseButton
 
 function CloseButton({ onClose }) {
   return (
-    <button className="absolute top-4 right-4 z-40 group " onClick={onClose}>
+    <button className="absolute z-40 top-4 right-4 group " onClick={onClose}>
       <span className="sr-only">Luk</span>
       <span>
         <Icon
-          className="fill-dark group-hover:fill-green transition-colors ease-in-out"
+          className="transition-all fill-dark group-hover:fill-green ease-custom duration-735"
           type="x"
         />
       </span>
@@ -41,7 +41,7 @@ function Medal({ children, onClose }) {
       />
       <div className="fixed w-full h-auto mx-auto z-[calc(infinity+2)]  translate-x-1/2 -translate-y-1/2 rounded top-1/2 right-1/2 pointer-events-none ">
         <motion.div
-          className="w-full max-w-4xl overflow-hidden relative rounded bg-light-base mx-auto pointer-events-auto"
+          className="relative w-full max-w-4xl mx-auto overflow-hidden rounded pointer-events-auto bg-light-base"
           initial={{ opacity: 0, y: 44 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 44, transition: { duration: 0.25 } }}

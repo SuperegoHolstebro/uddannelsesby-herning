@@ -95,7 +95,7 @@ const CallToActionSection2 = ({ section }) => {
       paddingX="right"
     >
       <div className="relative overflow-hidden col-span-full sm:col-span-4 md:col-span-7 xl:col-span-12 ">
-        <div className="h-full transition-all duration-300 ease-in-out group-hover:scale-110">
+        <div className="h-full transition-all ease-custom duration-735 group-hover:scale-110">
           <Media data={section.MediaObject?.media} />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-transparent to-mørk z-10"></div>

@@ -126,7 +126,7 @@ const Media = ({ data, popup }: MediaProps) => {
             <Image
               src={thumbnail?.asset.url}
               alt="image"
-              className="object-cover h-full transition-transform duration-500 ease-in-out col-span-full group-hover:scale-110"
+              className="object-cover h-full transition-all ease-custom duration-735 col-span-full group-hover:scale-110"
               width={thumbnail?.asset.metadata?.dimensions.width || 800}
               height={thumbnail?.asset.metadata?.dimensions.height || 600}
             />

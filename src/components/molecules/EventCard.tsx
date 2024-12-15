@@ -32,7 +32,7 @@ const EventCard = ({
   return (
     <Link
       key={event?._key}
-      className={` group/event-card relative block event-card-item w-full overflow-hidden transition-all ease-in-out ${isActive ? 'scale-110 z-10' : 'scale-100'}`}
+      className={` group/event-card relative block event-card-item w-full overflow-hidden transition-all ease-custom duration-735 ${isActive ? 'scale-110 z-10' : 'scale-100'}`}
       href={resolveHref(event._type, event.slug) || '#'}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
@@ -102,7 +102,7 @@ function Content({ event, isActive, isAnyActive }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.3, ease: [0.86, 0, 0.07, 1] }}
             className="flex items-center justify-between transition-opacity duration-300 opacity-100"
           >
             <Heading spacing="none" tag="p" type="h4">

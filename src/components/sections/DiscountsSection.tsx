@@ -79,7 +79,7 @@ function FilterButton({
         <span className="block">{children}</span>
         <AnimatePresence mode="wait" presenceAffectsLayout>
           <span
-            className={`block translate-y-6 absolute -mt-1 overflow-hidden duration-500 ease-in-out w-11/12 ml-auto translate-x-1/2 right-1/2`}
+            className={`block translate-y-6 absolute -mt-1 overflow-hidden transition-all ease-custom duration-735 w-11/12 ml-auto translate-x-1/2 right-1/2`}
           >
             <svg
               className="w-full"

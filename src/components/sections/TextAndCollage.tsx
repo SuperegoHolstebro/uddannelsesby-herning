@@ -90,7 +90,12 @@ function Portrait({ data, index }) {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        transition={{ type: 'spring', duration: 1, delay: 0.5 * index }}
+        transition={{
+          type: 'spring',
+          duration: 1,
+          delay: 0.5 * index,
+          ease: [0.86, 0, 0.07, 1],
+        }}
       >
         <div
           className={`absolute w-full flex justify-center h-full transform aspect-w-3 aspect-h-2 max-w-[24rem] xl:max-w-[29rem] right-1/2 ${translateX}`}

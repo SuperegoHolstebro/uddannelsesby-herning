@@ -25,7 +25,7 @@ const QuickLinks = ({ data }) => {
           {data?.quickLinks.map((link, index) => (
             <Link
               href={'#'}
-              className={`inline-flex duration-300 ease-in-out transition-all prose-headings:font-bold ${hovered !== null && hovered !== index ? 'blur-sm' : ''}`}
+              className={`inline-flex transition-all ease-custom duration-735 prose-headings:font-bold ${hovered !== null && hovered !== index ? 'blur-sm' : ''}`}
               onMouseEnter={() => setHovered(index)}
               onMouseLeave={() => setHovered(null)}
               key={index}
