@@ -20,7 +20,7 @@ const InnerBlocks = ({ blocks, index }: InnerBlocks_Type) => {
             return <InnerBlocks.Title key={index} index={index} data={block} />
           case 'textBlock':
             return (
-              <InnerBlocks.Paragraphs index={index} key={index} data={block} />
+              <InnerBlocks.Paragraphs key={index} index={index} data={block} />
             )
           case 'button':
             return (

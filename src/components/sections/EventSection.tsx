@@ -34,8 +34,7 @@ const EventSection = ({ section, amount }) => {
       paddingBottom={
         clean(section?.design?.padding?.spacingBottom) || 'default'
       }
-      className={`relative 
-        ${clean(section?.design?.color?.color) === 'mørk' ? 'text-lys' : ''}`}
+      className={`relative`}
     >
       {clean(section?.design?.color?.color) === 'lys' ? (
         <div className="absolute bottom-0 right-0 w-full bg-lys col-span-full h-2/3" />
@@ -44,8 +43,17 @@ const EventSection = ({ section, amount }) => {
       ) : clean(section?.design?.color?.color) == 'lilla' ? (
         <div className="absolute bottom-0 right-0 w-full bg-signal-pink col-span-full h-2/3" />
       ) : (
-        <div className="absolute bottom-0 right-0 w-full bg-signal-gul col-span-full h-2/3" />
+        <div className="absolute bottom-0 right-0 w-full bg-mørk col-span-full h-2/3" />
       )}
+      <div
+        className={`col-span-full  px-4 xs:px-4 sm:px-13 md:pr-24 md:pl-[10rem] lg:pr-19 lg:pl-[9.5rem] xl:pl-[200px]`}
+      >
+        <Heading
+          tag="h2"
+          type="h2"
+          dangerouslySetInnerHTML={{ __html: section.heading }}
+        />
+      </div>
       <Carousel
         slidesPerView={1.2}
         spaceBetween={32}
