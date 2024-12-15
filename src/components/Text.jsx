@@ -28,7 +28,7 @@ export default function Text({ videoSrc, textContent }) {
           loop
           hover
           src="/lottie/SE-DET-FOR-DIG.json"
-          className="bg-cover "
+          className="max-w-xs md:max-w-md xl:max-w-lg "
         ></Player>
       </div>
 
