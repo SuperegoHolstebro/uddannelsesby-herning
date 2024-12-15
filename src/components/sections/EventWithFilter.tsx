@@ -5,6 +5,9 @@ import EventCardFilter from '../molecules/EventCardFilter'
 import { clean } from '~/utils/sanitize'
 import Icon from '../atoms/Icons'
 import { AnimatePresence, motion } from 'framer-motion'
+import { useMediaQuery } from '~/hooks/useMediaQuery'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { SwiperOptions } from 'swiper/types'
 
 const EventWithFilter = ({ section }) => {
   const { events, categoriesInUse } = section
@@ -21,25 +24,59 @@ const EventWithFilter = ({ section }) => {
     <Section>
       {/* Filter Buttons */}
       <div className="divide-x pb-6 col-span-full divide-solid divide-grå grid grid-cols-6">
-        <FilterButton
-          icon="map"
-          category="all"
-          selectedCategory={selectedCategory}
-          setSelectedCategory={setSelectedCategory}
-        >
-          Udforsk alle
-        </FilterButton>
-        {uniqueCategories.map((category, index) => (
-          <FilterButton
-            icon={category.icon}
-            key={index}
-            category={category.category}
-            selectedCategory={selectedCategory}
-            setSelectedCategory={setSelectedCategory}
-          >
-            {category.category}
-          </FilterButton>
-        ))}
+        {useMediaQuery('(max-width: 768px)') ? (
+          <div className="col-span-full">
+            <Swiper spaceBetween={'16'} slidesPerView={3.3}>
+              <SwiperSlide>
+                <FilterButton
+                  icon="map"
+                  category="all"
+                  selectedCategory={selectedCategory}
+                  setSelectedCategory={setSelectedCategory}
+                >
+                  Udforsk alle
+                </FilterButton>
+              </SwiperSlide>
+              {uniqueCategories.map((category, index) => (
+                <SwiperSlide>
+                  <FilterButton
+                    icon={category.icon}
+                    key={index}
+                    category={category.category}
+                    selectedCategory={selectedCategory}
+                    setSelectedCategory={setSelectedCategory}
+                  >
+                    {category.category}
+                  </FilterButton>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        ) : (
+          <>
+            <FilterButton
+              className="px-6 mx-6"
+              icon="map"
+              category="all"
+              selectedCategory={selectedCategory}
+              setSelectedCategory={setSelectedCategory}
+            >
+              Udforsk alle
+            </FilterButton>
+            {uniqueCategories.map((category, index) => (
+              <FilterButton
+                className="px-6 mx-6"
+                icon={category.icon}
+                key={index}
+                category={category.category}
+                selectedCategory={selectedCategory}
+                setSelectedCategory={setSelectedCategory}
+              >
+                {category.category}
+              </FilterButton>
+            ))}
+          </>
+        )}
       </div>
 
       {/* Event Cards */}
@@ -68,6 +105,7 @@ const EventWithFilter = ({ section }) => {
 export default EventWithFilter
 
 function FilterButton({
+  className = '',
   category,
   selectedCategory,
   setSelectedCategory,
@@ -77,7 +115,7 @@ function FilterButton({
   return (
     <button
       onClick={() => setSelectedCategory(category)}
-      className={`relative w-full mx-6 px-6 space-y-5 ${selectedCategory === category ? '' : 'bg-hvid'}`}
+      className={`relative w-full ${className} space-y-5 ${selectedCategory === category ? '' : 'bg-hvid'}`}
     >
       <Icon className="mx-auto size-8" type={icon} />
       <span className="block space-y-2">
