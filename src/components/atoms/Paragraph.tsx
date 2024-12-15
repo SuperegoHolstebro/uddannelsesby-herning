@@ -1,5 +1,5 @@
 import { PortableText } from '@portabletext/react'
-import { cva } from 'class-variance-authority'
+import { cva, VariantProps } from 'class-variance-authority'
 import React from 'react'
 import { cn } from '@/utils/utils'
 import { ParagraphProps } from '@/types/ParagraphProps'
@@ -38,8 +38,10 @@ const ParagraphVariants = cva('font-sans', {
     spacing: 'default',
   },
 })
+type ExtendedParagraphProps = ParagraphProps &
+  VariantProps<typeof ParagraphVariants>
 
-const Paragraph: React.FC<ParagraphProps> = ({
+const Paragraph: React.FC<ExtendedParagraphProps> = ({
   size,
   spacing,
   children,
