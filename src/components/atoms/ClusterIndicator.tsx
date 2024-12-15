@@ -2,7 +2,7 @@ import React from 'react'
 
 const ClusterIndicator = ({ cluster }) => {
   return (
-    <foreignObject className="cluster-icon" width="74" height="74">
+    <foreignObject className="cluster-icon" width="20" height="20">
       <div className="relative grid place-content-center group">
         <span className="absolute font-bold text-mørk translate-x-1/2 text-medium -translate-y-1/2 top-1/2 right-1/2">
           {cluster.pins.length}
