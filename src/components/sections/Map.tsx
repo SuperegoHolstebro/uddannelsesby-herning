@@ -6,8 +6,9 @@ import * as d3 from 'd3'
 import Icon from '../atoms/Icons'
 import { useMediaQuery } from '~/hooks/useMediaQuery'
 import Carousel from '../organisms/Carousel'
-
-import { Grid, Pagination } from 'swiper/modules'
+import { Grid } from 'swiper/modules'
+import ClusterIndicator from '../atoms/ClusterIndicator'
+import MapPin from '../atoms/MapPin'
 
 const Map = ({ data }) => {
   // console.log('Data:', data)
@@ -209,46 +210,10 @@ const SvgMap = ({ pins }) => {
           >
             {cluster.pins.length === 1 ? (
               // Single Pin
-              <foreignObject
-                className="pin"
-                width="74"
-                height="74"
-                style={{ overflow: 'visible' }}
-              >
-                <div className="grid p-3 transition-all duration-500 rounded-full ease-custom hover:z-10 group hover:bg-signal-pink bg-lys size-19 aspect-1 place-content-center">
-                  <Icon
-                    type={cluster.pins[0].category?.icon || 'default-icon'} // Fallback icon
-                    className="w-[2.5rem] h-[2.5rem]"
-                  />
-                  <div className="absolute invisible transition-all duration-500 translate-x-1/2 translate-y-1/2 rounded-md opacity-0 ease-custom right-1/2 group-hover:opacity-100 group-hover:visible group-hover:bg-signal-pink -bottom-1/2 w-max">
-                    <p className="p-2 text-center">
-                      {cluster.pins[0].title || 'Untitled'}
-                    </p>
-                  </div>
-                </div>
-              </foreignObject>
+              <MapPin cluster={cluster} />
             ) : (
               // Cluster with Multiple Pins
-              <foreignObject className="cluster-icon" width="74" height="74">
-                <div className="relative grid place-content-center group">
-                  <span className="absolute font-bold text-mørk translate-x-1/2 text-medium -translate-y-1/2 top-1/2 right-1/2">
-                    {cluster.pins.length}
-                  </span>
-                  <svg
-                    className="transition-all ease-in-out group-hover:text-signal-pink text-lys"
-                    width="80"
-                    height="80"
-                    viewBox="0 0 64 64"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M32 0C32 0 28.3573 25.9739 0 32C28.3573 38.026 32 64 32 64C32 64 35.6427 38.026 64 32C35.6427 25.9739 32 0 32 0Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </div>
-              </foreignObject>
+              <ClusterIndicator cluster={cluster} />
             )}
           </g>
         ))}
