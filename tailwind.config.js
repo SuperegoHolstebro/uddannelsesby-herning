@@ -84,6 +84,15 @@ module.exports = {
     },
 
     extend: {
+      transitionTimingFunction: {
+        custom: 'cubic-bezier(0.86, 0, 0.07, 1)',
+      },
+      transitionDelay: {
+        2000: '2000ms',
+      },
+      transitionDuration: {
+        735: '0.735s',
+      },
       fontFamily: {
         // font families
         sans: ['var(--font-sans)'],
