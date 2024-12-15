@@ -38,10 +38,9 @@ const EventWithFilter = ({ section }) => {
                 </FilterButton>
               </SwiperSlide>
               {uniqueCategories.map((category, index) => (
-                <SwiperSlide>
+                <SwiperSlide key={index}>
                   <FilterButton
                     icon={category.icon}
-                    key={index}
                     category={category.category}
                     selectedCategory={selectedCategory}
                     setSelectedCategory={setSelectedCategory}
