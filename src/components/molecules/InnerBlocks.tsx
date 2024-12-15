@@ -67,7 +67,6 @@ function AccordionGroup({ data }) {
             title={accordion.title}
             text={accordion.body}
             blocks={undefined}
-            key={accordionIndex}
           />
         </FadeUp>
       ))}
