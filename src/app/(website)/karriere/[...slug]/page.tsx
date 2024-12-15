@@ -146,8 +146,8 @@ export default async function DynamicRoute({
               Fagområder
             </Heading>
             <ul>
-              {page.fields.map((field) => (
-                <li key={field._id}>{field.title}</li>
+              {page.fields.map((field, index) => (
+                <li key={index}>{field.title}</li>
               ))}
             </ul>
           </>
