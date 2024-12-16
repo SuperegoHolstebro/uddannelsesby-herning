@@ -21,6 +21,7 @@ import { PAGETITLE_QUERY } from '../sections/PageTitleQuery'
 import { DownloadsAndLinksQuery } from '../sections/DownloadsAndLinksQuery'
 import { mapTypeQuery } from '../sections/mapType.query'
 import { MediaTypeQuery } from '../sections/MediaType.query'
+import { programType_QUERY } from '../sections/program.query'
 
 export const pageBuilderQuery = groq`
   pageBuilder[] {
@@ -31,6 +32,7 @@ export const pageBuilderQuery = groq`
     ${EventWithFilterQuery},
     ${DiscountQuery},
     ${ContactFormTypeQuery},
+    ${programType_QUERY},
     ${heroQuery},
     ${TextAndCollageQuery},
     ${textContainerQuery},

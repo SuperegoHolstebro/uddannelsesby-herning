@@ -83,8 +83,8 @@ export const programType = defineType({
             }),
             defineField({
               name: 'description',
-              type: 'text',
               title: 'Beskrivelse',
+              type: 'blockContent',
             }),
             defineField({
               name: 'time',
