@@ -27,6 +27,8 @@ import { DownloadAttendeesAction } from '~/utils/DownloadAttendeesAction'
 import { imageHotspotArrayPlugin } from 'sanity-plugin-hotspot-array'
 import { CreateCompanyLoginAction } from '~/sanity/actions/createCompanyLogin.action'
 import { GoToCompanyLoginAction } from '~/sanity/actions/goToCompantLogin.action'
+import { documentInternationalization } from '@sanity/document-internationalization'
+import Appconfig from './config'
 
 const SANITY_STUDIO_PREVIEW_URL =
   process.env.SANITY_STUDIO_PREVIEW_URL || 'http://localhost:3333'
@@ -46,6 +48,13 @@ export default defineConfig({
     },
   },
   plugins: [
+    documentInternationalization({
+      // Required configuration
+      supportedLanguages: [...Appconfig.i18n.locales],
+      schemaTypes: ['page', 'navigation', 'footer', 'settings', 'article'],
+      languageField: 'locale',
+    }),
+
     imageHotspotArrayPlugin(),
     dashboardTool({
       title: 'Startside',
