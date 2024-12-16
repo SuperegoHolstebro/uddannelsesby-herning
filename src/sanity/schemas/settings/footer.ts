@@ -13,6 +13,14 @@ export default defineType({
       hidden: true,
       initialValue: 'Footer',
     }),
+    defineField({
+      // should match 'languageField' plugin configuration setting, if customized
+      name: 'locale',
+      type: 'string',
+      readOnly: true,
+      // hidden: true,
+    }),
+
     {
       name: 'object',
       type: 'object',

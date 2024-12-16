@@ -13,6 +13,14 @@ export default {
       initialValue: 'Navigation',
     }),
     defineField({
+      // should match 'languageField' plugin configuration setting, if customized
+      name: 'locale',
+      type: 'string',
+      readOnly: true,
+      // hidden: true,
+    }),
+
+    defineField({
       name: 'links',
       title: 'Menupunkter',
       type: 'array',
