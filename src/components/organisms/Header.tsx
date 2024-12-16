@@ -3,11 +3,11 @@ import { AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import * as React from 'react'
 import { useEffect } from 'react'
-import Search from '@/components/molecules/Search'
 import Navigation from '@/components/organisms/Navigation'
 import Logo from '../atoms/Logo'
-import { getFooter } from './Footer'
 import { FooterType } from '~/types/Footer.types'
+import { groq } from 'next-sanity'
+import { client } from '~/sanity/lib/sanity.client'
 
 /**
  *
@@ -23,20 +23,55 @@ import { FooterType } from '~/types/Footer.types'
  * @author: Kasper Buchholtz
  *
  **/
+export async function getFooter(locale: string) {
+  return client.fetch(
+    groq`
+*[_type == "footer" && locale == $locale][0] {
+  title,
+  logo {
+    asset-> {
+      _id,
+      url,
+      _type,
+      altText,
+      description,
+      title,
+      metadata {
+        blurHash,
+        dimensions
+      }
+    }
+  },
+  object {
+    companyName,
+    address,
+    telephone,
+    email,
+    cvr
+  },
+  social[] {
+    platform,
+    url
+  }
+}
 
-export default function Header() {
+    `,
+    { locale },
+  )
+}
+
+export default function Header({ locale }) {
   const [isOpen, setIsOpen] = React.useState(false)
   const [footer, setFooter] = React.useState<FooterType[]>([])
   const [isScrolled, setIsScrolled] = React.useState(false)
 
   useEffect(() => {
-    getFooter().then((nav) => setFooter(nav))
+    getFooter(locale).then((nav) => setFooter(nav))
   }, [])
 
   const handleCloseNav = () => {
     setIsOpen(false)
   }
-  const data = footer[0]
 
   const handleScroll = () => {
     if (typeof window !== 'undefined' && window.scrollY > 100) {
@@ -103,7 +138,7 @@ export default function Header() {
         </button>
       </header>
       <AnimatePresence mode="wait">
-        {isOpen && <Navigation onClose={handleCloseNav} />}
+        {isOpen && <Navigation locale={locale} onClose={handleCloseNav} />}
       </AnimatePresence>
     </>
   )

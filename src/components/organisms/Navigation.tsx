@@ -25,12 +25,15 @@ import { FadeUp } from '../interactions/AnimateFadeIn'
  *
  **/
 
-export default function Navigation({ onClose }) {
+export default function Navigation({ onClose, locale }) {
   const useNavigationData = () => {
     const [data, setData] = useState(null)
+
     useEffect(() => {
       const fetchData = async () => {
-        let result = await client.fetch(NAVIGATION_QUERY)
+        let result = await client.fetch(NAVIGATION_QUERY, {
+          locale: locale?.locale || 'da',
+        })
         result = await stegaClean(result)
         setData(result)
       }
@@ -214,7 +217,7 @@ function SubMenuItem({ item, index }) {
         link={item}
       >
         <span
-          className="font-light hover:text-signal-gul focus-within:text-signal-gul *:overflow-visible"
+          className=" hover:text-signal-gul focus-within:text-signal-gul *:overflow-visible"
           dangerouslySetInnerHTML={{ __html: item.label }}
         />
       </Button>

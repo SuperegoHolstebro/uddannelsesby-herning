@@ -10,6 +10,7 @@ import { FooterType } from '~/types/Footer.types'
 import { stegaClean } from '@sanity/client/stega'
 import Paragraph from '../atoms/Paragraph'
 import Section from '../sections/Section'
+import { FOOTER_QUERY } from '~/sanity/lib/sanity.queries'
 
 /**
  *
@@ -25,50 +26,22 @@ import Section from '../sections/Section'
  *
  **/
 
-export async function getFooter() {
-  return client.fetch(groq`
-    *[_type == "footer"] {
-      title,
-      logo {
-        asset-> {
-          _id,
-          url,
-          _type,
-          altText,
-          description,
-          title,
-          metadata {
-            blurHash,
-            dimensions
-          }
-        }
-      },
-      object {
-        companyName,
-        address,
-        telephone,
-        email,
-        cvr
-      },
-      social[] {
-        platform,
-        url
-      },
-      openingHours[] {
-        day,
-        hours
+export default function Footer({ locale }) {
+  const useFooterData = () => {
+    const [data, setData] = React.useState(null)
+    useEffect(() => {
+      const fetchData = async () => {
+        let result = await client.fetch(FOOTER_QUERY, {
+          locale: locale.locale || 'da',
+        })
+        result = await stegaClean(result)
+        setData(result)
       }
-    }
-    `)
-}
-
-export default function Footer() {
-  const [footer, setFooter] = React.useState<FooterType[]>([])
-  useEffect(() => {
-    getFooter().then((nav) => setFooter(stegaClean(nav)))
-  }, [])
-
-  const data = footer[0]
+      fetchData()
+    }, [])
+    return data
+  }
+  const data = useFooterData()
 
   const gridCols =
     'xs:grid-cols-4 sm:grid-cols-8 md:grid-cols-12 lg:grid-cols-12 xl:grid-cols-24 2xl:grid-cols-24'
