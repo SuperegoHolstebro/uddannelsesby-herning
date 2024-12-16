@@ -25,14 +25,14 @@ export default async function EditPage() {
   // Handle case where no company is found
   if (!company) {
     return (
-      <PageContainer>
+      <PageContainer locale="da">
         <p>Der blev ikke fundet nogen virksomhed tilknyttet denne bruger. </p>
       </PageContainer>
     )
   }
 
   return (
-    <PageContainer>
+    <PageContainer locale="da">
       {/* Pass the session and company data to the client-side form */}
       <EditCompanyForm session={session} company={company} />
     </PageContainer>

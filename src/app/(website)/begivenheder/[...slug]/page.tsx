@@ -42,7 +42,7 @@ export default async function DynamicRoute({
   }
 
   return (
-    <PageContainer>
+    <PageContainer locale="da">
       <Section
         variant="primary"
         paddingTop="none"
@@ -132,7 +132,7 @@ export default async function DynamicRoute({
       </Scheduler>
     </PageContainer>
   )
-}
+} /* 
 
 export async function generateMetadata({ params }: { params }) {
   const { slug: slugArray } = await params
@@ -142,3 +142,4 @@ export async function generateMetadata({ params }: { params }) {
 
   return generatePageMetadata(page, baseUrl)
 }
+ */
