@@ -41,6 +41,7 @@
     "@sanity/client": "^6.21.1",
     "@sanity/dashboard": "^4.1.0",
     "@sanity/demo": "2.0.0",
+    "@sanity/document-internationalization": "^3.2.0",
     "@sanity/icons": "^3.4.0",
     "@sanity/image-url": "1.0.2",
     "@sanity/locale-da-dk": "^1.0.8",

@@ -102,11 +102,18 @@ export async function loadQuery<QueryResponse>({
 
 export async function loadPage(
   slug: string,
-  locale: string,
+  locale?: string,
   groqQuery?: string,
 ) {
-  return loadQuery<PagePayload | null>({
-    query: groqQuery || PAGE_QUERY,
-    params: { slug },
-  })
+  if (locale) {
+    return loadQuery<PagePayload | null>({
+      query: groqQuery || PAGE_QUERY,
+      params: { slug, locale },
+    })
+  } else {
+    return loadQuery<PagePayload | null>({
+      query: groqQuery || PAGE_QUERY,
+      params: { slug },
+    })
+  }
 }

@@ -1,11 +1,9 @@
 'use client'
 
-import Link from 'next/link'
 import Heading from '../atoms/Heading'
 import InteractiveMarquee from '../atoms/Marquee'
 import Section from './Section'
 import { clean } from '~/utils/sanitize'
-import { resolveHref } from '~/sanity/lib/sanity.links'
 import { useState } from 'react'
 import { Button } from '../atoms/Button'
 
@@ -39,19 +37,6 @@ const QuickLinks = ({ data }) => {
                   {link.label}
                 </Heading>
               </Button>
-              {/*               <Link
-                title={link.label}
-                href={'#'}
-                className={`inline-flex transition-all ease-custom duration-735 prose-headings:font-bold ${hovered !== null && hovered !== index ? 'blur-sm' : ''}`}
-                onMouseEnter={() => setHovered(index)}
-                onMouseLeave={() => setHovered(null)}
-                key={index}
-              >
-                <Heading tag="h3" type="h3" spacing="none">
-                  {link.label}
-                </Heading>
-              </Link>
- */}{' '}
             </>
           ))}
         </InteractiveMarquee>

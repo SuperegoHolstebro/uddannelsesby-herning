@@ -33,7 +33,7 @@ const HeadingVariants = cva('text-balance rwx hyphens-auto uppercase', {
       h5: 'text-increased leading-normal tracking-tight font-normal',
       h6: 'text-regular font-normal',
       span: 'text-small font-normal',
-      p: 'text-regular font-normal',
+      p: 'text-regular font-bold',
     },
     fontFamily: {
       sans: 'font-sans',

@@ -16,6 +16,8 @@ import { clean } from '~/utils/sanitize'
 import Link from 'next/link'
 import { AdvancedButtonProps } from '~/types/AdvancedButtonProps'
 import { VariantProps } from 'class-variance-authority'
+import { SanityLink } from '~/sanity/schemas/customFields/LinkField/components/Link'
+import { resolveHrefLang } from '~/sanity/lib/sanity.links'
 
 /**
  *
@@ -73,24 +75,19 @@ const Button = forwardRef(
         variant={variant}
         className={cn(variant, className)}
       >
-        <Link
-          href={clean(
-            String(
-              link.type === 'internal'
-                ? generateHref[link.type]?.(link, hrefResolver)
-                : generateHref[isCustomLink(link) ? 'custom' : link.type]?.(
-                    link,
-                  ),
-            ),
-          )}
-          title={children}
-          target={
-            !isPhoneLink(link) && !isEmailLink(link) && link.blank
-              ? '_blank'
-              : undefined
-          }
-          ref={ref}
+        <SanityLink
           {...props}
+          ref={ref}
+          link={link}
+          hrefResolver={({ internalLink }) =>
+            clean(
+              resolveHrefLang(
+                internalLink?.locale,
+                internalLink?._type,
+                internalLink?.slug?.current,
+              ),
+            )
+          }
         >
           <span className="flex flex-col overflow-hidden">
             <span className="block">{children}</span>
@@ -115,7 +112,7 @@ const Button = forwardRef(
               </span>
             )}
           </span>
-        </Link>
+        </SanityLink>
       </AdvancedButton>
     )
   },

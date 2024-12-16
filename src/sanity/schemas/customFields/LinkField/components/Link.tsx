@@ -1,8 +1,8 @@
-import React, {type ElementType, type ForwardedRef, forwardRef} from 'react'
-import {generateHref} from '../helpers/generateHref'
-import {getLinkText} from '../helpers/getLinkText'
-import {isCustomLink, isEmailLink, isPhoneLink} from '../helpers/typeGuards'
-import {InternalLink, LinkValue} from '../Types'
+import React, { type ElementType, type ForwardedRef, forwardRef } from 'react'
+import { generateHref } from '../helpers/generateHref'
+import { getLinkText } from '../helpers/getLinkText'
+import { isCustomLink, isEmailLink, isPhoneLink } from '../helpers/typeGuards'
+import { InternalLink, LinkValue } from '../Types'
 
 type LinkProps = {
   link?: LinkValue
@@ -10,9 +10,9 @@ type LinkProps = {
   hrefResolver?: (link: InternalLink) => string
 } & Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href' | 'target'>
 
-const Link = forwardRef(
+const SanityLink = forwardRef(
   (
-    {link, as: Component = 'a', hrefResolver, children, ...props}: LinkProps,
+    { link, as: Component = 'a', hrefResolver, children, ...props }: LinkProps,
     ref: ForwardedRef<HTMLAnchorElement>,
   ) => {
     if (!link) {
@@ -32,7 +32,11 @@ const Link = forwardRef(
             ? generateHref[link.type]?.(link, hrefResolver)
             : generateHref[isCustomLink(link) ? 'custom' : link.type]?.(link)
         }
-        target={!isPhoneLink(link) && !isEmailLink(link) && link.blank ? '_blank' : undefined}
+        target={
+          !isPhoneLink(link) && !isEmailLink(link) && link.blank
+            ? '_blank'
+            : undefined
+        }
         ref={ref}
         {...props}
       >
@@ -42,6 +46,6 @@ const Link = forwardRef(
   },
 )
 
-Link.displayName = 'Link'
+SanityLink.displayName = 'Link'
 
-export {Link, type LinkProps}
+export { SanityLink, type LinkProps }

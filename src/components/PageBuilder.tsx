@@ -22,6 +22,7 @@ import Quote from './sections/Quote'
 import PageTitle from './sections/PageTitle'
 import DownloadsAndLinks from './sections/DownloadsAndLinks'
 import Map from './sections/Map'
+import Program from './sections/program'
 
 const PageBuilder = ({ sections }) => {
   return (
@@ -82,7 +83,8 @@ const PageBuilder = ({ sections }) => {
 
           case 'DiscountsType':
             return <DiscountsSection key={index} section={section} />
-
+          case 'programType':
+            return <Program key={index} data={section} />
           case 'textContainer':
             return <TextContainer key={index} data={section} />
           case 'MediaType':

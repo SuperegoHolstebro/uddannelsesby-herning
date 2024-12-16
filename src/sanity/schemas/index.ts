@@ -85,6 +85,7 @@ import { DiscountsType } from './sections/discounts.schema'
 import discounts from './documents/discounts'
 import discountsTag from './documents/discountsTag'
 import MapCategory from './documents/MapCategory'
+import { programType } from './sections/program'
 
 export const schemaTypes = [
   heroType,
@@ -100,6 +101,7 @@ export const schemaTypes = [
   contactFormType,
   EventType,
   EventWithFilterType,
+  programType,
   ArticlesType,
   Gallery,
   LogoGallery,
@@ -178,6 +180,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     contactFormType,
     EventType,
     EventWithFilterType,
+    programType,
     MediaType,
     ReusableSectionType,
     info,

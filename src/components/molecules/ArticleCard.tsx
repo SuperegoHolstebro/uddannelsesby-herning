@@ -1,9 +1,8 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import Heading from '@/components/atoms/Heading'
 import Paragraph from '@/components/atoms/Paragraph'
-import { resolveHref } from '@/sanity/lib/sanity.links'
+import { resolveHrefLang } from '@/sanity/lib/sanity.links'
 import { formatDate } from '@/utils/date'
 import Photo from '../atoms/Photo'
 
@@ -30,7 +29,11 @@ const ArticleCard = ({ article }) => {
         {article?.slug && (
           <Link
             className="absolute inset-0 z-10 w-full h-full "
-            href={resolveHref(article._type, article.slug)}
+            href={resolveHrefLang(
+              article?.locale,
+              article?._type,
+              article?.slug?.current,
+            )}
           ></Link>
         )}
         {article?.image && (

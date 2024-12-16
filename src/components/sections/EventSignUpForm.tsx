@@ -18,6 +18,7 @@ function EventSignUpForm({ event }) {
   const [isFull, setIsFull] = useState(false)
   const [submitting, setSubmitting] = useState(false) // Add submitting state to prevent multiple form submissions
   const [ticketsLeft, setTicketsLeft] = useState(0)
+  const [isSubmitted, setIsSubmitted] = useState(false)
 
   // Calculate remaining tickets
   useEffect(() => {
@@ -68,7 +69,7 @@ function EventSignUpForm({ event }) {
       const data = await response.json()
 
       if (response.ok) {
-        alert('Du er nu tilmeldt begivenheden')
+        setIsSubmitted(true) // Set submission state to true
         // Reset form
         setFormData({
           navn: '',
@@ -113,6 +114,10 @@ function EventSignUpForm({ event }) {
           >
             Gå til begivenhed
           </a>
+        ) : isSubmitted ? (
+          <Paragraph spacing="small" className="font-bold col-span-full">
+            Du er nu tilmeldt begivenheden
+          </Paragraph>
         ) : (
           <div>
             <Heading
