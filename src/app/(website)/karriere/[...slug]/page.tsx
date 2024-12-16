@@ -69,7 +69,7 @@ export default async function DynamicRoute({
         variant="primary"
         paddingTop="none"
         paddingBottom="none"
-        className="h-screen/3 bg-signal-pink"
+        className="pt-48 pb-16 md:pt-36 min-h-screen/3 bg-signal-pink"
       >
         <div className="flex flex-col justify-center col-span-full">
           <div className="">
@@ -84,7 +84,9 @@ export default async function DynamicRoute({
       {/* info boxes */}
       <Section paddingBottom="none" paddingTop="none" tag={'div'}>
         {' '}
-        <div className="grid grid-cols-1 gap-4 text-center col-span-full sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 md:p-12 md:flex-row rounded-2xl">
+        <div
+          className={`grid grid-cols-1 gap-4 text-center col-span-full md:grid-cols-2  md:p-12 md:flex-row divide-x border-grå`}
+        >
           <div className="flex flex-col items-center justify-start ">
             <Icon type="calendar" className="mb-3 size-8" />
             <div className="space-y-.5">
@@ -95,7 +97,7 @@ export default async function DynamicRoute({
             </div>
           </div>
 
-          <div className="flex flex-col items-center justify-start  md:border-l md:border-grå md:pl-4">
+          <div className="flex flex-col items-center justify-start md:border-l md:border-grå md:pl-4">
             <Icon type="clock" className="mb-3 size-8" />
             <div className="space-y-.5">
               <Heading type="h5" tag="h5" spacing="none">
@@ -114,7 +116,7 @@ export default async function DynamicRoute({
         paddingBottom="none"
         className="col-span-full"
       >
-        <div className="col-span-full h-screen/2">
+        <div className="col-span-full h-screen/1.2">
           <Photo image={page.image} objectFit="cover" />
         </div>
       </Section>

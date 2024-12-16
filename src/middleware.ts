@@ -18,6 +18,18 @@ export async function middleware(request: NextRequest) {
       !pathname.startsWith(`/${locale?.id}/`) && pathname !== `/${locale?.id}`,
   )
 
+  // Skip locale check for specific paths
+  if (pathname.startsWith('/karriere')) {
+    return NextResponse.next() // Do not apply locale rewrite for /karriere and sub-paths
+  }
+
+  if (pathname.startsWith('/begivenheder')) {
+    return NextResponse.next() // Do not apply locale rewrite for /karriere and sub-paths
+  }
+  if (pathname.startsWith('/uddannelsessteder')) {
+    return NextResponse.next() // Do not apply locale rewrite for /uddannelsessteder and sub-paths
+  }
+
   // Redirect if there is no locale
   if (pathnameIsMissingLocale) {
     const searchString = searchParams.toString()
@@ -29,10 +41,12 @@ export async function middleware(request: NextRequest) {
       ),
     )
   }
+
+  return NextResponse.next() // Proceed without rewriting
 }
 
 export const config = {
   matcher: [
-    '/((?!api|_next/static|_next/image|favicon.ico|studio|super-login|begivenheder|static|karriere|sitemap\\.xml).*)',
+    '/((?!api|_next/static|_next/image|favicon.ico|studio|super-login|static|sitemap\\.xml).*)',
   ],
 }

@@ -47,7 +47,7 @@ export default async function DynamicRoute({
         variant="primary"
         paddingTop="none"
         paddingBottom="none"
-        className="pb-16 pt-36 min-h-screen/3 bg-signal-pink"
+        className="pt-48 pb-16 md:pt-36 min-h-screen/3 bg-signal-pink"
       >
         <div className="flex justify-between my-auto col-span-full">
           <div className=" md:basis-3/4">
@@ -89,8 +89,8 @@ export default async function DynamicRoute({
         </div>
 
         <div className="flex gap-3 uppercase col-span-full">
-          <Badge variant="dark">{page.category.title}</Badge>
-          <Badge variant="dark">{formatDate(page.startDate)}</Badge>
+          <Badge variant="dark">{page?.category?.title}</Badge>
+          <Badge variant="dark">{formatDate(page?.startDate)}</Badge>
         </div>
       </Section>
 

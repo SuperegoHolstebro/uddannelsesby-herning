@@ -37,10 +37,12 @@ export async function generatePageMetadata(
 
   const { seoGroup, title, mainImage } = page
   const seoTitle = clean(
-    seoGroup?.seoTitle || title || settings.siteTitle || DEFAULT_TITLE,
+    seoGroup?.seoTitle || title || settings?.siteTitle || DEFAULT_TITLE,
   )
   const seoDescription = clean(
-    seoGroup?.seoDescription || settings.siteDescription || DEFAULT_DESCRIPTION,
+    seoGroup?.seoDescription ||
+      settings?.siteDescription ||
+      DEFAULT_DESCRIPTION,
   )
   const image = seoGroup?.image || mainImage
   const seoImage = image ? [{ url: image }] : []
