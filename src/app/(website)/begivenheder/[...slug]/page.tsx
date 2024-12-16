@@ -19,6 +19,10 @@ import Icon from '~/components/atoms/Icons'
 import { formatPrice } from '~/utils/price'
 import Link from 'next/link'
 import Scheduler from '~/components/atoms/Scheduler'
+import Badge from '~/components/atoms/badge'
+import Box from '~/components/atoms/box'
+import Photo from '~/components/atoms/Photo'
+import EventInfoBox from '~/components/organisms/EventInfoBox'
 interface Params {
   slug: string[]
   locale: string
@@ -36,26 +40,9 @@ export default async function DynamicRoute({
   if (!page) {
     notFound()
   }
-  // Calculate remaining tickets based on the number of tickets booked
-  const maxAttendees = page.maxAttendees || 0
-  const bookedTickets =
-    page.attendees?.reduce(
-      (
-        sum,
-        attendee: {
-          name: string
-          email: string
-          phone: string
-          school: string
-          numberOfTickets: number
-        },
-      ) => sum + (attendee.numberOfTickets || 0),
-      0,
-    ) || 0
-  const ticketsLeft = maxAttendees - bookedTickets
 
   return (
-    <PageContainer>
+    <PageContainer locale="da">
       <Section
         variant="primary"
         paddingTop="none"
@@ -63,20 +50,21 @@ export default async function DynamicRoute({
         className="pb-16 pt-36 min-h-screen/3 bg-signal-pink"
       >
         <div className="flex justify-between my-auto col-span-full">
-          <div className="">
+          <div className=" md:basis-3/4">
             <Heading spacing="small">{page.title}</Heading>
           </div>
           <div>
             <Scheduler hasText start={page.open}>
               <AdvancedButton variant="primary">
                 <Link
+                  className="text-increased"
                   href={page.isExternal ? page.externalLink : `#signup`}
                   // href="#signup"
                 >
                   Book billet
                   <span className="overflow-hidden">
                     <span
-                      className={`block w-10 overflow-hidden duration-500 ease-in-out group-hover/button:w-full`}
+                      className={`block ml-auto w-10 overflow-hidden transition-all ease-custom duration-735 group-hover/button:w-full`}
                     >
                       <svg
                         className="w-full"
@@ -101,64 +89,13 @@ export default async function DynamicRoute({
         </div>
 
         <div className="flex gap-3 uppercase col-span-full">
-          <Paragraph spacing="none" className="leading-none">
-            <span className="bg-mørk p-2 text-lys rounded-full ">
-              {page.category.title}
-            </span>
-          </Paragraph>
-          <Paragraph spacing="none" className="leading-none">
-            <span className="bg-mørk p-2 text-lys rounded-full">
-              {formatPrice(Number(page.price))}
-            </span>
-          </Paragraph>
+          <Badge variant="dark">{page.category.title}</Badge>
+          <Badge variant="dark">{formatDate(page.startDate)}</Badge>
         </div>
       </Section>
 
       {/* info boxes */}
-      <Section paddingBottom="none" paddingTop="none" tag={'div'}>
-        {' '}
-        <div className="grid grid-cols-1 gap-4 text-center col-span-full sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 md:p-12 md:flex-row rounded-2xl">
-          <div className="flex flex-col items-center justify-start space-y-5 ">
-            <Icon type="calendar" className="w-8 h-8" />
-            <Heading type="h5" tag="h5" spacing="default">
-              {/* Use eventDateRange and pass the correct properties */}
-              {eventDateRange(page.startDate, page.endDate, page.isMultiDay)}
-            </Heading>
-            <Paragraph spacing="none">Dato</Paragraph>
-          </div>
-
-          <div className="flex flex-col items-center justify-start space-y-5 md:border-l md:border-grå md:pl-4">
-            <Icon type="clock" className="w-8 h-8" />
-            <Heading type="h5" tag="h5" spacing="default">
-              {formatTime(page.startDate)}-{formatTime(page.endDate)}
-            </Heading>
-            <Paragraph spacing="none">Tidspunkt</Paragraph>
-          </div>
-
-          <div className="flex flex-col items-center justify-start space-y-5 md:border-l md:border-grå md:pl-4">
-            <Icon type="streetSign" className="w-8 h-8" />
-            <Heading type="h5" tag="h5" spacing="default">
-              {page.location}
-            </Heading>
-            <Paragraph spacing="none">Lokation</Paragraph>
-          </div>
-
-          <div className="flex flex-col items-center justify-start space-y-5 md:border-l md:border-grå md:pl-4">
-            <Icon type="tickets" className="w-8 h-8" />
-            <Heading type="h5" tag="h5" spacing="default">
-              {page.isFull
-                ? 'Ingen'
-                : page.isExternal
-                  ? 'Stadig'
-                  : ticketsLeft > 0
-                    ? `${ticketsLeft}`
-                    : 'Ingen'}
-            </Heading>
-
-            <Paragraph spacing="none"> Billetter tilgængelige</Paragraph>
-          </div>
-        </div>
-      </Section>
+      <EventInfoBox page={page} />
 
       {/* image */}
       <Section
@@ -168,19 +105,7 @@ export default async function DynamicRoute({
         className="col-span-full "
       >
         <div className="col-span-full">
-          <Image
-            className="object-cover h-full max-h-screen/1.5"
-            src={urlFor(page.image).dpr(2).url()}
-            alt=""
-            width={1920}
-            height={1080}
-            placeholder="blur"
-            blurDataURL={urlFor(page.image).width(24).height(24).blur(10).url()}
-            sizes="
-                  (max-width: 768px) 100vw,
-                  (max-width: 1200px) 50vw,
-                  40vw"
-          />
+          <Photo image={page.image} objectFit="cover" />
         </div>
       </Section>
 
@@ -207,7 +132,7 @@ export default async function DynamicRoute({
       </Scheduler>
     </PageContainer>
   )
-}
+} /* 
 
 export async function generateMetadata({ params }: { params }) {
   const { slug: slugArray } = await params
@@ -217,3 +142,4 @@ export async function generateMetadata({ params }: { params }) {
 
   return generatePageMetadata(page, baseUrl)
 }
+ */

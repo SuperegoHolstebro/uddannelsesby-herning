@@ -1,8 +1,7 @@
 'use client'
-
 import React from 'react'
-import { Player, Controls } from '@lottiefiles/react-lottie-player'
-
+/* import { Player } from '@lottiefiles/react-lottie-player'
+ */
 /**
  *
  * @returns: En ikon-komponent, der viser et ikon.
@@ -80,14 +79,16 @@ const Symbol: React.FC<SymbolProps> = ({ type, ...props }) => {
 
     t: (
       <>
-        <Player
-          {...props}
-          autoplay
+        {/*         <Player
+          //@ts-ignore
+          autoplay={true}
           loop
+          hover
           src="/lottie/T/T.json"
-          style={{ height: '300px', width: '300px' }}
-        ></Player>
-        {/*         <svg
+          className="bg-cover "
+        ></Player> */}
+
+        <svg
           {...props}
           width="169"
           height="200"
@@ -98,12 +99,12 @@ const Symbol: React.FC<SymbolProps> = ({ type, ...props }) => {
           <g clipPath="url(#clip0_980_1044)">
             <path
               d="M65.0331 36.6955H1.65083V1.65083H166.762V36.6955H65.0331Z"
-              stroke="#D9FC00"
+              stroke="currentColor"
               strokeWidth="3.30165"
             />
             <path
               d="M66.7404 77.2209L66.7404 1.65082L102.115 1.65083L102.115 198.324L66.7404 198.324L66.7404 77.2209Z"
-              stroke="#D9FC00"
+              stroke="currentColor"
               strokeWidth="3.30165"
             />
           </g>
@@ -113,7 +114,6 @@ const Symbol: React.FC<SymbolProps> = ({ type, ...props }) => {
             </clipPath>
           </defs>
         </svg>
- */}{' '}
       </>
     ),
 

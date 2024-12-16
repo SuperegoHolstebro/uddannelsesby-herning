@@ -1,10 +1,10 @@
-"use client";
-import React, { ReactNode } from 'react';
-import { motion } from "framer-motion";
+'use client'
+import React, { ReactNode } from 'react'
+import { motion } from 'framer-motion'
 
 /**
  *
- * @returns: En component der animere et element ind i viewet.  
+ * @returns: En component der animere et element ind i viewet.
  * @example: <AnimateFadeIn />
  * @alias: AnimateFadeIn
  * @module: components/interactions/AnimateFadeIn
@@ -19,11 +19,11 @@ import { motion } from "framer-motion";
 export function FadeUp({
   children,
   delay = 0,
-  duration = 0.5,
+  duration = 0.725,
 }: {
-  children: ReactNode;
-  delay?: number;
-  duration?: number;
+  children: ReactNode
+  delay?: number
+  duration?: number
 }) {
   return (
     <motion.div
@@ -40,9 +40,9 @@ export function FadeUp({
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      transition={{ delay, type: "spring", duration }}
+      transition={{ delay, type: 'spring', duration, ease: [0.86, 0, 0.07, 1] }}
     >
       {children}
     </motion.div>
-  );
+  )
 }

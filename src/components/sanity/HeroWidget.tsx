@@ -21,7 +21,7 @@ const HeroWidget = () => {
           {removeHttps(process.env.NEXT_PUBLIC_BASE_URL)}{' '}
         </span>
       </Heading>
-      <Image
+      <img
         src="/images/backend/superego-blomst.png"
         alt="Sanity logo"
         width={100}

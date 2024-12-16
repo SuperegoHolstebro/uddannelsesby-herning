@@ -4,6 +4,7 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 import ReactPlayer from 'react-player'
 import Icon from '../atoms/Icons'
+import Photo from '../atoms/Photo'
 
 /**
  * @returns: A media component that can display images, videos, or Vimeo videos, with optional popup functionality.
@@ -85,12 +86,8 @@ const Media = ({ data, popup }: MediaProps) => {
     setIsPopupOpen(!isPopupOpen) // Toggle the value of isPopupOpen
   }
   return (
-    <div className="relative w-full h-full max-w-full max-h-full ">
-      {image ? (
-        <>
-          <Media.MediaImage image={image} />
-        </>
-      ) : null}
+    <div className="relative w-full h-full max-w-full max-h-full shadow-md ">
+      {image ? <Photo image={image} /> : null}
 
       {videoObject && !popup ? (
         <>
@@ -126,7 +123,7 @@ const Media = ({ data, popup }: MediaProps) => {
             <Image
               src={thumbnail?.asset.url}
               alt="image"
-              className="object-cover h-full transition-transform duration-500 ease-in-out col-span-full group-hover:scale-110"
+              className="object-cover h-full transition-all ease-custom duration-735 col-span-full group-hover:scale-110"
               width={thumbnail?.asset.metadata?.dimensions.width || 800}
               height={thumbnail?.asset.metadata?.dimensions.height || 600}
             />

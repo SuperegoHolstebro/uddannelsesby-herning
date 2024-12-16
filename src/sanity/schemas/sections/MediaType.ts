@@ -34,15 +34,9 @@ export const MediaType = defineType({
     },
   ],
   preview: {
-    select: {
-      title: 'select',
-      media: 'image',
-    },
-    prepare({ title, media }) {
+    prepare() {
       return {
-        title:
-          title === 'image' ? 'Billede' : title === 'video' ? 'Video' : 'Vimeo',
-        media,
+        title: 'Medie',
       }
     },
   },

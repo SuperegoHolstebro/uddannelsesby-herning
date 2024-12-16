@@ -9,6 +9,7 @@ import Image from 'next/image'
 import Icon from '../atoms/Icons'
 import { useRafLoop } from 'react-use'
 import { FadeUp } from '../interactions/AnimateFadeIn'
+import Photo from '../atoms/Photo'
 
 /**
  *
@@ -90,10 +91,15 @@ function Portrait({ data, index }) {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        transition={{ type: 'spring', duration: 1, delay: 0.5 * index }}
+        transition={{
+          type: 'spring',
+          duration: 1,
+          delay: 0.5 * index,
+          ease: [0.86, 0, 0.07, 1],
+        }}
       >
         <div
-          className={`absolute w-full flex justify-center h-full transform aspect-w-3 aspect-h-2 max-w-96 right-1/2 ${translateX}`}
+          className={`absolute w-full flex justify-center h-full transform aspect-w-3 aspect-h-2 max-w-[24rem] xl:max-w-[29rem] right-1/2 ${translateX}`}
         >
           {index === 2 && (
             <FadeUp delay={1.5}>
@@ -110,13 +116,9 @@ function Portrait({ data, index }) {
               </motion.div>
             </FadeUp>
           )}
-          <Image
-            src={data?.asset.url}
-            alt={data?.alt}
-            width={500}
-            height={500}
-            className="object-cover"
-          />
+          <>
+            <Photo image={data} objectFit="cover" />
+          </>
         </div>
       </motion.div>
     </>
@@ -140,12 +142,10 @@ function Portraitmd({ data, index }) {
             <Icon type="stjerne" className="w-full h-full" />
           </motion.div>
         )}
-        <Image
-          src={data?.asset.url}
-          alt={data?.alt}
-          width={500}
-          height={500}
+        <Photo
           className="object-cover w-full h-full"
+          image={data}
+          objectFit="cover"
         />
       </div>
     </motion.div>

@@ -9,6 +9,8 @@ import Media from '@/components/organisms/Media'
 import { AdvancedButton } from '../atoms/AdvancedButton'
 import { Button } from '../atoms/Button'
 import Symbol from '../atoms/Symbols'
+import Icon from '../atoms/Icons'
+import { FadeUp } from '../interactions/AnimateFadeIn'
 
 /**
  *
@@ -33,14 +35,20 @@ const Quote = ({ section }) => {
       paddingTop={clean(section?.design?.padding?.spacingTop) || 'none'}
       paddingBottom={clean(section?.design?.padding?.spacingBottom) || 'none'}
     >
-      <Symbol type="t" className="absolute z-10 hidden left-4 top-8 lg:block" />
+      <Symbol
+        type="t"
+        className="absolute z-10 hidden size-52 left-4 md:left-8 top-8 lg:block"
+      />
       {/* Image in the last 12 columns */}
       <div className="relative sm:row-start-1 col-span-full sm:col-start-4 sm:-col-end-1 xl:col-start-12">
-        <Symbol
-          type="t"
-          className="absolute z-10 -right-1/4 xs:-right-20 -bottom-8 lg:hidden"
-        />
-        <Media data={section.MediaObject?.media} />
+        <span className="absolute z-10 -right-1/4 xs:-right-20 -bottom-8 lg:hidden">
+          <FadeUp>
+            <Symbol type="t" />
+          </FadeUp>
+        </span>
+        <FadeUp delay={0.2}>
+          <Media data={section.MediaObject?.media} />
+        </FadeUp>
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-mørk/50 to-transparent z-10"></div>
         <div className="absolute inset-0 bg-mørk/20 z-10"></div>
@@ -48,26 +56,46 @@ const Quote = ({ section }) => {
 
       {/* Quote in columns 4 to 14, overlapping the image slightly */}
       <div className="z-10 px-4 pt-8 md:text-right sm:row-start-1 md:pt-14 col-span-full xs:px-4 sm:px-13 sm:pr-0 sm:col-span-6 sm:col-start-1 xl:col-start-4 xl:col-span-10 md:pl-0 xl:pt-0 xl:my-auto">
-        <Heading type="h3" tag="h3" className="font-bold" spacing="none">
-          {section?.quote}
-        </Heading>
-        <div className="mt-12">
-          <Heading type="h4" tag="h4" className="font-semibold" spacing="none">
-            {section?.student}
-          </Heading>
-          <Paragraph className="mt-0 text-small first-of-type:mt-0">
-            {section?.education}
-          </Paragraph>
+        <div className="relative">
+          <span className="absolute z-10 translate-x-full translate-y-full right-full md:translate-x-0 md:right-0 -top-full">
+            <FadeUp>
+              <Icon type="quote" />
+            </FadeUp>
+          </span>
+          <FadeUp delay={0.2}>
+            <Heading type="h3" tag="h3" className="font-bold" spacing="none">
+              {section?.quote}
+            </Heading>
+          </FadeUp>
+        </div>
+        <div className="mt-12 space-y-4">
+          <FadeUp delay={0.4}>
+            <Heading
+              type="h4"
+              tag="h4"
+              className="font-semibold"
+              spacing="none"
+            >
+              {section?.student}
+            </Heading>
+          </FadeUp>
+          <FadeUp delay={0.6}>
+            <Paragraph className="mt-0 uppercase first-of-type:mt-0">
+              {section?.education}
+            </Paragraph>
+          </FadeUp>
         </div>
         {/* Button */}
         <div className="pt-8 pb-16 md:pt-16 xl:pb-8 xl:absolute xl:bottom-0 ">
-          <Button
-            link={section?.link}
-            variant={'secondary'}
-            className="relative"
-          >
-            {section?.link?.label}
-          </Button>
+          <FadeUp delay={0.8}>
+            <Button
+              link={section?.link}
+              variant={'secondary'}
+              className="relative"
+            >
+              {section?.link?.label}
+            </Button>
+          </FadeUp>
         </div>
       </div>
     </Section>

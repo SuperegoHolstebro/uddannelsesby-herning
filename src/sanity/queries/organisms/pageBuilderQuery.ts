@@ -20,6 +20,8 @@ import { QUOTE_QUERY } from '../sections/QuoteQuery'
 import { PAGETITLE_QUERY } from '../sections/PageTitleQuery'
 import { DownloadsAndLinksQuery } from '../sections/DownloadsAndLinksQuery'
 import { mapTypeQuery } from '../sections/mapType.query'
+import { MediaTypeQuery } from '../sections/MediaType.query'
+import { programType_QUERY } from '../sections/program.query'
 
 export const pageBuilderQuery = groq`
   pageBuilder[] {
@@ -30,6 +32,7 @@ export const pageBuilderQuery = groq`
     ${EventWithFilterQuery},
     ${DiscountQuery},
     ${ContactFormTypeQuery},
+    ${programType_QUERY},
     ${heroQuery},
     ${TextAndCollageQuery},
     ${textContainerQuery},
@@ -43,6 +46,7 @@ export const pageBuilderQuery = groq`
     ${QUICKLINKS_QUERY},
     ${QUOTE_QUERY},
     ${PAGETITLE_QUERY},
-    ${DownloadsAndLinksQuery}
+    ${DownloadsAndLinksQuery},
+    ${MediaTypeQuery}
   }
 `

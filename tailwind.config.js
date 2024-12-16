@@ -28,16 +28,16 @@ module.exports = {
         },
       ],
       regular: [
-        'clamp(1em, 1.2em + 0.667em, 1.05em);',
+        'clamp(1rem, 1.2rem + 0.667rem, 1.05rem);',
         {
           // Paragraph
           lineHeight: '1.5',
           letterSpacing: '0',
-          fontWeight: '400',
+          fontWeight: '300',
         },
       ],
       increased: [
-        'clamp(1.1em, calc(1.1em + 1.6667vw), 1.2em);',
+        'clamp(1.1rem, calc(1.1rem + 1.6667vw), 1.2rem);',
         {
           // H5 // prev —— increased
           lineHeight: '1.5',
@@ -55,7 +55,7 @@ module.exports = {
         },
       ],
       large: [
-        'clamp(1.563em, calc(1.563em + 3.125vw), 2.25em);',
+        'clamp(1.563rem, calc(1.563rem + 3.125vw), 2.25rem);',
         {
           // H3 // prev —— large
           lineHeight: 'clamp(120%, calc(120% + 0.2vw), 120%)',
@@ -64,7 +64,7 @@ module.exports = {
         },
       ],
       huge: [
-        'clamp(1.953em, calc(1.953em + 2.6667vw), 3.375em);',
+        'clamp(1.953rem, calc(1.953rem + 2.6667vw), 3.375rem);',
         {
           // H2 // prev —— huge
           lineHeight: '1',
@@ -73,7 +73,7 @@ module.exports = {
         },
       ],
       giant: [
-        'clamp(2.441em, calc(2.441em + 2.1111vw), 5.063em);',
+        'clamp(2.441rem, calc(2.441rem + 2.1111vw), 5.063rem);',
         {
           // H1 // prev —— giant
           lineHeight: '1',
@@ -84,6 +84,15 @@ module.exports = {
     },
 
     extend: {
+      transitionTimingFunction: {
+        custom: 'cubic-bezier(0.86, 0, 0.07, 1)',
+      },
+      transitionDelay: {
+        2000: '2000ms',
+      },
+      transitionDuration: {
+        735: '0.735s',
+      },
       fontFamily: {
         // font families
         sans: ['var(--font-sans)'],

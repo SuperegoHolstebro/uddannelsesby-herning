@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 
-
 const AdminBar = () => {
   const menuItems = [
     {
@@ -39,7 +38,7 @@ const AdminBar = () => {
         <div className="flex px-2 py-2 mx-4 rounded-lg bg-slate-50">
           <div className="flex col-span-4 ">
             <a className="se-item" href={`/super-login`}>
-              <Image
+              <img
                 className="bg-dark p-1.5 rounded-lg "
                 src="/favicon.ico"
                 alt=""

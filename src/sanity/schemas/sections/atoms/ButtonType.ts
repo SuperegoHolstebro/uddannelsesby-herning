@@ -34,6 +34,7 @@ export const buttonType = defineType({
           { title: 'Sekundær', value: 'secondary' },
         ],
       },
+      initialValue: 'primary',
     }),
   ],
   preview: {
@@ -45,7 +46,12 @@ export const buttonType = defineType({
     prepare({ title, subtitle, url }) {
       return {
         title: title.charAt(0).toUpperCase() + title.slice(1),
-        subtitle: `${subtitle.charAt(0).toUpperCase() + subtitle.slice(1)} | ${url}`,
+        subtitle:
+          subtitle.charAt(0).toUpperCase() + subtitle.slice(1) === 'Default'
+            ? 'Standard'
+            : subtitle.charAt(0).toUpperCase() + subtitle.slice(1) === 'Primary'
+              ? 'Primær knap'
+              : 'Sekundær knap',
       }
     },
   },

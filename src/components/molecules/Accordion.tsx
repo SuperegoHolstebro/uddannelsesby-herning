@@ -10,7 +10,6 @@ type AccordionProps = {
   unfloded: boolean
   text: any
   blocks: any
-  key: number
 }
 
 const Accordion: React.FC<AccordionProps> = ({

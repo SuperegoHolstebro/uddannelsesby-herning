@@ -5,6 +5,7 @@ import { TextAndCollageProps } from '@/types/TextWithIllustrationProps'
 import Media from '@/components/organisms/Media'
 import { clean } from '~/utils/sanitize'
 import Symbol from '../atoms/Symbols'
+import { FadeUp } from '../interactions/AnimateFadeIn'
 
 /**
  *
@@ -31,18 +32,24 @@ const TextWithIllustration = ({ data, popup }: TextAndCollageProps) => {
     >
       <div className="-mx-4 md:-mr-3 md:mx-0 md:-ml-24 md:-mt-16 md:-mb-20 2xl:-ml-52 xl:-ml-36 relative h-screen/2 md:h-screen/1.6 block col-start-1 -col-end-1 md:col-start-1 md:flex md:-col-end-7 xl:col-start-1 xl:col-end-11 2xl:col-start-1 2xl:col-end-13">
         {/* Large image container */}
-        <div className="relative h-full">
+        <div className="relative w-full h-full">
           <Media popup data={data?.MediaObject?.media} />
 
           {/* Small image overlay in the bottom-right corner */}
-          <div className="absolute w-64 h-64 -bottom-8 -right-16 *:hidden *:md:block">
-            <Media data={data?.SmallMediaObject?.media} />
-            <div className="absolute !block w-64 h-64 -bottom-4 md:-bottom-16 left-12 md:-left-16">
+          <div className="absolute -bottom-8 -right-16">
+            <FadeUp delay={0.325}>
+              <div className="*:hidden *:md:block size-64">
+                <Media data={data?.SmallMediaObject?.media} />
+              </div>
+            </FadeUp>
+            <div className="absolute !block  -bottom-4 md:-bottom-16 left-12 md:-left-16">
               {/* -bottom-16 FIXX */}
-              <Symbol
-                type={data.symbolPicker?.icon}
-                className="my-auto mt-auto"
-              />
+              <FadeUp delay={0.625}>
+                <Symbol
+                  type={data.symbolPicker?.icon}
+                  className="my-auto mt-auto size-40"
+                />
+              </FadeUp>
             </div>
           </div>
         </div>

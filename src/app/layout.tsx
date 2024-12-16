@@ -34,7 +34,10 @@ export default async function Root({
   children: React.ReactNode
 }) {
   return (
-    <html lang="da">
+    <html
+      lang="da"
+      className={`${serif.className} ${outfit.className} ${sans.className}`}
+    >
       <GoogleTagManager gtmId="GTM-" />
       <body
         className={` ${serif.className} ${outfit.className} ${sans.className} selection:text-mørk selection:bg-signal-gul ${(await draftMode()).isEnabled ? 'debug-screens' : ''}`}

@@ -38,18 +38,22 @@ const advancedButtonVariants = cva(
   },
 )
 
-const AdvancedButton = React.forwardRef<HTMLButtonElement, AdvancedButtonProps>(
-  ({ className, variant, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : 'button'
-    return (
-      <Comp
-        className={cn(advancedButtonVariants({ variant, className }))}
-        ref={ref}
-        {...props}
-      />
-    )
-  },
-)
+type ExtendedAdvancedButtonProps = AdvancedButtonProps &
+  VariantProps<typeof advancedButtonVariants>
+
+const AdvancedButton = React.forwardRef<
+  HTMLButtonElement,
+  ExtendedAdvancedButtonProps
+>(({ className, variant, asChild = false, ...props }, ref) => {
+  const Comp = asChild ? Slot : 'button'
+  return (
+    <Comp
+      className={cn(advancedButtonVariants({ variant, className }))}
+      ref={ref}
+      {...props}
+    />
+  )
+})
 AdvancedButton.displayName = 'Button'
 
 export { AdvancedButton, advancedButtonVariants }

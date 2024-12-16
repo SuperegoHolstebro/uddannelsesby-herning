@@ -26,12 +26,18 @@ export const mapType = defineType({
           type: 'object',
           fieldsets: [{ name: 'position', options: { columns: 2 } }],
           fields: [
-            { name: 'title', type: 'string', title: 'Title' },
+            {
+              name: 'title',
+              type: 'string',
+              title: 'Title',
+              validation: (Rule) => Rule.required(),
+            },
             {
               name: 'category',
               type: 'reference',
               to: [{ type: 'MapCategory' }],
               title: 'Category',
+              validation: (Rule) => Rule.required(),
             },
             {
               name: 'x',
@@ -70,7 +76,6 @@ export const mapType = defineType({
         imageHotspot: {
           imagePath: `featuredImage`,
           pathRoot: 'parent',
-          descriptionPath: `details`,
         },
       },
     }),

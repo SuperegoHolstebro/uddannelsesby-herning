@@ -3,6 +3,10 @@ import { defineField, defineType } from 'sanity'
 export default defineType({
   name: 'settings',
   title: 'Indstillinger',
+  groups: [
+    { title: 'Scripts', name: 'scripts' },
+    { title: 'Meta + GTM', name: 'meta' },
+  ],
   type: 'document',
   fields: [
     defineField({
@@ -11,34 +15,60 @@ export default defineType({
       type: 'string',
       description: 'Sidens titel',
     }),
+
     defineField({
       name: 'siteDescription',
       title: 'Sidebeskrivelse',
       type: 'text',
       description: 'Beskrivelse af siden',
     }),
-    // field for custom scripts in the head
     defineField({
       name: 'headScripts',
       title: 'Head Scripts',
       type: 'text',
       description:
-        "Her kan du indsætte scripts, der skal placeres i head-sektionen på alle sider.",
+        'Her kan du indsætte scripts, der skal placeres i head-sektionen på alle sider.',
+      group: 'scripts',
     }),
     defineField({
-      name: 'headMeta',
-      title: 'Head Meta',
+      name: 'bodyScripts',
+      title: 'Body Scripts',
       type: 'text',
       description:
-        "Her kan du indsætte meta tags, der skal placeres i head-sektionen på alle sider.",
+        'Her kan du indsætte scripts, der skal placeres i body-sektionen på alle sider.',
     }),
-    // field for custom scripts in the footer
     defineField({
       name: 'footerScripts',
       title: 'Footer Scripts',
       type: 'text',
       description:
-        "Her kan du indsætte scripts, der skal placeres i footer-sektionen på alle sider.",
+        'Her kan du indsætte scripts, der skal placeres i footer-sektionen på alle sider.',
+      group: 'scripts',
+    }),
+    defineField({
+      type: 'object',
+      name: 'googleTagManager',
+      title: 'Google Tag Manager',
+      options: {
+        columns: 2,
+      },
+      fields: [
+        defineField({
+          name: 'id',
+          title: 'ID',
+          type: 'string',
+          description: 'Indsæt Google Tag Manager ID (GTM-XXXXXX)',
+          validation: (Rule) =>
+            Rule.info('Indsæt Google Tag Manager ID (GTM-XXXXXX)'),
+        }),
+        defineField({
+          name: 'verification',
+          title: 'Verifikation',
+          type: 'string',
+          description:
+            'Indsæt Google Search Console verifikationskode (xxxxxxxxxxx-xxxx)',
+        }),
+      ],
     }),
     defineField({
       hidden: true,
@@ -48,7 +78,6 @@ export default defineType({
       initialValue: 'Sideindstillinger',
     }),
   ],
-
   preview: {
     select: {
       title: 'title',

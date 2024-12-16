@@ -3,11 +3,11 @@ import { AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import * as React from 'react'
 import { useEffect } from 'react'
-import Search from '@/components/molecules/Search'
 import Navigation from '@/components/organisms/Navigation'
 import Logo from '../atoms/Logo'
-import { getFooter } from './Footer'
 import { FooterType } from '~/types/Footer.types'
+import { groq } from 'next-sanity'
+import { client } from '~/sanity/lib/sanity.client'
 
 /**
  *
@@ -23,20 +23,55 @@ import { FooterType } from '~/types/Footer.types'
  * @author: Kasper Buchholtz
  *
  **/
+export async function getFooter(locale: string) {
+  return client.fetch(
+    groq`
+*[_type == "footer" && locale == $locale][0] {
+  title,
+  logo {
+    asset-> {
+      _id,
+      url,
+      _type,
+      altText,
+      description,
+      title,
+      metadata {
+        blurHash,
+        dimensions
+      }
+    }
+  },
+  object {
+    companyName,
+    address,
+    telephone,
+    email,
+    cvr
+  },
+  social[] {
+    platform,
+    url
+  }
+}
 
-export default function Header() {
+    `,
+    { locale },
+  )
+}
+
+export default function Header({ locale }) {
   const [isOpen, setIsOpen] = React.useState(false)
   const [footer, setFooter] = React.useState<FooterType[]>([])
   const [isScrolled, setIsScrolled] = React.useState(false)
 
   useEffect(() => {
-    getFooter().then((nav) => setFooter(nav))
+    getFooter(locale).then((nav) => setFooter(nav))
   }, [])
 
   const handleCloseNav = () => {
     setIsOpen(false)
   }
-  const data = footer[0]
 
   const handleScroll = () => {
     if (typeof window !== 'undefined' && window.scrollY > 100) {
@@ -71,33 +106,39 @@ export default function Header() {
         }`}
       >
         <div className="flex items-center justify-between md:justify-center h-auto md:h-[300px] w-full">
-          <Link className="text-lys md:rotate-90" href="/">
+          <Link
+            title="Gå til forsiden"
+            className="text-lys md:rotate-90"
+            href="/"
+          >
             <Logo className="w-40 md:w-[250px] group" />
           </Link>
         </div>
 
         <button
+          title={isOpen ? 'Luk menu' : 'Åben menu'}
+          id="menubutton"
           aria-controls="menu"
-          aria-label="Menu"
+          aria-expanded={isOpen}
           onClick={() => setIsOpen(!isOpen)}
-          className="relative z-[999999999] md:mt-4 size-11.5 group"
+          className="relative z-[999999999] md:mt-6 size-11.5 group"
         >
           <span
-            className={`block absolute transition-all h-2.5 w-10 bg-signal-gul group-hover:bg-signal-gul transform duration-500 ease-in-out ${isOpen ? 'rotate-0 !bg-signal-pink ' : '-translate-y-5  group-hover:translate-y-0'}`}
+            className={`block absolute transition-all h-2.5 w-10 bg-signal-gul group-hover:bg-signal-gul transform ease-custom duration-735 ${isOpen ? 'rotate-0 !bg-signal-pink' : '-translate-y-5 group-hover:translate-y-0'}`}
             aria-hidden="true"
           ></span>
           <span
-            className={`block absolute transition-all h-2.5 w-10 bg-signal-gul group-hover:bg-signal-gul transform duration-500 ease-in-out ${isOpen ? 'opacity-0  ' : ''}`}
+            className={`block absolute transition-all h-2.5 w-10 bg-signal-gul group-hover:bg-signal-gul transform ease-custom duration-735 ${isOpen ? 'opacity-0' : ''}`}
             aria-hidden="true"
           ></span>
           <span
-            className={`block absolute transition-all h-2.5 w-10 bg-signal-gul group-hover:bg-signal-gul transform duration-500 ease-in-out ${isOpen ? '-rotate-0 !bg-signal-pink' : 'translate-y-5 group-hover:translate-y-0'}`}
+            className={`block absolute transition-all h-2.5 w-10 bg-signal-gul group-hover:bg-signal-gul transform ease-custom duration-735 ${isOpen ? '-rotate-0 !bg-signal-pink' : 'translate-y-5 group-hover:translate-y-0'}`}
             aria-hidden="true"
           ></span>
         </button>
       </header>
       <AnimatePresence mode="wait">
-        {isOpen && <Navigation onClose={handleCloseNav} />}
+        {isOpen && <Navigation locale={locale} onClose={handleCloseNav} />}
       </AnimatePresence>
     </>
   )

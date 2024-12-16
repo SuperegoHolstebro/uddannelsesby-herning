@@ -1,45 +1,44 @@
-
 /* import { AutoPreviewPane } from '~/components/sanity/auto-preivew-pane.component' */
-import { File } from "@mynaui/icons-react";
-import { defineArrayMember, defineField, defineType } from "sanity";
+import { File } from '@mynaui/icons-react'
+import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export default defineType({
-  name: "article",
-  title: "Article",
-  type: "document",
+  name: 'article',
+  title: 'Article',
+  type: 'document',
   icon: File,
   groups: [
-    { name: "content", title: "Indhold" },
-    { name: "pageBuilder", title: "Sideopbygning"},
-    { name: 'settings', title: 'SideIndstillinger'},
-    { name: "seo", title: "SEO" },
+    { name: 'content', title: 'Indhold' },
+    { name: 'pageBuilder', title: 'Sideopbygning' },
+    { name: 'settings', title: 'SideIndstillinger' },
+    { name: 'seo', title: 'SEO' },
   ],
   fields: [
     defineField({
-      name: "title",
-      title: "Title",
-      type: "string",
-      group: "settings",
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      group: 'settings',
     }),
     defineField({
-      name: "slug",
-      title: "Slug",
-      type: "slug",
-      group: "settings",
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      group: 'settings',
       validation: (Rule) => Rule.required(),
       options: {
-        source: "title",
+        source: 'title',
         maxLength: 96,
         // slugify: input => `begivenheder/${input.toLowerCase().replace(/\s+/g, '-').slice(0, 96)}`,
       },
     }),
     {
-        type: 'reference',
-        name: 'author',
-        group: 'settings',
-        description: 'Vælg en forfatter',
-        title: 'Forfatter',
-        to: [{type: 'employee'}],
+      type: 'reference',
+      name: 'author',
+      group: 'settings',
+      description: 'Vælg en forfatter',
+      title: 'Forfatter',
+      to: [{ type: 'employee' }],
     },
     {
       name: 'category',
@@ -55,6 +54,8 @@ export default defineType({
       title: 'Udvalgt billede',
       type: 'image',
       group: 'settings',
+      description:
+        'Billedet er det primære visuelle element, der repræsenterer indholdet på siden',
       options: {
         hotspot: true,
       },
@@ -80,14 +81,14 @@ export default defineType({
         }),
       ],
     },
-    
+
     defineField({
-        group: "seo",
-        name: 'seoGroup',
-        title: 'SEO',
-        description: 'SEO indstillinger',
-        type: 'seoGroup',
-      }),
+      group: 'seo',
+      name: 'seoGroup',
+      title: 'SEO',
+      description: 'SEO indstillinger',
+      type: 'seoGroup',
+    }),
   ],
   preview: {
     select: {
@@ -105,4 +106,4 @@ export default defineType({
       }
     },
   },
-});
+})

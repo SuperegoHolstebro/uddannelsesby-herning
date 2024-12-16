@@ -11,9 +11,13 @@ import {
   InternalLink,
   LinkValue,
 } from '@/sanity/schemas/customFields/LinkField/Types'
-import { AdvancedButton } from './AdvancedButton'
+import { AdvancedButton, advancedButtonVariants } from './AdvancedButton'
 import { clean } from '~/utils/sanitize'
 import Link from 'next/link'
+import { AdvancedButtonProps } from '~/types/AdvancedButtonProps'
+import { VariantProps } from 'class-variance-authority'
+import { SanityLink } from '~/sanity/schemas/customFields/LinkField/components/Link'
+import { resolveHrefLang } from '~/sanity/lib/sanity.links'
 
 /**
  *
@@ -31,12 +35,14 @@ import Link from 'next/link'
 type LinkProps = {
   link?: LinkValue
   as?: ElementType
-  variant?: 'default' | 'primary' | 'secondary' | 'none' | string
   direction?: 'left' | 'right'
   showSvg?: boolean
   hrefResolver?: (link: InternalLink) => string
-  size?: 'default' | 'sm' | 'lg' | 'icon' | 'full'
 } & Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href' | 'target'>
+
+type ExtendedButtonProps = AdvancedButtonProps &
+  VariantProps<typeof advancedButtonVariants> &
+  LinkProps
 
 const Button = forwardRef(
   (
@@ -45,14 +51,13 @@ const Button = forwardRef(
       as,
       hrefResolver,
       children,
-      variant,
+      variant = 'default',
       className = '',
-      size,
       direction = 'right',
       showSvg = true,
       ...props
-    }: LinkProps,
-    ref: ForwardedRef<HTMLAnchorElement>,
+    }: ExtendedButtonProps,
+    ref: ForwardedRef<HTMLButtonElement> | any,
   ) => {
     if (!link) {
       return null
@@ -68,31 +73,27 @@ const Button = forwardRef(
       <AdvancedButton
         asChild
         variant={variant}
-        className={cn(variant, className, size)}
+        className={cn(variant, className)}
       >
-        <Link
-          href={clean(
-            String(
-              link.type === 'internal'
-                ? generateHref[link.type]?.(link, hrefResolver)
-                : generateHref[isCustomLink(link) ? 'custom' : link.type]?.(
-                    link,
-                  ),
-            ),
-          )}
-          target={
-            !isPhoneLink(link) && !isEmailLink(link) && link.blank
-              ? '_blank'
-              : undefined
-          }
-          ref={ref}
+        <SanityLink
           {...props}
+          ref={ref}
+          link={link}
+          hrefResolver={({ internalLink }) =>
+            clean(
+              resolveHrefLang(
+                internalLink?.locale,
+                internalLink?._type,
+                internalLink?.slug?.current,
+              ),
+            )
+          }
         >
           <span className="flex flex-col overflow-hidden">
             <span className="block">{children}</span>
             {showSvg && (
               <span
-                className={`inline-grid w-10 overflow-hidden duration-500 ease-in-out group-focus-within/button:w-full group-hover/button:w-full ${direction === 'left' ? 'ml-auto' : 'mr-auto '}`}
+                className={`inline-grid w-10 overflow-hidden transition-all ease-custom duration-735 group-focus-within/button:w-full group-hover/button:w-full ${direction === 'left' ? 'ml-auto' : 'mr-auto '}`}
               >
                 <svg
                   className="w-full"
@@ -111,7 +112,7 @@ const Button = forwardRef(
               </span>
             )}
           </span>
-        </Link>
+        </SanityLink>
       </AdvancedButton>
     )
   },

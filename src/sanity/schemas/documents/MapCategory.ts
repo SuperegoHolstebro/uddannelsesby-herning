@@ -17,6 +17,7 @@ export default defineType({
       name: 'icon',
       title: 'Ikon',
       type: 'IconPicker',
+      validation: (Rule) => Rule.required(),
     }),
   ],
 })

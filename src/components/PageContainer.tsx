@@ -1,6 +1,7 @@
 'use client'
 import Footer from '@/components/organisms/Footer'
 import Header from '@/components/organisms/Header'
+import Link from 'next/link'
 import { Lenis } from '~/components/Lenis'
 
 /**
@@ -18,6 +19,7 @@ import { Lenis } from '~/components/Lenis'
  **/
 
 export default function PageContainer({
+  locale,
   lenis = {
     lerp: 0.1,
     duration: 1.2,
@@ -31,6 +33,7 @@ export default function PageContainer({
   },
   children,
 }: {
+  locale?: string
   lenis?: {
     lerp: number
     duration: number
@@ -46,13 +49,7 @@ export default function PageContainer({
 }) {
   return (
     <>
-      <a
-        className="absolute z-[99999999] left-0 p-3 m-3 transition -translate-y-16 bg-signal-pink text-mørk focus-visible:translate-y-0 translate-x-1/2"
-        href="#indhold"
-      >
-        Spring frem til indhold
-      </a>
-      <Header />
+      <Header locale={locale || 'da'} />
       <Lenis
         options={lenis}
         root={typeof document !== 'undefined' ? document.documentElement : null}
@@ -60,17 +57,7 @@ export default function PageContainer({
       <main id="indhold" className={`debug-screens min-h-screen bg-lys`}>
         {children}
       </main>
-      <Footer />
-      {/*  <!-- Google Tag Manager (noscript) -->   */}
-      <noscript>
-        <iframe
-          src="https://www.googletagmanager.com/ns.html?id=GTM-5KGNKC3B"
-          height="0"
-          width="0"
-          style={{ display: 'none', visibility: 'hidden' }}
-        ></iframe>
-      </noscript>
-      {/*  <!-- End Google Tag Manager (noscript) -->   */}{' '}
+      <Footer locale={locale || 'da'} />
     </>
   )
 }

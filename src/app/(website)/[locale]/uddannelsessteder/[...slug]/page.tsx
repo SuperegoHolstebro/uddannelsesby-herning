@@ -15,6 +15,7 @@ import TextContainer from '~/components/sections/textContainer'
 import { urlFor } from '~/sanity/lib/sanity.image'
 import { CallToAction2 } from '~/sanity/schemas/sections/CallToAction2'
 import CallToActionSection2 from '~/components/sections/CallToActionSection2'
+import Photo from '~/components/atoms/Photo'
 
 export default async function DynamicRoute({ params }) {
   const { slug: slugArray } = await params
@@ -47,23 +48,7 @@ export default async function DynamicRoute({ params }) {
         className="col-span-full"
       >
         <div className="pt-24 col-span-full h-screen/2">
-          <Image
-            className="object-cover h-full"
-            src={urlFor(page.mainImage).dpr(2).url()}
-            alt=""
-            width={1920}
-            height={1080}
-            placeholder="blur"
-            blurDataURL={urlFor(page.mainImage)
-              .width(24)
-              .height(24)
-              .blur(10)
-              .url()}
-            sizes="
-                (max-width: 768px) 100vw,
-                (max-width: 1200px) 50vw,
-                40vw"
-          />
+          <Photo image={page.image} objectFit="cover" />
         </div>
       </Section>
 
@@ -82,11 +67,14 @@ export default async function DynamicRoute({ params }) {
   )
 }
 
-export async function generateMetadata({ params }: { params }) {
-  const { slug: slugArray } = await params
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string[] }>
+}) {
+  const { slug: slugArray, locale: locale } = await params
   const slug = slugArray.join('/')
-  const page = await loadPage(slug, 'da')
-
-  return generatePageMetadata(page, baseUrl)
+  const page = await loadPage(slug, 'da', SCHOOLPAGE_QUERY)
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || ''
+  return generatePageMetadata({ locale }, page, baseUrl)
 }

@@ -7,7 +7,7 @@ const BannerWidget = () => {
   return (
     <div className="flex items-center justify-between p-6 bg-purple prose-p:text-light-0">
       <div className="flex items-center">
-        <Image
+        <img
           src="/images/backend/Startup.png"
           alt="Sanity logo"
           width={50}

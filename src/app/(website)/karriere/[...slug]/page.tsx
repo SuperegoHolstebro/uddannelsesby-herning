@@ -17,6 +17,8 @@ import { authOptions } from '@/sanity/lib/authOptions'
 import Icon from '~/components/atoms/Icons'
 import { getMonth } from '~/utils/date'
 import { Button } from '~/components/atoms/Button'
+import Badge from '~/components/atoms/badge'
+import Photo from '~/components/atoms/Photo'
 interface Params {
   slug: string[]
   locale: string
@@ -74,9 +76,7 @@ export default async function DynamicRoute({
             <Heading spacing="none">{page.name}</Heading>
           </div>
           <div className="flex col-span-full h-fit">
-            <Paragraph className="bg-mørk uppercase text-lys rounded-full px-2 py-1">
-              kategori{' '}
-            </Paragraph>
+            <Badge variant="dark">kategori </Badge>
           </div>
         </div>
       </Section>
@@ -115,19 +115,7 @@ export default async function DynamicRoute({
         className="col-span-full"
       >
         <div className="col-span-full h-screen/2">
-          <Image
-            className="object-cover h-full"
-            src={urlFor(page.image).dpr(2).url()}
-            alt=""
-            width={1920}
-            height={1080}
-            placeholder="blur"
-            blurDataURL={urlFor(page.image).width(24).height(24).blur(10).url()}
-            sizes="
-                  (max-width: 768px) 100vw,
-                  (max-width: 1200px) 50vw,
-                  40vw"
-          />
+          <Photo image={page.image} objectFit="cover" />
         </div>
       </Section>
 
@@ -158,8 +146,8 @@ export default async function DynamicRoute({
               Fagområder
             </Heading>
             <ul>
-              {page.fields.map((field) => (
-                <li key={field._id}>{field.title}</li>
+              {page.fields.map((field, index) => (
+                <li key={index}>{field.title}</li>
               ))}
             </ul>
           </>
