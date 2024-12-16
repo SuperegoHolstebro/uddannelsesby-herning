@@ -26,6 +26,9 @@ export async function middleware(request: NextRequest) {
   if (pathname.startsWith('/begivenheder')) {
     return NextResponse.next() // Do not apply locale rewrite for /karriere and sub-paths
   }
+  if (pathname.startsWith('/uddannelsessteder')) {
+    return NextResponse.next() // Do not apply locale rewrite for /uddannelsessteder and sub-paths
+  }
 
   // Redirect if there is no locale
   if (pathnameIsMissingLocale) {

@@ -16,11 +16,21 @@ import { urlFor } from '~/sanity/lib/sanity.image'
 import { CallToAction2 } from '~/sanity/schemas/sections/CallToAction2'
 import CallToActionSection2 from '~/components/sections/CallToActionSection2'
 import Photo from '~/components/atoms/Photo'
+import { Params } from '~/types/Params.types'
+import { ExtendedPagePayload } from '../../[locale]/page'
 
-export default async function DynamicRoute({ params }) {
-  const { slug: slugArray } = await params
-  const slug = slugArray.join('/')
-  const page = await loadPage(slug, 'da', SCHOOLPAGE_QUERY)
+export default async function DynamicRoute({
+  params,
+}: {
+  params: Promise<Params>
+}) {
+  const resolvedParams = await params // Await the Promise
+  const slug = `${resolvedParams.slug.join('/')}`
+  const page = (await loadPage(
+    slug,
+    'da',
+    SCHOOLPAGE_QUERY,
+  )) as ExtendedPagePayload
 
   if (!page) {
     notFound()
@@ -47,9 +57,11 @@ export default async function DynamicRoute({ params }) {
         paddingBottom="default"
         className="col-span-full"
       >
-        <div className="pt-24 col-span-full h-screen/2">
-          <Photo image={page.image} objectFit="cover" />
-        </div>
+        {page.image && (
+          <div className="pt-24 col-span-full h-screen/2">
+            <Photo image={page.image} objectFit="cover" />
+          </div>
+        )}
       </Section>
 
       <TextContainer asChild paddingBottom="default" paddingTop="none">
@@ -65,16 +77,4 @@ export default async function DynamicRoute({ params }) {
       {page.pageBuilder && <PageBuilder sections={page.pageBuilder} />}
     </PageContainer>
   )
-}
-
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string; slug: string[] }>
-}) {
-  const { slug: slugArray, locale: locale } = await params
-  const slug = slugArray.join('/')
-  const page = await loadPage(slug, 'da', SCHOOLPAGE_QUERY)
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || ''
-  return generatePageMetadata({ locale }, page, baseUrl)
 }

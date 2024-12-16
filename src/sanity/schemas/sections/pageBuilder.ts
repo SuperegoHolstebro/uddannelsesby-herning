@@ -53,8 +53,8 @@ export const pageBuilder = defineType({
       type: 'TextAndCollage',
     }),
     defineArrayMember({
-      name: 'EmployeesType',
-      type: 'EmployeesType',
+      name: 'SchoolsType',
+      type: 'SchoolsType',
     }),
     defineArrayMember({
       name: 'contactFormType',

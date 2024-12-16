@@ -25,6 +25,11 @@ export default defineType({
           title: 'Adresse',
           type: 'string',
         }),
+        defineField({
+          name: 'amountOfEducations',
+          title: 'Antal uddannelser',
+          type: 'number',
+        }),
       ],
     }),
 
