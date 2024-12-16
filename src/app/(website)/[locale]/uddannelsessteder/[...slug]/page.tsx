@@ -67,11 +67,14 @@ export default async function DynamicRoute({ params }) {
   )
 }
 
-export async function generateMetadata({ params }: { params }) {
-  const { slug: slugArray } = await params
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string[] }>
+}) {
+  const { slug: slugArray, locale: locale } = await params
   const slug = slugArray.join('/')
-  const page = await loadPage(slug, 'da')
-
-  return generatePageMetadata(page, baseUrl)
+  const page = await loadPage(slug, 'da', SCHOOLPAGE_QUERY)
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || ''
+  return generatePageMetadata({ locale }, page, baseUrl)
 }
