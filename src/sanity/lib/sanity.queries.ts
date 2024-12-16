@@ -7,7 +7,7 @@ import { stegaClean } from '@sanity/client/stega'
 
 // GROQ Navigation Query
 export const NAVIGATION_QUERY = groq`
-*[_type == "navigation"][0] {
+*[_type == "navigation" && locale == $locale][0] {
   links[] {
     link {
       ...,
@@ -78,8 +78,17 @@ export const SCHOOLPAGE_QUERY = groq`
 
 // GROQ Page Query
 export const PAGE_QUERY = groq`
-*[_type == "page" && slug.current == $slug][0] {
+*[_type == "page" && slug.current == $slug && locale == $locale][0] {
   ...,
+  "localeInfo": {
+    locale,
+    "_translations": *[_type == "translation.metadata" && references(^._id)].translations[].value->{
+      title,
+      _type,
+      slug,
+      locale
+    },
+  },
   _type,
   ${SEO_QUERY},
   ${pageBuilderQuery},
@@ -127,45 +136,10 @@ export const ARTICLE_QUERY = groq`
   }
 }
 `
-// GROQ Footer Query
-export const FOOTER_QUERY = groq`
-  *[_type == "footer"][0] {
-  title,
-  logo {
-    asset-> {
-      _id,
-      url,
-      _type,
-      altText,
-      description,
-      title,
-      metadata {
-        blurHash,
-        dimensions
-      }
-    }
-  },
-  object {
-    companyName,
-    address,
-    telephone,
-    email,
-    cvr
-  },
-  social[] {
-    platform,
-    url
-  },
-  openingHours[] {
-    day,
-    hours
-  }
-}
-`
 
 // GROQ Settings Query
 export const SITE_SETTINGS_QUERY = groq`
-*[_type == "settings"][0] {
+*[_type == "settings" && locale == $locale][0] {
   ...,
   bodyScripts,
   siteTitle,
@@ -231,3 +205,35 @@ export async function getAllCompanies() {
   const companies = await client.fetch(query)
   return companies
 }
+
+// GROQ Footer Query
+export const FOOTER_QUERY = groq`
+*[_type == "footer" && locale == $locale][0] {
+  title,
+  logo {
+    asset-> {
+      _id,
+      url,
+      _type,
+      altText,
+      description,
+      title,
+      metadata {
+        blurHash,
+        dimensions
+      }
+    }
+  },
+  object {
+    companyName,
+    address,
+    telephone,
+    email,
+    cvr
+  },
+  social[] {
+    platform,
+    url
+  },
+
+} `
