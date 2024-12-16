@@ -31,62 +31,59 @@ const DiscountsSection = ({ section }) => {
 
   return (
     <Section>
-      {/* Filter Buttons */}
-      <div className="grid grid-cols-6 gap-4 pb-6 col-span-full">
-        {useMediaQuery('(max-width: 768px)') ? (
-          <div className="col-span-full">
-            <Swiper spaceBetween={'16'} slidesPerView={3.3}>
-              <SwiperSlide>
-                <FilterButton
-                  icon="map"
-                  category="all"
-                  selectedCategory={selectedCategory}
-                  setSelectedCategory={setSelectedCategory}
-                >
-                  Udforsk alle
-                </FilterButton>
-              </SwiperSlide>
-              {uniqueCategories.map((category, index) => (
-                <SwiperSlide key={index}>
-                  <FilterButton
-                    icon={category.icon.icon}
-                    category={category.category}
-                    selectedCategory={selectedCategory}
-                    setSelectedCategory={setSelectedCategory}
-                  >
-                    {category.category}
-                  </FilterButton>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-        ) : (
-          <>
-            <FilterButton
-              className=""
-              icon="map"
-              category="all"
-              selectedCategory={selectedCategory}
-              setSelectedCategory={setSelectedCategory}
-            >
-              Udforsk alle
-            </FilterButton>
-            {uniqueCategories.map((category, index) => (
+      /* Filter Buttons */
+      {useMediaQuery('(max-width: 768px)') ? (
+        <div className="col-span-full">
+          <Swiper spaceBetween={'16'} slidesPerView={3.3}>
+            <SwiperSlide>
               <FilterButton
-                className=""
-                icon={category.icon.icon}
-                key={index}
-                category={category.title}
+                icon="map"
+                category="all"
                 selectedCategory={selectedCategory}
                 setSelectedCategory={setSelectedCategory}
               >
-                {category.title}
+                Udforsk alle
               </FilterButton>
+            </SwiperSlide>
+            {uniqueCategories.map((category, index) => (
+              <SwiperSlide key={index}>
+                <FilterButton
+                  icon={category.icon.icon}
+                  category={category.category}
+                  selectedCategory={selectedCategory}
+                  setSelectedCategory={setSelectedCategory}
+                >
+                  {category.category}
+                </FilterButton>
+              </SwiperSlide>
             ))}
-          </>
-        )}
-      </div>
-
+          </Swiper>
+        </div>
+      ) : (
+        <>
+          <FilterButton
+            className=""
+            icon="map"
+            category="all"
+            selectedCategory={selectedCategory}
+            setSelectedCategory={setSelectedCategory}
+          >
+            Udforsk alle
+          </FilterButton>
+          {uniqueCategories.map((category, index) => (
+            <FilterButton
+              className=""
+              icon={category.icon.icon}
+              key={index}
+              category={category.title}
+              selectedCategory={selectedCategory}
+              setSelectedCategory={setSelectedCategory}
+            >
+              {category.title}
+            </FilterButton>
+          ))}
+        </>
+      )}
       {/* Event Cards */}
       <div className="pt-4 col-span-full">
         <Section tag="ul" paddingX="none" paddingTop="none">
