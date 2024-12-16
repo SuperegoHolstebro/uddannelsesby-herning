@@ -83,6 +83,7 @@ const Button = forwardRef(
                   ),
             ),
           )}
+          title={children}
           target={
             !isPhoneLink(link) && !isEmailLink(link) && link.blank
               ? '_blank'
