@@ -75,6 +75,19 @@ export const programType = defineType({
         defineArrayMember({
           name: 'object',
           type: 'object',
+          preview: {
+            select: {
+              title: 'title',
+              start: 'time.start',
+              end: 'time.end',
+            },
+            prepare({ title, start, end }) {
+              return {
+                title: title,
+                subtitle: `${start} - ${end}`,
+              }
+            },
+          },
           fields: [
             defineField({
               name: 'title',
@@ -121,6 +134,7 @@ export const programType = defineType({
               name: 'edducation',
               type: 'reference',
               to: [{ type: 'school' }],
+              title: 'uddannelsessted',
             }),
           ],
         }),

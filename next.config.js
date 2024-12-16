@@ -5,11 +5,11 @@ const client = createClient({
   dataset: 'production',
   useCdn: false,
   apiVersion: '2022-11-28',
-  token: process.env.SANITY_API_TOKEN, // Add this if your dataset is private
+  token: process.env.SANITY_API_READ_TOKEN, // Add this if your dataset is private
 })
 async function generateRedirects() {
   const query = `
-    *[_type == 'redirect'] {
+    *[_type == 'redirect'][0] {
       subLinks[] {
         isInternal,
         "sourceUrl": sourceUrl.current,
@@ -19,39 +19,45 @@ async function generateRedirects() {
       }
     }
   `
+
   const results = await client.fetch(query)
-  // Log the raw results from Sanity for debugging
+
+  // Log the raw results for debugging
   console.log('Raw results from Sanity:', results)
-  const redirects = results.flatMap(
-    (redirect) =>
-      redirect.subLinks
-        .filter(
-          (link) =>
-            (link.source || link.sourceUrl) &&
-            (link.destination || link.destinationUrl),
-        ) // Ensure both source/sourceUrl and destination/destinationUrl are present
-        .map((link) => {
-          const formattedSource = `${link.source || link.sourceUrl}`
-          const formattedDestination = link.isInternal
-            ? `${link.destination || link.destinationUrl}`
-            : link.destinationUrl // Add leading slash for internal links, external link remains unchanged
-          // Check if destination exists to prevent null values
-          if (!formattedDestination) {
-            // console.warn(`Missing destination for source: ${formattedSource}`);
-            return null // Skip this redirect if destination is missing
-          }
-          return {
-            source: formattedSource,
-            destination: formattedDestination,
-            permanent: true,
-          }
-        })
-        .filter(Boolean), // Filter out any null redirects
-  )
+
+  // Check if results and results.subLinks are valid arrays
+  const subLinks = results?.subLinks || []
+
+  const redirects = subLinks
+    .filter(
+      (link) =>
+        (link.source || link.sourceUrl) &&
+        (link.destination || link.destinationUrl),
+    ) // Ensure both source/sourceUrl and destination/destinationUrl are present
+    .map((link) => {
+      const formattedSource = `${link.source || link.sourceUrl}`
+      const formattedDestination = link.isInternal
+        ? `${link.destination || link.destinationUrl}`
+        : link.destinationUrl // Internal links have leading slash, external links remain unchanged
+
+      if (!formattedDestination) {
+        return null // Skip this redirect if destination is missing
+      }
+
+      return {
+        source: formattedSource,
+        destination: formattedDestination,
+        permanent: true,
+      }
+    })
+    .filter(Boolean) // Filter out any null redirects
+
   // Log the formatted redirects for Next.js
   console.log('Formatted redirects:', redirects)
+
   return redirects
 }
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   async redirects() {
@@ -77,6 +83,20 @@ const nextConfig = {
         hostname: 'cdn.shopify.com',
       },
     ],
+  },
+  env: {
+    FASTMAIL_USER: process.env.FASTMAIL_USER,
+    FASTMAIL_PASS: process.env.FASTMAIL_PASS,
+    SMTP_HOST: process.env.SMTP_HOST,
+    SMTP_PORT: process.env.SMTP_PORT,
+    SMTP_SECURE: process.env.SMTP_SECURE,
+  },
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.externals = config.externals || []
+      config.externals.push('@mapbox/node-pre-gyp')
+    }
+    return config
   },
 }
 module.exports = nextConfig

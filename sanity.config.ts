@@ -29,6 +29,7 @@ import { CreateCompanyLoginAction } from '~/sanity/actions/createCompanyLogin.ac
 import { GoToCompanyLoginAction } from '~/sanity/actions/goToCompantLogin.action'
 import { documentInternationalization } from '@sanity/document-internationalization'
 import Appconfig from './config'
+import { SendEmailToCompanyAction } from '~/sanity/actions/SendEmailToCompany'
 
 const SANITY_STUDIO_PREVIEW_URL =
   process.env.SANITY_STUDIO_PREVIEW_URL || 'http://localhost:3333'
@@ -117,7 +118,12 @@ export default defineConfig({
       }
 
       if (context.schemaType === 'company') {
-        return [...prev, CreateCompanyLoginAction, GoToCompanyLoginAction]
+        return [
+          ...prev,
+          CreateCompanyLoginAction,
+          GoToCompanyLoginAction,
+          SendEmailToCompanyAction,
+        ]
       }
 
       return prev.map((originalAction) =>

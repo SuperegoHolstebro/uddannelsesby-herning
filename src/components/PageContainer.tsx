@@ -49,11 +49,19 @@ export default function PageContainer({
 }) {
   return (
     <>
+      <a
+        href="#indhold"
+        className="absolute z-[999] px-4 py-2 text-white transition-transform -translate-y-full bg-blue-600 left-28 top-2 opacity-0  focus-visible:opacity-100  focus-visible:translate-y-0"
+      >
+        Gå til indhold
+      </a>
+
       <Header locale={locale || 'da'} />
       <Lenis
         options={lenis}
         root={typeof document !== 'undefined' ? document.documentElement : null}
       />
+
       <main id="indhold" className={`debug-screens min-h-screen bg-lys`}>
         {children}
       </main>

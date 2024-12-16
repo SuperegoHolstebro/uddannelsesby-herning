@@ -32,6 +32,11 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'email',
+      title: 'Email',
+      type: 'email',
+    }),
+    defineField({
       name: 'companyRef',
       title: 'Virksomhed Reference',
       type: 'reference',

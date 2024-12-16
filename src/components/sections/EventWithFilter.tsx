@@ -23,7 +23,7 @@ const EventWithFilter = ({ section }) => {
   return (
     <Section>
       {/* Filter Buttons */}
-      <div className="divide-x pb-6 col-span-full divide-solid divide-grå grid grid-cols-6">
+      <div className="divide-x pb-6 gap-4 col-span-full divide-solid divide-grå grid grid-cols-6">
         {useMediaQuery('(max-width: 768px)') ? (
           <div className="col-span-full">
             <Swiper spaceBetween={'16'} slidesPerView={3.3}>
