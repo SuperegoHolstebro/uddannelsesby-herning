@@ -61,7 +61,7 @@ const PageTitle = ({ data }) => {
               </FadeUp>
             </div>
           ))}
-          <span className="absolute top-4 right-1/2 xs:-top-6 xs:right-5 sm:-top-24 sm:right-4 md:right-48">
+          <span className="absolute right-0 top-4 xs:-top-6 xs:right-5 sm:-top-24 sm:right-4 md:right-48">
             <FadeUp delay={0.625}>
               <Symbol
                 type={data.symbolPickerRight?.icon}
