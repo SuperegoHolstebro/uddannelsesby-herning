@@ -1,53 +1,44 @@
 import '@/styles/global.css'
+import { VisualEditing } from 'next-sanity'
 import { draftMode } from 'next/headers'
 import { GoogleTagManager } from '@next/third-parties/google'
-import { PT_Serif, Outfit } from 'next/font/google'
+import { SanityLive } from '@/sanity/lib/sanity.live'
+import { client } from '@/sanity/lib/sanity.client'
+import { SITE_SETTINGS_QUERY } from '@/sanity/lib/sanity.queries'
+import Script from 'next/script'
+import Appconfig from 'config'
 
-const sans = Outfit({
-  variable: '--font-sans',
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  display: 'swap',
-  preload: true,
-})
-const serif = PT_Serif({
-  variable: '--font-serif',
-  style: ['normal', 'italic'],
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  display: 'swap',
-  preload: true,
-})
-const outfit = Outfit({
-  variable: '--font-outfit',
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  display: 'swap',
-  preload: true,
-})
-
-interface LayoutProps {
-  params: {
-    locale: string
-  }
+export default async function RootLayout({
+  params,
+  children,
+}: {
+  params: { locale: string }
   children: React.ReactNode
-}
+}) {
+  // No need to await params
+  const locale = params.locale || Appconfig.i18n.defaultLocaleId
 
-export default async function Root({ params, children }: LayoutProps) {
-  const isDraftMode = (await draftMode()).isEnabled
+  const settings = await client.fetch(SITE_SETTINGS_QUERY, { locale })
 
   return (
-    <html
-      lang={params.locale || 'da'}
-      className={`${serif.className} ${outfit.className} ${sans.className}`}
-    >
-      <GoogleTagManager gtmId="GTM-" />
-      <body
-        className={`${serif.className} ${outfit.className} ${sans.className} selection:text-mørk selection:bg-signal-gul ${
-          isDraftMode ? 'debug-screens' : ''
-        }`}
-      >
+    <html lang={locale}>
+      <GoogleTagManager gtmId={settings?.googleTagManager?.id} />
+      <body>
+        <Script
+          id="show-banner"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: settings?.headScripts,
+          }}
+        />
         {children}
+        <SanityLive />
+        {(await draftMode()).isEnabled && (
+          <>
+            <VisualEditing />
+            <SanityLive />
+          </>
+        )}
       </body>
     </html>
   )
