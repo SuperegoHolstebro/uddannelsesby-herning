@@ -50,8 +50,8 @@ export default function EditCompanyForm({ session, company }) {
 
   return (
     <Section variant="lys">
-      <div className="flex items-center justify-center h-screen/1.5 col-span-full text-center">
-        <div className="w-1/2">
+      <div className="flex items-center justify-center min-h-screen/1.5 col-span-full text-center">
+        <div className="md:w-1/2">
           <Heading type="h2" tag="h2" fontFamily="outfit">
             Velkommen tilbage, {companyName}!
           </Heading>
