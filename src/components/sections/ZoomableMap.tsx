@@ -122,7 +122,7 @@ export const ZoomableMap = ({ pins }) => {
     >
       <g>
         {/* SVG Background */}
-        <image href="/7400-kort.svg" x="0" y="0" width="1920" height="1080" />
+        <image href="./7400-kort.svg" x="0" y="0" width="1920" height="1080" />
 
         {/* Render Clusters */}
         {clusters.map((cluster, index) => (

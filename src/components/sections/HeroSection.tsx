@@ -34,7 +34,6 @@ const Hero: React.FC<HeroProps> = ({ data, ...props }) => {
         <Scene />
         <Text textContent={data.text} videoSrc={data.media} />
       </Section>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
     </>
   )
 }
