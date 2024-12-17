@@ -104,7 +104,7 @@ export default function Scene({ type }) {
         />
       )}
       <div
-        className="absolute inset-0 z-[2] pointer-events-none  bg-gradient-to-b from-transparent via-transparent to-mørk/40"
+        className="absolute inset-0 z-[2] pointer-events-none w-full h-screen bg-gradient-to-b from-transparent via-transparent to-mørk/40"
         style={{ width: dimension.width, height: dimension.height }}
       />
     </div>
