@@ -31,7 +31,6 @@ const DiscountsSection = ({ section }) => {
 
   return (
     <Section>
-      /* Filter Buttons */
       {useMediaQuery('(max-width: 768px)') ? (
         <div className="col-span-full">
           <Swiper spaceBetween={'16'} slidesPerView={3.3}>
@@ -84,7 +83,6 @@ const DiscountsSection = ({ section }) => {
           ))}
         </>
       )}
-      {/* Event Cards */}
       <div className="pt-4 col-span-full">
         <Section tag="ul" paddingX="none" paddingTop="none">
           {discounts
