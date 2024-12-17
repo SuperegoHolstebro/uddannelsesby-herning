@@ -36,9 +36,9 @@ export default async function RootLayout({
   const settings = await client.fetch(SITE_SETTINGS_QUERY, { locale })
 
   return (
-    <html lang={locale} className={`${sans.variable} ${serif.variable}`}>
+    <html lang={locale}>
       <GoogleTagManager gtmId={settings?.googleTagManager?.id} />
-      <body>
+      <body className={`${sans.variable} ${serif.variable}`}>
         <Script
           id="show-banner"
           strategy="beforeInteractive"
