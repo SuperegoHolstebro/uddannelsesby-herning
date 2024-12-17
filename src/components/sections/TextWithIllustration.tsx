@@ -42,19 +42,19 @@ const TextWithIllustration = ({ data, popup }: TextAndCollageProps) => {
                 <Media data={data?.SmallMediaObject?.media} />
               </div>
             </FadeUp>
-            <div className="absolute !block  -bottom-4 md:-bottom-16 left-12 md:-left-16">
+            <div className="absolute !block -bottom-4 md:-bottom-16 left-12 md:-left-16">
               {/* -bottom-16 FIXX */}
               <FadeUp delay={0.625}>
                 <Symbol
                   type={data.symbolPicker?.icon}
-                  className="my-auto mt-auto size-40"
+                  className="my-auto mt-auto size-36 md:size-40"
                 />
               </FadeUp>
             </div>
           </div>
         </div>
       </div>
-      <div className="flex-col justify-center col-start-1 -col-end-1 md:-col-start-1 md:flex md:col-end-8 lg:-col-start-1 xl:-col-end-12 ">
+      <div className="flex-col justify-center col-start-1 pt-10 md:pt-0 -col-end-1 md:-col-start-1 md:flex md:col-end-8 lg:-col-start-1 xl:-col-end-12 ">
         <InnerBlocks blocks={data.innerBlocks} index={0} />
       </div>
     </Section>

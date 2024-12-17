@@ -89,7 +89,7 @@ const Button = forwardRef(
             )
           }
         >
-          <span className="flex flex-col overflow-hidden">
+          <span className="flex flex-col ">
             <span className="block">{children}</span>
             {showSvg && (
               <span

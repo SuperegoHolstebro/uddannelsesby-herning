@@ -76,14 +76,13 @@ Footer.Legal = Legal
 function ColumnOne({ data }) {
   const social = data?.social
   return (
-    <div className="order-2 md:order-1">
-      <div className="texcol-span-full sm:col-span-full md:col-span-3 lg:col-span-3 xl:col-span-6t-center md:pb-4 md:text-left">
+    <div className="order-2 mx-auto mt-12 md:order-1 md:mx-0 md:mt-0">
+      <div className="mb-4 texcol-span-full sm:col-span-full md:col-span-3 lg:col-span-3 xl:col-span-6t-center md:pb-4 md:text-left md:mb-2">
         <Paragraph className="text-mørk" spacing="none">
-          {' '}
           Følg os her:
         </Paragraph>
       </div>
-      <ul className="flex flex-wrap justify-center mx-auto max-w-64 md:mx-0 gap-x-4 gap-y-2 md:justify-start">
+      <ul className="flex flex-wrap justify-center max-w-64 gap-x-4 gap-y-2 md:justify-start">
         {social?.map(
           (item: { platform: string; url: string }, index: number) => (
             <li key={index}>
@@ -121,7 +120,7 @@ function ColumnThree({ data }) {
   const companyName = data?.object?.companyName
   return (
     <>
-      <div className="order-3 ">
+      <div className="order-3 mt-12 md:mt-0">
         <div className="uppercase ">
           <Paragraph
             className="text-center text-mørk font-bold md:text-right"
@@ -143,7 +142,7 @@ function Legal({ data }) {
   const companyName = data?.object?.companyName
   return (
     <div className="space-y-6 col-span-full">
-      <div className="h-px w-full hidden sm:block bg-mørk"></div>
+      <div className="h-px w-full  bg-mørk"></div>
       <div className="flex flex-col justify-center gap-1 text-center sm:text-left sm:flex-row sm:justify-between text-[14px]">
         <div className="flex flex-col justify-start gap-4 sm:gap-8 md:gap-12 sm:flex-row">
           <p className="text-[14px]">{`© ${companyName} ${new Date().getFullYear()}`}</p>

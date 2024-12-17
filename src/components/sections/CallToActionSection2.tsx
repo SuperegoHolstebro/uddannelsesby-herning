@@ -94,7 +94,7 @@ const CallToActionSection2 = ({ section }) => {
       className="relative pb-10 pr-0 xs:pr-0 group sm:pr-13 md:pr-24 lg:pr-19 xl:pr-36 2xl:pr-52 sm:pb-0"
       paddingX="right"
     >
-      <div className="relative overflow-hidden col-span-full sm:col-span-4 md:col-span-7 xl:col-span-12 ">
+      <div className="relative order-2 overflow-hidden col-span-full sm:col-span-4 md:col-span-7 xl:col-span-12 md:-order-none">
         <div className="h-full transition-all ease-custom duration-735 group-hover:scale-110">
           <Media data={section.MediaObject?.media} />
         </div>
@@ -106,14 +106,25 @@ const CallToActionSection2 = ({ section }) => {
         className="absolute z-50 h-20 md:h-40 md:-bottom-12 md:left-64 left-8 -bottom-10"
       />
 
-      <div className="px-4 pt-16 pb-16 my-auto space-y-12 md:text-right xs:px-4 sm:px-13 md:px-0 col-span-full sm:col-span-4 md:col-span-5 xl:col-span-12 sm:pt-20 md:pt-24 lg:pt-32 xl:pt-40 2xl:pt-48 sm:pb-20 md:pb-24 lg:pb-32 xl:pb-40 2xl:pb-48">
+      <div className="order-1 px-4 pt-16 pb-16 my-auto space-y-12 md:-order-none md:text-right xs:px-4 sm:px-13 md:px-0 col-span-full sm:col-span-4 md:col-span-5 xl:col-span-12 sm:pt-20 md:pt-24 lg:pt-32 xl:pt-40 2xl:pt-48 sm:pb-20 md:pb-24 lg:pb-32 xl:pb-40 2xl:pb-48">
         <FadeUp delay={0.3}>
-          <Heading text="balance" spacing="none" type="h2" tag="h2">
+          <Heading
+            className="text-center md:text-right"
+            text="balance"
+            spacing="none"
+            type="h2"
+            tag="h2"
+          >
             {section.heading}
           </Heading>
         </FadeUp>
         <FadeUp delay={0.5}>
-          <Button link={section?.link} variant={'secondary'} direction="left">
+          <Button
+            className="w-full mx-auto"
+            link={section?.link}
+            variant={'secondary'}
+            direction="left"
+          >
             {section?.link?.label}
           </Button>
         </FadeUp>

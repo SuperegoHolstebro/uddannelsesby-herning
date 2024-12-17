@@ -35,7 +35,7 @@ export const ProgramListItemPortal = ({
                 initial={{ y: 50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: 50, opacity: 0, transition: { duration: 0.5 } }} // Exit animation for modal content
-                className="relative z-10 w-full h-full max-w-2xl p-6 py-24 ml-auto overflow-auto rounded-lg shadow-2xl md:pt-6 md:p-10 bg-lys"
+                className="relative z-10 w-full h-full max-w-2xl p-6 py-24 ml-auto overflow-auto shadow-2xl md:pt-6 md:p-10 bg-lys"
               >
                 <div className="aspect-w-16 aspect-h-9">
                   <Photo image={item.mainImage} />
