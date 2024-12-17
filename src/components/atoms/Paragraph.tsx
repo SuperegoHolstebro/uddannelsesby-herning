@@ -38,6 +38,7 @@ const ParagraphVariants = cva('font-sans', {
     spacing: 'default',
   },
 })
+
 type ExtendedParagraphProps = ParagraphProps &
   VariantProps<typeof ParagraphVariants>
 

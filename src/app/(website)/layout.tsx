@@ -12,7 +12,7 @@ export default async function RootLayout({
   params,
   children,
 }: {
-  params: { locale: string }
+  params: { locale?: string }
   children: React.ReactNode
 }) {
   const locale = (await params).locale || Appconfig.i18n.defaultLocaleId
@@ -20,7 +20,7 @@ export default async function RootLayout({
   const settings = await client.fetch(SITE_SETTINGS_QUERY, { locale })
 
   return (
-    <html lang={locale}>
+    <html lang={locale || 'da'}>
       <GoogleTagManager gtmId={settings?.googleTagManager?.id} />
       <body>
         <Script

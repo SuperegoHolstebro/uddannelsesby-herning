@@ -15,7 +15,7 @@ export default async function RootLayout({
   params: { locale: string }
   children: React.ReactNode
 }) {
-  // No need to await params
+  // Removed 'await' from params
   const locale = params.locale || Appconfig.i18n.defaultLocaleId
 
   const settings = await client.fetch(SITE_SETTINGS_QUERY, { locale })

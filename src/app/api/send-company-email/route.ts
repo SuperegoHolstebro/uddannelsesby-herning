@@ -16,7 +16,7 @@ export async function POST(req) {
     })
 
     const mailOptions = {
-      from: '"Uddannelsesby Herning - Virksomhedslogin" <no-reply@superego.website>',
+      from: '"Uddannelsesby" <no-reply@superego.website>',
       to: email,
       subject: 'Uddannelsesby Herning - Login',
       text: `Her er dine loginoplysninger til virksomheder på uddannelsesbyherning.dk:\n\nBrugernavn: ${username}\nAdgangskode: ${password}`,
