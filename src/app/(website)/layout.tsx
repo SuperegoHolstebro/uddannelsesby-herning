@@ -105,17 +105,15 @@ import { client } from '@/sanity/lib/sanity.client'
 import { SITE_SETTINGS_QUERY } from '@/sanity/lib/sanity.queries'
 import Script from 'next/script'
 import Appconfig from 'config'
+
 export default async function RootLayout({
   params,
   children,
 }: {
-  params: Promise<{ locale: string }> | { locale: string }
+  params: { locale: string }
   children: React.ReactNode
 }) {
-  const { locale } =
-    typeof params === 'string'
-      ? { locale: params }
-      : (await params) || { locale: Appconfig.i18n.defaultLocaleId }
+  const locale = (await params).locale || Appconfig.i18n.defaultLocaleId
 
   const settings = await client.fetch(SITE_SETTINGS_QUERY, { locale })
 

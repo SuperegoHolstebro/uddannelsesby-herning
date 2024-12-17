@@ -3,13 +3,12 @@ import React from 'react'
 import dynamic from 'next/dynamic'
 import Paragraph from './atoms/Paragraph'
 import { FadeUp } from './interactions/AnimateFadeIn'
-import { Player } from '@lottiefiles/react-lottie-player'
-/* const Player = dynamic(
+const Player = dynamic(
   () => import('@lottiefiles/react-lottie-player').then((mod) => mod.Player),
   {
     ssr: false,
   },
-) */
+)
 
 export default function Text({ videoSrc, textContent, type }) {
   return (
@@ -24,7 +23,7 @@ export default function Text({ videoSrc, textContent, type }) {
       >
         <source src={videoSrc} type="video/mp4" />
       </video>
-      {type === type.regular && (
+      {clean(type) === type.regular && (
         <div className="absolute right-0 z-10 py-0 pointer-events-none xl:pb-0 top-28 md:top-20 xl:top-1/2 xl:-translate-y-1/2 scale-[.9] ">
           <FadeUp delay={0.5}>
             <Player
