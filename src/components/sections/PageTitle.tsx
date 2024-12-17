@@ -35,7 +35,7 @@ const PageTitle = ({ data }) => {
       id={clean(data?.SectionSettings?.anchor?.current)}
       paddingTop="none"
       paddingBottom="none"
-      className="bg-mørk text-lys pt-36 pb-20 sm:pb-0 sm:pt-44 pr-0 overflow-y-visible overflow-x-clip "
+      className="bg-mørk text-lys pt-36 md:pb-20 pb-40 sm:pb-0 sm:pt-44 pr-0 overflow-y-visible overflow-x-clip "
       paddingX="left"
     >
       <div className="col-span-full">

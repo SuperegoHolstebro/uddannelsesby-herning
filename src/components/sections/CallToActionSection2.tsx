@@ -91,7 +91,7 @@ const CallToActionSection2 = ({ section }) => {
       id={clean(section?.SectionSettings?.anchor?.current)}
       paddingTop="none"
       paddingBottom="none"
-      className="relative pb-10 pr-0 xs:pr-0 group sm:pr-13 md:pr-24 lg:pr-19 xl:pr-36 2xl:pr-52 sm:pb-0"
+      className="relative pb-0 pr-0 xs:pr-0 group sm:pr-13 md:pr-24 lg:pr-19 xl:pr-36 2xl:pr-52"
       paddingX="right"
     >
       <div className="relative order-2 overflow-hidden col-span-full sm:col-span-4 md:col-span-7 xl:col-span-12 md:-order-none">
