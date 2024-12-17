@@ -27,18 +27,15 @@ const outfit = Outfit({
 })
 
 interface LayoutProps {
-  params: {
-    locale: string
-  }
   children: React.ReactNode
 }
 
-export default async function Root({ params, children }: LayoutProps) {
+export default async function Root({ children }: LayoutProps) {
   const isDraftMode = (await draftMode()).isEnabled
 
   return (
     <html
-      lang={'da'}
+      lang="da"
       className={`${serif.className} ${outfit.className} ${sans.className}`}
     >
       <GoogleTagManager gtmId="GTM-" />
