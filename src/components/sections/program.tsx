@@ -42,7 +42,11 @@ const Program = ({ data }) => {
             className="flex flex-col md:flex-row items-start md:mb-16 mb-8 md:pb-16 pb-8 border-b border-grå last:border-none"
           >
             <div className="w-full font-bold md:w-1/5">
-              <Heading tag="h4" type="h4">{`KL. ${time}`}</Heading>
+              <Heading
+                className="text-center md:text-left"
+                tag="h4"
+                type="h4"
+              >{`KL. ${time}`}</Heading>
             </div>
             <ul className="w-full space-y-3 md:w-4/5">
               {(items as Array<any>).map((item, itemIndex) => (

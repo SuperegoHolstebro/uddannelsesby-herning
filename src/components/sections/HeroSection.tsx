@@ -23,16 +23,18 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ data, ...props }) => {
   return (
-    <Section
-      paddingBottom={'none'}
-      paddingTop={'none'}
-      paddingX={'none'}
-      variant="lys"
-      className="flex items-center justify-center w-full h-screen"
-    >
-      <Scene />
-      <Text textContent={data.text} videoSrc={data.media} />
-    </Section>
+    <>
+      <Section
+        paddingBottom={'none'}
+        paddingTop={'none'}
+        paddingX={'none'}
+        variant="lys"
+        className="flex items-center justify-center w-full h-screen"
+      >
+        <Scene />
+        <Text textContent={data.text} videoSrc={data.media} />
+      </Section>
+    </>
   )
 }
 

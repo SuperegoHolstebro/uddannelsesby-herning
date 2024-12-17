@@ -3,13 +3,13 @@ import React from 'react'
 import dynamic from 'next/dynamic'
 import Paragraph from './atoms/Paragraph'
 import { FadeUp } from './interactions/AnimateFadeIn'
-
-const Player = dynamic(
+import { Player } from '@lottiefiles/react-lottie-player'
+/* const Player = dynamic(
   () => import('@lottiefiles/react-lottie-player').then((mod) => mod.Player),
   {
     ssr: false,
   },
-)
+) */
 
 export default function Text({ videoSrc, textContent }) {
   return (

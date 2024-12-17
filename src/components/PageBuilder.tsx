@@ -23,6 +23,7 @@ import PageTitle from './sections/PageTitle'
 import DownloadsAndLinks from './sections/DownloadsAndLinks'
 import Map from './sections/Map'
 import Program from './sections/program'
+import Schools from './sections/schools'
 
 const PageBuilder = ({ sections }) => {
   return (
@@ -70,6 +71,8 @@ const PageBuilder = ({ sections }) => {
                 amount={section.amount}
               />
             )
+          case 'SchoolsType':
+            return <Schools key={index} data={section} />
           case 'EventType':
             return (
               <EventSection

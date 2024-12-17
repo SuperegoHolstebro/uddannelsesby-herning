@@ -71,14 +71,17 @@ const Logo = ({ ...props }) => {
           fill="currentColor"
         />
         <path
+          className="transition-all ease-custom duration-735 group-hover:fill-signal-pink"
           d="M302.114 13.2544L282.669 13.2544V18.4396L302.114 18.4396V13.2544Z"
           fill="currentColor"
         />
         <path
+          className="transition-all ease-custom duration-735 group-hover:fill-signal-pink"
           d="M302.114 25.9336L282.669 25.9336V31.1187L302.114 31.1187V25.9336Z"
           fill="currentColor"
         />
         <path
+          className="transition-all ease-custom duration-735 group-hover:fill-signal-pink"
           d="M302.114 0.476074L282.669 0.476074V5.66123L302.114 5.66123V0.476074Z"
           fill="currentColor"
         />

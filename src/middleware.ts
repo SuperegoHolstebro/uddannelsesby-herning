@@ -9,7 +9,7 @@ export async function middleware(request: NextRequest) {
   // Debug Appconfig structure
   if (!Appconfig || !Appconfig.i18n || !Appconfig.i18n.locales) {
     console.error('Appconfig or i18n configuration is missing or undefined')
-    return NextResponse.next() // Proceed without rewriting
+    return NextResponse.next()
   }
 
   // Check if there is any supported locale in the pathname
@@ -18,10 +18,19 @@ export async function middleware(request: NextRequest) {
       !pathname.startsWith(`/${locale?.id}/`) && pathname !== `/${locale?.id}`,
   )
 
+  // Skip locale check for specific paths
+  if (
+    pathname.startsWith('/karriere') ||
+    pathname.startsWith('/begivenheder') ||
+    pathname.startsWith('/uddannelsessteder') ||
+    pathname.includes('.') // exclude all files in the public folder
+  ) {
+    return NextResponse.next()
+  }
+
   // Redirect if there is no locale
   if (pathnameIsMissingLocale) {
     const searchString = searchParams.toString()
-
     return NextResponse.rewrite(
       new URL(
         `/${Appconfig.i18n.defaultLocaleId}${pathname}${searchString ? `?${searchString}` : ''}`,
@@ -29,10 +38,12 @@ export async function middleware(request: NextRequest) {
       ),
     )
   }
+
+  return NextResponse.next()
 }
 
 export const config = {
   matcher: [
-    '/((?!api|_next/static|_next/image|favicon.ico|studio|super-login|begivenheder|static|karriere|sitemap\\.xml).*)',
+    '/((?!api|_next/static|_next/image|favicon.ico|public/.*|studio|super-login|static|signin|sitemap\\.xml).*)',
   ],
 }

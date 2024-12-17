@@ -5,7 +5,7 @@ import bcrypt from 'bcryptjs'
 
 export function CreateCompanyLoginAction(props) {
   const { draft, published, onComplete } = props
-  const client = useClient()
+  const client = useClient({ apiVersion: '2024-05-07' })
   const toast = useToast()
   const [isDialogOpen, setIsDialogOpen] = useState(false)
   const [username, setUsername] = useState('')

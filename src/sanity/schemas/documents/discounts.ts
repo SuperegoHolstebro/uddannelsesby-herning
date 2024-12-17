@@ -23,6 +23,12 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      name: 'url',
+      title: 'URL',
+      type: 'url',
+      description: 'Link til rabatten (https://www.example.com)',
+    }),
+    defineField({
       name: 'mainImage',
       title: 'Hovedbillede',
       type: 'image',

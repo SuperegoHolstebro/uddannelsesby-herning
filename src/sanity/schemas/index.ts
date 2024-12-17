@@ -86,6 +86,7 @@ import discounts from './documents/discounts'
 import discountsTag from './documents/discountsTag'
 import MapCategory from './documents/MapCategory'
 import { programType } from './sections/program'
+import { SchoolsType } from './sections/School.schema'
 
 export const schemaTypes = [
   heroType,
@@ -106,6 +107,7 @@ export const schemaTypes = [
   Gallery,
   LogoGallery,
   LogoGallery2,
+  SchoolsType,
   MediaType,
   mapType,
   CallToAction2,
@@ -168,6 +170,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     Gallery,
     LogoGallery,
     LogoGallery2,
+    SchoolsType,
     CallToAction2,
     ArticlesType,
     IconPicker,

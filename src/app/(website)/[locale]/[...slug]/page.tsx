@@ -32,7 +32,7 @@ export default async function DynamicRoute({
   )
 }
 
-export async function generateMetadata({
+/* export async function generateMetadata({
   params,
 }: {
   params: Promise<{ locale: string; slug: string[] }>
@@ -43,3 +43,4 @@ export async function generateMetadata({
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || ''
   return generatePageMetadata({ locale }, page, baseUrl)
 }
+ */

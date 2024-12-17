@@ -22,6 +22,7 @@ import { DownloadsAndLinksQuery } from '../sections/DownloadsAndLinksQuery'
 import { mapTypeQuery } from '../sections/mapType.query'
 import { MediaTypeQuery } from '../sections/MediaType.query'
 import { programType_QUERY } from '../sections/program.query'
+import { SchoolsTypeQuery } from '../sections/SchoolsType.query'
 
 export const pageBuilderQuery = groq`
   pageBuilder[] {
@@ -34,6 +35,7 @@ export const pageBuilderQuery = groq`
     ${ContactFormTypeQuery},
     ${programType_QUERY},
     ${heroQuery},
+    ${SchoolsTypeQuery},
     ${TextAndCollageQuery},
     ${textContainerQuery},
     ${CallToActionQuery2},

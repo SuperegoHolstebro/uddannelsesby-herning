@@ -3,7 +3,7 @@ import { useToast, Button, Dialog, Stack, Text } from '@sanity/ui'
 import { useState } from 'react'
 
 export function GoToCompanyLoginAction({ documentId }) {
-  const client = useClient()
+  const client = useClient({ apiVersion: '2024-05-07' })
   const toast = useToast()
   const [loading, setLoading] = useState(false)
   const [isDialogOpen, setIsDialogOpen] = useState(false)

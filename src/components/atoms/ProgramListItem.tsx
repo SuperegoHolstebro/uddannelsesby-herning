@@ -46,55 +46,109 @@ export const ProgramListItem = ({ item }) => {
         onClick={togglePortal}
         className={`p-4 transition-all ease-custom duration-735 flex justify-between w-full text-left group ${educationTitle}`}
       >
-        <div>
-          <div className="font-bold">
-            <Heading tag="p" type="p" spacing="none" className="font-bold">
-              {item.title}
-            </Heading>
+        <div className="hidden md:block">
+          <div>
+            <div className="font-bold">
+              <Heading tag="p" type="p" spacing="none" className="font-bold">
+                {item.title}
+              </Heading>
+            </div>
+            <div className="text-sm">
+              <Paragraph spacing="none">
+                {item.time.start} - {item.time.end}
+              </Paragraph>
+            </div>
           </div>
-          <div className="text-sm">
+          <Paragraph spacing="none">
+            <span className="flex items-center gap-4">
+              {item.edducation?.title}
+              <span>
+                <svg
+                  className="group-hover:rotate-[360deg] transition-all ease-custom duration-735"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clipPath="url(#clip0_1085_1518)">
+                    <path
+                      d="M7 0.963135V13.0369"
+                      stroke="currentColor"
+                      strokeWidth="1.71"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M0.962891 6.96277H13.0366"
+                      stroke="currentColor"
+                      strokeWidth="1.71"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_1085_1518">
+                      <rect width="14" height="14" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </span>
+            </span>
+          </Paragraph>
+        </div>
+
+        <div className=" md:hidden">
+          <div className="space-y-3">
+            <div className="font-bold">
+              <Heading tag="p" type="p" spacing="none" className="font-bold">
+                {item.title}
+              </Heading>
+            </div>
             <Paragraph spacing="none">
-              {item.time.start} - {item.time.end}
+              <span className="flex items-center gap-4">
+                {item.edducation?.title}
+                <span>
+                  <svg
+                    className="group-hover:rotate-[360deg] transition-all ease-custom duration-735"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 14 14"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g clipPath="url(#clip0_1085_1518)">
+                      <path
+                        d="M7 0.963135V13.0369"
+                        stroke="currentColor"
+                        strokeWidth="1.71"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M0.962891 6.96277H13.0366"
+                        stroke="currentColor"
+                        strokeWidth="1.71"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_1085_1518">
+                        <rect width="14" height="14" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </span>
+              </span>
             </Paragraph>
+            <div className="text-sm">
+              <Paragraph spacing="none">
+                {item.time.start} - {item.time.end}
+              </Paragraph>
+            </div>
           </div>
         </div>
-        <Paragraph spacing="none">
-          <span className="flex items-center gap-4">
-            {item.edducation?.title}
-            <span>
-              <svg
-                className="group-hover:rotate-[360deg] transition-all ease-custom duration-735"
-                width="14"
-                height="14"
-                viewBox="0 0 14 14"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g clipPath="url(#clip0_1085_1518)">
-                  <path
-                    d="M7 0.963135V13.0369"
-                    stroke="currentColor"
-                    strokeWidth="1.71"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M0.962891 6.96277H13.0366"
-                    stroke="currentColor"
-                    strokeWidth="1.71"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </g>
-                <defs>
-                  <clipPath id="clip0_1085_1518">
-                    <rect width="14" height="14" fill="white" />
-                  </clipPath>
-                </defs>
-              </svg>
-            </span>
-          </span>
-        </Paragraph>
       </button>
 
       <ProgramListItemPortal

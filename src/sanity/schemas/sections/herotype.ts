@@ -27,6 +27,18 @@ export const heroType = defineType({
       type: 'text',
       title: 'Tekst',
     },
+    defineField({
+      type: 'string',
+      name: 'type',
+      title: 'Type',
+      options: {
+        list: [
+          { title: 'åbenhus', value: 'openHouse' },
+          { title: 'Normal', value: 'regular' },
+        ],
+      },
+      initialValue: 'regular',
+    }),
     {
       group: 'settings',
       name: 'SectionSettings',

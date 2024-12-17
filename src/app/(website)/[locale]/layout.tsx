@@ -22,15 +22,15 @@ const serif = PT_Serif({
   style: ['normal', 'italic'],
   weight: ['400', '700'],
 })
-
 export default async function RootLayout({
   params,
   children,
 }: {
-  params: { locale: string }
+  params: Promise<{ locale: string }>
   children: React.ReactNode
 }) {
-  const locale = params?.locale || Appconfig.i18n.defaultLocaleId
+  const locale =
+    (await params)?.locale || Appconfig.i18n.defaultLocaleId || 'da'
 
   return (
     <html lang={locale} className={`${sans.variable} ${serif.variable}`}>

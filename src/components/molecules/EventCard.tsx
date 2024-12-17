@@ -63,7 +63,7 @@ function Portrait({ event }) {
       ) : (
         <img
           className="object-cover"
-          src="/placeholder.svg"
+          src="./placeholder.svg"
           alt={event.title}
         />
       )}
