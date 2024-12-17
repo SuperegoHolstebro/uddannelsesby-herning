@@ -15,7 +15,6 @@ const Player = dynamic(
 export default function Text({ videoSrc, textContent, type, title }) {
   return (
     <>
-      <div className="absolute inset-0 z-10 pointer-events-none size-full bg-gradient-to-b from-transparent via-transparent to-mørk/40" />
       <video
         autoPlay
         loop
@@ -40,8 +39,9 @@ export default function Text({ videoSrc, textContent, type, title }) {
       )}
 
       {clean(type) === 'openHouse' && (
-        <div className="absolute z-10 translate-x-1/2 -translate-y-1/2 right-1/2 top-1/2 ">
+        <div className="absolute z-10 w-11/12 translate-x-1/2 -translate-y-1/2 right-1/2 top-1/2 md:w-1/2 ">
           <svg
+            className="w-full max-w-xs md:max-w-md xl:max-w-lg h-fit"
             width="652"
             height="216"
             viewBox="0 0 652 216"

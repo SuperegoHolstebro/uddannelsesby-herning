@@ -57,6 +57,10 @@ export const pageBuilder = defineType({
       type: 'SchoolsType',
     }),
     defineArrayMember({
+      name: 'logoband',
+      type: 'logoband',
+    }),
+    defineArrayMember({
       name: 'contactFormType',
       type: 'contactFormType',
     }),

@@ -31,7 +31,12 @@ const Hero: React.FC<HeroProps> = ({ data, ...props }) => {
       className="flex items-center justify-center w-full h-screen"
     >
       <Scene type={data.type} />
-      <Text textContent={data.text} videoSrc={data.media} type={data.type} />
+      <Text
+        textContent={data.text}
+        videoSrc={data.media}
+        type={data.type}
+        title={data.string}
+      />
     </Section>
   )
 }

@@ -23,6 +23,7 @@ import { mapTypeQuery } from '../sections/mapType.query'
 import { MediaTypeQuery } from '../sections/MediaType.query'
 import { programType_QUERY } from '../sections/program.query'
 import { SchoolsTypeQuery } from '../sections/SchoolsType.query'
+import { LogoBandQuery } from '../sections/LogoBand.query'
 
 export const pageBuilderQuery = groq`
   pageBuilder[] {
@@ -38,6 +39,7 @@ export const pageBuilderQuery = groq`
     ${SchoolsTypeQuery},
     ${TextAndCollageQuery},
     ${textContainerQuery},
+    ${LogoBandQuery},
     ${CallToActionQuery2},
     ${EmployeesTypeQuery},
     ${companiesTypeQuery},

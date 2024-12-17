@@ -99,10 +99,14 @@ export default function Scene({ type }) {
           className="w-full h-screen"
           ref={canvas}
           onMouseMove={manageMouseMove}
-          // height={dimension.height}
-          // width={dimension.width}
+          height={dimension.height}
+          width={dimension.width}
         />
       )}
+      <div
+        className="absolute inset-0 z-[2] pointer-events-none  bg-gradient-to-b from-transparent via-transparent to-mørk/40"
+        style={{ width: dimension.width, height: dimension.height }}
+      />
     </div>
   )
 }

@@ -87,6 +87,7 @@ import discountsTag from './documents/discountsTag'
 import MapCategory from './documents/MapCategory'
 import { programType } from './sections/program'
 import { SchoolsType } from './sections/School.schema'
+import { logoband } from './sections/logoband.schema'
 
 export const schemaTypes = [
   heroType,
@@ -114,6 +115,7 @@ export const schemaTypes = [
   IconPicker,
   SymbolPicker,
   ReusableSectionType,
+  logoband,
   info,
   QuickLinks,
   Quote,
@@ -186,6 +188,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     programType,
     MediaType,
     ReusableSectionType,
+    logoband,
     info,
     QuickLinks,
     Quote,

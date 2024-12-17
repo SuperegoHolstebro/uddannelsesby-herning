@@ -24,6 +24,7 @@ import DownloadsAndLinks from './sections/DownloadsAndLinks'
 import Map from './sections/Map'
 import Program from './sections/program'
 import Schools from './sections/schools'
+import LogoBand from './sections/LogoBand'
 
 const PageBuilder = ({ sections }) => {
   return (
@@ -42,6 +43,8 @@ const PageBuilder = ({ sections }) => {
             return <TextAndCollage key={index} data={section} />
           case 'companiesType':
             return <Companies key={index} section={section} />
+          case 'logoband':
+            return <LogoBand key={index} data={section} />
           case 'info':
             return <Info data={section} key={index} />
           case 'QuickLinks':
