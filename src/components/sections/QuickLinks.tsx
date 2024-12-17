@@ -4,7 +4,7 @@ import Heading from '../atoms/Heading'
 import InteractiveMarquee from '../atoms/Marquee'
 import Section from './Section'
 import { clean } from '~/utils/sanitize'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { Button } from '../atoms/Button'
 
 const QuickLinks = ({ data }) => {
@@ -22,7 +22,7 @@ const QuickLinks = ({ data }) => {
       <div className="col-span-full *:w-full">
         <InteractiveMarquee speed={hovered ? 0 : 1}>
           {data?.quickLinks.map((link, index) => (
-            <>
+            <React.Fragment key={index}>
               <Button
                 variant="none"
                 showSvg={false}
@@ -30,14 +30,13 @@ const QuickLinks = ({ data }) => {
                 className={`inline-flex px-0 transition-all ease-custom duration-735 prose-headings:font-bold ${hovered !== null && hovered !== index ? 'blur-sm' : ''}`}
                 onMouseEnter={() => setHovered(index)}
                 onMouseLeave={() => setHovered(null)}
-                key={index}
                 link={link}
               >
                 <Heading tag="h3" type="h3" spacing="none">
                   {link.label}
                 </Heading>
               </Button>
-            </>
+            </React.Fragment>
           ))}
         </InteractiveMarquee>
       </div>
