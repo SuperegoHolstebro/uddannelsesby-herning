@@ -31,6 +31,41 @@ const DiscountsSection = ({ section }) => {
 
   return (
     <Section>
+      <div className="col-span-full">
+        <FilterButtons
+          categories={categories}
+          selectedCategory={selectedCategory}
+          uniqueCategories={uniqueCategories}
+          setSelectedCategory={setSelectedCategory}
+        />
+      </div>
+      <div className="pt-4 col-span-full">
+        <Section tag="ul" paddingX="none" paddingTop="none">
+          {discounts
+            .filter(
+              (event) =>
+                selectedCategory === 'all' ||
+                event.tags?.some((tag) => tag.title === selectedCategory),
+            )
+            .map((event, index) => (
+              <DiscountsCard key={index} data={clean(event)} />
+            ))}
+        </Section>
+      </div>
+    </Section>
+  )
+}
+
+export default DiscountsSection
+
+function FilterButtons({
+  categories,
+  selectedCategory,
+  uniqueCategories,
+  setSelectedCategory,
+}) {
+  return (
+    <>
       {useMediaQuery('(max-width: 768px)') ? (
         <div className="col-span-full">
           <Swiper spaceBetween={'16'} slidesPerView={3.3}>
@@ -83,24 +118,9 @@ const DiscountsSection = ({ section }) => {
           ))}
         </>
       )}
-      <div className="pt-4 col-span-full">
-        <Section tag="ul" paddingX="none" paddingTop="none">
-          {discounts
-            .filter(
-              (event) =>
-                selectedCategory === 'all' ||
-                event.tags?.some((tag) => tag.title === selectedCategory),
-            )
-            .map((event, index) => (
-              <DiscountsCard key={index} data={clean(event)} />
-            ))}
-        </Section>
-      </div>
-    </Section>
+    </>
   )
 }
-
-export default DiscountsSection
 
 function FilterButton({
   className = '',
