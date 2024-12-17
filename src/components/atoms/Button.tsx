@@ -79,6 +79,7 @@ const Button = forwardRef(
           {...props}
           ref={ref}
           link={link}
+          title={children}
           hrefResolver={({ internalLink }) =>
             clean(
               resolveHrefLang(

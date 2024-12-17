@@ -58,7 +58,7 @@ const Photo = ({
         image?.asset?.altText ||
         image?.asset?.description ||
         image?.asset?.title ||
-        'Billede'
+        ''
       }
       width={width || image?.asset?.metadata?.dimensions?.width || 1920}
       height={height || image?.asset?.metadata?.dimensions?.height || 1080}

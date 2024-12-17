@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import useWindow from '../hooks/useWindow'
 
-export default function Scene() {
+export default function Scene({ type }) {
   const { dimension } = useWindow()
   const canvas = useRef(null)
   const prevPosition = useRef(null)
@@ -25,9 +25,26 @@ export default function Scene() {
     }
   }, [dimension, hasAnimated])
 
+  let color
+  if (type === 'regular') {
+    color = '#262723'
+  } else if (type === 'openHouse') {
+    color = '#FFD4F3'
+  } else {
+    color = '#262723'
+  }
+  let bg
+  if (type === 'regular') {
+    bg = 'bg-mørk'
+  } else if (type === 'openHouse') {
+    bg = 'bg-signal-pink'
+  } else {
+    bg = 'bg-mørk'
+  }
+
   const init = () => {
     const ctx = canvas.current.getContext('2d')
-    ctx.fillStyle = '#262723'
+    ctx.fillStyle = color
     ctx.fillRect(0, 0, dimension.width, dimension.height)
     ctx.globalCompositeOperation = 'destination-out'
     // Save that the animation has been shown
@@ -75,7 +92,7 @@ export default function Scene() {
   return (
     <div className="relative w-full h-screen z-[5]">
       {dimension.width == 0 && (
-        <div className="absolute w-full h-screen bg-mørk" />
+        <div className={`absolute w-full h-screen ${bg}`} />
       )}
       {!hasAnimated && (
         <canvas

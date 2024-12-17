@@ -39,6 +39,13 @@ export const heroType = defineType({
       },
       initialValue: 'regular',
     }),
+    defineField({
+      name: 'string',
+      title: 'title',
+      type: 'string',
+      /* @ts-ignore */
+      hidden: (document) => document.type === 'regular',
+    }),
     {
       group: 'settings',
       name: 'SectionSettings',

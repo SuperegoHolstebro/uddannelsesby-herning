@@ -23,6 +23,8 @@ export async function middleware(request: NextRequest) {
     pathname.startsWith('/karriere') ||
     pathname.startsWith('/begivenheder') ||
     pathname.startsWith('/uddannelsessteder') ||
+    pathname.startsWith('/cookiepolitik') ||
+    pathname.startsWith('/signin') ||
     pathname.includes('.') // exclude all files in the public folder
   ) {
     return NextResponse.next()
@@ -44,6 +46,6 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    '/((?!api|_next/static|_next/image|favicon.ico|public/.*|studio|super-login|static|signin|sitemap\\.xml).*)',
+    '/((?!api|_next/static|_next/image|favicon.ico|public/.*|studio|super-login|static|signin|sitemap\\.xml|cookiepolitik).*)',
   ],
 }

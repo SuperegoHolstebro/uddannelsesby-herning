@@ -16,7 +16,7 @@ export default async function IndexRoute({
 }: {
   params: Promise<{ locale: string }>
 }) {
-  const locale = (await params).locale
+  const locale = (await params).locale || 'da'
   const page = (await loadPage('/', locale)) as ExtendedPagePayload
   if (!page) {
     notFound()

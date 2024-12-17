@@ -3,7 +3,7 @@ import { Store } from '@mynaui/icons-react'
 
 export default defineType({
   name: 'discounts',
-  title: 'Studierabatter',
+  title: 'Rabatter',
   type: 'document',
   liveEdit: true,
   icon: Store,
@@ -43,4 +43,11 @@ export default defineType({
       to: [{ type: 'discountsTag' }],
     }),
   ],
+  preview: {
+    prepare() {
+      return {
+        title: 'Rabat:',
+      }
+    },
+  },
 })

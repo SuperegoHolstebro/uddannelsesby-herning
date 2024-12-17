@@ -100,11 +100,7 @@ export async function loadQuery<QueryResponse>({
   return result.result
 }
 
-export async function loadPage(
-  slug: string,
-  locale?: string,
-  groqQuery?: string,
-) {
+export async function loadPage(slug: string, locale?: any, groqQuery?: string) {
   if (locale) {
     return loadQuery<PagePayload | null>({
       query: groqQuery || PAGE_QUERY,
