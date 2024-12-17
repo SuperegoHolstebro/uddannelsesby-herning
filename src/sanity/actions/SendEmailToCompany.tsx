@@ -44,9 +44,9 @@ export const SendEmailToCompanyAction = (props) => {
         throw new Error('Ingen virksomhed fundet for dette ID.')
       }
 
-      let email = company?.email
+      const email = company?.email
       let password = company.password
-      let username = company.username
+      const username = company.username
 
       // If the password is hashed, generate a new plain-text password
       if (password && password.startsWith('$2a$')) {
