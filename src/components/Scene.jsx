@@ -96,11 +96,11 @@ export default function Scene({ type }) {
       )}
       {!hasAnimated && (
         <canvas
-          className="h-screen"
+          className="w-full h-screen"
           ref={canvas}
           onMouseMove={manageMouseMove}
-          height={dimension.height}
-          width={dimension.width}
+          // height={dimension.height}
+          // width={dimension.width}
         />
       )}
     </div>
