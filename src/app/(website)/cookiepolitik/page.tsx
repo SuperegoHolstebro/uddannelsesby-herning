@@ -4,6 +4,8 @@ import PageContainer from '@/components/PageContainer'
 import TextContainer from '@/components/sections/textContainer'
 import Heading from '@/components/atoms/Heading'
 
+export const dynamic = 'force-dynamic'
+
 const CookiePage = () => {
   return (
     <PageContainer>

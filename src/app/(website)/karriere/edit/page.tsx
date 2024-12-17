@@ -8,18 +8,20 @@ import { notFound } from 'next/navigation'
 export default async function EditPage() {
   // Fetch the session server-side
   const session = await getServerSession(authOptions)
-
   // Debugging session output to ensure companyId is present
   console.log('Session data:', session)
 
   if (!session) {
     return notFound()
   }
+  const locale = 'da' // Define locale
 
-  // Fetch the company data server-side using companyId from session
   const company = await client.fetch(
     `*[_type == "company" && _id == $companyId][0]`,
-    { companyId: session.user.companyId }, // Use companyId from session
+    {
+      companyId: session.user.companyId,
+      locale: locale, // Add locale to match the expected parameter
+    },
   )
 
   // Handle case where no company is found

@@ -12,10 +12,14 @@ export default async function RootLayout({
   params,
   children,
 }: {
-  params: { locale?: string }
+  params: Promise<{ locale?: any } | string>
   children: React.ReactNode
 }) {
-  const locale = (await params).locale || Appconfig.i18n.defaultLocaleId
+  const resolvedParams = await params
+  const locale =
+    typeof resolvedParams === 'string'
+      ? Appconfig.i18n.defaultLocaleId
+      : resolvedParams.locale || Appconfig.i18n.defaultLocaleId
 
   const settings = await client.fetch(SITE_SETTINGS_QUERY, { locale })
 
