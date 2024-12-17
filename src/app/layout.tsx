@@ -10,7 +10,6 @@ const sans = Outfit({
   display: 'swap',
   preload: true,
 })
-
 const serif = PT_Serif({
   variable: '--font-serif',
   style: ['normal', 'italic'],
@@ -19,7 +18,6 @@ const serif = PT_Serif({
   display: 'swap',
   preload: true,
 })
-
 const outfit = Outfit({
   variable: '--font-outfit',
   subsets: ['latin'],
@@ -36,14 +34,16 @@ interface LayoutProps {
 }
 
 export default async function Root({ params, children }: LayoutProps) {
+  const isDraftMode = (await draftMode()).isEnabled
+
   return (
     <html
-      lang="da"
+      lang={'da'}
       className={`${serif.className} ${outfit.className} ${sans.className}`}
     >
       <GoogleTagManager gtmId="GTM-" />
       <body
-        className={` ${serif.className} ${outfit.className} ${sans.className} selection:text-mørk selection:bg-signal-gul ${(await draftMode()).isEnabled ? 'debug-screens' : ''}`}
+        className={`${serif.className} ${outfit.className} ${sans.className} selection:text-mørk selection:bg-signal-gul ${isDraftMode ? 'debug-screens' : ''}`}
       >
         {children}
       </body>
