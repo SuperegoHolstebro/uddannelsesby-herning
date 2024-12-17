@@ -28,11 +28,14 @@ const outfit = Outfit({
   preload: true,
 })
 
-export default async function Root({
-  children,
-}: {
+interface LayoutProps {
+  params: {
+    locale: string
+  }
   children: React.ReactNode
-}) {
+}
+
+export default async function Root({ params, children }: LayoutProps) {
   return (
     <html
       lang="da"

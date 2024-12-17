@@ -4,6 +4,7 @@ export const heroQuery = groq`
 _type == "hero" => {
   text, 
   _type,
+  type,
   "media": Video.asset->url,
 }
 `

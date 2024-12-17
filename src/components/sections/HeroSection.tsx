@@ -31,9 +31,12 @@ const Hero: React.FC<HeroProps> = ({ data, ...props }) => {
         variant="lys"
         className="flex items-center justify-center w-full h-screen"
       >
-        <Scene />
-        <Text textContent={data.text} videoSrc={data.media} />
+        <Scene type={data.type} />
+        <Text textContent={data.text} videoSrc={data.media} type={data.type} />
       </Section>
+      <pre>
+        <code>{JSON.stringify(data, null, 2)}</code>
+      </pre>
     </>
   )
 }
