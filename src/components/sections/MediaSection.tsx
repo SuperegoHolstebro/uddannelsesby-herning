@@ -26,7 +26,7 @@ const MediaSection = ({ data }) => {
     <Section className="*:w-full">
       <div className="col-start-1 -col-end-1 sm:col-start-2 sm:-col-end-2 lg:col-start-3 lg:-col-end-3 xl:col-start-4 xl:-col-end-4 2xl:col-start-4 2xl:-col-end-4">
         <FadeUp>
-          <div className="w-full">
+          <div className="w-full aspect-1 md:aspect-none">
             <Media data={data.MediaObject?.media} />
           </div>
         </FadeUp>

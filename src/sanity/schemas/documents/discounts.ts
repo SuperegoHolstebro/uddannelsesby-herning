@@ -44,9 +44,16 @@ export default defineType({
     }),
   ],
   preview: {
-    prepare() {
+    select: {
+      title: 'title',
+      discount: 'discount',
+      media: 'mainImage',
+    },
+    prepare(selection) {
       return {
-        title: 'Rabat:',
+        title: selection.title,
+        subtitle: selection.discount,
+        media: selection.media,
       }
     },
   },

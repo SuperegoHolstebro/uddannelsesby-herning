@@ -129,7 +129,7 @@ function MenuItem({ item }) {
             >
               <span
                 className={`
-                ${showSvgOnClick ? 'visible opacity-100' : 'invisible opacity-0 group-hover/button:visible group-hover/button:opacity-100'}
+                invisible opacity-0 group-hover/button:visible group-hover/button:opacity-100
                   transition-all ease-custom duration-735 absolute size-6 md:size-8 -left-[5%] md:-translate-x-full -translate-x-1/2 -translate-y-1/2 top-1/2 `}
               >
                 <motion.span
@@ -185,14 +185,45 @@ function MenuItem({ item }) {
         <Button
           role="menuitem"
           showSvg={false}
-          className="relative block w-full h-auto px-0 py-0 pb-2 text-left focus-within:text-signal-gul hover:text-signal-gul"
+          className="relative flex items-start justify-between w-full px-0 py-0 pb-2 text-left group/button focus-within:text-signal-gul"
           variant="none"
           link={item.link}
         >
           <span
-            className="font-bold focus-within:text-signal-gul hover:text-signal-gul"
-            dangerouslySetInnerHTML={{ __html: item.link.label }}
-          />
+            className={`relative transition-all flex gap-4 font-bold group-hover/button:text-signal-gul ${isSubmenuOpen ? 'text-signal-gul' : ''}`}
+          >
+            <span className="invisible opacity-0 group-focus-within/button:visible group-focus-within/button:opacity-100 group-hover/button:visible group-hover/button:opacity-100 transition-all ease-custom duration-735 absolute size-6 md:size-8 -left-[5%] md:-translate-x-full -translate-x-1/2 -translate-y-1/2 top-1/2">
+              <motion.span
+                transition={{ stiffness: 100, duration: 0.5 }}
+                exit={{ scale: 0, opacity: 0 }}
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+              >
+                <motion.svg
+                  className="size-full"
+                  animate={{ rotate: 360 }}
+                  transition={{
+                    duration: 2.5,
+                    repeat: Infinity,
+                    repeatType: 'loop',
+                    ease: 'linear',
+                  }}
+                  width="64"
+                  height="64"
+                  viewBox="0 0 64 64"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M48.7538 38.9389L54.6271 54.6271L38.9389 48.7538L32 64L25.0611 48.7538L9.37294 54.6271L15.2462 38.9389L0 32L15.2462 25.0611L9.37294 9.37295L25.0611 15.2462L32 0L38.9389 15.2462L54.6271 9.37295L48.7538 25.0611L64 32L48.7538 38.9389Z"
+                    fill="#D9FC00"
+                  />
+                </motion.svg>
+              </motion.span>
+            </span>
+
+            <span dangerouslySetInnerHTML={{ __html: item.link.label }} />
+          </span>
         </Button>
       )}
     </li>

@@ -31,7 +31,7 @@ const DiscountsSection = ({ section }) => {
 
   return (
     <Section>
-      <div className="col-span-full">
+      <div className="divide-x pb-6 gap-4 col-span-full divide-solid divide-grå grid grid-cols-6">
         <FilterButtons
           categories={categories}
           selectedCategory={selectedCategory}
@@ -68,7 +68,7 @@ function FilterButtons({
     <>
       {useMediaQuery('(max-width: 768px)') ? (
         <div className="col-span-full">
-          <Swiper spaceBetween={'16'} slidesPerView={3.3}>
+          <Swiper spaceBetween={'16'} slidesPerView={2.8}>
             <SwiperSlide>
               <FilterButton
                 icon="map"
@@ -87,7 +87,7 @@ function FilterButtons({
                   selectedCategory={selectedCategory}
                   setSelectedCategory={setSelectedCategory}
                 >
-                  {category.category}
+                  {category.title}
                 </FilterButton>
               </SwiperSlide>
             ))}

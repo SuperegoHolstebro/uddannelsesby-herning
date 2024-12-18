@@ -41,12 +41,12 @@ export const ProgramListItem = ({ item }) => {
   }
 
   return (
-    <li className="w-full" data-edducation={item.edducation?.title}>
+    <li className="relative w-full" data-edducation={item.edducation?.title}>
       <button
         onClick={togglePortal}
         className={`p-4 transition-all ease-custom duration-735 flex justify-between w-full text-left group ${educationTitle}`}
       >
-        <div className="hidden md:block">
+        <div className="justify-between hidden w-full md:flex">
           <div>
             <div className="font-bold">
               <Heading tag="p" type="p" spacing="none" className="font-bold">
@@ -110,7 +110,7 @@ export const ProgramListItem = ({ item }) => {
                 {item.edducation?.title}
                 <span>
                   <svg
-                    className="group-hover:rotate-[360deg] transition-all ease-custom duration-735"
+                    className="group-hover:rotate-[360deg] transition-all ease-custom duration-735 absolute top-4 right-4 md:relative"
                     width="14"
                     height="14"
                     viewBox="0 0 14 14"
