@@ -36,7 +36,7 @@ const TextAndCollage = ({ data, popup, flip = false }: TextAndCollageProps) => {
         id={clean(data?.SectionSettings?.anchor?.current)}
         paddingTop={clean(data?.design?.padding?.spacingTop)}
         paddingBottom={clean(data?.design?.padding?.spacingBottom)}
-        className="pt-0 sm:pt-0 md:pt-24 lg:pt-32 xl:pt-40 2xl:pt-48"
+        className="pt-0 overflow-y-visible overflow-x-clip sm:pt-0 md:pt-24 lg:pt-32 xl:pt-40 2xl:pt-48"
         variant={data?.design?.color?.color}
       >
         <div /* h-screen/2 md:h-screen/1.6 */
