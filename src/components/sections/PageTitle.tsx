@@ -50,14 +50,14 @@ const PageTitle = ({ data }) => {
           </FadeUp>
         </div>
 
-        <div className="relative flex justify-start h-[inherit] md:h-auto max-w-3xl pr-0 ml-auto -mb-12 -mr-6 space-x-4 xs:-mr-12 w-fit sm:w-full flex-nowrap sm:h-auto sm:justify-end md:space-x-6 xl:max-w-6xl lg:max-w-4xl ">
+        <div className="relative w-full flex justify-start h-[inherit] md:h-auto max-w-3xl pr-0 ml-auto -mb-12 -mr-6 space-x-4 xs:-mr-12  sm:w-full flex-nowrap sm:h-auto sm:justify-end md:space-x-6 xl:max-w-6xl lg:max-w-4xl ">
           {data.images.map((image, index) => (
             <div
-              className={`${imageStyles} overflow-hidden *:size-full`}
+              className={`${imageStyles}  overflow-x-clip *:size-full`}
               key={index}
             >
               <FadeUp delay={index * 0.25}>
-                <Photo image={image} objectFit="cover" />
+                <Photo className="shadow-lg" image={image} objectFit="cover" />
               </FadeUp>
             </div>
           ))}

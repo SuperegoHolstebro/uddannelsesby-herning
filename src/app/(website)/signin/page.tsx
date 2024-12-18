@@ -59,14 +59,14 @@ export default function SignIn() {
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                placeholder="Username"
+                placeholder="Brugernavn"
                 className="w-full p-2 mb-4 border border-gray-300 rounded"
               />
               <input
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="Password"
+                placeholder="Adgangskode"
                 className="w-full p-2 mb-4 border border-gray-300 rounded"
               />
               <AdvancedButton
@@ -80,8 +80,8 @@ export default function SignIn() {
               </AdvancedButton>
             </form>
             <Paragraph className="pt-2 " size="regular" spacing="none">
-              Har du ikke en virksomhedskonto?{' '}
-              <a href="/signup">Opret en her</a>
+              Har du ikke en virksomhedskonto? Kontakt os{' '}
+              <a href="uddannelsesby@herning.dk">her</a>
             </Paragraph>
           </div>
         </div>

@@ -21,7 +21,7 @@ const DownloadsAndLinks = ({ data }, index) => {
               className="w-full py-6 border-mørk/50 border-b-2"
             >
               <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-6">
+                <div className="flex items-center space-x-3">
                   <Icon type={link.iconPicker?.icon} className="size-8" />
                   <Paragraph
                     spacing="none"

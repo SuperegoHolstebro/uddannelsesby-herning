@@ -86,7 +86,7 @@ const Media = ({ data, popup }: MediaProps) => {
     setIsPopupOpen(!isPopupOpen) // Toggle the value of isPopupOpen
   }
   return (
-    <div className="relative w-full h-full max-w-full max-h-full shadow-md ">
+    <div className="relative w-full h-full max-w-full max-h-full">
       {image ? <Photo image={image} /> : null}
 
       {videoObject && !popup ? (
