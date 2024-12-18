@@ -53,10 +53,13 @@ const SchoolCard = ({ data }) => {
         </div>
         <div className="mt-6 space-y-6">
           <Heading
+            text="wrap"
+            type="h4"
+            tag="h4"
             spacing="none"
-            tag="h5"
-            type="h5"
+            clamp={3}
             dangerouslySetInnerHTML={{ __html: data?.title }}
+            className={` transition-opacity duration-300 group-hover/event-card:text-signal-pink`}
           />
           <Paragraph>
             {data?.infomation?.amountOfEducations} uddannelser

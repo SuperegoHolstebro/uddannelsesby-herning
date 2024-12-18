@@ -62,7 +62,7 @@ export default function Text({ videoSrc, textContent, type, title }) {
       )}
 
       <div className="absolute bottom-0 left-0 z-10 pb-8 pl-6 font-sans pointer-events-none md:pl-32 lg:pl-36 text-lys xs:max-w-md sm:max-w-md md:max-w-xl lg:max-w-3xl">
-        <FadeUp>
+        <FadeUp delay={0.2}>
           <Paragraph>{textContent}</Paragraph>
         </FadeUp>
       </div>

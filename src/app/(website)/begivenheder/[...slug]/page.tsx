@@ -110,9 +110,6 @@ export default async function DynamicRoute({
       </Section>
 
       <TextContainer asChild>
-        <Heading type="h3" tag="h3" spacing="small">
-          {page.title}
-        </Heading>
         <Paragraph portableText>{page.description}</Paragraph>
       </TextContainer>
 
