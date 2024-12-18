@@ -41,18 +41,19 @@ const Newest = groq`
 `
 
 export const EventWithFilterQuery = groq`
-  _type == "EventWithFilterType" => {
-    amount,
-    // fetch all used categories for filtering
-"categoriesInUse":*[_type == "event" && defined(category)]{
-    "category": category->title, "icon":category->icon.icon,
+_type == "EventWithFilterType" => {
+  amount,
+  "categoriesInUse": *[_type == "event" && defined(category)] {
+    "category": category->.title,
+    "icon": category->.icon.icon
   } | order(category asc),
+  ...,
+  "events": select(
+    ${All}[date.startDate > now()] | order(date.startDate asc),
+    ${Manual}[date.startDate > now()] | order(date.startDate asc),
+    ${Newest}[date.startDate > now()] | order(date.startDate asc)
+  )
+}
 
-    ...,
-    "events": select(
-      ${All},
-      ${Manual},
-      ${Newest}
-    )
-  }
+
 `
