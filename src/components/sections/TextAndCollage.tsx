@@ -127,7 +127,7 @@ function Portrait({ data, index }) {
 
 function Portraitmd({ data, index }) {
   return (
-    <motion.div className="last:col-span-full last:row-start-1 first:col-span-1 even:col-span-3 even:h-screen/5 first:h-screen/5 last:h-screen/2.5">
+    <motion.div className="first:-mt-14  first:z-20 even:-mt-14 even:z-20 first:pr-2 even:pl-2 last:col-span-full last:row-start-1 first:col-span-1 even:col-span-3 even:h-screen/5 first:h-screen/5 last:h-screen/2.5">
       <div className={`w-full flex justify-center h-full`}>
         {index === 2 && (
           <motion.div
