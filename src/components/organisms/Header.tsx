@@ -81,15 +81,6 @@ export default function Header({ locale }) {
     }
   }
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      window.addEventListener('scroll', handleScroll)
-      return () => {
-        window.removeEventListener('scroll', handleScroll)
-      }
-    }
-  }, [])
-
   // if isOpen is true, make the screen unscrollable by setting the body to fixed
   useEffect(() => {
     if (isOpen) {
@@ -98,13 +89,10 @@ export default function Header({ locale }) {
       document.body.style.overflow = 'auto'
     }
   }, [isOpen])
+
   return (
     <>
-      <header
-        className={`px-4 xs:px-4 sm:px-13 md:px-0 fixed top-0 left-0 translate-x-0 w-full md:w-[100px] h-auto md:h-full bg-mørk z-[9999999999] transition-all flex flex-row md:flex-col-reverse justify-between items-center ${
-          isScrolled ? '!bg-mørk' : ''
-        }`}
-      >
+      <header className="px-4 xs:px-4 sm:px-13 md:px-0 fixed top-0 left-0 translate-x-0 w-full md:w-[100px] h-auto md:h-full bg-mørk z-[9999999999] transition-all flex flex-row md:flex-col-reverse justify-between items-center">
         <div className="flex items-center justify-between md:justify-center h-auto md:h-[300px] w-full">
           <Link
             title="Gå til forsiden"
