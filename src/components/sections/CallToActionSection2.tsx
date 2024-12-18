@@ -21,71 +21,6 @@ import Symbol from '../atoms/Symbols'
 
 const CallToActionSection2 = ({ section }) => {
   return (
-    /*     <Section
-      variant={'mørk'}
-      id={clean(section?.SectionSettings?.anchor?.current)}
-      paddingTop={clean(section?.design?.padding?.spacingTop)}
-      paddingBottom={clean(section?.design?.padding?.spacingBottom)}
-      className="px-4 xs:px-4 sm:px-13 md:px-24 lg:px-19 xl:px-36 2xl:px-52"
-      paddingX="none"
-    >
-      <div className="grid grid-cols-2 col-span-full">
-        <div className="h-auto col-span-1">
-          <Media data={section.MediaObject?.media} />
-        </div>
-        <div className="col-span-1 text-right bg-mørk text-lys h-full">
-          <div className="pt-44 pb-24 pl-1.5">
-            <Heading
-              text="balance"
-              spacing="none"
-              type="h3"
-              tag="h3"
-              className="pb-24"
-            >
-              {section.heading}
-            </Heading>
-            <Button link={section?.link} variant={'secondary'}>
-              {section?.link?.label}
-            </Button>
-          </div>
-        </div>
-      </div>
-    </Section> */
-
-    /* <Section
-      variant={'mørk'}
-      id={clean(section?.SectionSettings?.anchor?.current)}
-      paddingTop="none"
-      paddingBottom="none"
-      className="relative pr-4 xs:pr-4 group sm:pr-13 md:pr-24 lg:pr-19 xl:pr-36 2xl:pr-52"
-      paddingX="none"
-    >
-      <div className="relative overflow-hidden col-span-full md:col-span-6 xl:col-span-12 max-h-screen/1.6">
-        <div className="">
-          <div className="transition-all duration-300 ease-in-out group-hover:scale-110">
-            <Media data={section.MediaObject?.media} />
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-mørk z-10"></div>
-        </div>
-      </div>
-      <Symbol
-        type="e"
-        className="absolute z-50 h-20 md:h-40 md:-bottom-12 md:left-64 left-8 bottom-6"
-      />
-
-      <div className="mt-auto mb-20 space-y-24 text-right col-span-full md:col-span-6 xl:col-span-12">
-        <FadeUp delay={0.3}>
-          <Heading text="balance" spacing="none" type="h2" tag="h2">
-            {section.heading}
-          </Heading>
-        </FadeUp>
-        <FadeUp delay={0.5}>
-          <Button link={section?.link} variant={'secondary'} direction="left">
-            {section?.link?.label}
-          </Button>
-        </FadeUp>
-      </div>
-    </Section> */
     <Section
       variant={'mørk'}
       id={clean(section?.SectionSettings?.anchor?.current)}
@@ -103,7 +38,7 @@ const CallToActionSection2 = ({ section }) => {
 
       <Symbol
         type="e"
-        className="absolute z-50 h-20 md:h-40 md:-bottom-12 md:left-64 left-8 -bottom-10"
+        className="absolute left-0 z-50 h-20 md:h-40 md:-bottom-12 md:left-64 -bottom-64"
       />
 
       <div className="order-1 px-4 pt-16 pb-16 my-auto space-y-12 md:-order-none md:text-right xs:px-4 sm:px-13 md:px-0 col-span-full sm:col-span-4 md:col-span-5 xl:col-span-12 sm:pt-20 md:pt-24 lg:pt-32 xl:pt-40 2xl:pt-48 sm:pb-20 md:pb-24 lg:pb-32 xl:pb-40 2xl:pb-48">
@@ -120,7 +55,7 @@ const CallToActionSection2 = ({ section }) => {
         </FadeUp>
         <FadeUp delay={0.5}>
           <Button
-            className="w-full mx-auto"
+            className="justify-center w-full mx-auto md:justify-end"
             link={section?.link}
             variant={'secondary'}
             direction="left"
