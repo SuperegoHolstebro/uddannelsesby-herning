@@ -34,7 +34,7 @@ const Program = ({ data }) => {
 
   return (
     <Section data={data}>
-      <div className="flex flex-col items-center justify-between mb-8 col-span-full md:flex-row">
+      <div className="flex flex-col items-center justify-between mb-8 text-center col-span-full md:flex-row md:text-left">
         <Heading
           tag="h2"
           type="h2"
