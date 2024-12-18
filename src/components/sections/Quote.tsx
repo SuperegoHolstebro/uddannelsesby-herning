@@ -40,13 +40,13 @@ const Quote = ({ section }) => {
         className="absolute z-10 hidden size-52 left-4 md:left-8 top-8 lg:block"
       />
       {/* Image in the last 12 columns */}
-      <div className="relative sm:row-start-1 col-span-full sm:col-start-4 sm:-col-end-1 xl:col-start-12">
-        <span className="absolute z-10 -right-1/4 xs:-right-20 -bottom-8 lg:hidden">
+      <div className="relative h-full sm:row-start-1 col-span-full sm:col-start-4 sm:-col-end-1 xl:col-start-12 aspect-1">
+        <span className="absolute z-[11] -right-1/4 xs:-right-20 -bottom-8 lg:hidden">
           <FadeUp>
             <Symbol type="tlys" />
           </FadeUp>
         </span>
-        <FadeUp delay={0.2}>
+        <FadeUp className="h-full *" delay={0.2}>
           <Media data={section.MediaObject?.media} />
         </FadeUp>
         {/* Gradient overlay */}
