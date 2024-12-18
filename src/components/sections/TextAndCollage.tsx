@@ -104,7 +104,7 @@ function Portrait({ data, index }) {
           {index === 2 && (
             <FadeUp delay={1.5}>
               <motion.div
-                className="absolute mt-auto -bottom-20 -left-20 h-52 w-52"
+                className="absolute mt-auto -bottom-20 -left-20 size-44 md:size-52"
                 animate={{ rotate: 360 }} // Full rotation
                 transition={{
                   repeat: Infinity,
