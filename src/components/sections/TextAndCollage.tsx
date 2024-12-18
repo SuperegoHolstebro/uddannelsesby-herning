@@ -36,7 +36,7 @@ const TextAndCollage = ({ data, popup, flip = false }: TextAndCollageProps) => {
         id={clean(data?.SectionSettings?.anchor?.current)}
         paddingTop={clean(data?.design?.padding?.spacingTop)}
         paddingBottom={clean(data?.design?.padding?.spacingBottom)}
-        className="overflow-hidden"
+        className="pt-0 sm:pt-0 md:pt-24 lg:pt-32 xl:pt-40 2xl:pt-48"
         variant={data?.design?.color?.color}
       >
         <div /* h-screen/2 md:h-screen/1.6 */
@@ -55,7 +55,7 @@ const TextAndCollage = ({ data, popup, flip = false }: TextAndCollageProps) => {
             ))}
           </div>
         </div>
-        <div className="justify-center col-start-1 -col-end-1 md:col-start-1 md:row-start-1 md:flex md:flex-col md:col-end-6 lg:col-start-1 xl:col-end-12">
+        <div className="justify-center col-start-1 pt-14 md:pt-0 -col-end-1 md:col-start-1 md:row-start-1 md:flex md:flex-col md:col-end-6 lg:col-start-1 xl:col-end-12">
           <InnerBlocks blocks={data.innerBlocks} index={0} />
         </div>
       </Section>

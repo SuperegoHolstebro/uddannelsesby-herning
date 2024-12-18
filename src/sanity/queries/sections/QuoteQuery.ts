@@ -1,5 +1,6 @@
 import { groq } from 'next-sanity'
 import { MediaObjectQuery } from '@/sanity/queries/molecules/MediaObjectQuery'
+import { ButtonQuery } from '../atoms/ButtonQuery'
 
 export const QUOTE_QUERY = groq`
   _type == "Quote" => {
@@ -8,6 +9,7 @@ export const QUOTE_QUERY = groq`
     student,
     education,
     ${MediaObjectQuery},
+    ${ButtonQuery}
     
   }
 `

@@ -124,15 +124,15 @@ export default function Header({ locale }) {
           className="relative z-[999999999] md:mt-6 size-11.5 group"
         >
           <span
-            className={`block absolute transition-all h-2.5 w-10 bg-signal-gul group-hover:bg-signal-gul transform ease-custom duration-735 ${isOpen ? 'rotate-0 !bg-signal-pink' : '-translate-y-5 group-hover:translate-y-0'}`}
+            className={`block absolute transition-all h-1 md:h-2.5 w-10 bg-signal-gul group-hover:bg-signal-gul transform ease-custom duration-735 ${isOpen ? 'rotate-0 !bg-signal-pink' : 'md:-translate-y-5 -translate-y-4 group-hover:translate-y-0'}`}
             aria-hidden="true"
           ></span>
           <span
-            className={`block absolute transition-all h-2.5 w-10 bg-signal-gul group-hover:bg-signal-gul transform ease-custom duration-735 ${isOpen ? 'opacity-0' : ''}`}
+            className={`block absolute transition-all h-1 md:h-2.5 w-10 bg-signal-gul group-hover:bg-signal-gul transform ease-custom duration-735 ${isOpen ? 'opacity-0' : ''}`}
             aria-hidden="true"
           ></span>
           <span
-            className={`block absolute transition-all h-2.5 w-10 bg-signal-gul group-hover:bg-signal-gul transform ease-custom duration-735 ${isOpen ? '-rotate-0 !bg-signal-pink' : 'translate-y-5 group-hover:translate-y-0'}`}
+            className={`block absolute transition-all h-1 md:h-2.5 w-10 bg-signal-gul group-hover:bg-signal-gul transform ease-custom duration-735 ${isOpen ? '-rotate-0 !bg-signal-pink' : 'translate-y-4 md:translate-y-5 group-hover:translate-y-0'}`}
             aria-hidden="true"
           ></span>
         </button>
