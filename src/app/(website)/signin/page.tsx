@@ -80,8 +80,8 @@ export default function SignIn() {
               </AdvancedButton>
             </form>
             <Paragraph className="pt-2 " size="regular" spacing="none">
-              Har du ikke en virksomhedskonto? Kontakt os{' '}
-              <a href="uddannelsesby@herning.dk">her</a>
+              Har du ikke en virksomhedskonto? Kontakt og her
+              <a href="mailto:uddannelsesby@herning.dk">her</a> for at få hjælp.
             </Paragraph>
           </div>
         </div>
