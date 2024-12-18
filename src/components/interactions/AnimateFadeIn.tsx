@@ -18,15 +18,18 @@ import { motion } from 'framer-motion'
 
 export function FadeUp({
   children,
+  className = '',
   delay = 0,
   duration = 0.725,
 }: {
   children: ReactNode
   delay?: number
+  className?: string
   duration?: number
 }) {
   return (
     <motion.div
+      className={className}
       variants={{
         hidden: {
           opacity: 0,
