@@ -2,10 +2,18 @@ import React from 'react'
 import Photo from './Photo'
 import Heading from './Heading'
 import Paragraph from './Paragraph'
+import Link from 'next/link'
 
 const DiscountsCard = ({ data }) => {
   return (
     <div className="relative col-span-full sm:col-span-4 xl:col-span-8  border-b-grå border-b pb-6 mb-6">
+      {data.url && (
+        <Link
+          title={data.title}
+          className="absolute inset-0 z-10 size-full"
+          href={data.url}
+        ></Link>
+      )}
       {/* Image */}
       <div className="overflow-hidden">
         {data?.mainImage ? (
@@ -45,13 +53,50 @@ const DiscountsCard = ({ data }) => {
           </div>
         )}
       </div>
-      <div>
-        <Heading spacing="none" tag="h5" type="h5">
-          {data.title}
-        </Heading>
-        <Paragraph>{data.discount}</Paragraph>
+      {/* content */}
+      <div className="relative flex gap-6 pt-6">
+        <div className="w-full">
+          <Heading spacing="none" tag="h5" type="h5">
+            {data.title}
+          </Heading>
+          <Paragraph spacing="none">{data.discount}</Paragraph>
+        </div>
+        <div className="w-1/5">
+          {data.url && (
+            <svg
+              className="absolute -translate-y-1/2 bottom-1/2 right-4"
+              width="18"
+              height="18"
+              viewBox="0 0 18 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g clip-path="url(#clip0_980_1434)">
+                <path
+                  d="M9 3.75H1.5V16.5H14.25V9"
+                  stroke="#262723"
+                  strokeWidth="1.5"
+                />
+                <path
+                  d="M7.5 10.5L16.5 1.5"
+                  stroke="#262723"
+                  strokeWidth="1.5"
+                />
+                <path
+                  d="M10.5 1.5H16.5V7.5"
+                  stroke="#262723"
+                  strokeWidth="1.5"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_980_1434">
+                  <rect width="18" height="18" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+          )}
+        </div>
       </div>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
     </div>
   )
 }
