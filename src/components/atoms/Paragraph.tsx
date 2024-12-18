@@ -19,7 +19,7 @@ import Heading from './Heading'
  *
  **/
 
-const ParagraphVariants = cva('font-sans', {
+const ParagraphVariants = cva('font-sans space-y-2', {
   variants: {
     size: {
       regular: 'text-regular',
