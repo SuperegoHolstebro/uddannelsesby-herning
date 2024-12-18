@@ -90,7 +90,7 @@ export default function Scene({ type }) {
   }
 
   return (
-    <div className="relative w-full h-screen z-[5]">
+    <>
       {dimension.width == 0 && (
         <div className={`absolute w-full h-screen ${bg}`} />
       )}
@@ -103,10 +103,7 @@ export default function Scene({ type }) {
           width={dimension.width}
         />
       )}
-      <div
-        className="absolute inset-0 z-[2] pointer-events-none w-full h-screen bg-gradient-to-b from-transparent via-transparent to-mørk/40"
-        style={{ width: dimension.width, height: dimension.height }}
-      />
-    </div>
+      <div className="absolute inset-0 z-[2] pointer-events-none w-full h-screen bg-gradient-to-b from-transparent via-transparent to-mørk/40" />
+    </>
   )
 }

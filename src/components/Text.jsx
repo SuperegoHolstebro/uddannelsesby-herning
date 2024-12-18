@@ -20,7 +20,7 @@ export default function Text({ videoSrc, textContent, type, title }) {
         loop
         muted
         playsInline
-        className="absolute inset-0 object-cover w-full h-screen bg-cover pointer-events-none"
+        className="object-cover w-full h-screen bg-cover pointer-events-none"
       >
         <source src={videoSrc} type="video/mp4" />
       </video>
@@ -32,7 +32,7 @@ export default function Text({ videoSrc, textContent, type, title }) {
               loop
               hover
               src="/lottie/SE-DET-FOR-DIG.json"
-              className="max-w-52 sm:max-w-xs md:max-w-md xl:max-w-lg "
+              className="max-w-72 sm:max-w-xs md:max-w-md xl:max-w-lg "
             ></Player>
           </FadeUp>
         </div>
@@ -61,9 +61,17 @@ export default function Text({ videoSrc, textContent, type, title }) {
         </div>
       )}
 
-      <div className="absolute bottom-0 left-0 z-10 pb-8 pl-6 font-sans pointer-events-none md:pl-32 lg:pl-36 text-lys xs:max-w-md sm:max-w-md md:max-w-xl lg:max-w-3xl">
+      <div className="absolute bottom-0 left-0 z-10 hidden pb-8 pl-6 font-sans pointer-events-none md:block md:pl-32 lg:pl-36 text-lys xs:max-w-md sm:max-w-md md:max-w-xl lg:max-w-3xl">
         <FadeUp delay={0.3}>
           <Paragraph>{textContent}</Paragraph>
+        </FadeUp>
+      </div>
+
+      <div className="z-10 px-4 py-12 font-sans pointer-events-none xs:px-4 sm:px-13 md:pr-24 bg-mørk col-span-full md:hidden text-lys ">
+        <FadeUp delay={0.3}>
+          <div className="xs:max-w-md sm:max-w-md">
+            <Paragraph>{textContent}</Paragraph>
+          </div>
         </FadeUp>
       </div>
     </>

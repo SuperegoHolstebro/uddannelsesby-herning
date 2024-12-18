@@ -28,15 +28,15 @@ const Hero: React.FC<HeroProps> = ({ data, ...props }) => {
       paddingTop={'none'}
       paddingX={'none'}
       variant="lys"
-      className="flex items-center justify-center w-full h-screen"
+      className="items-center justify-center block w-full min-h-screen overflow-hidden"
     >
-      <Scene type={data.type} />
       <Text
         textContent={data.text}
         videoSrc={data.media}
         type={data.type}
         title={data.string}
       />
+      <Scene type={data.type} />
     </Section>
   )
 }
