@@ -10,6 +10,7 @@ import { stegaClean } from '@sanity/client/stega'
 import { FOOTER_QUERY, NAVIGATION_QUERY } from '~/sanity/lib/sanity.queries'
 import Heading from '../atoms/Heading'
 import { FadeUp } from '../interactions/AnimateFadeIn'
+import { clean } from '~/utils/sanitize'
 
 /**
  *
@@ -55,8 +56,8 @@ export default function Navigation({ onClose, locale }) {
   }
 
   const data = useNavigationData()
-  const getFooter = useFooterData()
-  const footer = getFooter
+  const footer = useFooterData()
+
   return (
     <>
       <motion.nav
@@ -288,12 +289,15 @@ const BottomNavigation = ({ footer }) => {
             </Link>
           </Heading>
           <ul className="flex flex-wrap justify-center max-w-64 md:mx-0 gap-x-4 gap-y-2 md:justify-start">
-            {footer?.social?.map(
-              (item: { platform: string; url: string }, index: number) => (
-                <IconItem key={index} item={item} />
+            {clean(
+              footer?.social?.map(
+                (item: { platform: string; url: string }, index: number) => (
+                  <IconItem key={index} item={item} />
+                ),
               ),
             )}
           </ul>
+          <pre>{JSON.stringify(footer, null, 2)}</pre>
         </div>
       </FadeUp>
     </div>
