@@ -58,9 +58,15 @@ export default defineType({
                 description: 'Hvis du vil linke til en ekstern side',
                 name: 'href',
                 type: 'url',
-                validation: Rule => Rule.uri({
-                  scheme: ['http', 'https', 'mailto', 'tel']
-                })
+                validation: (Rule) =>
+                  Rule.uri({
+                    scheme: ['http', 'https', 'mailto', 'tel'],
+                  }),
+              },
+              {
+                title: 'Åben i nyt vindue',
+                name: 'blank',
+                type: 'boolean',
               },
             ],
           },
