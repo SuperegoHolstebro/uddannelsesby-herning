@@ -75,8 +75,13 @@ export default async function DynamicRoute({
           <div className="">
             <Heading spacing="none">{page.name}</Heading>
           </div>
-          <div className="flex col-span-full h-fit">
-            <Badge variant="dark">kategori </Badge>
+
+          <div className="flex space-x-3 col-span-full h-fit">
+            {page.fields.map((field, index) => (
+              <Badge key={index} variant="dark">
+                {field.title}{' '}
+              </Badge>
+            ))}
           </div>
         </div>
       </Section>
@@ -85,25 +90,32 @@ export default async function DynamicRoute({
       <Section paddingBottom="none" paddingTop="none" tag={'div'}>
         {' '}
         <div
-          className={`grid grid-cols-1 gap-4 text-center col-span-full md:grid-cols-2  md:p-12 md:flex-row divide-x border-grå`}
+          className={`grid grid-cols-1 gap-4 text-center col-span-full md:grid-cols-2 items-center  md:p-12 md:flex-row divide-x border-grå`}
         >
           <div className="flex flex-col items-center justify-start ">
-            <Icon type="calendar" className="mb-3 size-8" />
+            <Icon type="contact" className="mb-3 size-8" />
             <div className="space-y-.5">
-              <Heading type="h5" tag="p" spacing="none">
-                Information
-              </Heading>
-              <Paragraph spacing="none">Dato</Paragraph>
+              {page.phone && (
+                <Heading type="h5" tag="p" spacing="none">
+                  Tlf: <a href={`tel:${page.phone}`}>{page.phone}</a>
+                </Heading>
+              )}
+              {page.email && (
+                <Heading type="h5" tag="p" spacing="none">
+                  Mail: <a href={`mailto:${page.email}`}>{page.email}</a>
+                </Heading>
+              )}
+              <Paragraph spacing="none">Kontakt</Paragraph>
             </div>
           </div>
 
           <div className="flex flex-col items-center justify-start md:border-l md:border-grå md:pl-4">
-            <Icon type="clock" className="mb-3 size-8" />
+            <Icon type="streetSign" className="mb-3 size-8" />
             <div className="space-y-.5">
               <Heading type="h5" tag="h5" spacing="none">
                 {page?.address}
               </Heading>
-              <Paragraph spacing="none">Tidspunkt</Paragraph>
+              <Paragraph spacing="none">Lokation</Paragraph>
             </div>
           </div>
         </div>
