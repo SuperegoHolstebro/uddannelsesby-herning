@@ -137,7 +137,7 @@ export default async function DynamicRoute({
         paddingBottom="none"
         className="col-span-full "
       >
-        <div className="col-span-full">
+        <div className="col-span-full h-screen/2">
           <Photo image={page.image} objectFit="cover" />
         </div>
       </Section>

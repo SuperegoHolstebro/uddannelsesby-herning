@@ -26,8 +26,12 @@ const DiscountsSection = ({ section }) => {
 
   const { discounts, categories } = data
 
-  // Deduplicate categories
-  const uniqueCategories = categories
+  // Deduplicate categories and only show categories with discounts
+  const uniqueCategories = categories.filter((category) =>
+    discounts.some((event) =>
+      event.tags?.some((tag) => tag.title === category.category),
+    ),
+  )
 
   return (
     <Section>

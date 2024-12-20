@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 const DiscountsCard = ({ data }) => {
   return (
-    <div className="relative col-span-full sm:col-span-4 xl:col-span-8  border-b-grå border-b pb-6 mb-6">
+    <div className="relative col-span-full sm:col-span-4 xl:col-span-8 group border-b-grå border-b pb-6 mb-6">
       {data.url && (
         <Link
           title={data.title}
@@ -18,12 +18,8 @@ const DiscountsCard = ({ data }) => {
       {/* Image */}
       <div className="overflow-hidden">
         {data?.mainImage ? (
-          <div className="overflow-hidden aspect-w-5 aspect-h-3">
-            <Photo
-              className="transition-all duration-735 ease-custom group-hover:scale-110"
-              image={data.mainImage}
-              objectFit="cover"
-            />
+          <div className="overflow-hidden transition-all aspect-w-5 aspect-h-3 ease-custom duration-735 group-hover:scale-110">
+            <Photo className="" image={data.mainImage} objectFit="cover" />
           </div>
         ) : (
           <div className="overflow-hidden aspect-w-5 aspect-h-3">

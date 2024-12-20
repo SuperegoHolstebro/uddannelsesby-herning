@@ -24,6 +24,8 @@ const CallToAction2 = defineType({
     defineField({
       name: 'heading',
       title: 'Overskrift',
+      description:
+        'For at tilføje orddeling, skriv &shy; hvor ordet skal deles.',
       type: 'string',
     }),
 

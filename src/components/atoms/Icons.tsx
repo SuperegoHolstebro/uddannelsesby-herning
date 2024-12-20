@@ -45,6 +45,7 @@ type IconProps = {
     | 'x'
     | any
   [key: string]: React.SVGProps<SVGSVGElement> | string
+  className?: string
 }
 
 const Icon: React.FC<IconProps> = ({ type, ...props }) => {

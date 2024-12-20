@@ -40,7 +40,7 @@ function CompanyCardPortrait({ data }) {
   return (
     <div className="relative object-cover w-full overflow-hidden ">
       {data.image && (
-        <div className="aspect-w-4 aspect-h-2">
+        <div className="transition-all aspect-w-4 aspect-h-2 ease-custom duration-735 group-hover:scale-110">
           <Photo image={data.image} objectFit="cover" />
         </div>
       )}

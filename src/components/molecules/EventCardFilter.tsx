@@ -40,7 +40,7 @@ const EventCardFilter = ({ event }) => {
   const ticketsLeft = maxAttendees - bookedTickets
 
   return (
-    <li className="relative col-span-full sm:col-span-4 xl:col-span-8  border-b-grå border-b pb-6 mb-6">
+    <li className="relative group col-span-full sm:col-span-4 xl:col-span-8  border-b-grå border-b pb-6 mb-6">
       <Link
         className={`flex flex-col h-full w-full group ${event.isFull === true ? 'opacity-50' : ''}`}
         href={resolveHref(event._type, event.slug)}
@@ -58,7 +58,7 @@ function EventCardFilterPortrait({ data }) {
   return (
     <div className="relative object-cover w-full overflow-hidden">
       {data.image && (
-        <div className="aspect-w-4 aspect-h-3">
+        <div className="transition-all aspect-w-4 aspect-h-3 ease-custom duration-735 group-hover:scale-110">
           <Photo image={data.image} objectFit="cover" />
         </div>
       )}

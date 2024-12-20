@@ -58,7 +58,7 @@ export default async function DynamicRoute({
         className="col-span-full"
       >
         {page.mainImage && (
-          <div className="pt-24 col-span-full h-screen/1.6">
+          <div className="pt-24 col-span-full h-screen/2">
             <Photo image={page.mainImage} objectFit="cover" />
           </div>
         )}

@@ -15,9 +15,10 @@ export const headingType = defineType({
         collapsed: false,
         collapsible: true,
       },
-      description: 'Overkrift og størrelse',
       name: 'heading',
       title: 'Typografi',
+      description:
+        'Overkrift og størrelse. For at tilføje orddeling, skriv &shy; hvor ordet skal deles.',
       fields: [
         defineField({
           name: 'heading',

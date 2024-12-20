@@ -130,7 +130,7 @@ export default async function DynamicRoute({
         paddingBottom="none"
         className="col-span-full"
       >
-        <div className="col-span-full h-screen/1.2">
+        <div className="col-span-full h-screen/2">
           <Photo image={page.image} objectFit="cover" />
         </div>
       </Section>
@@ -145,7 +145,9 @@ export default async function DynamicRoute({
           </>
         )}
         <div className="pt-12">
-          {page.address && <Paragraph>Adresse: {page.address}</Paragraph>}
+          {page.address && (
+            <Paragraph spacing="none">Adresse: {page.address}</Paragraph>
+          )}
           {page.email && (
             <Paragraph>
               Mail: <a href={`mailto:${page.email}`}>{page.email}</a>

@@ -87,12 +87,12 @@ function ColumnOne({ data }) {
           (item: { platform: string; url: string }, index: number) => (
             <li key={index}>
               <Link
-                className="fill-mørk *:size-6 hover:fill-signal-gul transition-colors w-full block"
+                className="fill-mørk hover:fill-signal-gul transition-colors w-full block"
                 href={item.url}
                 target="_blank"
                 rel="noreferrer"
               >
-                <Icon className="" type={item.platform} />
+                <Icon className="size-8 md:size-7" type={item.platform} />
               </Link>
             </li>
           ),

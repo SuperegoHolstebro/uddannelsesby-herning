@@ -29,6 +29,14 @@ const CallToActionSection2 = ({ section }) => {
       className="relative pb-0 pr-0 xs:pr-0 group sm:pr-13 md:pr-24 lg:pr-19 xl:pr-36 2xl:pr-52"
       paddingX="right"
     >
+      <Button
+        className="absolute inset-0 top-0 right-0 z-50 size-full"
+        link={section?.link}
+        showSvg={false}
+        variant="none"
+      >
+        <span className="sr-only">{section?.link?.label}</span>
+      </Button>
       <div className="relative order-2 overflow-hidden col-span-full sm:col-span-4 md:col-span-7 xl:col-span-12 md:-order-none">
         <div className="h-full transition-all ease-custom duration-735 group-hover:scale-110">
           <Media data={section.MediaObject?.media} />
@@ -49,7 +57,7 @@ const CallToActionSection2 = ({ section }) => {
             spacing="none"
             type="h2"
             tag="h2"
-            dangerouslySetInnerHTML={{ __html: section.heading }}
+            dangerouslySetInnerHTML={{ __html: section?.heading }}
           ></Heading>
         </FadeUp>
         <FadeUp delay={0.5}>
