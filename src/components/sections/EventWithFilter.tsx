@@ -23,7 +23,7 @@ const EventWithFilter = ({ section }) => {
   return (
     <Section>
       {/* Filter Buttons */}
-      <div className="divide-x pb-6 gap-4 col-span-full divide-solid divide-grå grid grid-cols-6">
+      <div className="grid grid-cols-6 gap-4 pb-6 col-span-full">
         {useMediaQuery('(max-width: 768px)') ? (
           <div className="col-span-full">
             <Swiper spaceBetween={'16'} slidesPerView={2.8}>
@@ -114,7 +114,7 @@ function FilterButton({
   return (
     <button
       onClick={() => setSelectedCategory(category)}
-      className={`relative w-full ${className} space-y-5 ${selectedCategory === category ? '' : 'bg-hvid'}`}
+      className={`w-full gap-6 border-r border-grå [&:nth-child(6)]:border-r-0 [&:nth-child(12)]:border-r-0 [&:nth-child(18)]:border-r-0 [&:nth-child(24)]:border-r-0 [&:nth-child(30)]:border-r-0 space-y-5 relative ${className} space-y-5 ${selectedCategory === category ? '' : 'bg-hvid'}`}
     >
       <Icon className="mx-auto size-8" type={icon} />
       <span className="block space-y-2">

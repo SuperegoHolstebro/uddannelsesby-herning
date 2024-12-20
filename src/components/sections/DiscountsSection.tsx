@@ -31,7 +31,7 @@ const DiscountsSection = ({ section }) => {
 
   return (
     <Section>
-      <div className="divide-x pb-6 gap-4 col-span-full divide-solid divide-grå grid grid-cols-6">
+      <div className="grid grid-cols-6 gap-4 pb-6 col-span-full">
         <FilterButtons
           categories={categories}
           selectedCategory={selectedCategory}
@@ -96,7 +96,7 @@ function FilterButtons({
       ) : (
         <>
           <FilterButton
-            className=""
+            className="w-full gap-6 border-r border-grå [&:nth-child(6)]:border-r-0 [&:nth-child(12)]:border-r-0 [&:nth-child(18)]:border-r-0 [&:nth-child(24)]:border-r-0 [&:nth-child(30)]:border-r-0 relative space-y-5"
             icon="map"
             category="all"
             selectedCategory={selectedCategory}
@@ -106,7 +106,7 @@ function FilterButtons({
           </FilterButton>
           {uniqueCategories.map((category, index) => (
             <FilterButton
-              className=""
+              className="w-full gap-6 border-r border-grå [&:nth-child(6)]:border-r-0 [&:nth-child(12)]:border-r-0 [&:nth-child(18)]:border-r-0 [&:nth-child(24)]:border-r-0 [&:nth-child(30)]:border-r-0 relative space-y-5"
               icon={category.icon.icon}
               key={index}
               category={category.title}
