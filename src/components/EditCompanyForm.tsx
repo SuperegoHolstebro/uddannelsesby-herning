@@ -52,7 +52,7 @@ export default function EditCompanyForm({ session, company }) {
     <Section variant="lys">
       <div className="flex items-center justify-center min-h-screen/1.5 col-span-full text-center">
         <div className="md:w-1/2">
-          <Heading type="h2" tag="h2" fontFamily="outfit">
+          <Heading type="h2" tag="h2">
             Velkommen tilbage, {companyName}!
           </Heading>
           <p className="mb-4">Her kan du redigere virksomhedens information.</p>

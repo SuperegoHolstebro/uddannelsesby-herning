@@ -51,7 +51,7 @@ export default function SignIn() {
       <Section variant="lys">
         <div className="flex items-center justify-center min-h-screen/1.5 col-span-full text-center">
           <div className="md:w-1/3">
-            <Heading type="h2" tag="h2" fontFamily="outfit">
+            <Heading type="h2" tag="h2">
               Log ind som virksomhed
             </Heading>
             <form onSubmit={handleSubmit}>
