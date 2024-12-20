@@ -12,6 +12,7 @@ const DiscountsCard = ({ data }) => {
           title={data.title}
           className="absolute inset-0 z-10 size-full"
           href={data.url}
+          target="_blank"
         ></Link>
       )}
       {/* Image */}

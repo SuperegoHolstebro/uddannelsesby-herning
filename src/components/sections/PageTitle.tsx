@@ -35,10 +35,10 @@ const PageTitle = ({ data }) => {
       id={clean(data?.SectionSettings?.anchor?.current)}
       paddingTop="none"
       paddingBottom="none"
-      className="bg-mørk text-lys pt-36 pb-0 sm:pt-44 pr-0 overflow-y-visible overflow-x-clip min-h-[90vh] md:min-h-max"
+      className="bg-mørk text-lys pt-36 pb-0 sm:pt-44 pr-0 overflow-y-visible overflow-x-clip min-h-[90vh] md:min-h-max mb-12 md:mb-0"
       paddingX="left"
     >
-      <div className="flex flex-col justify-center col-start-1 md:col-start-2 -col-end-1 md:block">
+      <div className="flex flex-col justify-center col-start-1 md:col-start-2 2xl:col-start-1 -col-end-1 md:block">
         <div className="w-full pb-8 mt-auto sm:pb-12 sm:w-2/3 md:w-1/2 md:mt-0">
           <FadeUp delay={0.25}>
             <Heading
@@ -65,7 +65,7 @@ const PageTitle = ({ data }) => {
             <FadeUp delay={0.625}>
               <Symbol
                 type={data.symbolPickerRight?.icon}
-                className="size-28 sm:size-36 md:size-44 opacity-30 md:opacity-100"
+                className="size-28 sm:size-36 md:size-36 lg:size-44 opacity-30 md:opacity-100"
               />
             </FadeUp>
           </span>
@@ -73,7 +73,7 @@ const PageTitle = ({ data }) => {
             <FadeUp delay={0.725}>
               <Symbol
                 type={data.symbolPickerLeft?.icon}
-                className="size-20 sm:size-36 md:size-44"
+                className="size-20 sm:size-36 md:size-36 lg:size-44"
               />
             </FadeUp>
           </span>
