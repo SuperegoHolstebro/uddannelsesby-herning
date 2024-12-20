@@ -297,7 +297,6 @@ const BottomNavigation = ({ footer }) => {
               ),
             )}
           </ul>
-          <pre>{JSON.stringify(footer, null, 2)}</pre>
         </div>
       </FadeUp>
     </div>
