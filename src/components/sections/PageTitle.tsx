@@ -38,7 +38,7 @@ const PageTitle = ({ data }) => {
       className="bg-mørk text-lys pt-36 pb-0 sm:pt-44 pr-0 overflow-y-visible overflow-x-clip min-h-[90vh] md:min-h-max"
       paddingX="left"
     >
-      <div className="flex flex-col justify-center col-span-full md:block">
+      <div className="flex flex-col justify-center col-start-1 md:col-start-2 -col-end-1 md:block">
         <div className="w-full pb-8 mt-auto sm:pb-12 sm:w-2/3 md:w-1/2 md:mt-0">
           <FadeUp delay={0.25}>
             <Heading
@@ -69,7 +69,7 @@ const PageTitle = ({ data }) => {
               />
             </FadeUp>
           </span>
-          <span className="absolute bottom-40 -left-4 xs:bottom-40 xs:-left-12 md:-left-20">
+          <span className="absolute bottom-40 opacity-30 md:opacity-100 -left-4 xs:bottom-40 xs:-left-12 md:-left-20">
             <FadeUp delay={0.725}>
               <Symbol
                 type={data.symbolPickerLeft?.icon}

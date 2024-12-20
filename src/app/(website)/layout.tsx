@@ -7,20 +7,22 @@ import { client } from '@/sanity/lib/sanity.client'
 import { SITE_SETTINGS_QUERY } from '@/sanity/lib/sanity.queries'
 import Script from 'next/script'
 import Appconfig from 'config'
-import { Inter, PT_Serif } from 'next/font/google'
+import { PT_Serif, Outfit } from 'next/font/google'
 
-const sans = Inter({
-  subsets: ['latin'],
-  display: 'swap',
+const sans = Outfit({
   variable: '--font-sans',
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  display: 'swap',
+  preload: true,
 })
 
-const serif = PT_Serif({
+const outfit = Outfit({
+  variable: '--font-outfit',
   subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-serif',
-  style: ['normal', 'italic'],
   weight: ['400', '700'],
+  display: 'swap',
+  preload: true,
 })
 
 export default async function RootLayout({
@@ -41,7 +43,7 @@ export default async function RootLayout({
   return (
     <html lang={locale || 'da'}>
       <GoogleTagManager gtmId={settings?.googleTagManager?.id} />
-      <body className={`${sans.variable} ${serif.variable}`}>
+      <body className={`${sans.className} ${outfit.className}`}>
         <Script
           id="show-banner"
           strategy="beforeInteractive"

@@ -50,9 +50,12 @@ InnerBlocks.Paragraphs = Paragraphs
 function Title({ data, index }) {
   return (
     <FadeUp delay={index * 0.1}>
-      <Heading size={data.heading.tag} type={data.heading.tag} spacing="small">
-        {data.heading.heading}
-      </Heading>
+      <Heading
+        size={data.heading.tag}
+        type={data.heading.tag}
+        spacing="small"
+        dangerouslySetInnerHTML={{ __html: data.heading.heading }}
+      />
     </FadeUp>
   )
 }

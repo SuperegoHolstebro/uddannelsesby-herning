@@ -10,6 +10,7 @@ import { stegaClean } from '@sanity/client/stega'
 import { FOOTER_QUERY, NAVIGATION_QUERY } from '~/sanity/lib/sanity.queries'
 import Heading from '../atoms/Heading'
 import { FadeUp } from '../interactions/AnimateFadeIn'
+import { clean } from '~/utils/sanitize'
 
 /**
  *
@@ -55,8 +56,8 @@ export default function Navigation({ onClose, locale }) {
   }
 
   const data = useNavigationData()
-  const getFooter = useFooterData()
-  const footer = getFooter
+  const footer = useFooterData()
+
   return (
     <>
       <motion.nav
@@ -130,7 +131,7 @@ function MenuItem({ item }) {
               <span
                 className={`
                 invisible opacity-0 group-hover/button:visible group-hover/button:opacity-100
-                  transition-all ease-custom duration-735 absolute size-6 md:size-8 -left-[5%] md:-translate-x-full -translate-x-1/2 -translate-y-1/2 top-1/2 `}
+                  transition-all ease-custom duration-735 absolute size-6 md:size-14 -left-[5%] md:-translate-x-full -translate-x-1/2 -translate-y-1/2 top-1/2 `}
               >
                 <motion.span
                   transition={{ stiffness: 100, duration: 0.5 }}
@@ -288,9 +289,11 @@ const BottomNavigation = ({ footer }) => {
             </Link>
           </Heading>
           <ul className="flex flex-wrap justify-center max-w-64 md:mx-0 gap-x-4 gap-y-2 md:justify-start">
-            {footer?.social?.map(
-              (item: { platform: string; url: string }, index: number) => (
-                <IconItem key={index} item={item} />
+            {clean(
+              footer?.social?.map(
+                (item: { platform: string; url: string }, index: number) => (
+                  <IconItem key={index} item={item} />
+                ),
               ),
             )}
           </ul>

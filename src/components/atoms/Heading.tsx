@@ -17,13 +17,18 @@ import { cn } from '@/utils/utils'
  *
  **/
 
-const HeadingVariants = cva('text-balance rwx hyphens-auto uppercase', {
+const HeadingVariants = cva('rwx hyphens-auto uppercase', {
   variants: {
     text: {
       balance: 'text-balance',
       pretty: 'text-pretty',
       nowrap: 'text-nowrap',
       wrap: 'text-wrap',
+    },
+    hyphens: {
+      none: 'hyphens-none',
+      manual: 'hyphens-manual ',
+      auto: 'hyphens-auto',
     },
     type: {
       h1: 'text-giant font-bold leading-normal tracking-normal',
@@ -39,7 +44,6 @@ const HeadingVariants = cva('text-balance rwx hyphens-auto uppercase', {
       sans: 'font-sans',
       serif: 'font-serif',
       mono: 'font-mono',
-      outfit: 'font-outfit',
     },
     tag: {
       h1: 'h1',
@@ -73,9 +77,10 @@ const HeadingVariants = cva('text-balance rwx hyphens-auto uppercase', {
   },
   defaultVariants: {
     type: 'h2',
-    fontFamily: 'outfit',
+    fontFamily: 'sans',
     tag: 'h2',
     spacing: 'default',
+    hyphens: 'manual',
     maxWidth: 'default',
     clamp: 'none',
     text: 'balance',
@@ -91,6 +96,7 @@ const Heading: React.FC<ExtendedHeadingProps> = ({
   clamp,
   tag,
   fontFamily,
+  hyphens,
   spacing,
   className,
   maxWidth,
@@ -106,6 +112,7 @@ const Heading: React.FC<ExtendedHeadingProps> = ({
           fontFamily,
           clamp,
           spacing,
+          hyphens,
           maxWidth,
           type,
         }),

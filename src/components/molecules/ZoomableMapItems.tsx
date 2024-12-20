@@ -44,8 +44,8 @@ const ZoomableMapItems = ({ data }) => {
             }}
           >
             {uniqueCategories.map((category, index) => (
-              <li key={index} className="flex w-full gap-6">
-                <Icon className="size-8" type={category?.icon} />
+              <li key={index} className="flex w-full gap-3 md:gap-6">
+                <Icon className="size-6 md:size-8" type={category?.icon} />
                 {category?.title}
               </li>
             ))}
