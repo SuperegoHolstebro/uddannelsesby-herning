@@ -28,7 +28,7 @@ module.exports = {
         },
       ],
       regular: [
-        'clamp(1rem, 1.2rem + 0.667rem, 1.05rem);',
+        'clamp(1rem, 1.2rem + 0.767rem, 1.25rem);',
         {
           // Paragraph
           lineHeight: '1.5',

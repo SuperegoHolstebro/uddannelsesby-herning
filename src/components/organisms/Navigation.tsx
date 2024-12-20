@@ -193,7 +193,7 @@ function MenuItem({ item }) {
           <span
             className={`relative transition-all flex gap-4 font-bold group-hover/button:text-signal-gul ${isSubmenuOpen ? 'text-signal-gul' : ''}`}
           >
-            <span className="invisible opacity-0 group-focus-within/button:visible group-focus-within/button:opacity-100 group-hover/button:visible group-hover/button:opacity-100 transition-all ease-custom duration-735 absolute size-6 md:size-8 -left-[5%] md:-translate-x-full -translate-x-1/2 -translate-y-1/2 top-1/2">
+            <span className="invisible opacity-0 group-focus-within/button:visible group-focus-within/button:opacity-100 group-hover/button:visible group-hover/button:opacity-100 transition-all ease-custom duration-735 absolute size-6 md:size-14 -left-[5%] md:-translate-x-full -translate-x-1/2 -translate-y-1/2 top-1/2">
               <motion.span
                 transition={{ stiffness: 100, duration: 0.5 }}
                 exit={{ scale: 0, opacity: 0 }}
