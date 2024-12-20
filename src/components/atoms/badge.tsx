@@ -18,7 +18,7 @@ import { cn } from '@/utils/utils'
  **/
 
 const BadgeVariants = cva(
-  'p-2.5 leading-none text-regular w-fit uppercase rounded-full',
+  'p-2.5 leading-none text-regular w-fit uppercase rounded-full h-fit',
   {
     variants: {
       variant: {

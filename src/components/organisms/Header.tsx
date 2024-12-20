@@ -99,7 +99,7 @@ export default function Header({ locale }) {
             className="text-lys md:rotate-90"
             href="/"
           >
-            <Logo className="w-44 md:w-[250px] group" />
+            <Logo className="w-48 md:w-[250px] group" />
           </Link>
         </div>
 
