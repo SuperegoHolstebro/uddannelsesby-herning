@@ -19,10 +19,6 @@ import { clean } from '~/utils/sanitize'
  *
  **/
 
-const sanitizeString = (str) => {
-  return str.replace(/[^\x20-\x7E]/g, '')
-}
-
 const EventSection = ({ section, amount }) => {
   const { events } = section
   const [activeIndex, setActiveIndex] = useState(null)
