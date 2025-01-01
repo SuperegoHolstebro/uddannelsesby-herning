@@ -8,6 +8,9 @@ const EventCardQuery = groq`
   image {
     ${ImageQuery},
   },
+  category->{
+    title,
+  },
   _type,
   price
 `
