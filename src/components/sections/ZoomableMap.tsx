@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import * as d3 from 'd3'
 import ClusterIndicator from '../atoms/ClusterIndicator'
 import MapPin from '../atoms/MapPin'
@@ -106,10 +106,34 @@ export const ZoomableMap = ({ pins }) => {
 
     svg.transition().duration(500).call(zoomRef.current.transform, transform)
   }
-  const theSvgWidth =
-    typeof window !== 'undefined' && window.innerWidth >= 1440 ? 1920 : 720
-  const theSvgHeight =
-    typeof window !== 'undefined' && window.innerWidth >= 1440 ? 1080 : 956
+
+  const [svgDimensions, setSvgDimensions] = useState({
+    width: 1920,
+    height: 1080,
+  })
+
+  useEffect(() => {
+    const updateDimensions = () => {
+      if (window.innerWidth >= 768) {
+        setSvgDimensions({ width: 1920, height: 1080 })
+      } else {
+        setSvgDimensions({ width: 720, height: 956 })
+      }
+    }
+
+    // Set initial dimensions
+    updateDimensions()
+
+    // Add event listener for window resize
+    window.addEventListener('resize', updateDimensions)
+
+    // Cleanup listener on component unmount
+    return () => {
+      window.removeEventListener('resize', updateDimensions)
+    }
+  }, [])
+
+  const { width: theSvgWidth, height: theSvgHeight } = svgDimensions
 
   //  theSvgHeight
   return (
