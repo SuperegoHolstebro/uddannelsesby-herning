@@ -106,8 +106,10 @@ export const ZoomableMap = ({ pins }) => {
 
     svg.transition().duration(500).call(zoomRef.current.transform, transform)
   }
-  const theSvgWidth = window.innerWidth >= 1440 ? 1920 : 720
-  const theSvgHeight = window.innerWidth >= 1440 ? 1080 : 956
+  const theSvgWidth =
+    typeof window !== 'undefined' && window.innerWidth >= 1440 ? 1920 : 720
+  const theSvgHeight =
+    typeof window !== 'undefined' && window.innerWidth >= 1440 ? 1080 : 956
 
   //  theSvgHeight
   return (
