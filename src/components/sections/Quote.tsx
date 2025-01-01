@@ -57,7 +57,7 @@ const Quote = ({ section }) => {
       {/* Quote in columns 4 to 14, overlapping the image slightly */}
       <div className="z-10 px-4 pt-8 pb-8 md:text-right sm:row-start-1 md:pt-14 col-span-full xs:px-4 sm:px-13 sm:pr-0 sm:col-span-6 sm:col-start-1 xl:col-start-4 xl:col-span-10 md:pl-0 xl:pt-0 xl:my-auto">
         <div className="relative">
-          <span className="absolute z-10 translate-x-full translate-y-0 md:translate-y-full right-full md:translate-x-0 md:right-0 -top-1/2 md:-top-full">
+          <span className="absolute z-10 translate-x-full translate-y-0 md:translate-y-full right-full md:translate-x-0 md:right-0 -top-1/2 md:-top-2/3">
             <FadeUp>
               <Icon type="quote" />
             </FadeUp>
