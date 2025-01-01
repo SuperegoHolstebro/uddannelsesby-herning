@@ -144,7 +144,7 @@ const FilterButton = ({
   return (
     <button
       onClick={() => setSelectedCategory(category)}
-      className={`${className} border-grå relative w-full space-y-5 ${selectedCategory === category ? '' : 'bg-hvid'}`}
+      className={`w-full gap-6 border-r border-grå [&:nth-child(6)]:border-r-0 [&:nth-child(12)]:border-r-0 [&:nth-child(18)]:border-r-0 [&:nth-child(24)]:border-r-0 [&:nth-child(30)]:border-r-0 space-y-5 relative ${className} space-y-5 ${selectedCategory === category ? '' : 'bg-hvid'}`}
     >
       <Icon className="mx-auto size-8" type={icon} />
       <span className="block">{children}</span>
