@@ -68,7 +68,7 @@ const DiscountsCard = ({ data }) => {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <g clip-path="url(#clip0_980_1434)">
+              <g clipPath="url(#clip0_980_1434)">
                 <path
                   d="M9 3.75H1.5V16.5H14.25V9"
                   stroke="#262723"
