@@ -106,19 +106,23 @@ export const ZoomableMap = ({ pins }) => {
 
     svg.transition().duration(500).call(zoomRef.current.transform, transform)
   }
+  const theSvgWidth = window.innerWidth >= 1440 ? 1920 : 720
+  const theSvgHeight = window.innerWidth >= 1440 ? 1080 : 956
 
+  //  theSvgHeight
   return (
     <svg
+      preserveAspectRatio="xMinYMin slice"
       className="relative map"
       ref={svgRef}
       style={{
-        border: '1px solid black',
+        border: '1px solid #4a494a',
         width: '100%',
         height: '100%',
         background: '#4a494a',
       }}
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 1920 1080"
+      viewBox={`0 0 ${theSvgWidth} ${theSvgHeight}`}
     >
       <g>
         {/* SVG Background */}
