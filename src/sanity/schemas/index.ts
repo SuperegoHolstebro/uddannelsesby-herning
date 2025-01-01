@@ -88,6 +88,7 @@ import MapCategory from './documents/MapCategory'
 import { programType } from './sections/program'
 import { SchoolsType } from './sections/School.schema'
 import { logoband } from './sections/logoband.schema'
+import experience from './management/experience'
 
 export const schemaTypes = [
   heroType,
@@ -144,6 +145,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     // Pages
     reusable,
     page,
+    experience,
     eventCategory,
     school,
     event,

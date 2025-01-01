@@ -2,8 +2,9 @@ import { ListItemBuilder } from 'sanity/structure'
 import defineStructure from '@/utils/defineStructure'
 import { CornerUpRight, PanelBottom, PanelTop, Map } from '@mynaui/icons-react'
 import companyLogins from './companyLogin.structure'
+import experience from './experience.structure'
+
 import { SettingsIcon } from '~/components/sanity/PageBuilderIcons'
-import MapCategory from '../schemas/documents/MapCategory'
 
 export default defineStructure<ListItemBuilder>((S, context) =>
   S.listItem()
@@ -49,6 +50,7 @@ export default defineStructure<ListItemBuilder>((S, context) =>
                 ),
             ),
           companyLogins(S, context),
+          experience(S, context),
         ]),
     ),
 )
