@@ -58,7 +58,12 @@ const DiscountsSection = ({ section }) => {
         />
       </div>
       <div className="pt-4 col-span-full">
-        <Section tag="ul" paddingX="none" paddingTop="none">
+        <Section
+          tag="ul"
+          paddingX="none"
+          paddingTop="none"
+          paddingBottom="none"
+        >
           {filteredDiscounts.map((discount, index) => (
             <DiscountsCard key={discount._id || index} data={discount} />
           ))}
