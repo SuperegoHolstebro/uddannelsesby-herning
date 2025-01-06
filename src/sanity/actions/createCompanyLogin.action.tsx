@@ -10,6 +10,7 @@ export function CreateCompanyLoginAction(props) {
   const [isDialogOpen, setIsDialogOpen] = useState(false)
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [email, setEmail] = useState('')
 
   const handleOpenDialog = () => {
     const company = draft || published
@@ -29,10 +30,10 @@ export function CreateCompanyLoginAction(props) {
         return
       }
 
-      if (!username || !password) {
+      if (!username || !password || !email) {
         toast.push({
           status: 'error',
-          title: 'Username and password are required',
+          title: 'Brugeroplysninger mangler',
         })
         return
       }
@@ -55,32 +56,34 @@ export function CreateCompanyLoginAction(props) {
         _type: 'companyLogin',
         username,
         password: hashedPassword,
+        email: email,
         companyRef: { _type: 'reference', _ref: companyId },
       })
 
       toast.push({
         status: 'success',
-        title: 'Company login created successfully!',
-        description: `Username: ${username}`,
+        title: 'Virksomheds login oprettet',
+        description: `Brugernavn: ${username}`,
       })
 
       setIsDialogOpen(false)
       setUsername('')
       setPassword('')
+      setEmail('')
 
       onComplete()
     } catch (error) {
       console.error('Error creating company login:', error)
       toast.push({
         status: 'error',
-        title: 'Failed to create company login',
+        title: 'Fejl ved oprettelse af virksomheds login',
         description: error.message,
       })
     }
   }
 
   return {
-    label: 'Create Company Login',
+    label: 'Opret virksomheds login',
     onHandle: handleOpenDialog,
     dialog: isDialogOpen && {
       type: 'modal',
@@ -90,20 +93,27 @@ export function CreateCompanyLoginAction(props) {
         <Box padding={4}>
           <Stack space={4}>
             <TextInput
-              label="Username"
-              placeholder="Enter username"
+              label="Brugernavn"
+              placeholder="Indtast brugernavn"
               value={username}
               onChange={(e) => setUsername(e.currentTarget.value)}
             />
             <TextInput
-              label="Password"
-              placeholder="Enter password"
+              label="Kodeord"
+              placeholder="Indtast kodeord"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.currentTarget.value)}
             />
+            <TextInput
+              label="Email"
+              placeholder="Indtast email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.currentTarget.value)}
+            />
             <Button
-              text="Create Login"
+              text="Opret login"
               tone="primary"
               onClick={handleCreateLogin}
             />

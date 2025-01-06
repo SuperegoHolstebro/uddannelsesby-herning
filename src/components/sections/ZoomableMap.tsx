@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import * as d3 from 'd3'
 import ClusterIndicator from '../atoms/ClusterIndicator'
 import MapPin from '../atoms/MapPin'
@@ -107,18 +107,48 @@ export const ZoomableMap = ({ pins }) => {
     svg.transition().duration(500).call(zoomRef.current.transform, transform)
   }
 
+  const [svgDimensions, setSvgDimensions] = useState({
+    width: 1920,
+    height: 1080,
+  })
+
+  useEffect(() => {
+    const updateDimensions = () => {
+      if (window.innerWidth >= 768) {
+        setSvgDimensions({ width: 1920, height: 1080 })
+      } else {
+        setSvgDimensions({ width: 720, height: 956 })
+      }
+    }
+
+    // Set initial dimensions
+    updateDimensions()
+
+    // Add event listener for window resize
+    window.addEventListener('resize', updateDimensions)
+
+    // Cleanup listener on component unmount
+    return () => {
+      window.removeEventListener('resize', updateDimensions)
+    }
+  }, [])
+
+  const { width: theSvgWidth, height: theSvgHeight } = svgDimensions
+
+  //  theSvgHeight
   return (
     <svg
+      preserveAspectRatio="xMinYMin slice"
       className="relative map"
       ref={svgRef}
       style={{
-        border: '1px solid black',
+        border: '1px solid #4a494a',
         width: '100%',
         height: '100%',
         background: '#4a494a',
       }}
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 1920 1080"
+      viewBox={`0 0 ${theSvgWidth} ${theSvgHeight}`}
     >
       <g>
         {/* SVG Background */}

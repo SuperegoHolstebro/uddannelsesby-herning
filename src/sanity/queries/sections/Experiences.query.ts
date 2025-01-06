@@ -1,40 +1,35 @@
-import groq from 'groq'
+import { groq } from 'next-sanity'
 import { ImageQuery } from '../atoms/ImageQuery'
 
 const EventCardQuery = groq`
   title, 
-  "slug": slug.current,
-  startDate,
-  image {
+  mainImage {
     ${ImageQuery},
   },
-  category->{
-    title,
-  },
   _type,
-  price
 `
 const Manual = groq`
-  view == "manual" => events[]->{
+  view == "manual" => experiences[]->{
     ${EventCardQuery}
   }
 `
 const All = groq`
-  view == "all" => *[_type == "event"] {
-    ${EventCardQuery}
-  }
-`
-const Newest = groq`
-  view == "newest" => *[_type == "event"] | order(date desc)[0...(6)]{
+  view == "all" => *[_type == "experience"] {
     ${EventCardQuery}
   }
 `
 
-export const EventTypeQuery = groq`
-  _type == "EventType" => {
+const Newest = groq`
+  view == "newest" => *[_type == "experience"] | order(date desc)[0...(6)]{
+    ${EventCardQuery}
+  }
+`
+
+export const experience_QUERY = groq`
+  _type == "experienceType" => {
     amount,
     ...,
-    "events": select(
+    "experiences": select(
       ${All},
       ${Manual},
       ${Newest}

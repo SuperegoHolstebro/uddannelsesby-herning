@@ -37,6 +37,10 @@ export const pageBuilder = defineType({
   },
   of: [
     defineArrayMember({
+      name: 'experienceType',
+      type: 'experienceType',
+    }),
+    defineArrayMember({
       name: 'mapType',
       type: 'mapType',
     }),

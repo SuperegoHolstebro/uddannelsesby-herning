@@ -37,8 +37,8 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'icon',
-      title: 'Ikon',
+      name: 'category',
+      title: 'Kategori',
       type: 'reference',
       to: [{ type: 'discountsTag' }],
     }),

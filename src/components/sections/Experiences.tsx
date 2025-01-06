@@ -5,22 +5,23 @@ import Heading from '../atoms/Heading'
 import EventCard from '../molecules/EventCard'
 import Carousel from '../organisms/Carousel'
 import { clean } from '~/utils/sanitize'
+import ExperienceCard from '../molecules/ExperienceCard'
 /**
  *
- * @returns: En sektion med events.
- * @example: <EventSection />
- * @alias: EventSection
- * @module: components/sections/EventSection
- * @summary: Denne komponent bruges til at vise en sektion med events.
- * @see: src/components/sections/EventSection.tsx
+ * @returns: En sektion med oplevelser.
+ * @example: <Experiences />
+ * @alias: Experiences
+ * @module: components/sections/Experiences
+ * @summary: Denne komponent bruges til at vise en sektion med Oplevelser.
+ * @see: src/components/sections/Experiences.tsx
  * @version: 1.0.0
  * @property: [section, amount]
  * @author: Emilie Hjøllund
  *
  **/
 
-const EventSection = ({ section, amount }) => {
-  const { events } = section
+const Experiences = ({ section, amount }) => {
+  const { experiences } = section
   const [activeIndex, setActiveIndex] = useState(null)
 
   return (
@@ -52,7 +53,7 @@ const EventSection = ({ section, amount }) => {
       <Carousel
         slidesPerView={1.2}
         spaceBetween={32}
-        loop={events.length > 5}
+        loop={experiences.length > 5}
         hideNavigation={activeIndex !== null} // Modify this line to hide navigation when hover
         breakpoints={{
           0: { slidesPerView: 1.5, spaceBetween: 16 },
@@ -65,10 +66,10 @@ const EventSection = ({ section, amount }) => {
           2500: { slidesPerView: 4.7, spaceBetween: 24 },
         }}
       >
-        {events.map((event, index) => (
-          <EventCard
+        {experiences.map((experience, index) => (
+          <ExperienceCard
             key={index}
-            event={event}
+            experience={experience}
             isActive={activeIndex === index}
             onMouseEnter={() => setActiveIndex(index)}
             onMouseLeave={() => setActiveIndex(null)}
@@ -80,4 +81,4 @@ const EventSection = ({ section, amount }) => {
   )
 }
 
-export default EventSection
+export default Experiences

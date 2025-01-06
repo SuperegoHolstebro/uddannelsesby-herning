@@ -9,7 +9,7 @@ export const DiscountQuery = groq`
         "icon": icon-> {
           ...
         },
-        "tags": tags[]-> {
+        "tags": icon-> {
           ...
         }
       },

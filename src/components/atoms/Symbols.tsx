@@ -120,7 +120,7 @@ const Symbol: React.FC<SymbolProps> = ({ type, ...props }) => {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g clip-path="url(#clip0_980_1044)">
+        <g clipPath="url(#clip0_980_1044)">
           <path
             d="M65.0331 36.6955H1.65083V1.65083H166.762V36.6955H65.0331Z"
             stroke="#D9FC00"

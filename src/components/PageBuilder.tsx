@@ -1,5 +1,4 @@
 import React from 'react'
-import InnerBlocks from '@/components/molecules/InnerBlocks'
 import ArticlesSection from '@/components/sections/ArticlesSection'
 import CallToActionSection2 from './sections/CallToActionSection2'
 import EventSection from '@/components/sections/EventSection'
@@ -25,6 +24,7 @@ import Map from './sections/Map'
 import Program from './sections/program'
 import Schools from './sections/schools'
 import LogoBand from './sections/LogoBand'
+import Experiences from './sections/Experiences'
 
 const PageBuilder = ({ sections }) => {
   return (
@@ -45,6 +45,14 @@ const PageBuilder = ({ sections }) => {
             return <Companies key={index} section={section} />
           case 'logoband':
             return <LogoBand key={index} data={section} />
+          case 'experienceType':
+            return (
+              <Experiences
+                amount={section.amount}
+                section={section}
+                key={index}
+              />
+            )
           case 'info':
             return <Info data={section} key={index} />
           case 'QuickLinks':
