@@ -71,9 +71,7 @@ const ExperienceCard = ({
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.3, ease: [0.86, 0, 0.07, 1] }}
                   className="flex items-center justify-between transition-opacity duration-300 opacity-100 text-lys"
-                >
-                  qwe
-                </motion.div>
+                ></motion.div>
               )}
             </AnimatePresence>
           </div>
