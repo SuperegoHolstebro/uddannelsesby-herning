@@ -89,6 +89,7 @@ import { programType } from './sections/program'
 import { SchoolsType } from './sections/School.schema'
 import { logoband } from './sections/logoband.schema'
 import experience from './management/experience'
+import { experienceType } from './sections/experiences.schema'
 
 export const schemaTypes = [
   heroType,
@@ -108,6 +109,7 @@ export const schemaTypes = [
   ArticlesType,
   Gallery,
   LogoGallery,
+  experienceType,
   LogoGallery2,
   SchoolsType,
   MediaType,
@@ -173,6 +175,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     blockContent,
     Gallery,
     LogoGallery,
+    experienceType,
     LogoGallery2,
     SchoolsType,
     CallToAction2,

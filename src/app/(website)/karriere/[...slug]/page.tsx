@@ -21,6 +21,7 @@ import Badge from '~/components/atoms/badge'
 import Photo from '~/components/atoms/Photo'
 import { AdvancedButton } from '~/components/atoms/AdvancedButton'
 import Link from 'next/link'
+import CallToActionSection2 from '~/components/sections/CallToActionSection2'
 interface Params {
   slug: string[]
   locale: string
@@ -87,7 +88,6 @@ export default async function DynamicRoute({
           </div>
         </div>
       </Section>
-
       {/* info boxes */}
       <Section paddingBottom="none" paddingTop="none" tag={'div'}>
         {' '}
@@ -122,7 +122,6 @@ export default async function DynamicRoute({
           </div>
         </div>
       </Section>
-
       {/* image */}
       <Section
         variant="primary"
@@ -134,7 +133,6 @@ export default async function DynamicRoute({
           <Photo image={page.image} objectFit="cover" />
         </div>
       </Section>
-
       <TextContainer asChild>
         {page.description && (
           <>
@@ -194,7 +192,24 @@ export default async function DynamicRoute({
         </div>
       </TextContainer>
       {isUserAssignedToCompany && <EditButton />}
-      {page.pageBuilder && <PageBuilder sections={page.pageBuilder} />}
+      <CallToActionSection2 section={customCTA} />
     </PageContainer>
   )
+}
+
+const customCTA = {
+  heading: 'mere end 178 jobmuligheder under og efter dit studie?',
+  link: {
+    label: 'Læs mere om os',
+    url: '/din-karriere',
+  },
+  MediaObject: {
+    imageObject: {
+      image: {
+        asset: {
+          url: 'https://cdn.sanity.io/images/9l811vbz/production/f6d7d83f496207a7f8aacd149a3d00ea09389ef3-1920x1091.png?fit=max&w=1200&h=1200',
+        },
+      },
+    },
+  },
 }

@@ -24,6 +24,7 @@ import { MediaTypeQuery } from '../sections/MediaType.query'
 import { programType_QUERY } from '../sections/program.query'
 import { SchoolsTypeQuery } from '../sections/SchoolsType.query'
 import { LogoBandQuery } from '../sections/LogoBand.query'
+import { experience_QUERY } from '../sections/Experiences.query'
 
 export const pageBuilderQuery = groq`
   pageBuilder[] {
@@ -51,6 +52,7 @@ export const pageBuilderQuery = groq`
     ${QUOTE_QUERY},
     ${PAGETITLE_QUERY},
     ${DownloadsAndLinksQuery},
-    ${MediaTypeQuery}
+    ${MediaTypeQuery},
+    ${experience_QUERY}
   }
 `
