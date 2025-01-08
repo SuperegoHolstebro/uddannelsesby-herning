@@ -60,26 +60,23 @@ export function GoToCompanyLoginAction({ documentId }) {
   }
 
   return {
-    label: 'Go to Company Login',
+    label: 'Gå til virksomhedslogin',
     onHandle: handleOpenDialog,
     dialog: isDialogOpen && {
       type: 'modal',
       onClose: () => setIsDialogOpen(false),
-      header: 'Go to Company Login',
+      header: 'Gå til virksomhedslogin',
       content: (
         <Stack space={4} padding={4}>
-          <Text>
-            Are you sure you want to navigate to the company login for this
-            company?
-          </Text>
+          <Text>Vil du åbne virksomhedsloginet for denne virksomhed?</Text>
           <Button
-            text={loading ? 'Redirecting...' : 'Confirm and Open Login'}
+            text={loading ? 'Åbner...' : 'Åben virksomhedslogin'}
             tone="primary"
             onClick={handleLoginRedirect}
             disabled={loading}
           />
           <Button
-            text="Cancel"
+            text="Annullér"
             tone="default"
             onClick={() => setIsDialogOpen(false)}
           />
