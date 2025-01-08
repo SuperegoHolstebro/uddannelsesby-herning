@@ -18,11 +18,11 @@ export const headingType = defineType({
       name: 'heading',
       title: 'Typografi',
       description:
-        'Overkrift og størrelse. For at tilføje orddeling, skriv &shy; hvor ordet skal deles.',
+        'Overskrift og størrelse. For at tilføje orddeling, skriv &shy; hvor ordet skal deles.',
       fields: [
         defineField({
           name: 'heading',
-          title: 'Overkrift',
+          title: 'Overskrift',
           type: 'string',
         }),
         defineField({

@@ -8,7 +8,7 @@ export async function isUniqueOtherThanLanguage(
   if (!document?.language) {
     return true
   }
-  const client = getClient({ apiVersion: '2023-04-24' })
+  const client = getClient({ apiVersion: '2024-05-07' })
   const id = document._id.replace(/^drafts\./, '')
   const params = {
     draft: `drafts.${id}`,

@@ -4,7 +4,7 @@ const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   dataset: 'production',
   useCdn: false,
-  apiVersion: '2022-11-28',
+  apiVersion: '2024-05-07',
   token: process.env.SANITY_API_READ_TOKEN, // Add this if your dataset is private
 })
 async function generateRedirects() {

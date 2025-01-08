@@ -262,8 +262,8 @@ function EventSignUpForm({ event }) {
                     <option value="Social- og Sundhedsskolen Herning">
                       Social- og Sundhedsskolen Herning
                     </option>
-                    <option value="Herningsholm Erhvervsskole & HHX/HTX">
-                      Herningsholm Erhvervsskole & HHX/HTX
+                    <option value="Herningsholm Erhvervsskole">
+                      Herningsholm Erhvervsskole
                     </option>
                   </select>
                   <span className="absolute text-grå transition-all opacity-100 bottom-7 peer-placeholder-shown:opacity-0 text-small peer-placeholder-shown:text-regular peer-placeholder-shown:bottom-5">
