@@ -15,9 +15,13 @@ const EventWithFilter = ({ section }) => {
 
   // Deduplicate categories
   const uniqueCategories = Array.from(
-    new Set(categoriesInUse.map((category) => category.category)),
-  ).map((category) => {
-    return categoriesInUse.find((item) => item.category === category)
+    new Set(
+      events
+        .filter((event) => event.category && event.category.title) // Ensure event has a valid category
+        .map((event) => event.category.title), // Map to category titles
+    ),
+  ).map((categoryTitle) => {
+    return categoriesInUse.find((item) => item.category === categoryTitle)
   })
 
   return (
