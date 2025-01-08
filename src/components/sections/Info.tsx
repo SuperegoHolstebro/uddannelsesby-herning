@@ -17,7 +17,7 @@ const Info = ({ data }) => {
       paddingTop={'none'}
       className="py-4 bg-signal-pink md:py-6 xl:py-8"
     >
-      {data?.infomation.map((info, index) => (
+      {data?.infomationGroup.map((info, index) => (
         <InfoBlock data={info} key={index} />
       ))}
     </Section>

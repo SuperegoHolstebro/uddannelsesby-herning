@@ -3,7 +3,7 @@ export const INFO_QUERY = groq`
   _type == "info" => {
     _type,
     heading,
-    infomation[] {
+    infomationGroup[] {
       title,
       number
     }
