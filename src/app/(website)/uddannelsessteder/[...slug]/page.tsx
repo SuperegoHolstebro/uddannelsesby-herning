@@ -13,7 +13,6 @@ import Icon from '~/components/atoms/Icons'
 import Image from 'next/image'
 import TextContainer from '~/components/sections/textContainer'
 import { urlFor } from '~/sanity/lib/sanity.image'
-import { CallToAction2 } from '~/sanity/schemas/sections/CallToAction2'
 import CallToActionSection2 from '~/components/sections/CallToActionSection2'
 import Photo from '~/components/atoms/Photo'
 import { Params } from '~/types/Params.types'
@@ -46,7 +45,7 @@ export default async function DynamicRoute({
       >
         <div className="flex flex-col justify-center col-span-full">
           <div className="">
-            <Heading spacing="none">{page.title}</Heading>
+            <Heading spacing="none">{page?.title}</Heading>
           </div>
         </div>
       </Section>
@@ -57,22 +56,23 @@ export default async function DynamicRoute({
         paddingBottom="default"
         className="col-span-full"
       >
-        {page.mainImage && (
+        {page?.mainImage && (
           <div className="pt-24 col-span-full h-screen/2">
-            <Photo image={page.mainImage} objectFit="cover" />
+            <Photo image={page?.mainImage} objectFit="cover" />
           </div>
         )}
       </Section>
 
       <TextContainer asChild paddingBottom="default" paddingTop="none">
-        <Paragraph portableText>{page.schoolInfo?.description}</Paragraph>
+        <Paragraph portableText>{page?.schoolInfo?.description}</Paragraph>
       </TextContainer>
 
       <TextContainer asChild paddingBottom="default" paddingTop="none">
-        <Paragraph portableText>{page.educationInfo?.description}</Paragraph>
+        <Paragraph portableText>{page?.educationInfo?.description}</Paragraph>
       </TextContainer>
+      {/* @ts-ignore */}
+      <CallToActionSection2 section={page?.CallToAction2} />
 
-      <CallToActionSection2 section={CallToAction2} />
 
       {page.pageBuilder && <PageBuilder sections={page.pageBuilder} />}
     </PageContainer>

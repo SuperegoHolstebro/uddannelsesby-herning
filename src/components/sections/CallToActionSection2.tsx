@@ -58,7 +58,8 @@ const CallToActionSection2 = ({ section }) => {
             spacing="none"
             type="h2"
             tag="h2"
-            dangerouslySetInnerHTML={{ __html: section?.heading }}
+            dangerouslySetInnerHTML={{ __html: section?.heading || '' }}
+
           ></Heading>
         </FadeUp>
         <FadeUp delay={0.5}>

@@ -4,6 +4,7 @@ import { ImageQuery } from '../queries/atoms/ImageQuery'
 import { ButtonQuery } from '../queries/atoms/ButtonQuery'
 import { client } from './sanity.client'
 import { stegaClean } from '@sanity/client/stega'
+import { CallToActionQuery2 } from '../queries/sections/CallToActionQuery2'
 
 // GROQ Navigation Query
 export const NAVIGATION_QUERY = groq`
@@ -72,6 +73,9 @@ export const SCHOOLPAGE_QUERY = groq`
   },
   description[]{
     ...,
+  },
+  "cta": {
+    ${CallToActionQuery2}
   }
 }
 `
