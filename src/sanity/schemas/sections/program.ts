@@ -73,7 +73,7 @@ export const programType = defineType({
       title: 'Punkter',
       of: [
         defineArrayMember({
-          name: 'object',
+          name: 'objectItem',
           type: 'object',
           preview: {
             select: {

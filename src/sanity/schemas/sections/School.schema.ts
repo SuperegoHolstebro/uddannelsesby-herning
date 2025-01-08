@@ -21,6 +21,7 @@ export const SchoolsType = defineType({
       of: [
         defineArrayMember({
           name: 'school',
+          title: 'Skole',
           type: 'reference',
           to: [{ type: 'school' }],
         }),

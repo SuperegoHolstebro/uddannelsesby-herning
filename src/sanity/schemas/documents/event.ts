@@ -198,7 +198,7 @@ export default defineType({
             }),
             defineField({
               name: 'school',
-              title: 'School',
+              title: 'Uddannelsesstedet',
               type: 'string',
             }),
             defineField({

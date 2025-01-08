@@ -14,7 +14,7 @@ export const info = defineType({
       type: 'string',
     }),
     defineField({
-      name: 'infomation',
+      name: 'infomationGroup',
       type: 'array',
       of: [
         defineArrayMember({
