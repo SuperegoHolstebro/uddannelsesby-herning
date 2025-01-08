@@ -18,43 +18,48 @@ import Link from 'next/link'
 import { resolveHref } from '~/sanity/lib/sanity.links'
 
 const Popup = () => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const [hasCheckedLocalStorage, setHasCheckedLocalStorage] = useState(false);
 
   const usePopupData = () => {
-    const [data, setData] = useState(null)
+    const [data, setData] = useState(null);
 
     useEffect(() => {
       const fetchData = async () => {
-        let result = await client.fetch(POPUP_QUERY)
-        result = await stegaClean(result)
-        setData(result)
-      }
-      fetchData()
-    }, [])
-    return data
-  }
-  const data = usePopupData()
+        let result = await client.fetch(POPUP_QUERY);
+        result = await stegaClean(result);
+        setData(result);
+      };
+      fetchData();
+    }, []);
+    return data;
+  };
+  const data = usePopupData();
 
   useEffect(() => {
-    const hasSeenPopup = localStorage.getItem('hasSeenPopup')
+    // Check if the popup has already been shown
+    const hasSeenPopup = localStorage.getItem('hasSeenPopup');
+    if (!hasSeenPopup) {
+      const timer = setTimeout(() => {
+        setIsOpen(true);
+        localStorage.setItem('hasSeenPopup', 'true'); // Mark as seen
+      }, 1000);
 
-    /* if (!hasSeenPopup) { */
-    const timer = setTimeout(() => {
-      setIsOpen(true)
-      //localStorage.setItem('hasSeenPopup', 'true') // Mark as shown
-    }, 1000)
+      setHasCheckedLocalStorage(true); // Prevent multiple checks
 
-    return () => clearTimeout(timer)
-    /* } */
-  }, [])
+      return () => clearTimeout(timer);
+    } else {
+      setHasCheckedLocalStorage(true);
+    }
+  }, []);
 
   const togglePopup = () => {
-    setIsOpen(false)
-  }
+    setIsOpen(false);
+  };
 
   return (
     <div>
-      {clean(data?.type) === 'custom' && (
+      {hasCheckedLocalStorage && clean(data?.type) === 'custom' && (
         <AnimatePresence>
           {isOpen && (
             <motion.div
@@ -107,7 +112,7 @@ const Popup = () => {
       )}
 
       {/* select */}
-      {clean(data?.type) === 'select' && (
+      {hasCheckedLocalStorage && clean(data?.type) === 'select' && (
         <AnimatePresence>
           {isOpen && (
             <motion.div
