@@ -235,5 +235,29 @@ export const FOOTER_QUERY = groq`
     platform,
     url
   },
-
 } `
+
+export const POPUP_QUERY = groq`
+*[_type == "popup" && active == true][0] {
+  active,
+  type,
+  custom {
+    description,
+    title,
+    image {
+      ${ImageQuery}
+    },
+    ${ButtonQuery}
+  },
+  event->{
+    title,
+    "slug": slug.current,
+    startDate,
+    price,
+    image {
+      ${ImageQuery}
+    },
+  },
+}
+
+`
