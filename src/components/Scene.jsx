@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import useWindow from '../hooks/useWindow'
 
-export default function Scene({ type }) {
+export default function Scene() {
   const { dimension } = useWindow()
   const canvas = useRef(null)
   const prevPosition = useRef(null)
@@ -25,26 +25,9 @@ export default function Scene({ type }) {
     }
   }, [dimension, hasAnimated])
 
-  let color
-  if (type === 'regular') {
-    color = '#262723'
-  } else if (type === 'openHouse') {
-    color = '#FFD4F3'
-  } else {
-    color = '#262723'
-  }
-  let bg
-  if (type === 'regular') {
-    bg = 'bg-mørk'
-  } else if (type === 'openHouse') {
-    bg = 'bg-signal-pink'
-  } else {
-    bg = 'bg-mørk'
-  }
-
   const init = () => {
     const ctx = canvas.current.getContext('2d')
-    ctx.fillStyle = color
+    ctx.fillStyle = '#262723'
     ctx.fillRect(0, 0, dimension.width, dimension.height)
     ctx.globalCompositeOperation = 'destination-out'
     // Save that the animation has been shown
@@ -90,20 +73,17 @@ export default function Scene({ type }) {
   }
 
   return (
-    <>
-      {dimension.width == 0 && (
-        <div className={`absolute w-full h-screen ${bg}`} />
-      )}
+    <div className="absolute inset-0 overflow-hidden w-full h-screen z-[5]">
+      {dimension.width == 0 && <div className=" w-full h-full bg-mørk" />}
       {!hasAnimated && (
         <canvas
-          className="w-full h-screen"
+          className="h-screen"
           ref={canvas}
           onMouseMove={manageMouseMove}
           height={dimension.height}
           width={dimension.width}
         />
       )}
-      <div className="absolute inset-0 z-[2] pointer-events-none w-full h-screen bg-gradient-to-b from-transparent via-transparent to-mørk/40" />
-    </>
+    </div>
   )
 }
