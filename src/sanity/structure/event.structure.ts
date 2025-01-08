@@ -11,54 +11,68 @@ export default defineStructure<ListItemBuilder>((S) =>
         .title('Begivenheder')
         .id('events')
         .items([
-          // Upcoming events include events that haven't started or are ongoing
-          S.listItem()
-            .id('upcomingEvents')
-            .title('Kommende begivenheder')
-            .icon(CalendarUp)
-            .child(
-              S.documentTypeList('event')
-                .title('Kommende begivenheder')
-                .filter(
-                  '_type == "event" && (startDate >= now() || (startDate <= now() && endDate >= now()))',
-                )
-                .child((documentId) =>
-                  S.document().documentId(documentId).schemaType('event'),
-                ),
-            ),
-          // Past events include events that have already ended or single-day events that have already started
-          S.listItem()
-            .id('pastEvents')
-            .title('Tidligere begivenheder')
-            .icon(CalendarDown)
-            .child(
-              S.documentTypeList('event')
-                .title('Tidligere begivenheder')
-                .filter(
-                  '_type == "event" && (endDate < now() || (!endDate && startDate < now()))',
-                )
-                .child((documentId) =>
-                  S.document().documentId(documentId).schemaType('event'),
-                ),
-            ),
+          // Upcoming Events Folder
+          createFolder(
+            S,
+            'upcomingEvents',
+            'Kommende begivenheder',
+            CalendarUp,
+            `
+              _type == "event" && (startDate >= now() || (startDate <= now() && endDate >= now()))
+            `,
+          ),
 
-          // All events
-          S.listItem()
-            .id('allEvents')
-            .title('Alle begivenheder')
-            .icon(Calendar)
-            .child(
-              S.documentTypeList('event')
-                .title('Alle begivenheder')
-                .filter('_type == "event"')
-                .child((documentId) =>
-                  S.document().documentId(documentId).schemaType('event'),
-                ),
-            ),
+          // Past Events Folder
+          createFolder(
+            S,
+            'pastEvents',
+            'Tidligere begivenheder',
+            CalendarDown,
+            `
+              _type == "event" && (endDate < now() || (!endDate && startDate < now()))
+            `,
+          ),
+
+          // All Events Folder
+          createFolder(
+            S,
+            'allEvents',
+            'Alle begivenheder',
+            Calendar,
+            `
+              _type == "event"
+            `,
+          ),
+
           S.divider(),
+
+          // Event Categories Folder
           S.documentTypeListItem('eventCategory').title(
             'Begivenhedskategorier',
           ),
         ]),
     ),
 )
+
+// Helper function to create folders dynamically
+function createFolder(
+  S,
+  id: string,
+  title: string,
+  icon: React.ComponentType<any>,
+  filter: string,
+) {
+  return S.listItem()
+    .id(id)
+    .title(title)
+    .icon(icon)
+    .child(
+      S.documentTypeList('event')
+        .title(title)
+        .filter(filter)
+        .apiVersion('2024-05-07') // Keep this to ensure consistent queries
+        .child((documentId) =>
+          S.document().documentId(documentId).schemaType('event'),
+        ),
+    )
+}
