@@ -36,7 +36,7 @@ const Hero: React.FC<HeroProps> = ({ data, ...props }) => {
         type={data.type}
         title={data.string}
       />
-      <Scene type={data.type} />
+      <Scene /* type={data.type} */ />
     </Section>
   )
 }
