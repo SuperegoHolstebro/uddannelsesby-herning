@@ -7,7 +7,7 @@ import { client } from '@/sanity/lib/sanity.client'
 import { SITE_SETTINGS_QUERY } from '@/sanity/lib/sanity.queries'
 import Script from 'next/script'
 import Appconfig from 'config'
-import { PT_Serif, Outfit } from 'next/font/google'
+import { Outfit } from 'next/font/google'
 
 const sans = Outfit({
   variable: '--font-sans',
