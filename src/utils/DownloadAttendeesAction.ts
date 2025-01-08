@@ -1,7 +1,7 @@
 import { useClient } from 'sanity'
 
 export const DownloadAttendeesAction = (props) => {
-  const client = useClient()
+  const client = useClient({ apiVersion: '2024-05-07' })
 
   const handleDownload = async () => {
     // Fetch the event including the array of attendees directly from the event document
