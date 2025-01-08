@@ -3,6 +3,7 @@ import Footer from '@/components/organisms/Footer'
 import Header from '@/components/organisms/Header'
 import Link from 'next/link'
 import { Lenis } from '~/components/Lenis'
+import Popup from './molecules/Popup'
 
 /**
  *
@@ -61,10 +62,10 @@ export default function PageContainer({
         options={lenis}
         root={typeof document !== 'undefined' ? document.documentElement : null}
       />
-
       <main id="indhold" className={`debug-screens min-h-screen bg-lys`}>
         {children}
       </main>
+      <Popup />
       <Footer locale={locale || 'da'} />
     </>
   )
