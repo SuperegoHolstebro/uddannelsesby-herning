@@ -34,6 +34,7 @@ const CallToActionSection2 = ({ section }) => {
         link={section?.link}
         showSvg={false}
         variant="none"
+        title={section?.link?.label}
       >
         <span className="sr-only">{section?.link?.label}</span>
       </Button>

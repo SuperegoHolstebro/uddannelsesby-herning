@@ -65,16 +65,18 @@ const EventSection = ({ section, amount }) => {
           2500: { slidesPerView: 4.7, spaceBetween: 24 },
         }}
       >
-        {events.map((event, index) => (
-          <EventCard
-            key={index}
-            event={event}
-            isActive={activeIndex === index}
-            onMouseEnter={() => setActiveIndex(index)}
-            onMouseLeave={() => setActiveIndex(null)}
-            isAnyActive={activeIndex !== null}
-          />
-        ))}
+        {events
+          .filter((event) => new Date(event.startDate) > new Date())
+          .map((event, index) => (
+            <EventCard
+              key={index}
+              event={event}
+              isActive={activeIndex === index}
+              onMouseEnter={() => setActiveIndex(index)}
+              onMouseLeave={() => setActiveIndex(null)}
+              isAnyActive={activeIndex !== null}
+            />
+          ))}
       </Carousel>
     </Section>
   )
