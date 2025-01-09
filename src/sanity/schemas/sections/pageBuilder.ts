@@ -65,10 +65,6 @@ export const pageBuilder = defineType({
       type: 'logoband',
     }),
     defineArrayMember({
-      name: 'contactFormType',
-      type: 'contactFormType',
-    }),
-    defineArrayMember({
       name: 'ArticlesType',
       type: 'ArticlesType',
     }),

@@ -92,34 +92,37 @@ export default async function DynamicRoute({
       <Section paddingBottom="none" paddingTop="none" tag={'div'}>
         {' '}
         <div
-          className={`grid grid-cols-1 gap-4 text-center col-span-full md:grid-cols-2 items-center py-12 md:py-13 space-y-4 md:space-y-0 md:p-12 md:flex-row md:divide-x md:border-grå`}
+          className={` grid grid-cols-1 gap-4 text-center col-span-full md:grid-cols-2 items-center py-12 md:py-13 space-y-4 md:space-y-0 md:p-12 md:flex-row md:divide-x md:border-grå`}
         >
-          <div className="flex flex-col items-center justify-start ">
-            <Icon type="contact" className="mb-3 size-8" />
-            <div className="space-y-.5">
-              {page.phone && (
-                <Heading type="h5" tag="p" spacing="none">
-                  Tlf: <a href={`tel:${page.phone}`}>{page.phone}</a>
-                </Heading>
-              )}
-              {page.email && (
-                <Heading type="h5" tag="p" spacing="none">
-                  Mail: <a href={`mailto:${page.email}`}>{page.email}</a>
-                </Heading>
-              )}
-              <Paragraph spacing="none">Kontakt</Paragraph>
+          {(page.phone || page.email) && (
+            <div className="flex flex-col items-center justify-start ">
+              <Icon type="contact" className="mb-3 size-8" />
+              <div className="space-y-.5">
+                {page.phone && (
+                  <Heading type="h5" tag="p" spacing="none">
+                    Tlf: <a href={`tel:${page.phone}`}>{page.phone}</a>
+                  </Heading>
+                )}
+                {page.email && (
+                  <Heading type="h5" tag="p" spacing="none">
+                    Mail: <a href={`mailto:${page.email}`}>{page.email}</a>
+                  </Heading>
+                )}
+                <Paragraph spacing="none">Kontakt</Paragraph>
+              </div>
             </div>
-          </div>
-
-          <div className="flex flex-col items-center justify-start md:border-l md:border-grå md:pl-4">
-            <Icon type="streetSign" className="mb-3 size-8" />
-            <div className="space-y-.5">
-              <Heading type="h5" tag="h5" spacing="none">
-                {page?.address}
-              </Heading>
-              <Paragraph spacing="none">Lokation</Paragraph>
+          )}
+          {page.address && (
+            <div className="flex flex-col items-center justify-start md:border-l md:border-grå md:pl-4">
+              <Icon type="streetSign" className="mb-3 size-8" />
+              <div className="space-y-.5">
+                <Heading type="h5" tag="h5" spacing="none">
+                  {page?.address}
+                </Heading>
+                <Paragraph spacing="none">Lokation</Paragraph>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </Section>
       {/* image */}
