@@ -25,8 +25,8 @@ function AllCompanies({ section }) {
   // Get a unique list of all fields
   const allFields = [
     ...new Set(
-      section.companies.flatMap((company) =>
-        company.fields ? company.fields.map((field) => field.title) : [],
+      section?.companies.flatMap((company) =>
+        company?.fields ? company?.fields?.map((field) => field?.title) : [],
       ),
     ),
   ]
@@ -34,13 +34,13 @@ function AllCompanies({ section }) {
   // Filter companies based on the selected field
   const filteredCompanies =
     selectedField === 'all'
-      ? section.companies
-      : section.companies.filter((company) =>
-          company.fields?.some((field) => field.title === selectedField),
+      ? section?.companies
+      : section?.companies?.filter((company) =>
+          company?.fields?.some((field) => field?.title === selectedField),
         )
 
   // Count the number of companies
-  const companyCount = section.companies.length
+  const companyCount = section?.companies?.length
 
   return (
     <>
