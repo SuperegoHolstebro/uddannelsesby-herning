@@ -146,19 +146,6 @@ export default async function DynamicRoute({
           </>
         )}
         <div className="pt-12">
-          {page.address && (
-            <Paragraph spacing="none">Adresse: {page.address}</Paragraph>
-          )}
-          {page.email && (
-            <Paragraph>
-              Mail: <a href={`mailto:${page.email}`}>{page.email}</a>
-            </Paragraph>
-          )}
-          {page.phone && (
-            <Paragraph>
-              Tlf.: <a href={`tel:${page.phone}`}>{page.phone}</a>
-            </Paragraph>
-          )}
           {page.website && (
             <div className="pt-12">
               <AdvancedButton variant="primary">
@@ -207,29 +194,28 @@ const customCTA = {
     url: '/din-karriere',
   },
   MediaObject: {
-    media:{
+    media: {
       imageObject: {
-
-        image:{
-              "asset": {
-                "title": null,
-                "metadata": {
-                  "blurHash": "VaHx{A_3k9%MWB%Q%NWBa#Rik.bYM{RjRPajRQR%ofog",
-                  "dimensions": {
-                    "height": 1720,
-                    "_type": "sanity.imageDimensions",
-                    "width": 2192,
-                    "aspectRatio": 1.2744186046511627
-                  }
-                },
-                "_id": "image-a67c3670a0bb4264c90d60d9c551a79b88aa0e13-2192x1720-png",
-                "url": "https://cdn.sanity.io/images/9l811vbz/production/a67c3670a0bb4264c90d60d9c551a79b88aa0e13-2192x1720.png",
-                "_type": "sanity.imageAsset",
-                "altText": null,
-                "description": null
-              }
-            }
-          }
-        }
-  }
+        image: {
+          asset: {
+            title: null,
+            metadata: {
+              blurHash: 'VaHx{A_3k9%MWB%Q%NWBa#Rik.bYM{RjRPajRQR%ofog',
+              dimensions: {
+                height: 1720,
+                _type: 'sanity.imageDimensions',
+                width: 2192,
+                aspectRatio: 1.2744186046511627,
+              },
+            },
+            _id: 'image-a67c3670a0bb4264c90d60d9c551a79b88aa0e13-2192x1720-png',
+            url: 'https://cdn.sanity.io/images/9l811vbz/production/a67c3670a0bb4264c90d60d9c551a79b88aa0e13-2192x1720.png',
+            _type: 'sanity.imageAsset',
+            altText: null,
+            description: null,
+          },
+        },
+      },
+    },
+  },
 }
