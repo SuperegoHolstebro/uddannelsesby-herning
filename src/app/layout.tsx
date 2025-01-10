@@ -52,11 +52,11 @@ export default async function RootLayout({
           }}
         />
         {children}
-        {/* <SanityLive refreshOnFocus={false} /> */}
+        <SanityLive refreshOnFocus={false} />
         {(await draftMode()).isEnabled && (
           <>
             <VisualEditing />
-            {/* <SanityLive refreshOnFocus={false} /> */}
+            <SanityLive refreshOnFocus={false} />
             </>
         )}
       </body>
