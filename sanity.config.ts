@@ -36,7 +36,7 @@ const SANITY_STUDIO_PREVIEW_URL =
 
 export default defineConfig({
   basePath: '/super-login',
-  name: 'project-name',
+  name: 'UddannelsesbyHerning',
   title: 'Superweb Studio',
   subtitle: 'Superweb Studio',
   projectId,
