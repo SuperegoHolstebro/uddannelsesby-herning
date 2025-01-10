@@ -9,18 +9,23 @@ const MenuItems = [
   },
   {
     title: 'Begivenheder',
-    url: '/super-login/structure/nyheder',
+    url: '/super-login/structure/begivenheder',
     addUrl: '/super-login/intent/create/template=event;type=event/',
   },
   {
-    title: 'Artikler',
-    url: '/super-login/structure/artikler;artikler',
-    addUrl: '/super-login/intent/create/template=article;type=article/',
+    title: 'Uddannelsessteder',
+    url: '/super-login/structure/uddannelsessteder',
+    addUrl: '/super-login/intent/create/template=school;type=school/',
   },
   {
-    title: 'Medarbejdere',
-    url: '/super-login/structure/employees',
-    addUrl: '/super-login/intent/create/template=employee;type=employee/',
+    title: 'Virksomheder',
+    url: '/super-login/structure/virksomheder',
+    addUrl: '/super-login/intent/create/template=company;type=company/',
+  },
+  {
+    title: 'Rabatter',
+    url: '/super-login/structure/rabatter',
+    addUrl: '/super-login/intent/create/template=company;type=company/',
   },
   {
     title: 'Indstillinger',
