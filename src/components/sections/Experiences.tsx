@@ -53,7 +53,7 @@ const Experiences = ({ section, amount }) => {
       <Carousel
         slidesPerView={1.2}
         spaceBetween={32}
-        loop={experiences.length > 5}
+        loop={experiences?.length > 5}
         hideNavigation={activeIndex !== null} // Modify this line to hide navigation when hover
         breakpoints={{
           0: { slidesPerView: 1.5, spaceBetween: 16 },

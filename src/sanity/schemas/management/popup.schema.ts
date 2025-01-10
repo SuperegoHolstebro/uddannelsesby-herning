@@ -17,6 +17,23 @@ export default {
       description: 'Vis popup',
       type: 'boolean',
       initialValue: false,
+
+      validation: (Rule) =>
+        Rule.custom(async (value, context) => {
+          if (value) {
+            const client = context.getClient({ apiVersion: '2021-06-07' })
+            const query = `*[_type == "popup" && active == true && _id != $currentId][0]`
+            const params = { currentId: context.document._id }
+            const existingActivePopup = await client.fetch(query, params)
+
+            if (existingActivePopup) {
+              return 'Kun én popup kan være aktiv ad gangen.'
+            }
+          }
+          return true
+        }),
+
+      
     }),
     defineField({
       name: 'type',
