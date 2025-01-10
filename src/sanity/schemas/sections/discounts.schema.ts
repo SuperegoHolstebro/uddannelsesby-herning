@@ -24,4 +24,11 @@ export const DiscountsType = defineType({
       type: 'SectionSettings',
     }),
   ],
+  preview: {
+    prepare() {
+      return {
+        title: `Studierabatter`,
+      }
+    },
+  },
 })
