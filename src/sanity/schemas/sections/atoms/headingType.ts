@@ -5,7 +5,7 @@ export const headingType = defineType({
   name: 'heading',
   type: 'object',
   icon: Heading,
-  title: 'Overkrift',
+  title: 'Overskrift',
   description:
     'Overskrifter bruges på hjemmesiden til at give brugeren en idé om emnet, og hjælper til at skabe et godt overblik, så det er let at finde det indhold, man leder efter ',
   fields: [
