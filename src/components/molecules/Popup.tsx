@@ -35,6 +35,7 @@ const Popup = () => {
     }, [])
     return data
   }
+
   const data = usePopupData()
 
   useEffect(() => {
