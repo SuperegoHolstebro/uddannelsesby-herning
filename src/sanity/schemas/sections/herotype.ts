@@ -33,7 +33,7 @@ export const heroType = defineType({
       title: 'Type',
       options: {
         list: [
-          { title: 'åbenhus', value: 'openHouse' },
+          { title: 'Åbent hus', value: 'openHouse' },
           { title: 'Normal', value: 'regular' },
         ],
       },
@@ -41,10 +41,10 @@ export const heroType = defineType({
     }),
     defineField({
       name: 'string',
-      title: 'title',
+      title: 'Titel',
       type: 'string',
       /* @ts-ignore */
-      hidden: (document) => document.type === 'regular',
+      hidden: ({ parent }) => parent?.type !== 'openHouse',
     }),
     {
       group: 'settings',

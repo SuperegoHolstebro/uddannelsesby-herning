@@ -61,7 +61,9 @@ export default function Text({ videoSrc, textContent, type, title }) {
         </div>
       )}
 
-      <div className="absolute bottom-0 left-0 z-10 hidden pb-8 pl-6 font-sans pointer-events-none md:block md:pl-32 lg:pl-36 text-lys xs:max-w-md sm:max-w-md md:max-w-xl lg:max-w-3xl">
+      <div
+        className={`absolute bottom-0 left-0 z-10 hidden pb-8 pl-6 font-sans pointer-events-none md:block md:pl-32 lg:pl-36 text-lys xs:max-w-md sm:max-w-md md:max-w-xl lg:max-w-3xl ${clean(type) === 'openHouse' ? 'text-mørk' : 'text-lys'}`}
+      >
         <FadeUp delay={0.3}>
           <Paragraph>{textContent}</Paragraph>
         </FadeUp>

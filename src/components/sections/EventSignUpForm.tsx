@@ -265,6 +265,7 @@ function EventSignUpForm({ event }) {
                     <option value="Herningsholm Erhvervsskole">
                       Herningsholm Erhvervsskole
                     </option>
+                    <option value="Andet">Andet</option>
                   </select>
                   <span className="absolute text-grå transition-all opacity-100 bottom-7 peer-placeholder-shown:opacity-0 text-small peer-placeholder-shown:text-regular peer-placeholder-shown:bottom-5">
                     {' '}

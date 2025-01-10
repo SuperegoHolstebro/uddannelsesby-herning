@@ -33,7 +33,7 @@ const EventInfoBox = ({ page }) => {
     >
       {' '}
       <div
-        className={`grid grid-cols-1 gap-4 text-center col-span-full sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 md:p-12 md:flex-row divide-x border-grå`}
+        className={`grid grid-cols-1 place-content-center gap-4 text-center col-span-full sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 md:p-12 md:flex-row divide-x border-grå`}
       >
         {page.startDate && (
           <Box>
@@ -42,7 +42,6 @@ const EventInfoBox = ({ page }) => {
               {/* Use eventDateRange and pass the correct properties */}
               {eventDateRange(page.startDate, page.endDate, page.isMultiDay)}
             </Heading>
-            <Paragraph spacing="none">Dato</Paragraph>
           </Box>
         )}
 
@@ -61,7 +60,6 @@ const EventInfoBox = ({ page }) => {
               )}
               {formatTime(page?.endDate)}
             </Heading>
-            <Paragraph spacing="none">Tidspunkt</Paragraph>
           </Box>
         )}
 
@@ -71,7 +69,6 @@ const EventInfoBox = ({ page }) => {
             <Heading type="h5" tag="h5" spacing="default">
               {page.location}
             </Heading>
-            <Paragraph spacing="none">Lokation</Paragraph>
           </Box>
         )}
 
@@ -81,12 +78,11 @@ const EventInfoBox = ({ page }) => {
             {page.isFull
               ? 'Ingen'
               : page.isExternal
-                ? 'Stadig'
+                ? 'Stadig ledige billetter'
                 : ticketsLeft > 0
                   ? `${ticketsLeft}`
-                  : 'Ingen'}
+                  : 'Ingen ledige billetter'}
           </Heading>
-          <Paragraph spacing="none"> Billetter tilgængelige</Paragraph>
         </Box>
       </div>
     </Section>

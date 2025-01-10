@@ -46,7 +46,7 @@ const Program = ({ data }) => {
           value={selectedEducation}
           onChange={(e) => setSelectedEducation(e.target.value)}
         >
-          <option value="All">All</option>
+          <option value="All">Alle</option>
           {uniqueEducations.map((education: number, index) => (
             <option key={index} value={education}>
               {education}
