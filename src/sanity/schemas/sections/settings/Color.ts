@@ -13,7 +13,7 @@ export const Color = defineType({
         list: [
           { title: 'Lys', value: 'lys' },
           { title: 'Mørk', value: 'mørk' },
-          { title: 'Lilla', value: 'lilla' },
+          { title: 'Grå', value: 'lilla' },
         ],
       },
       initialValue: 'lys',
