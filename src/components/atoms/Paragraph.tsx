@@ -179,7 +179,7 @@ const myPortableTextComponents = {
       </li>
     ),
     number: ({ children }) => (
-      <li className="py-2 list-decimal list-outside bg-blue-500 custom-li">
+      <li className="py-2 list-decimal list-outside custom-li">
         {children}
       </li>
     ),
