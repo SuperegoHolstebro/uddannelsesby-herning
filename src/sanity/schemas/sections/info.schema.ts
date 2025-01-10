@@ -10,10 +10,6 @@ export const info = defineType({
   type: 'object',
   fields: [
     defineField({
-      name: 'heading',
-      type: 'string',
-    }),
-    defineField({
       name: 'infomationGroup',
       type: 'array',
       of: [
@@ -35,10 +31,10 @@ export const info = defineType({
     }),
   ],
   preview: {
-    prepare(selection) {
+    prepare() {
       return {
         title: `Tæller`,
-        subtitle: `Info-banner`,
+        subtitle: 'Tæller med tal og titel',
       }
     },
   },

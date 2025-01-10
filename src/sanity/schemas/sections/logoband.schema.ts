@@ -23,10 +23,13 @@ export const logoband = defineType({
     }),
   ],
   preview: {
-    prepare(selection) {
+    select: {
+      logos: 'logos',
+    },
+    prepare(logos: any) {
       return {
         title: `Logo bånd`,
-        subtitle: `Antal logos: ${selection.logos.length}`,
+        subtitle: `Antal logos: ${logos.length}`,
       }
     },
   },

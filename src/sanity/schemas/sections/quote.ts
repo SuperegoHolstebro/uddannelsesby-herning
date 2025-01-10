@@ -50,10 +50,14 @@ export const Quote = defineType({
     },
   ],
   preview: {
-    prepare({ media }) {
+    select: {
+      student: 'student',
+      education: 'education',
+    },
+    prepare({ student, education }) {
       return {
         title: 'Citat',
-        media: media,
+        subtitle: `${student} - ${education}`,
       }
     },
   },
