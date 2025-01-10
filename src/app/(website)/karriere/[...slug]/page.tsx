@@ -201,18 +201,35 @@ export default async function DynamicRoute({
 }
 
 const customCTA = {
-  heading: 'mere end 178 jobmuligheder under og efter dit studie?',
+  heading: 'mere end 178 jobmuligheder undersøg efter dit studie?',
   link: {
     label: 'Læs mere om os',
     url: '/din-karriere',
   },
   MediaObject: {
-    imageObject: {
-      image: {
-        asset: {
-          url: 'https://cdn.sanity.io/images/9l811vbz/production/f6d7d83f496207a7f8aacd149a3d00ea09389ef3-1920x1091.png?fit=max&w=1200&h=1200',
-        },
-      },
-    },
-  },
+    media:{
+      imageObject: {
+
+        image:{
+              "asset": {
+                "title": null,
+                "metadata": {
+                  "blurHash": "VaHx{A_3k9%MWB%Q%NWBa#Rik.bYM{RjRPajRQR%ofog",
+                  "dimensions": {
+                    "height": 1720,
+                    "_type": "sanity.imageDimensions",
+                    "width": 2192,
+                    "aspectRatio": 1.2744186046511627
+                  }
+                },
+                "_id": "image-a67c3670a0bb4264c90d60d9c551a79b88aa0e13-2192x1720-png",
+                "url": "https://cdn.sanity.io/images/9l811vbz/production/a67c3670a0bb4264c90d60d9c551a79b88aa0e13-2192x1720.png",
+                "_type": "sanity.imageAsset",
+                "altText": null,
+                "description": null
+              }
+            }
+          }
+        }
+  }
 }
