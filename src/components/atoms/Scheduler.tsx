@@ -41,10 +41,18 @@ export default function Scheduler({
   }
 
   if (!isActive) {
+    // Formatér datoen for at vise den i knappen
+    const formattedStart = new Date(start).toLocaleString('da-DK', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+    })
     return hasText ? (
       <AdvancedButton variant="primary">
         <span>
-          Tilmelding åbnes d. kl.
+          Tilmelding åbnes d. {formattedStart}
           <span className="overflow-hidden">
             <span className="block w-10 overflow-hidden transition-all ease-custom duration-735 group-hover/button:w-full">
               <svg

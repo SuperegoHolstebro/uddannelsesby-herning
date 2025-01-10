@@ -1,4 +1,5 @@
 'use client'
+
 import { stegaClean } from 'next-sanity'
 import React, { useState, useEffect } from 'react'
 import { client } from '~/sanity/lib/sanity.client'
@@ -18,44 +19,51 @@ import Link from 'next/link'
 import { resolveHref } from '~/sanity/lib/sanity.links'
 
 const Popup = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [hasCheckedLocalStorage, setHasCheckedLocalStorage] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
+  const [hasCheckedLocalStorage, setHasCheckedLocalStorage] = useState(false)
 
   const usePopupData = () => {
-    const [data, setData] = useState(null);
+    const [data, setData] = useState(null)
 
     useEffect(() => {
       const fetchData = async () => {
-        let result = await client.fetch(POPUP_QUERY);
-        result = await stegaClean(result);
-        setData(result);
-      };
-      fetchData();
-    }, []);
-    return data;
-  };
-  const data = usePopupData();
+        let result = await client.fetch(POPUP_QUERY)
+        result = await stegaClean(result)
+        setData(result)
+      }
+      fetchData()
+    }, [])
+    return data
+  }
+
+  const data = usePopupData()
 
   useEffect(() => {
     // Check if the popup has already been shown
-    const hasSeenPopup = localStorage.getItem('hasSeenPopup');
+    const hasSeenPopup = localStorage.getItem('hasSeenPopup')
     if (!hasSeenPopup) {
+      // Delay opening the popup
       const timer = setTimeout(() => {
-        setIsOpen(true);
-        localStorage.setItem('hasSeenPopup', 'true'); // Mark as seen
-      }, 1000);
+        setIsOpen(true)
+        localStorage.setItem('hasSeenPopup', 'true') // Mark as seen
+      }, 1000)
 
-      setHasCheckedLocalStorage(true); // Prevent multiple checks
-
-      return () => clearTimeout(timer);
+      return () => clearTimeout(timer)
     } else {
-      setHasCheckedLocalStorage(true);
+      setHasCheckedLocalStorage(true) // Mark check as complete
     }
-  }, []);
+  }, [])
+
+  // Prevent rendering popup until local storage is checked
+  useEffect(() => {
+    if (!isOpen) {
+      setHasCheckedLocalStorage(true)
+    }
+  }, [isOpen])
 
   const togglePopup = () => {
-    setIsOpen(false);
-  };
+    setIsOpen(false)
+  }
 
   return (
     <div>

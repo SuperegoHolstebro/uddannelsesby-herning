@@ -16,7 +16,8 @@ export const TextAndCollage = defineType({
       name: 'images',
       type: 'array',
       title: 'Billeder',
-      validation: (Rule) => Rule.required().max(3).min(1),
+      description: 'Skal indeholde 3 billeder',
+      validation: (Rule) => Rule.required().max(3).min(3),
       of: [
         defineArrayMember({
           name: 'image',
