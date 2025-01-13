@@ -1,5 +1,3 @@
-// ./schemas/videoType.js
-
 import { defineArrayMember, defineField, defineType } from 'sanity'
 import { ChartBarTwo } from '@mynaui/icons-react'
 
