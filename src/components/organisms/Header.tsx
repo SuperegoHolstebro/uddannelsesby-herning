@@ -126,7 +126,7 @@ export default function Header({ locale }) {
             ></span>
           </button>
           <div>
-            <LocaleSwitcher view="desktop" className='' locale={locale} />
+            <LocaleSwitcher view="desktop" locale={locale} />
           </div>
         </div>
       </header>
