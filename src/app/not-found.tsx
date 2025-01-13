@@ -18,11 +18,6 @@ const ErrorPage: React.FC = () => {
             Vi kan desværre ikke finde siden, du leder efter. Vend tilbage til
             forsiden eller få besvaret dine spørgsmål ved at kontakte os.
           </Paragraph>
-          <div className="flex justify-center gap-4 mt-8">
-            <AdvancedButton variant="default">
-              <Link href="/">Gå til forsiden</Link>
-            </AdvancedButton>
-          </div>
         </div>
       </Section>
     </PageContainer>
