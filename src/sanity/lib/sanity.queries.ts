@@ -52,6 +52,9 @@ export const EVENT_QUERY = groq`
   },
   description[]{
     ...,
+  },
+  descriptionEN[]{
+    ...,
   }
   
 }

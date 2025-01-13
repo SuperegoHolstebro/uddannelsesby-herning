@@ -47,8 +47,15 @@ export default defineType({
     defineField({
       name: 'description',
       type: 'blockContent',
-      title: 'Beskrivelse',
+      title: 'Beskrivelse Dansk',
       description: 'En kort beskrivelse af begivenheden',
+      group: 'content',
+    }),
+    defineField({
+      name: 'descriptionEN',
+      type: 'blockContent',
+      title: 'Beskrivelse Engelsk',
+      description: 'En kort beskrivelse af begivenheden på engelsk',
       group: 'content',
     }),
     defineField({
