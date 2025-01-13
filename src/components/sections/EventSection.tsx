@@ -5,6 +5,7 @@ import Heading from '../atoms/Heading'
 import EventCard from '../molecules/EventCard'
 import Carousel from '../organisms/Carousel'
 import { clean } from '~/utils/sanitize'
+import { Button } from '../atoms/Button'
 /**
  *
  * @returns: En sektion med events.
@@ -41,13 +42,20 @@ const EventSection = ({ section, amount }) => {
       ) : (
         <div className="absolute bottom-0 hidden md:block right-0 w-full bg-mørk col-span-full h-2/3" />
       )}
-      <div className="col-span-full px-4 xs:px-4 sm:px-13 md:pr-24 md:pl-[10rem] lg:pr-19 lg:pl-[9.5rem] xl:pl-[200px]">
+      <div className="col-span-full px-4 xs:px-4 sm:px-13 md:pr-24 md:pl-[10rem] lg:pr-19 lg:pl-[9.5rem] xl:pl-[200px] flex justify-between">
         <Heading
           className="lg:max-w-[22ch]"
           tag="h2"
           type="h2"
           dangerouslySetInnerHTML={{ __html: section.heading }}
         />
+        {section?.link?.label && (
+          <div className='hidden md:block'>
+            <Button direction="center" showSvg link={section?.link}>
+              {section.link?.label}
+            </Button>
+          </div>
+        )}
       </div>
       <Carousel
         slidesPerView={1.2}
@@ -78,6 +86,13 @@ const EventSection = ({ section, amount }) => {
             />
           ))}
       </Carousel>
+      {section?.link?.label && (
+        <div className='mx-auto col-span-full md:hidden'>
+          <Button showSvg link={section?.link}>
+            {section.link?.label}
+          </Button>
+        </div>
+      )}
     </Section>
   )
 }

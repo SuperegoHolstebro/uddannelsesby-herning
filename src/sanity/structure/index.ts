@@ -1,12 +1,10 @@
 import { StructureResolver } from 'sanity/structure'
 import pages from '~/sanity/structure/page.structure'
 import events from '@/sanity/structure/event.structure'
-import articles from './article.structure'
-import employees from './employee.structure'
 import settings from './settings.structure'
 import fields from './field.structure'
 import school from './school.structure'
-import companyInfo from './companyInfo.structure'
+import experience from './experience.structure'
 import discounts from './discounts.structure'
 import company from './company.structure'
 
@@ -22,6 +20,7 @@ export const structure: StructureResolver = (S, context) =>
       fields(S, context),
       S.divider(),
       discounts(S, context),
+      experience(S, context),
       S.divider(),
       settings(S, context),
     ])

@@ -76,13 +76,13 @@ export default async function DynamicRoute({
       >
         <div className="flex flex-col justify-center col-span-full">
           <div className="">
-            <Heading spacing="none">{page.name}</Heading>
+            <Heading spacing="none">{page?.name}</Heading>
           </div>
 
           <div className="flex flex-wrap gap-3 col-span-full h-fit">
-            {page.fields.map((field, index) => (
+            {page?.fields?.map((field, index) => (
               <Badge key={index} variant="dark">
-                {field.title}{' '}
+                {field?.title}{' '}
               </Badge>
             ))}
           </div>

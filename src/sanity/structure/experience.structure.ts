@@ -6,7 +6,7 @@ export default defineStructure<ListItemBuilder>((S) =>
     .title('Oplevelser')
     .child(
       S.documentTypeList('experience')
-        .title('Oplevelser')
+      .title('Oplevelser')
         .child((documentId) =>
           S.document().documentId(documentId).schemaType('experience'),
         ),
