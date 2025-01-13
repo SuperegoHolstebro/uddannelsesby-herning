@@ -10,8 +10,9 @@ export default function Scene({ type }) {
   const [hasAnimated, setHasAnimated] = useState(false)
 
   useEffect(() => {
-    // Check if the animation has already been shown
-    const hasBeenShown = localStorage.getItem('hasAnimated')
+    // Check if the animation for the current type has already been shown
+    const storageKey = `hasAnimated_${type}` // Unique key for each type
+    const hasBeenShown = localStorage.getItem(storageKey)
 
     if (!hasBeenShown) {
       // Initialize animation if it hasn't been shown
@@ -44,8 +45,9 @@ export default function Scene({ type }) {
     ctx.fillRect(0, 0, dimension.width, dimension.height)
     ctx.globalCompositeOperation = 'destination-out'
 
-    // Save that the animation has been shown
-    localStorage.setItem('hasAnimated', 'true')
+    // Save that the animation has been shown for the current type
+    const storageKey = `hasAnimated_${type}`
+    localStorage.setItem(storageKey, 'true')
   }
 
   const lerp = (x, y, a) => x * (1 - a) + y * a
@@ -119,7 +121,6 @@ export default function Scene({ type }) {
           }}
         />
       )}
-      
     </>
   )
 }
