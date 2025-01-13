@@ -1,5 +1,6 @@
 import { CalendarUp } from '@mynaui/icons-react'
 import { defineField, defineType } from 'sanity'
+import { getDanishDate } from '~/utils/date'
 
 export default defineType({
   name: 'event',
@@ -276,7 +277,8 @@ export default defineType({
 
       return {
         title: title,
-        subtitle: `${totalTicketsBooked} billetter booket${isEventFull ? ' (Ikke flere pladser)' : ` (${ticketsAvailable} tilbage)`}`,
+        subtitle: `${getDanishDate(selection.startDate)}`,
+        description: `${totalTicketsBooked} billetter booket${isEventFull ? ' (Ikke flere pladser)' : ` (${ticketsAvailable} tilbage)`}`,
       }
     },
   },
