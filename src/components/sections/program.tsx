@@ -19,8 +19,8 @@ const Program = ({ data }) => {
     selectedEducation === 'All'
       ? data.items
       : data.items.filter(
-          (item) => item.edducation?.title === selectedEducation,
-        )
+        (item) => item.edducation?.title === selectedEducation,
+      )
 
   // Group filtered items by their start time
   const groupedItems = filteredItems.reduce((acc, item) => {
@@ -57,7 +57,7 @@ const Program = ({ data }) => {
 
       {/* Grouped Items by Start Time */}
       <div className="col-span-full">
-        {Object.entries(clean(groupedItems)).map(([time, items]) => (
+        {Object.entries(groupedItems).map(([time, items]) => (
           <div
             key={time}
             className="flex flex-col items-start pb-8 mb-8 border-b border-gray-300 md:flex-row md:mb-16 md:pb-16 last:border-none"
