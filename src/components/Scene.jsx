@@ -1,8 +1,9 @@
 'use client'
 import React, { useEffect, useRef, useState } from 'react'
 import useWindow from '../hooks/useWindow'
+import { clean } from '~/utils/sanitize'
 
-export default function Scene() {
+export default function Scene({ type }) {
   const { dimension } = useWindow()
   const canvas = useRef(null)
   const prevPosition = useRef(null)
@@ -27,9 +28,22 @@ export default function Scene() {
 
   const init = () => {
     const ctx = canvas.current.getContext('2d')
-    ctx.fillStyle = '#262723'
+
+    // Set the fill style based on the `type` prop
+    switch (type) {
+      case 'openHouse':
+        ctx.fillStyle = '#FED7F4'
+        break
+      case 'default': // You can define more cases for other types
+        ctx.fillStyle = '#262723'
+        break
+      default:
+        ctx.fillStyle = '#262723' // Fallback color
+    }
+
     ctx.fillRect(0, 0, dimension.width, dimension.height)
     ctx.globalCompositeOperation = 'destination-out'
+
     // Save that the animation has been shown
     localStorage.setItem('hasAnimated', 'true')
   }
@@ -73,17 +87,39 @@ export default function Scene() {
   }
 
   return (
-    <div className="absolute inset-0 overflow-hidden w-full h-screen z-[5]">
-      {dimension.width == 0 && <div className=" w-full h-full bg-mørk" />}
-      {!hasAnimated && (
-        <canvas
-          className="h-screen"
-          ref={canvas}
-          onMouseMove={manageMouseMove}
-          height={dimension.height}
-          width={dimension.width}
+    <>
+      <div className="absolute inset-0 overflow-hidden w-full h-screen z-[5]">
+        {dimension.width == 0 && <div className={`w-full h-full bg-mørk`} />}
+        {!hasAnimated && (
+          <canvas
+            className="h-screen"
+            ref={canvas}
+            onMouseMove={manageMouseMove}
+            height={dimension.height}
+            width={dimension.width}
+          />
+        )}
+      </div>
+      {clean(type) !== 'openHouse' && (
+        <div
+          className="absolute inset-0 size-full"
+          style={{
+            background:
+              'linear-gradient(180deg, rgba(45, 45, 45, 0.00) 50%, rgba(45, 45, 45, 0.35) 87.5%, rgba(45, 45, 45, 0.50) 100%), linear-gradient(0deg, rgba(199, 201, 194, 0.25) 0%, rgba(199, 201, 194, 0.25) 100%)',
+          }}
         />
       )}
-    </div>
+
+      {clean(type) === 'openHouse' && (
+        <div
+          className="absolute inset-0 size-full"
+          style={{
+            background:
+              'linear-gradient(180deg, rgba(255, 255, 255, 0.00) 50%, rgba(255, 255, 255, 0.35) 87.5%, rgba(255, 255, 255, 0.50) 100%), linear-gradient(0deg, rgba(199, 201, 194, 0.25) 0%, rgba(199, 201, 194, 0.25) 100%)',
+          }}
+        />
+      )}
+      
+    </>
   )
 }
