@@ -28,7 +28,8 @@ const Hero: React.FC<HeroProps> = ({ data, ...props }) => {
       paddingTop={'none'}
       paddingX={'none'}
       variant="lys"
-      className="items-center justify-center block w-full min-h-screen overflow-hidden"
+      gap='secondary'
+      className="items-center justify-center w-full min-h-screen gap-0 overflow-hidden"
     >
       <Text
         textContent={data.text}
@@ -36,7 +37,7 @@ const Hero: React.FC<HeroProps> = ({ data, ...props }) => {
         type={data.type}
         title={data.string}
       />
-      <Scene /* type={data.type} */ />
+      <Scene type={data.type} />
     </Section>
   )
 }

@@ -1,13 +1,8 @@
 'use client'
 import React, { useState } from 'react'
-import { createPortal } from 'react-dom'
-import { motion, AnimatePresence } from 'framer-motion'
 import Heading from './Heading'
 import Paragraph from './Paragraph'
-import Photo from './Photo'
-import Icon from './Icons'
-import EducationContent from '../molecules/EducationContent'
-import { ProgramListItemPortal } from '../molecules/ts'
+import { ProgramListItemPortal } from '../molecules/ProgramListItemPortal'
 
 export const ProgramListItem = ({ item }) => {
   const [isPortalVisible, setIsPortalVisible] = useState(false)
