@@ -38,11 +38,61 @@ export const textWithIllustration = defineType({
       title: 'Symbol',
       type: 'SymbolPicker',
     },
-    {
+/*     {
       name: 'design',
       type: 'design',
       group: 'content',
-    },
+    }, */
+    defineField({
+      type: "object",
+      name: "design",
+      title: "Design indstillinger",
+      fields: [
+        
+        defineField({
+        type: "object",
+        name: "padding",
+        title: "Padding",
+        options: {
+          columns: 2,
+        },
+        fields: [
+          defineField({
+            name: "spacingTop",
+            type: "string",
+            title: "Afstand til toppen",
+            options: {
+              layout: "radio",
+              list: [
+                { title: "Normal", value: "default" },
+                { title: "Ingen", value: "none" },
+              ],
+            },
+            initialValue: "default",
+          }),
+        ],
+        preview: {
+          select: {
+            title: "title",
+            subtitle: "subtitle",
+          },
+          prepare(selection) {
+            const { title, subtitle } = selection;
+            return {
+              title: title,
+              subtitle: subtitle,
+            };
+          },
+        }
+      }),
+        defineField({
+          name: "color",
+          title: "Farve",
+          type: "color",
+        }),
+      ],
+    }),
+    
     {
       group: 'settings',
       name: 'SectionSettings',

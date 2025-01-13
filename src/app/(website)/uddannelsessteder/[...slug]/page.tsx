@@ -64,7 +64,7 @@ export default async function DynamicRoute({
       </Section>
 
       <TextContainer asChild paddingBottom="default" paddingTop="none">
-        <Paragraph portableText>{page?.schoolInfo?.description}</Paragraph>
+        <Paragraph spacing='none' portableText>{page?.schoolInfo?.description}</Paragraph>
       </TextContainer>
 
       <TextContainer asChild paddingBottom="default" paddingTop="none">
