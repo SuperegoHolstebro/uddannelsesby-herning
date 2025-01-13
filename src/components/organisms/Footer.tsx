@@ -168,7 +168,7 @@ function Legal({ data }) {
             </Link>
           </p>
         </div>
-        <p className="relative transition-all text-[14px] group">
+        <p className="relative transition-all text-[14px] group mt-2 sm:mt-0 ">
           <a
             className="before:absolute before:-right-[11px] before:rounded-full before:animate-bounce duration-1000 before:bottom-[5px] before:size-[7px] before:block before:transition-all ease-linear transition-all group-hover:before:bg-green"
             href="https://superego.nu/kontakt/holstebro"
