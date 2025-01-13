@@ -13,7 +13,7 @@ export const ProgramListItemPortal = ({
 }) => {
   return (
     <>
-      {createPortal(
+      {typeof document !== 'undefined' && createPortal(
         <AnimatePresence mode="wait">
           {isPortalVisible && (
             <motion.div
@@ -38,7 +38,9 @@ export const ProgramListItemPortal = ({
                 className="relative z-10 w-full h-full max-w-2xl p-6 py-24 ml-auto overflow-auto shadow-2xl md:pt-6 md:p-10 bg-lys"
               >
                 <div className="aspect-w-16 aspect-h-9">
+                  {(item.mainImage || item.mainImage?.url) && (
                   <Photo image={item.mainImage} />
+                )}
                   <div className="pt-6 pl-6">
                     <button onClick={() => setIsPortalVisible(false)}>
                       <Icon type="x" />
