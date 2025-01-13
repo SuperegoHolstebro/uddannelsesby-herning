@@ -93,7 +93,7 @@ const myPortableTextComponents = {
   },
   block: {
     normal: ({ children }) => (
-      <p className="font-sans custom-p text-regular empty:mb-4 ">{children}</p>
+      <p className="font-sans custom-p prose-strong:font-bold text-regular empty:mb-4 ">{children}</p>
     ),
     h1: ({ children }) => (
       <Heading
