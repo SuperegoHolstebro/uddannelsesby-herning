@@ -162,7 +162,7 @@ const InteractiveMarquee = (props) => {
   return (
     <>
       <motion.div
-        className="overflow-hidden py-20 md:py-36 marquee flex items-center cursor-[-webkit-grab] z-[1]"
+        className="overflow-hidden py-20 md:py-28 marquee flex items-center cursor-[-webkit-grab] z-[1]"
         ref={marqueeRef}
         style={{ skewX }}
         onWheel={handleOnWheel}
