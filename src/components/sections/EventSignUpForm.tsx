@@ -6,6 +6,7 @@ import { AdvancedButton } from '../atoms/AdvancedButton'
 import punycode from 'punycode/'
 import Heading from '../atoms/Heading'
 import Paragraph from '../atoms/Paragraph'
+import Link from 'next/link'
 
 function EventSignUpForm({ event }) {
   const [formData, setFormData] = useState({
@@ -108,13 +109,13 @@ function EventSignUpForm({ event }) {
     >
       <div className="col-start-1 -col-end-1 sm:col-start-2 sm:-col-end-2 lg:col-start-3 lg:-col-end-3 xl:col-start-6 xl:-col-end-6 2xl:col-start-6 2xl:-col-end-6">
         {event.isExternal ? (
-          <a
-            href={event.externalLink}
+          <Link
+            href={event?.externalLink || '#'}
             target="_blank"
             rel="noopener noreferrer"
           >
             Gå til begivenhed
-          </a>
+          </Link>
         ) : isSubmitted ? (
           <Paragraph spacing="small" className="font-bold col-span-full">
             Du er nu tilmeldt begivenheden
