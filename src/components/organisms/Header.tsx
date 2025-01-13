@@ -125,9 +125,11 @@ export default function Header({ locale }) {
               aria-hidden="true"
             ></span>
           </button>
-          <div>
-            <LocaleSwitcher view="desktop" locale={locale} />
-          </div>
+          {/* 
+            <div>
+              <LocaleSwitcher view="desktop" locale={locale} />
+            </div>
+          */}
         </div>
       </header>
       <AnimatePresence mode="wait">

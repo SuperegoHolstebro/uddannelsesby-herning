@@ -49,18 +49,30 @@ const LocaleSwitcher = ({ locale, position, className, view }: ExtendLanguagePro
         return 0;
     });
 
-    // Find the next language in the sorted locales
-    const getNextLocale = (currentLocale: string): AppConfigLocales => {
-        const currentIndex = sortedLocales?.findIndex(locale => locale?.id === currentLocale);
-        const nextIndex = (currentIndex + 1) % sortedLocales?.length;
-        return sortedLocales[nextIndex];
+    const handleLanguageToggle = () => {
+        const currentPath = window.location.pathname;
+
+        // Special case for `/begivenheder`
+        if (currentPath.startsWith('/begivenheder') || currentPath.startsWith('/en/begivenheder')) {
+            const updatedPath = currentPath.startsWith('/en/begivenheder')
+                ? currentPath.replace('/en', '') // Remove `/en` prefix
+                : `/en${currentPath}`; // Add `/en` prefix
+            window.location.href = updatedPath;
+            return;
+        }
+
+        // For all other paths, toggle to `/en` or `/`
+        if (currentPath === '/' || currentPath === '/en') {
+            const updatedPath = currentPath === '/en' ? '/' : '/en';
+            window.location.href = updatedPath;
+            return;
+        }
+
+        // Redirect all other paths to the front page (`/`)
+        const nextLocale = locale?.locale === 'en' ? '/' : '/en';
+        window.location.href = nextLocale;
     };
 
-    const handleLanguageToggle = () => {
-        const nextLocale = getNextLocale(locale?.locale);
-        const href = resolveHrefLang(nextLocale?.id);
-        window.location.href = href; // Navigate to the URL of the next locale
-    };
 
     return (
         <button

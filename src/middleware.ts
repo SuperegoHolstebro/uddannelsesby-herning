@@ -12,7 +12,28 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next()
   }
 
-  // Check if there is any supported locale in the pathname
+  // Handle the special case for "begivenheder"
+  if (pathname.startsWith('/begivenheder')) {
+    // Check if the pathname already contains a locale
+    const hasLocale = Appconfig.i18n.locales.some(
+      (locale) =>
+        pathname.startsWith(`/${locale?.id}/`) || pathname === `/${locale?.id}`
+    )
+
+    // If no locale is present, rewrite to add the default locale
+    if (!hasLocale) {
+      const searchString = searchParams.toString()
+      return NextResponse.rewrite(
+        new URL(
+          `/${Appconfig.i18n.defaultLocaleId}${pathname}${searchString ? `?${searchString}` : ''}`,
+          request.url,
+        ),
+      )
+    }
+    return NextResponse.next()
+  }
+
+  // Check if there is any supported locale in the pathname for other paths
   const pathnameIsMissingLocale = Appconfig.i18n.locales.every(
     (locale) =>
       !pathname.startsWith(`/${locale?.id}/`) && pathname !== `/${locale?.id}`,
