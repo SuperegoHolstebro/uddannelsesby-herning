@@ -53,7 +53,7 @@ const EventSection = ({ section, amount }) => {
         slidesPerView={1.2}
         spaceBetween={32}
         loop={events.length > 5}
-        hideNavigation={activeIndex !== null} // Modify this line to hide navigation when hover
+        hideNavigation={activeIndex !== null}
         breakpoints={{
           0: { slidesPerView: 1.5, spaceBetween: 16 },
           428: { slidesPerView: 1.5, spaceBetween: 20 },

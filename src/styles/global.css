@@ -40,6 +40,11 @@
   .event-cards:has(.event-card-item:hover) .event-card-item:not(:hover) {
     @apply md:filter md:blur-sm;
   }
+
+  .event-cards:has(.experience-card-item:hover) .experience-card-item:not(:hover) {
+    @apply md:filter md:blur-sm;
+  }
+  
   .navigation-items:has(.navigation-item:hover) .navigation-item:not(:hover) {
     @apply filter md:blur-sm blur transition-all duration-300 ease-custom;
   }
