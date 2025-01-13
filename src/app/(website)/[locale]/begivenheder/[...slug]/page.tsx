@@ -23,6 +23,7 @@ import Badge from '~/components/atoms/badge'
 import Box from '~/components/atoms/box'
 import Photo from '~/components/atoms/Photo'
 import EventInfoBox from '~/components/organisms/EventInfoBox'
+import { ExtendedPagePayload } from '../../page'
 interface Params {
   slug: string[]
   locale: string
@@ -31,18 +32,22 @@ interface Params {
 export default async function DynamicRoute({
   params,
 }: {
-  params: Promise<Params>
+  params: Promise<{ slug: string[]; locale: string }>
 }) {
-  const resolvedParams = await params // Await the Promise
-  const slug = `${resolvedParams.slug.join('/')}`
-  const page = await loadPage(slug, 'da', EVENT_QUERY)
+  const { slug: slugArray, locale: locale } = await params
+  const slug = slugArray.join('/')
+  const page = (await loadPage(
+    slug,
+    locale,
+    EVENT_QUERY,
+  )) as ExtendedPagePayload
 
   if (!page) {
     notFound()
   }
 
   return (
-    <PageContainer locale="da">
+    <PageContainer locale={page.localeInfo}>
       <Section
         variant="primary"
         paddingTop="none"
@@ -143,7 +148,13 @@ export default async function DynamicRoute({
       </Section>
 
       <TextContainer asChild>
-        <Paragraph portableText>{page.description}</Paragraph>
+        {(await params).locale === 'da' ? (
+          <Paragraph portableText>{page.description}</Paragraph>
+        ) : (
+          <Paragraph portableText>
+            {page.descriptionEN || page.description}
+          </Paragraph>
+        )}
       </TextContainer>
 
       {/* Include the EventSignUpForm component */}

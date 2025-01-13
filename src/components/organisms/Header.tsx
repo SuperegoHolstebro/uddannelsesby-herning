@@ -103,7 +103,7 @@ export default function Header({ locale }) {
             <Logo className="w-48 md:w-[250px] group" />
           </Link>
         </div>
-        <div className='flex flex-row-reverse items-center gap-6 md:gap-12 md:flex-col'>
+        <div className="flex flex-row-reverse items-center gap-6 md:gap-12 md:flex-col">
           <button
             title={isOpen ? 'Luk menu' : 'Åben menu'}
             id="menubutton"
@@ -125,9 +125,9 @@ export default function Header({ locale }) {
               aria-hidden="true"
             ></span>
           </button>
-          {/* <div>
+          <div>
             <LocaleSwitcher view="desktop" locale={locale} />
-          </div> */}
+          </div>
         </div>
       </header>
       <AnimatePresence mode="wait">

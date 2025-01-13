@@ -21,7 +21,6 @@ export async function middleware(request: NextRequest) {
   // Skip locale check for specific paths
   if (
     pathname.startsWith('/karriere') ||
-    pathname.startsWith('/begivenheder') ||
     pathname.startsWith('/uddannelsessteder') ||
     pathname.startsWith('/cookiepolitik') ||
     pathname.startsWith('/signin') ||
