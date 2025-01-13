@@ -175,6 +175,16 @@ export default defineType({
       validation: (Rule) => Rule.min(1).required(),
       hidden: ({ document }) => !!document?.isExternal, // Hide field if the event is external
     }),
+    defineField({
+      name: 'customMaxTickets',
+      title: 'Maks antal billetter pr. tilmelding',
+      type: 'number',
+      description:
+        'Maks antal billetter, som en person kan bestille på én gang',
+      group: 'registration',
+      validation: (Rule) => Rule.min(1),
+      hidden: ({ document }) => !!document?.isExternal,
+    }),
 
     // Store the list of attendees directly inside the event document
     defineField({

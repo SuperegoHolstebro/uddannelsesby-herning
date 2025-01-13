@@ -27,7 +27,7 @@ function EventSignUpForm({ event }) {
         (sum, attendee) => sum + (attendee.numberOfTickets || 0),
         0,
       ) || 0
-    const maxTickets = event.maxAttendees || 0
+    const maxTickets = event.maxAttendees ?? 0
     setTicketsLeft(maxTickets - bookedTickets)
     setIsFull(maxTickets - bookedTickets <= 0)
   }, [event.attendees, event.maxAttendees])
@@ -84,7 +84,8 @@ function EventSignUpForm({ event }) {
             (sum, attendee) => sum + (attendee.numberOfTickets || 0),
             0,
           ) + formData.numberOfTickets
-        setTicketsLeft(event.maxAttendees - newBookedTickets)
+        const maxTickets = event.maxAttendees ?? 0
+        setTicketsLeft(maxTickets - newBookedTickets)
       } else {
         console.log('Error response:', data)
         alert('Der skete en fejl. Prøv igen senere')
@@ -93,7 +94,7 @@ function EventSignUpForm({ event }) {
       console.error('Submission error:', error)
       alert('Der skete en fejl. Prøv igen senere')
     } finally {
-      setSubmitting(false) // Enable the form after submission
+      setSubmitting(false)
     }
   }
 
@@ -169,7 +170,10 @@ function EventSignUpForm({ event }) {
                     type="number"
                     name="numberOfTickets"
                     min="1"
-                    max={ticketsLeft}
+                    max={Math.min(
+                      ticketsLeft,
+                      event.customMaxTickets ?? ticketsLeft,
+                    )}
                     value={formData.numberOfTickets}
                     onChange={(e) =>
                       setFormData({
@@ -178,8 +182,9 @@ function EventSignUpForm({ event }) {
                       })
                     }
                     required
-                    className="p-0 pb-1 border-t-0 border-b-2 placeholder-mørk border-grå border-x-0 bg-lys  pt-6 peer"
+                    className="p-0 pb-1 border-t-0 border-b-2 placeholder-mørk border-grå border-x-0 bg-lys pt-6 peer"
                   />
+
                   <span className="absolute text-grå transition-all opacity-100 bottom-7 peer-placeholder-shown:opacity-0 text-small peer-placeholder-shown:text-regular peer-placeholder-shown:bottom-5">
                     Antal billetter *
                   </span>
