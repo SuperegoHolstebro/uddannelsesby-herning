@@ -20,28 +20,63 @@ export default function Text({ videoSrc, textContent, type, title }) {
         loop
         muted
         playsInline
-        className="object-cover w-full h-screen bg-cover pointer-events-none"
+        className="object-cover w-full h-screen bg-cover pointer-events-none col-span-full row-span-full"
       >
         <source src={videoSrc} type="video/mp4" />
       </video>
-      {clean(type) === 'regular' && (
-        <div className="absolute right-0 z-10 py-0 pointer-events-none xl:pb-0 top-28 md:top-20 xl:top-1/2 xl:-translate-y-1/2 scale-[.9] ">
+      {/*       {clean(type) === 'regular' && (
+        <div className="absolute right-0 z-10 py-0 pointer-events-none xl:pb-0 top-28 md:top-20 xl:top-1/2 xl:-translate-y-1/2 scale-[.9]">
           <FadeUp delay={0.5}>
             <Player
               autoplay
               loop
               hover
               src="/lottie/SE-DET-FOR-DIG.json"
-              className="max-w-72 sm:max-w-xs md:max-w-md xl:max-w-lg "
+              className=" max-w-72 sm:max-w-xs md:max-w-md xl:max-w-lg"
+            ></Player>
+          </FadeUp>
+        </div>
+      )} */}
+
+
+
+
+
+
+
+      {clean(type) === 'regular' && (
+        <div className="col-end-2 mt-auto mb-8 md:mt-auto xl:mt-auto xs:col-end-3 -col-start-1 row-span-full sm:col-end-6 md:col-end-8 xl:-col-end-10 2xl:-col-end-9">
+          <FadeUp delay={0.5}>
+            <Player
+              autoplay
+              loop
+              hover
+              src="/lottie/SE-DET-FOR-DIG.json"
+              className="md:w-[calc(91.666667%-4rem)] xl:w-[calc(91.666667%-6rem)] 3xl:w-[calc(91.666667%-9rem)]"
             ></Player>
           </FadeUp>
         </div>
       )}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       {clean(type) === 'openHouse' && (
-        <div className="absolute z-10 w-11/12 translate-x-1/2 -translate-y-1/2 right-1/2 top-1/2 md:w-auto">
+        <div className="absolute z-10 w-auto translate-x-1/2 -translate-y-1/2 right-1/2 top-1/2 md:w-auto">
           <svg
-            className="w-full max-w-xs md:max-w-md xl:max-w-lg h-fit"
+            className="w-full max-w-xs mx-auto md:max-w-md xl:max-w-lg h-fit"
             width="652"
             height="216"
             viewBox="0 0 652 216"
@@ -53,7 +88,7 @@ export default function Text({ videoSrc, textContent, type, title }) {
               fill="#262723"
             />
           </svg>
-          <div className="mt-4 text-right">
+          <div className="mx-auto mt-4 text-right">
             <Heading tag="h1" type="h3">
               {title}
             </Heading>
@@ -61,7 +96,11 @@ export default function Text({ videoSrc, textContent, type, title }) {
         </div>
       )}
 
-      <div className="absolute bottom-0 left-0 z-10 hidden pb-8 pl-6 font-sans pointer-events-none md:block md:pl-32 lg:pl-36 text-lys xs:max-w-md sm:max-w-md md:max-w-xl lg:max-w-3xl">
+      <div
+        className={`
+      ${clean(type) === 'openHouse' ? 'text-dark' : ' text-lys'}
+        absolute bottom-0 left-0 z-10 hidden pb-8 pl-6 font-sans pointer-events-none md:block md:pl-32 lg:pl-36 xs:max-w-md sm:max-w-md md:max-w-xl lg:max-w-3xl`}
+      >
         <FadeUp delay={0.3}>
           <Paragraph>{textContent}</Paragraph>
         </FadeUp>
