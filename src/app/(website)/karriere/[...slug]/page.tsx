@@ -151,7 +151,7 @@ export default async function DynamicRoute({
               <AdvancedButton variant="primary">
                 <Link
                   className="text-increased"
-                  href={page.website}
+                  href={`https://${page.website}`}
                   target="_blank"
                 >
                   Læs mere om os
