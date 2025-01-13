@@ -142,7 +142,7 @@ export default async function DynamicRoute({
             <Heading type="h3" tag="h3">
               Om {page.name}
             </Heading>
-            <Paragraph spacing="none">{page.description}</Paragraph>
+            <Paragraph className="whitespace-pre-line" spacing="none">{page.description}</Paragraph>
           </>
         )}
         <div className="pt-12">
