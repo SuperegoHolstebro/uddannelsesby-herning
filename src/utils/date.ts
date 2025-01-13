@@ -58,19 +58,20 @@ export const eventDateRange = (startDate, endDate, isMultiDay) => {
   })
 
   let formattedEnd = null
-  if (isMultiDay && endDate && startDate !== endDate) {
-    formattedEnd = new Date(endDate).toLocaleDateString('da-DK', {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-    })
+  if (isMultiDay && endDate) {
+    const startDateOnly = new Date(startDate).toISOString().split('T')[0]
+    const endDateOnly = new Date(endDate).toISOString().split('T')[0]
+
+    if (startDateOnly !== endDateOnly) {
+      formattedEnd = new Date(endDate).toLocaleDateString('da-DK', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+      })
+    }
   }
 
-  return isMultiDay && startDate === endDate
-    ? formattedStart
-    : formattedEnd
-      ? `${formattedStart} - ${formattedEnd}`
-      : formattedStart
+  return formattedEnd ? `${formattedStart} - ${formattedEnd}` : formattedStart
 }
 
 export const getMonth = (date: string) => {

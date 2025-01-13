@@ -50,19 +50,18 @@ const EventInfoBox = ({ page }) => {
             <Icon type="clock" className="w-8 h-8" />
             <Heading type="h5" tag="h5" spacing="default">
               {formatTime(page.startDate)}
-              {page?.endDate && (
+              {page?.isMultiDay && page?.endDate && (
                 <span>
                   <span className="hidden md:inline-block">-</span>
                   <span className="md:hidden">
                     <br />
                   </span>
+                  {formatTime(page?.endDate)}
                 </span>
               )}
-              {formatTime(page?.endDate)}
             </Heading>
           </Box>
         )}
-
         {page.location && (
           <Box>
             <Icon type="streetSign" className="w-8 h-8" />
