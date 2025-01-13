@@ -27,7 +27,7 @@ export const ProgramListItem = ({ item }) => {
     case 'VIA University College':
       educationTitle = 'bg-grå text-mørk hover:text-mørk hover:bg-signal-pink'
       break
-    case 'EAMV':
+    case 'Erhvervsakademi Midtvest':
       educationTitle =
         'border-mørk border hover:text-mørk hover:bg-signal-pink hover:border-signal-pink'
       break
