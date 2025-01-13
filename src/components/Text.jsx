@@ -45,14 +45,14 @@ export default function Text({ videoSrc, textContent, type, title }) {
 
 
       {clean(type) === 'regular' && (
-        <div className="col-end-2 mt-auto mb-8 md:mt-auto xl:mt-auto xs:col-end-3 -col-start-1 row-span-full sm:col-end-6 md:col-end-8 xl:-col-end-10 2xl:-col-end-9">
+        <div className="z-10 col-end-2 mt-auto mb-8 md:mt-auto xl:mt-auto xs:col-end-3 -col-start-1 row-span-full sm:col-end-6 md:col-end-8 xl:-col-end-10 2xl:-col-end-9">
           <FadeUp delay={0.5}>
             <Player
               autoplay
               loop
               hover
               src="/lottie/SE-DET-FOR-DIG.json"
-              className="md:w-[calc(91.666667%-4rem)] xl:w-[calc(91.666667%-6rem)] 3xl:w-[calc(91.666667%-9rem)]"
+              className="w-[calc(91.666667%-0rem)] md:w-[calc(91.666667%-4rem)] xl:w-[calc(91.666667%-6rem)] 3xl:w-[calc(91.666667%-9rem)]"
             ></Player>
           </FadeUp>
         </div>
