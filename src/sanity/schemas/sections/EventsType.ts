@@ -19,6 +19,11 @@ export const EventType = defineType({
       type: 'string',
     }),
     defineField({
+      name: 'link',
+      type: 'link',
+      title: 'Knap',
+    }),
+    defineField({
       group: 'content',
       name: 'view',
       title: 'view',
@@ -49,6 +54,7 @@ export const EventType = defineType({
       title: 'Antal begivenheder',
       initialValue: 4,
     }),
+    
     {
       name: 'design',
       type: 'design',

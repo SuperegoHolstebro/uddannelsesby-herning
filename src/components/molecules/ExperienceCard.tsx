@@ -35,7 +35,7 @@ const ExperienceCard = ({
     <>
       <div
         key={experience?._key}
-        className={`hidden md:block group/experience-card relative experience-card-item w-full overflow-hidden transition-all ease-custom duration-735 ${isActive ? 'scale-110 z-10' : 'scale-100'}`}
+        className={`hidden md:block experience-card-item group/experience-card relative  w-full overflow-hidden transition-all ease-custom duration-735 ${isActive ? 'scale-110 z-10' : 'scale-100'}`}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
       >

@@ -1,5 +1,6 @@
 import groq from 'groq'
 import { ImageQuery } from '../atoms/ImageQuery'
+import { ButtonQuery } from '../atoms/ButtonQuery'
 
 const EventCardQuery = groq`
   title, 
@@ -34,6 +35,7 @@ export const EventTypeQuery = groq`
   _type == "EventType" => {
     amount,
     ...,
+    ${ButtonQuery},
     "events": select(
       ${All},
       ${Manual},

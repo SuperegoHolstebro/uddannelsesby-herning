@@ -1,19 +1,12 @@
 import { cn } from '@/utils/utils'
 import React, { type ElementType, type ForwardedRef, forwardRef } from 'react'
-import { generateHref } from '@/sanity/schemas/customFields/LinkField/helpers/generateHref'
 import { getLinkText } from '@/sanity/schemas/customFields/LinkField/helpers/getLinkText'
-import {
-  isCustomLink,
-  isEmailLink,
-  isPhoneLink,
-} from '@/sanity/schemas/customFields/LinkField/helpers/typeGuards'
 import {
   InternalLink,
   LinkValue,
 } from '@/sanity/schemas/customFields/LinkField/Types'
 import { AdvancedButton, advancedButtonVariants } from './AdvancedButton'
 import { clean } from '~/utils/sanitize'
-import Link from 'next/link'
 import { AdvancedButtonProps } from '~/types/AdvancedButtonProps'
 import { VariantProps } from 'class-variance-authority'
 import { SanityLink } from '~/sanity/schemas/customFields/LinkField/components/Link'
@@ -35,7 +28,7 @@ import { resolveHrefLang } from '~/sanity/lib/sanity.links'
 type LinkProps = {
   link?: LinkValue
   as?: ElementType
-  direction?: 'left' | 'right'
+  direction?: 'left' | 'right' | 'center'
   showSvg?: boolean
   hrefResolver?: (link: InternalLink) => string
 } & Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href' | 'target'>
@@ -94,7 +87,9 @@ const Button = forwardRef(
             <span className="block">{children}</span>
             {showSvg && (
               <span
-                className={`inline-grid w-10 overflow-hidden transition-all ease-custom duration-735 group-focus-within/button:w-full group-hover/button:w-full ${direction === 'left' ? 'ml-auto' : 'mr-auto '}`}
+                className={`inline-grid w-10 overflow-hidden transition-all ease-custom duration-735 group-focus-within/button:w-full group-hover/button:w-full 
+                  ${direction === 'left' ? 'ml-auto' : 'mr-auto'} 
+                  `}
               >
                 <svg
                   className="w-full"
