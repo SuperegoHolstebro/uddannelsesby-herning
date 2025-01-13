@@ -59,7 +59,7 @@ export const PageTitle = defineType({
       const { images, image } = selection
 
       return {
-        title: `PageTitle med ${Object.keys(images).length} billeder`,
+        title: `Side titel med ${Object.keys(images).length} billeder`,
         subtitle: `Alt text: `,
         media: image,
       }

@@ -26,7 +26,7 @@ const TextWithIllustration = ({ data, popup }: TextAndCollageProps) => {
     <Section
       id={clean(data?.SectionSettings?.anchor?.current)}
       paddingTop={clean(data.design.padding.spacingTop)}
-      paddingBottom={clean(data.design.padding.spacingBottom)}
+      paddingBottom={'default'}
       className="overflow-hidden"
       variant={clean(data?.design?.color?.color)}
     >

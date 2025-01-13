@@ -15,6 +15,11 @@ export const EventType = defineType({
   fields: [
     defineField({
       group: 'content',
+      name: 'heading',
+      type: 'string',
+    }),
+    defineField({
+      group: 'content',
       name: 'view',
       title: 'view',
       type: 'string',
@@ -59,11 +64,12 @@ export const EventType = defineType({
   preview: {
     select: {
       view: 'view',
+      title: 'heading',
     },
-    prepare({  view }) {
+    prepare({  view, title }) {
       return {
-        title: 'Begivenheder',
-        subtitle: `${view === 'manual' ? 'Manuel' : view === 'newest' ? 'Nyeste' : 'Alle'} Visning`,
+        title: title,
+        subtitle: `Begivenheder — ${view === 'manual' ? 'Manuel' : view === 'newest' ? 'Nyeste' : 'Alle'} Visning`,
       }
     },
   },
