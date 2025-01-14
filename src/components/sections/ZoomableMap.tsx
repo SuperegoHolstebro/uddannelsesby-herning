@@ -144,7 +144,7 @@ export const ZoomableMap = ({ pins, image }) => {
       style={{
         width: '100%',
         height: '100%',
-        background: '##262723',
+        background: '#262723',
       }}
       xmlns="http://www.w3.org/2000/svg"
       viewBox={`0 0 ${theSvgWidth} ${theSvgHeight}`}
