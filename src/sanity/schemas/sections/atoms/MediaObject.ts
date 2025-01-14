@@ -37,6 +37,9 @@ export const MediaObject = defineType({
             defineField({
               name: 'image',
               type: 'image',
+              options: {
+                hotspot: true,
+              }
             }),
           ],
           hidden: ({ parent }) => parent?.select !== 'image',
