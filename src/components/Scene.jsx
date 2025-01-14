@@ -74,7 +74,7 @@ export default function Scene({ type }) {
       <div className="absolute inset-0 overflow-hidden w-full h-full z-[5]">
         {dimension.width == 0 && <div className={`w-full h-full bg-mørk`} />}
         <canvas
-          className="h-screen"
+          className="hidden h-screen md:block"
           ref={canvas}
           onMouseMove={manageMouseMove}
           height={dimension.height}
