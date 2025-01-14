@@ -100,7 +100,7 @@ const Popup = () => {
                       </Button>
                     )}
                   </div>
-                  <div className="relative w-full p-8 pb-0 md:p-0 md:w-1/2">
+                  <div className="relative w-full p-4 pb-0 md:p-0 md:w-1/2">
                     {data?.custom?.image?.asset && (
                       <Photo image={data?.custom?.image} className="aspect-1" />
                     )}
