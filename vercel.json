@@ -781,6 +781,11 @@
       "permanent": false
     },
     {
+      "source": "/download-materiale/",
+      "destination": "/",
+      "permanent": false
+    },
+    {
       "source": "/download-materiale-form/",
       "destination": "/",
       "permanent": false
