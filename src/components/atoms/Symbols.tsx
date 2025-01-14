@@ -22,8 +22,6 @@ const Player = dynamic(
  * @version: 1.0.0
  * @property: [type]
  * @author: Kasper Buchholtz
- 
- * @author: Kasper Buchholtz
  *
 **/
 

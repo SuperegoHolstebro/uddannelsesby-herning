@@ -39,7 +39,7 @@ const TextWithIllustration = ({ data, popup }: TextAndCollageProps) => {
           {/* Small image overlay in the bottom-right corner */}
           <div className="absolute -bottom-8 -right-16">
             <FadeUp delay={0.325}>
-              {data.SmallMediaObject?.media && (
+              {data.SmallMediaObject?.media?.asset?.url && (
                 <div className="*:hidden *:md:block size-64 shadow-none md:shadow-lg">
                   <Media data={data?.SmallMediaObject?.media} />
                 </div>

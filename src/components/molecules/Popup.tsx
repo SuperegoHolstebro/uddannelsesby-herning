@@ -82,7 +82,7 @@ const Popup = () => {
               className="fixed bottom-0 right-0 z-[calc(infinity+1)]"
             >
               <div className="flex flex-col-reverse w-full max-w-3xl gap-3 shadow-md md:gap-12 md:flex-row bg-lys">
-                <div className="p-8 pt-6 pr-0 space-y-8 md:pt-12 md:space-y-6 md:p-12 md:basis-1/2">
+                <div className="px-4 pt-3 pr-0 space-y-3 md:space-y-8 md:p-8 md:pt-6 md:pt-12 md:space-y-6 md:p-12 md:basis-1/2">
                   {data?.custom?.title && (
                     <Heading tag="h6" type="h4" spacing="none">
                       {data?.custom?.title}
