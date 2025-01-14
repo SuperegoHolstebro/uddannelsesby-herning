@@ -90,7 +90,7 @@ export default function Scene({ type }) {
 
   return (
     <>
-      <div className="absolute inset-0 overflow-hidden w-full h-screen z-[5]">
+      <div className="absolute inset-0 overflow-hidden w-full h-full z-[5]">
         {dimension.width == 0 && <div className={`w-full h-full bg-mørk`} />}
         {!hasAnimated && (
           <canvas
@@ -101,7 +101,7 @@ export default function Scene({ type }) {
             width={dimension.width}
           />
         )}
-      </div>
+      
       {clean(type) !== 'openHouse' && (
         <div
           className="absolute inset-0 size-full"
@@ -121,6 +121,7 @@ export default function Scene({ type }) {
           }}
         />
       )}
+      </div>
     </>
   )
 }
