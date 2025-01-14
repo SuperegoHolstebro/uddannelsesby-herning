@@ -104,7 +104,7 @@ export default function Scene({ type }) {
       
       {clean(type) !== 'openHouse' && (
         <div
-          className="absolute inset-0 size-full"
+          className="absolute inset-0 pointer-events-none size-full"
           style={{
             background:
               'linear-gradient(180deg, rgba(45, 45, 45, 0.00) 50%, rgba(45, 45, 45, 0.35) 87.5%, rgba(45, 45, 45, 0.50) 100%), linear-gradient(0deg, rgba(199, 201, 194, 0.25) 0%, rgba(199, 201, 194, 0.25) 100%)',
@@ -114,7 +114,7 @@ export default function Scene({ type }) {
 
       {clean(type) === 'openHouse' && (
         <div
-          className="absolute inset-0 size-full"
+          className="absolute inset-0 pointer-events-none size-full"
           style={{
             background:
               'linear-gradient(180deg, rgba(255, 255, 255, 0.00) 50%, rgba(255, 255, 255, 0.35) 87.5%, rgba(255, 255, 255, 0.50) 100%), linear-gradient(0deg, rgba(199, 201, 194, 0.25) 0%, rgba(199, 201, 194, 0.25) 100%)',
