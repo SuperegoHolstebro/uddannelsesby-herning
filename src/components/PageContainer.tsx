@@ -62,7 +62,7 @@ export default function PageContainer({
         options={lenis}
         root={typeof document !== 'undefined' ? document.documentElement : null}
       />
-      <main id="indhold" className={`debug-screens min-h-screen bg-lys`}>
+      <main id="indhold" className={` min-h-screen bg-lys`}>
         {children}
       </main>
       <Popup />
