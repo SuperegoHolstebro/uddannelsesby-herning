@@ -55,8 +55,21 @@ export const EVENT_QUERY = groq`
   },
   descriptionEN[]{
     ...,
-  }
+  },
   
+  "events": *[_type == "event" && _id != ^._id] | order(date desc) [0...8] {
+    title, 
+  "slug": slug.current,
+  startDate,
+  image {
+    ${ImageQuery},
+  },
+  category->{
+    title,
+  },
+  _type,
+  price
+  }
 }
 `
 

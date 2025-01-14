@@ -24,6 +24,8 @@ import Box from '~/components/atoms/box'
 import Photo from '~/components/atoms/Photo'
 import EventInfoBox from '~/components/organisms/EventInfoBox'
 import { ExtendedPagePayload } from '../../page'
+import EventSection from '~/components/sections/EventSection'
+
 interface Params {
   slug: string[]
   locale: string
@@ -189,6 +191,7 @@ export default async function DynamicRoute({
           </Section>
         ) : null}
       </Scheduler>
+      <EventSection amount={8} section={page} />
     </PageContainer>
   )
 } /* 
