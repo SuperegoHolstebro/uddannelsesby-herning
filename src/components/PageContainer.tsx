@@ -65,8 +65,8 @@ export default function PageContainer({
       <main id="indhold" className={` min-h-screen bg-lys`}>
         {children}
       </main>
-      <Popup />
       <Footer locale={locale || 'da'} />
+      <Popup />
     </>
   )
 }

@@ -66,56 +66,58 @@ const Popup = () => {
   }
 
   return (
-    <div>
+    <>
       {hasCheckedLocalStorage && clean(data?.type) === 'custom' && (
         <AnimatePresence>
           {isOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: 100 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{
-                opacity: 0,
-                y: 100,
-                transition: { duration: 0.5, ease: [0.86, 0, 0.07, 1] },
-              }}
-              transition={{ duration: 1, delay: 1, ease: [0.86, 0, 0.07, 1] }}
-              className="fixed bottom-0 right-0 z-[calc(infinity+1)]"
-            >
-              <div className="flex flex-col-reverse w-full max-w-3xl gap-3 shadow-md md:gap-12 md:flex-row bg-lys">
-                <div className="px-4 pt-3 pr-0 space-y-3 md:space-y-8 md:p-8 md:pt-6 md:pt-12 md:space-y-6 md:p-12 md:basis-1/2">
-                  {data?.custom?.title && (
-                    <Heading tag="h6" type="h4" spacing="none">
-                      {data?.custom?.title}
-                    </Heading>
-                  )}
-                  {data?.custom?.description && (
-                    <Paragraph spacing="none">
-                      {data?.custom?.description}
-                    </Paragraph>
-                  )}
-                  {data?.custom?.link && (
-                    <Button link={data?.custom?.link}>
-                      {data?.custom?.link?.label}
-                    </Button>
-                  )}
+            <>
+              <motion.div
+                initial={{ opacity: 0, y: 100 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{
+                  opacity: 0,
+                  y: 100,
+                  transition: { duration: 0.5, ease: [0.86, 0, 0.07, 1] },
+                }}
+                transition={{ duration: 1, delay: 1, ease: [0.86, 0, 0.07, 1] }}
+                className="fixed bottom-0 right-0 z-[calc(infinity+1)] h-full flex items-end"
+              >
+                <div className="flex flex-col-reverse w-full h-auto max-w-3xl gap-3 pb-8 shadow-md md:gap-12 md:flex-row bg-lys md:pb-0">
+                  <div className="w-full px-4 pt-3 pr-0 space-y-3 md:space-y-8 md:p-8 md:pt-6 md:pt-12 md:space-y-6 md:p-12 md:w-1/2">
+                    {data?.custom?.title && (
+                      <Heading tag="h6" type="h4" spacing="none">
+                        {data?.custom?.title}
+                      </Heading>
+                    )}
+                    {data?.custom?.description && (
+                      <Paragraph spacing="none">
+                        {data?.custom?.description}
+                      </Paragraph>
+                    )}
+                    {data?.custom?.link && (
+                      <Button link={data?.custom?.link}>
+                        {data?.custom?.link?.label}
+                      </Button>
+                    )}
+                  </div>
+                  <div className="relative w-full p-8 pb-0 md:p-0 md:w-1/2">
+                    {data?.custom?.image?.asset && (
+                      <Photo image={data?.custom?.image} className="aspect-1" />
+                    )}
+                    <button
+                      onClick={togglePopup}
+                      className="absolute top-12 right-12 group "
+                    >
+                      <Icon
+                        className="transition-all scale-105 text-signal-pink size-6 group-hover:rotate-180 duration-735 ease-custom group-hover:text-dark"
+                        type="x"
+                      />
+                    </button>
+                  </div>
                 </div>
-                <div className="relative p-8 pb-0 md:p-0 md:basis-1/2 aspect-1">
-                  {data?.custom?.image?.asset && (
-                    <Photo image={data?.custom?.image} className="aspect-1" />
-                  )}
-                  <button
-                    onClick={togglePopup}
-                    className="absolute top-12 right-12 group "
-                  >
-                    <Icon
-                      className="transition-all scale-105 text-signal-pink size-6 group-hover:rotate-180 duration-735 ease-custom group-hover:text-dark"
-                      type="x"
-                    />
-                  </button>
-                </div>
-              </div>
-            </motion.div>
-          )}
+              </motion.div>
+
+            </>)}
         </AnimatePresence>
       )}
 
@@ -132,10 +134,10 @@ const Popup = () => {
                 transition: { duration: 0.5, ease: [0.86, 0, 0.07, 1] },
               }}
               transition={{ duration: 1, delay: 1, ease: [0.86, 0, 0.07, 1] }}
-              className="fixed bottom-0 right-0 z-[calc(infinity+1)]"
+              className="fixed bottom-0 right-0 z-[calc(infinity+1)] h-full flex items-end"
             >
-              <div className="flex flex-col-reverse w-full max-w-3xl gap-3 shadow-[0px_24px_40px_-10px_rgba(15,_28,_51,_0.16)] md:gap-12 md:flex-row bg-lys">
-                <div className="flex flex-col justify-between p-8 pt-6 pr-0 md:pt-12 md:p-12 md:basis-1/2">
+              <div className="flex flex-col-reverse w-full max-w-3xl gap-3 shadow-[0px_24px_40px_-10px_rgba(15,_28,_51,_0.16)] md:gap-12 md:flex-row bg-lys pb-8 md:pb-0">
+                <div className="flex flex-col justify-between w-full p-8 pt-6 pr-0 md:pt-12 md:p-12 md:w-1/2">
                   <div className="space-y-5 md:space-y-6">
                     {data?.event?.title && (
                       <Heading tag="h6" type="h4" spacing="none">
@@ -160,7 +162,7 @@ const Popup = () => {
                       <Link
                         className="text-increased"
                         href={resolveHref('event', data?.event?.slug)}
-                        // href="#signup"
+                      // href="#signup"
                       >
                         SE MERE
                         <span className="overflow-hidden">
@@ -187,7 +189,7 @@ const Popup = () => {
                     </AdvancedButton>
                   </div>
                 </div>
-                <div className="relative p-8 pb-0 md:p-0 md:basis-1/2 aspect-1">
+                <div className="relative w-full p-8 pb-0 md:p-0 md:w-1/2 aspect-1">
                   {data?.event?.image?.asset && (
                     <Photo image={data?.event?.image} className="aspect-1" />
                   )}
@@ -206,7 +208,7 @@ const Popup = () => {
           )}
         </AnimatePresence>
       )}
-    </div>
+    </>
   )
 }
 
