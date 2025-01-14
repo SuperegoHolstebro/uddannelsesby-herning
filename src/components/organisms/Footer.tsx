@@ -147,7 +147,7 @@ function Legal({ data }) {
         <div className="flex flex-col justify-start gap-4 sm:gap-8 md:gap-12 sm:flex-row">
           <p className="text-[14px]">{`© ${companyName} ${new Date().getFullYear()}`}</p>
           <p className="text-[14px]">
-            <Link href="/" target="_blank" rel="noreferrer">
+            <Link href="/cookiepolitik" target="_blank" rel="noreferrer">
               Cookiepolitik
             </Link>
           </p>
