@@ -6,167 +6,167 @@
       "permanent": false
     },
     {
-      "source": "/overpringshandling/",
+      "source": "/overpringshandling",
       "destination": "/",
       "permanent": false
     },
     {
-      "source": "/personoplysningspolitik/",
+      "source": "/personoplysningspolitik",
       "destination": "/personoplysningspolitik/",
       "permanent": false
     },
     {
-      "source": "/uddannelser-gammel/",
+      "source": "/uddannelser-gammel",
       "destination": "/uddannelser",
       "permanent": false
     },
     {
-      "source": "/foraeldrearrangement/",
+      "source": "/foraeldrearrangement",
       "destination": "/abent-hus-herning",
       "permanent": false
     },
     {
-      "source": "/nyhedsbrev-tak/",
+      "source": "/nyhedsbrev-tak",
       "destination": "/",
       "permanent": false
     },
     {
-      "source": "/tak-2021-uddannelsessoegende/",
+      "source": "/tak-2021-uddannelsessoegende",
       "destination": "/",
       "permanent": false
     },
     {
-      "source": "/tak-2021-inspiration/",
+      "source": "/tak-2021-inspiration",
       "destination": "/",
       "permanent": false
     },
     {
-      "source": "/download-materiale/",
+      "source": "/download-materiale",
       "destination": "/",
       "permanent": false
     },
     {
-      "source": "/download-materiale-form/",
+      "source": "/download-materiale-form",
       "destination": "/",
       "permanent": false
     },
     {
-      "source": "/tilmeld-nyhedsbrev/",
+      "source": "/tilmeld-nyhedsbrev",
       "destination": "/",
       "permanent": false
     },
     {
-      "source": "/internationale-studerende-anil/",
+      "source": "/internationale-studerende-anil",
       "destination": "/",
       "permanent": false
     },
     {
-      "source": "/internationale-studerende-alisa/",
+      "source": "/internationale-studerende-alisa",
       "destination": "/",
       "permanent": false
     },
     {
-      "source": "/internationale-studerende-mara/",
+      "source": "/internationale-studerende-mara",
       "destination": "/",
       "permanent": false
     },
     {
-      "source": "/internationale-studerende-enrique/",
+      "source": "/internationale-studerende-enrique",
       "destination": "/",
       "permanent": false
     },
     {
-      "source": "/internationale-studerende-gediminas/",
+      "source": "/internationale-studerende-gediminas",
       "destination": "/",
       "permanent": false
     },
     {
-      "source": "/internationale-studerende-marcela/",
+      "source": "/internationale-studerende-marcela",
       "destination": "/",
       "permanent": false
     },
     {
-      "source": "/om-os/",
+      "source": "/om-os",
       "destination": "/studielivet-i-herning",
       "permanent": false
     },
     {
-      "source": "/meet-international-students/",
+      "source": "/meet-international-students",
       "destination": "/uddannelser",
       "permanent": false
     },
     {
-      "source": "/kontakt/",
+      "source": "/kontakt",
       "destination": "/abent-hus-herning",
       "permanent": false
     },
     {
-      "source": "/livet-i-herning/moed-de-studerende/",
+      "source": "/livet-i-herning/moed-de-studerende",
       "destination": "/studielivet-i-herning",
       "permanent": false
     },
     {
-      "source": "/ledige-pladser/",
+      "source": "/ledige-pladser",
       "destination": "/studielivet-i-herning",
       "permanent": false
     },
     {
-      "source": "/bliv-ingenior/",
+      "source": "/bliv-ingenior",
       "destination": "/uddannelser",
       "permanent": false
     },
     {
-      "source": "/bo-i-herning/",
+      "source": "/bo-i-herning",
       "destination": "/ny-i-herning",
       "permanent": false
     },
     {
-      "source": "/livet-i-herning/",
+      "source": "/livet-i-herning",
       "destination": "/ny-i-herning",
       "permanent": false
     },
     {
-      "source": "/international-student/",
+      "source": "/international-student",
       "destination": "/uddannelser",
       "permanent": false
     },
     {
-      "source": "/internationale-studerende-q-a/",
+      "source": "/internationale-studerende-q-a",
       "destination": "/uddannelser",
       "permanent": false
     },
     {
-      "source": "/inspiration/",
+      "source": "/inspiration",
       "destination": "/studielivet-i-herning",
       "permanent": false
     },
     {
-      "source": "/forside-2/",
+      "source": "/forside-2",
       "destination": "/",
       "permanent": false
     },
     {
-      "source": "/arrangementer/",
+      "source": "/arrangementer",
       "destination": "/det-sker",
       "permanent": false
     },
     {
-      "source": "/student-cup-herning/",
+      "source": "/student-cup-herning",
       "destination": "/det-sker",
       "permanent": false
     },
     {
-      "source": "/studentcupherning/",
+      "source": "/studentcupherning",
       "destination": "/det-sker",
       "permanent": false
     },
     {
-      "source": "/studiepraktik/",
+      "source": "/studiepraktik",
       "destination": "/uddannelser",
       "permanent": false
     },
     {
-      "source": "/billetter/",
+      "source": "/billetter",
       "destination": "/det-sker",
       "permanent": false
     }
