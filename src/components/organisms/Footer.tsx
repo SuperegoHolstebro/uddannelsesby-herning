@@ -151,11 +151,11 @@ function Legal({ data }) {
               Cookiepolitik
             </Link>
           </p>
-          <p className="text-[14px]">
+          {/*  <p className="text-[14px]">
             <Link href="/" target="_blank" rel="noreferrer">
               Tilgængelighedserklæring
             </Link>
-          </p>
+          </p> */}
           <p className="text-[14px]">
             <Link
               className="group"
