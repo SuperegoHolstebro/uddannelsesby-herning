@@ -92,7 +92,7 @@ const FilterButtons = ({
             selectedCategory={selectedCategory}
             setSelectedCategory={setSelectedCategory}
           >
-            All Discounts
+            Alle rabatter
           </FilterButton>
         </SwiperSlide>
         {categories.map((category, index) => (
@@ -118,7 +118,7 @@ const FilterButtons = ({
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}
       >
-        All Discounts
+        Alle rabatter
       </FilterButton>
       {categories.map((category, index) => (
         <FilterButton
