@@ -8,3 +8,760 @@ const Appconfig = {
   },
 }
 export default Appconfig
+
+
+
+
+
+
+
+
+/* redirects 
+
+
+
+
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/byvandringer-i-herning/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/expat-fair-herning-2020/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/city-walks-in-herning/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/locked-escape-room-bombsquad-paa-terrormission-med-dine-medstuderende-hold-2/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/locked-escape-room-1/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/locked-escape-room-1-10-21/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/fc-midtjylland-fodbold-og-forretning/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/comedy-for-studerende/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/city-escape-operation-mindfall/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/padel-pizza-gratis-event-for-studerende-2/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/padel-pizza-gratis-event-for-studerende/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/comedy-og-poetry-slam-for-studerende/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/hoevdingebold-event/",
+      "permanent": false
+    },
+    {
+      "destination": "/begivenheder/yoga",
+      "source": "https://aabenthusherning.dk/arrangement/yoga/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/international-citizen-day-herning/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/studiestart-faellesspisning-semester-start-common-dinning/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/student-cup-2023/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/wakeboard-vandski-wakeboard-waterskiing/",
+      "permanent": false
+    },
+    {
+      "destination": "/begivenheder/padel-and-pizza",
+      "source": "https://aabenthusherning.dk/arrangement/padel-pizza/",
+      "permanent": false
+    },
+    {
+      "destination": "/begivenheder/yoga",
+      "source": "https://aabenthusherning.dk/arrangement/yoga-2/",
+      "permanent": false
+    },
+    {
+      "destination": "/begivenheder/yoga",
+      "source": "https://aabenthusherning.dk/arrangement/yoga-3/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/comedy-poetry-slam/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/herning-blue-fox-event-incl-pre-match-spisning-food/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/yoga-4/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/student-bar/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/keramik-workshop-ceramics-workshop/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/skoejteloeb-m-gloegg-og-oebleskiver-iceskating-event/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/poetryslam-workshop/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/fredagscafe-med-justerbart-fridaycafe-with-justerbart/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/poetryslam-workshop-vol-2/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/nightlife-boost-workshop/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/skoejteloeb-iceskating/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/justerbart-valentines-special/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/yoga-5/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/cook-n-talk/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/pubquiz-med-international-society-pubquiz-with-international-society-2/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/pubquiz-med-international-society-pubquiz-with-international-society/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/faellespisning-og-diy-common-dinning-and-diy-490/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/pupquiz-sammen-med-international-society-pupquiz-with-international-society/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/faellespisning-og-diy-common-dinning-and-diy/",
+      "permanent": false
+    },
+    {
+      "destination": "/begivenheder/klatring-bouldering",
+      "source": "https://aabenthusherning.dk/arrangement/klatring-bouldering/",
+      "permanent": false
+    },
+    {
+      "destination": "/begivenheder/yoga",
+      "source": "https://aabenthusherning.dk/arrangement/yoga-6/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/gamebox-festival-student-discount/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/funktionel-fitness-crossfit/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/keramikworkshop-ceramicsworkshop/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/musicbingo-karaoke/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/mountainbike-tur-mountainbike-ride/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/comedy-night/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/styrketraening-i-terminalen-strengthtraining-at-the-terminal/",
+      "permanent": false
+    },
+    {
+      "destination": "/begivenheder/yoga",
+      "source": "https://aabenthusherning.dk/arrangement/yoga-7/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/wakeboard-vandski-wakeboard-water-skiing/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/pubquiz-med-international-society-pubquiz-with-international-society-2-168/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/cook-n-talk-709/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/student-cup-2024/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/studiestart-faellesspisning-semester-start-common-dining/",
+      "permanent": false
+    },
+    {
+      "destination": "/begivenheder/yoga",
+      "source": "https://aabenthusherning.dk/arrangement/yoga-8/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/karrieremesse-i-herning-career-fair-in-herning/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/bustur-til-skovsnogen-bus-trip-to-skovsnogen/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/klatring-climbing/",
+      "permanent": false
+    },
+    {
+      "destination": "/begivenheder/yoga",
+      "source": "https://aabenthusherning.dk/arrangement/yoga-9/",
+      "permanent": false
+    },
+    {
+      "destination": "/begivenheder/yoga",
+      "source": "https://aabenthusherning.dk/arrangement/yoga-10/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/studentbar/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/comedy/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/keramik-ceramics-workshop-ii/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/keramik-ceramics-workshop-i/",
+      "permanent": false
+    },
+    {
+      "destination": "/begivenheder/saunagus",
+      "source": "https://aabenthusherning.dk/arrangement/saunagus/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/recycle-workshop-sy-dit-toej-om-renew-your-clothes/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/bedre-oekonomi/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/juleoelsmagning-christmas-beer-tasting/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/tufting-og-aftensmad-tufting-and-dinner/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/skoejteloeb-aebleskiver-ice-skating-aebleskiver/",
+      "permanent": false
+    },
+    {
+      "destination": "/begivenheder/padel-and-pizza",
+      "source": "https://aabenthusherning.dk/arrangement/padel-pizza-2/",
+      "permanent": false
+    },
+    {
+      "destination": "/begivenheder/fastelavnsfest",
+      "source": "https://aabenthusherning.dk/arrangement/fastelavn-semester-fest/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/byvandringer-i-herning/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/expat-fair-herning-2020/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/city-walks-in-herning/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/locked-escape-room-bombsquad-paa-terrormission-med-dine-medstuderende-hold-2/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/locked-escape-room-1/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/locked-escape-room-1-10-21/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/fc-midtjylland-fodbold-og-forretning/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/comedy-for-studerende/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/city-escape-operation-mindfall/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/padel-pizza-gratis-event-for-studerende-2/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/padel-pizza-gratis-event-for-studerende/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/comedy-og-poetry-slam-for-studerende/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/hoevdingebold-event/",
+      "permanent": false
+    },
+    {
+      "destination": "/begivenheder/yoga",
+      "source": "https://aabenthusherning.dk/arrangement/yoga/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/international-citizen-day-herning/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/studiestart-faellesspisning-semester-start-common-dinning/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/student-cup-2023/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/wakeboard-vandski-wakeboard-waterskiing/",
+      "permanent": false
+    },
+    {
+      "destination": "/begivenheder/padel-and-pizza",
+      "source": "https://aabenthusherning.dk/arrangement/padel-pizza/",
+      "permanent": false
+    },
+    {
+      "destination": "/begivenheder/yoga",
+      "source": "https://aabenthusherning.dk/arrangement/yoga-2/",
+      "permanent": false
+    },
+    {
+      "destination": "/begivenheder/yoga",
+      "source": "https://aabenthusherning.dk/arrangement/yoga-3/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/comedy-poetry-slam/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/herning-blue-fox-event-incl-pre-match-spisning-food/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/yoga-4/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/student-bar/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/keramik-workshop-ceramics-workshop/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/skoejteloeb-m-gloegg-og-oebleskiver-iceskating-event/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/poetryslam-workshop/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/fredagscafe-med-justerbart-fridaycafe-with-justerbart/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/poetryslam-workshop-vol-2/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/nightlife-boost-workshop/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/skoejteloeb-iceskating/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/justerbart-valentines-special/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/yoga-5/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/cook-n-talk/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/pubquiz-med-international-society-pubquiz-with-international-society-2/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/pubquiz-med-international-society-pubquiz-with-international-society/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/faellespisning-og-diy-common-dinning-and-diy-490/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/pupquiz-sammen-med-international-society-pupquiz-with-international-society/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/faellespisning-og-diy-common-dinning-and-diy/",
+      "permanent": false
+    },
+    {
+      "destination": "/begivenheder/klatring-bouldering",
+      "source": "https://aabenthusherning.dk/arrangement/klatring-bouldering/",
+      "permanent": false
+    },
+    {
+      "destination": "/begivenheder/yoga",
+      "source": "https://aabenthusherning.dk/arrangement/yoga-6/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/gamebox-festival-student-discount/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/funktionel-fitness-crossfit/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/keramikworkshop-ceramicsworkshop/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/musicbingo-karaoke/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/mountainbike-tur-mountainbike-ride/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/comedy-night/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/styrketraening-i-terminalen-strengthtraining-at-the-terminal/",
+      "permanent": false
+    },
+    {
+      "destination": "/begivenheder/yoga",
+      "source": "https://aabenthusherning.dk/arrangement/yoga-7/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/wakeboard-vandski-wakeboard-water-skiing/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/pubquiz-med-international-society-pubquiz-with-international-society-2-168/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/cook-n-talk-709/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/student-cup-2024/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/studiestart-faellesspisning-semester-start-common-dining/",
+      "permanent": false
+    },
+    {
+      "destination": "/begivenheder/yoga",
+      "source": "https://aabenthusherning.dk/arrangement/yoga-8/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/karrieremesse-i-herning-career-fair-in-herning/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/bustur-til-skovsnogen-bus-trip-to-skovsnogen/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/klatring-climbing/",
+      "permanent": false
+    },
+    {
+      "destination": "/begivenheder/yoga",
+      "source": "https://aabenthusherning.dk/arrangement/yoga-9/",
+      "permanent": false
+    },
+    {
+      "destination": "/begivenheder/yoga",
+      "source": "https://aabenthusherning.dk/arrangement/yoga-10/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/studentbar/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/comedy/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/keramik-ceramics-workshop-ii/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/keramik-ceramics-workshop-i/",
+      "permanent": false
+    },
+    {
+      "destination": "/begivenheder/saunagus",
+      "source": "https://aabenthusherning.dk/arrangement/saunagus/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/recycle-workshop-sy-dit-toej-om-renew-your-clothes/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/bedre-oekonomi/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/juleoelsmagning-christmas-beer-tasting/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/tufting-og-aftensmad-tufting-and-dinner/",
+      "permanent": false
+    },
+    {
+      "destination": "/det-sker",
+      "source": "https://aabenthusherning.dk/arrangement/skoejteloeb-aebleskiver-ice-skating-aebleskiver/",
+      "permanent": false
+    },
+    {
+      "destination": "/begivenheder/padel-and-pizza",
+      "source": "https://aabenthusherning.dk/arrangement/padel-pizza-2/",
+      "permanent": false
+    },
+    {
+      "destination": "/begivenheder/fastelavnsfest",
+      "source": "https://aabenthusherning.dk/arrangement/fastelavn-semester-fest/",
+      "permanent": false
+    },
+
+
+
+*/
