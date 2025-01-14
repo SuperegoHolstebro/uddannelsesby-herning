@@ -142,7 +142,9 @@ export default async function DynamicRoute({
             <Heading type="h3" tag="h3">
               Om {page.name}
             </Heading>
-            <Paragraph className="whitespace-pre-line" spacing="none">{page.description}</Paragraph>
+            <Paragraph className="whitespace-pre-line" spacing="none">
+              {page.description}
+            </Paragraph>
           </>
         )}
         <div className="pt-12">
@@ -188,9 +190,9 @@ export default async function DynamicRoute({
 }
 
 const customCTA = {
-  heading: 'mere end 178 jobmuligheder undersøg efter dit studie?',
+  heading: 'Se din karriere for dig',
   link: {
-    label: 'Læs mere om os',
+    label: 'Mød flere virksomheder',
     url: '/din-karriere',
   },
   MediaObject: {
