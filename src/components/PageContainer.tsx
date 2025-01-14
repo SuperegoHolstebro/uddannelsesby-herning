@@ -13,7 +13,7 @@ import Popup from './molecules/Popup'
  * @module: components/PageContainer
  * @summary: Denne komponent bruges til at vise en container, der indeholder header, footer og børnekomponenter.
  * @see: src/components/PageContainer.tsx
- * @version: 1.0.0
+ * @version: 1.0.1
  * @property: [children]
  * @author: Kasper Buchholtz
  *
