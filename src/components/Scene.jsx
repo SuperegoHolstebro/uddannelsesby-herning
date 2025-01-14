@@ -7,25 +7,12 @@ export default function Scene({ type }) {
   const { dimension } = useWindow()
   const canvas = useRef(null)
   const prevPosition = useRef(null)
-  const [hasAnimated, setHasAnimated] = useState(false)
 
   useEffect(() => {
-    // Check if the animation for the current type has already been shown
-    const storageKey = `hasAnimated_${type}` // Unique key for each type
-    const hasBeenShown = localStorage.getItem(storageKey)
-
-    if (!hasBeenShown) {
-      // Initialize animation if it hasn't been shown
-      setHasAnimated(false)
-    } else {
-      // Skip animation if it has been shown
-      setHasAnimated(true)
-    }
-
-    if (dimension.width > 0 && !hasAnimated) {
+    if (dimension.width > 0) {
       init()
     }
-  }, [dimension, hasAnimated])
+  }, [dimension])
 
   const init = () => {
     const ctx = canvas.current.getContext('2d')
@@ -44,17 +31,11 @@ export default function Scene({ type }) {
 
     ctx.fillRect(0, 0, dimension.width, dimension.height)
     ctx.globalCompositeOperation = 'destination-out'
-
-    // Save that the animation has been shown for the current type
-    const storageKey = `hasAnimated_${type}`
-    localStorage.setItem(storageKey, 'true')
   }
 
   const lerp = (x, y, a) => x * (1 - a) + y * a
 
   const manageMouseMove = (e) => {
-    if (hasAnimated) return
-
     // Get the scroll offsets
     const scrollX = window.scrollX || window.pageXOffset
     const scrollY = window.scrollY || window.pageYOffset
@@ -92,35 +73,33 @@ export default function Scene({ type }) {
     <>
       <div className="absolute inset-0 overflow-hidden w-full h-full z-[5]">
         {dimension.width == 0 && <div className={`w-full h-full bg-mørk`} />}
-        {!hasAnimated && (
-          <canvas
-            className="h-screen"
-            ref={canvas}
-            onMouseMove={manageMouseMove}
-            height={dimension.height}
-            width={dimension.width}
+        <canvas
+          className="h-screen"
+          ref={canvas}
+          onMouseMove={manageMouseMove}
+          height={dimension.height}
+          width={dimension.width}
+        />
+
+        {clean(type) !== 'openHouse' && (
+          <div
+            className="absolute inset-0 pointer-events-none size-full"
+            style={{
+              background:
+                'linear-gradient(180deg, rgba(45, 45, 45, 0.00) 50%, rgba(45, 45, 45, 0.35) 87.5%, rgba(45, 45, 45, 0.50) 100%), linear-gradient(0deg, rgba(199, 201, 194, 0.25) 0%, rgba(199, 201, 194, 0.25) 100%)',
+            }}
           />
         )}
-      
-      {clean(type) !== 'openHouse' && (
-        <div
-          className="absolute inset-0 pointer-events-none size-full"
-          style={{
-            background:
-              'linear-gradient(180deg, rgba(45, 45, 45, 0.00) 50%, rgba(45, 45, 45, 0.35) 87.5%, rgba(45, 45, 45, 0.50) 100%), linear-gradient(0deg, rgba(199, 201, 194, 0.25) 0%, rgba(199, 201, 194, 0.25) 100%)',
-          }}
-        />
-      )}
 
-      {clean(type) === 'openHouse' && (
-        <div
-          className="absolute inset-0 pointer-events-none size-full"
-          style={{
-            background:
-              'linear-gradient(180deg, rgba(255, 255, 255, 0.00) 50%, rgba(255, 255, 255, 0.35) 87.5%, rgba(255, 255, 255, 0.50) 100%), linear-gradient(0deg, rgba(199, 201, 194, 0.25) 0%, rgba(199, 201, 194, 0.25) 100%)',
-          }}
-        />
-      )}
+        {clean(type) === 'openHouse' && (
+          <div
+            className="absolute inset-0 pointer-events-none size-full"
+            style={{
+              background:
+                'linear-gradient(180deg, rgba(255, 255, 255, 0.00) 50%, rgba(255, 255, 255, 0.35) 87.5%, rgba(255, 255, 255, 0.50) 100%), linear-gradient(0deg, rgba(199, 201, 194, 0.25) 0%, rgba(199, 201, 194, 0.25) 100%)',
+            }}
+          />
+        )}
       </div>
     </>
   )
