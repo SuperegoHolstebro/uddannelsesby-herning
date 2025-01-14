@@ -4,7 +4,7 @@ import * as d3 from 'd3'
 import ClusterIndicator from '../atoms/ClusterIndicator'
 import MapPin from '../atoms/MapPin'
 
-export const ZoomableMap = ({ pins }) => {
+export const ZoomableMap = ({ pins, image }) => {
   const svgRef = useRef<SVGSVGElement>(null)
   const zoomRef = useRef(null)
   const [clusters, setClusters] = React.useState([])
@@ -142,17 +142,16 @@ export const ZoomableMap = ({ pins }) => {
       className="relative map"
       ref={svgRef}
       style={{
-        border: '1px solid #4a494a',
         width: '100%',
         height: '100%',
-        background: '#4a494a',
+        background: '#242B31',
       }}
       xmlns="http://www.w3.org/2000/svg"
       viewBox={`0 0 ${theSvgWidth} ${theSvgHeight}`}
     >
       <g>
         {/* SVG Background */}
-        <image href="./7400-kort.svg" x="0" y="0" width="1920" height="1080" />
+        <image href={image} x="0" y="0" width="1920" height="1080" />
 
         {/* Render Clusters */}
         {clusters.map((cluster, index) => (

@@ -6,7 +6,7 @@ const Map = ({ data }) => {
   return (
     <Section id="map-section">
       <div className="col-span-full h-[70vh] md:h-auto">
-        <ZoomableMap pins={data.hotspots} />
+        <ZoomableMap image={data.featuredImage.asset.url} pins={data.hotspots} />
       </div>
       <ZoomableMapItems data={data} />
     </Section>
