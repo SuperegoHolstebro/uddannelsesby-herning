@@ -52,7 +52,7 @@ export default function Text({ videoSrc, textContent, type, title }) {
       )}
 
       {clean(type) === 'openHouse' && (
-        <div className="absolute z-10 w-auto translate-x-1/2 -translate-y-1/2 right-1/2 top-1/2 md:w-auto">
+        <div className="absolute z-10 w-auto translate-x-1/2 -translate-y-1/2 pointer-events-none right-1/2 top-1/2 md:w-auto">
           <svg
             className="w-full max-w-xs mx-auto md:max-w-md xl:max-w-lg h-fit"
             width="652"
