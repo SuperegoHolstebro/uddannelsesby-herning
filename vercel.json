@@ -5,1230 +5,1062 @@
       "destination": "/profile.html",
       "permanent": false
     },
-    {
-      "source": "/overpringshandling",
-      "destination": "/",
-      "permanent": false
-    },
-    {
-      "source": "/personoplysningspolitik",
-      "destination": "/personoplysningspolitik/",
-      "permanent": false
-    },
-    {
-      "source": "/uddannelser-gammel",
-      "destination": "/uddannelser",
-      "permanent": false
-    },
-    {
-      "source": "/foraeldrearrangement",
-      "destination": "/abent-hus-herning",
-      "permanent": false
-    },
-    {
-      "source": "/nyhedsbrev-tak",
-      "destination": "/",
-      "permanent": false
-    },
-    {
-      "source": "/tak-2021-uddannelsessoegende",
-      "destination": "/",
-      "permanent": false
-    },
-    {
-      "source": "/tak-2021-inspiration",
-      "destination": "/",
-      "permanent": false
-    },
-    {
-      "source": "/download-materiale",
-      "destination": "/",
-      "permanent": false
-    },
-    {
-      "source": "/download-materiale-form",
-      "destination": "/",
-      "permanent": false
-    },
-    {
-      "source": "/tilmeld-nyhedsbrev",
-      "destination": "/",
-      "permanent": false
-    },
-    {
-      "source": "/internationale-studerende-anil",
-      "destination": "/",
-      "permanent": false
-    },
-    {
-      "source": "/internationale-studerende-alisa",
-      "destination": "/",
-      "permanent": false
-    },
-    {
-      "source": "/internationale-studerende-mara",
-      "destination": "/",
-      "permanent": false
-    },
-    {
-      "source": "/internationale-studerende-enrique",
-      "destination": "/",
-      "permanent": false
-    },
-    {
-      "source": "/internationale-studerende-gediminas",
-      "destination": "/",
-      "permanent": false
-    },
-    {
-      "source": "/internationale-studerende-marcela",
-      "destination": "/",
-      "permanent": false
-    },
-    {
-      "source": "/om-os",
-      "destination": "/studielivet-i-herning",
-      "permanent": false
-    },
-    {
-      "source": "/meet-international-students",
-      "destination": "/uddannelser",
-      "permanent": false
-    },
-    {
-      "source": "/kontakt",
-      "destination": "/abent-hus-herning",
-      "permanent": false
-    },
-    {
-      "source": "/livet-i-herning/moed-de-studerende",
-      "destination": "/studielivet-i-herning",
-      "permanent": false
-    },
-    {
-      "source": "/ledige-pladser",
-      "destination": "/studielivet-i-herning",
-      "permanent": false
-    },
-    {
-      "source": "/bliv-ingenior",
-      "destination": "/uddannelser",
-      "permanent": false
-    },
-    {
-      "source": "/bo-i-herning",
-      "destination": "/ny-i-herning",
-      "permanent": false
-    },
-    {
-      "source": "/livet-i-herning",
-      "destination": "/ny-i-herning",
-      "permanent": false
-    },
-    {
-      "source": "/international-student",
-      "destination": "/uddannelser",
-      "permanent": false
-    },
-    {
-      "source": "/internationale-studerende-q-a",
-      "destination": "/uddannelser",
-      "permanent": false
-    },
-    {
-      "source": "/inspiration",
-      "destination": "/studielivet-i-herning",
-      "permanent": false
-    },
-    {
-      "source": "/forside-2",
-      "destination": "/",
-      "permanent": false
-    },
-    {
-      "source": "/arrangementer",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/student-cup-herning",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/studentcupherning",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/studiepraktik",
-      "destination": "/uddannelser",
-      "permanent": false
-    },
-    {
-      "source": "/billetter",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/me",
-      "destination": "/profile.html",
-      "permanent": false
-    },
-    {
-      "source": "/overpringshandling",
-      "destination": "/",
-      "permanent": false
-    },
-    {
-      "source": "/personoplysningspolitik",
-      "destination": "/personoplysningspolitik/",
-      "permanent": false
-    },
-    {
-      "source": "/uddannelser-gammel",
-      "destination": "/uddannelser",
-      "permanent": false
-    },
-    {
-      "source": "/foraeldrearrangement",
-      "destination": "/abent-hus-herning",
-      "permanent": false
-    },
-    {
-      "source": "/nyhedsbrev-tak",
-      "destination": "/",
-      "permanent": false
-    },
-    {
-      "source": "/tak-2021-uddannelsessoegende",
-      "destination": "/",
-      "permanent": false
-    },
-    {
-      "source": "/tak-2021-inspiration",
-      "destination": "/",
-      "permanent": false
-    },
-    {
-      "source": "/download-materiale",
-      "destination": "/",
-      "permanent": false
-    },
-    {
-      "source": "/download-materiale-form",
-      "destination": "/",
-      "permanent": false
-    },
-    {
-      "source": "/tilmeld-nyhedsbrev",
-      "destination": "/",
-      "permanent": false
-    },
-    {
-      "source": "/internationale-studerende-anil",
-      "destination": "/",
-      "permanent": false
-    },
-    {
-      "source": "/internationale-studerende-alisa",
-      "destination": "/",
-      "permanent": false
-    },
-    {
-      "source": "/internationale-studerende-mara",
-      "destination": "/",
-      "permanent": false
-    },
-    {
-      "source": "/internationale-studerende-enrique",
-      "destination": "/",
-      "permanent": false
-    },
-    {
-      "source": "/internationale-studerende-gediminas",
-      "destination": "/",
-      "permanent": false
-    },
-    {
-      "source": "/internationale-studerende-marcela",
-      "destination": "/",
-      "permanent": false
-    },
-    {
-      "source": "/om-os",
-      "destination": "/studielivet-i-herning",
-      "permanent": false
-    },
-    {
-      "source": "/meet-international-students",
-      "destination": "/uddannelser",
-      "permanent": false
-    },
-    {
-      "source": "/kontakt",
-      "destination": "/abent-hus-herning",
-      "permanent": false
-    },
-    {
-      "source": "/livet-i-herning/moed-de-studerende",
-      "destination": "/studielivet-i-herning",
-      "permanent": false
-    },
-    {
-      "source": "/ledige-pladser",
-      "destination": "/studielivet-i-herning",
-      "permanent": false
-    },
-    {
-      "source": "/bliv-ingenior",
-      "destination": "/uddannelser",
-      "permanent": false
-    },
-    {
-      "source": "/bo-i-herning",
-      "destination": "/ny-i-herning",
-      "permanent": false
-    },
-    {
-      "source": "/livet-i-herning",
-      "destination": "/ny-i-herning",
-      "permanent": false
-    },
-    {
-      "source": "/international-student",
-      "destination": "/uddannelser",
-      "permanent": false
-    },
-    {
-      "source": "/internationale-studerende-q-a",
-      "destination": "/uddannelser",
-      "permanent": false
-    },
-    {
-      "source": "/inspiration",
-      "destination": "/studielivet-i-herning",
-      "permanent": false
-    },
-    {
-      "source": "/forside-2",
-      "destination": "/",
-      "permanent": false
-    },
-    {
-      "source": "/arrangementer",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/student-cup-herning",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/studentcupherning",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/studiepraktik",
-      "destination": "/uddannelser",
-      "permanent": false
-    },
-    {
-      "source": "/billetter",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort",
-      "destination": "/karriere/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/deugro",
-      "destination": "/karriere/deugro/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/slikbilen-aps",
-      "destination": "/karriere/slikbilen-aps/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/stof-a-s",
-      "destination": "/karriere/stof-a-s/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/zo24-aps",
-      "destination": "/karriere/zo24-aps/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/kyocera-unimerco-tooling-a-s",
-      "destination": "/karriere/kyocera-unimerco-tooling-a-s/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/sika-footwear-a-s",
-      "destination": "/karriere/sika-footwear-a-s/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/flexsign-a-s",
-      "destination": "/karriere/flexsign-a-s/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/freightsolution-aps",
-      "destination": "/karriere/freightsolution-aps/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/cognitech-a-s",
-      "destination": "/karriere/cognitech-a-s/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/midtjydsk-moertelfabrik-amba",
-      "destination": "/karriere/midtjydsk-moertelfabrik-amba/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/mediehusene-midtjylland",
-      "destination": "/karriere/mediehusene-midtjylland/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/sunds-textiles-a-s",
-      "destination": "/karriere/sunds-textiles-a-s/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/mhome",
-      "destination": "/karriere/mhome/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/jai-overfladebehandling-a-s",
-      "destination": "/karriere/jai-overfladebehandling-a-s/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/dansk-wilton-a-s",
-      "destination": "/karriere/dansk-wilton-a-s/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/dana-vinduer-a-s",
-      "destination": "/karriere/dana-vinduer-a-s/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/hubsch-a-s",
-      "destination": "/karriere/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/grau-engineering-aps",
-      "destination": "/karriere/grau-engineering-aps/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/h-s-westergaard-a-s",
-      "destination": "/karriere/h-and-s-westergaard-a-s",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/nettoline-a-s",
-      "destination": "/karriere/nettoline-a-s/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/greenway-logistics-aps",
-      "destination": "/karriere/greenway-logistics-aps/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/bubbles-aps",
-      "destination": "/karriere/bubbles-aps/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/kannox-danmark-aps",
-      "destination": "/karriere/kannox-danmark-aps/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/puffins-fulfillment-aps",
-      "destination": "/karriere/puffins-fulfillment-aps/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/rotek-a-s",
-      "destination": "/karriere/rotek-a-s/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/uni-el-a-s",
-      "destination": "/karriere/uni-el-a-s/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/hakon-anlaeg",
-      "destination": "/karriere/hakon-anlaeg/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/dfi-gruppen",
-      "destination": "/karriere/dfi-gruppen/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/wennstrom-solutions-service-a-s",
-      "destination": "/karriere/wennstrom-solutions-and-service-a-s/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/midtjysk-albyg-a-s",
-      "destination": "/karriere/midtjysk-albyg-a-s/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/zystm-a-s",
-      "destination": "/karriere/zystm-a-s/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/elka-rainwear-a-s",
-      "destination": "/karriere/elka-rainwear-a-s/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/it-relation",
-      "destination": "/karriere/it-relation/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/oyoy-living-design-a-s",
-      "destination": "/karriere/oyoy-living-design-a-s/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/easyday-aps",
-      "destination": "/karriere/easyday-aps/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/simteq-a-s",
-      "destination": "/karriere/simteq-a-s/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/overgaard-huse",
-      "destination": "/karriere/overgaard-huse/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/guldsmeden-facius-eftf-aps",
-      "destination": "/karriere/guldsmeden-facius-eftf-aps/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/ravnsgaard-smede-og-maskinvaerksted-a-s",
-      "destination": "/karriere/ravnsgaard-smede-og-maskinvaerksted-a-s/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/elwerk-aps/",
-      "destination": "/karriere/elwerk-aps/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/vestjyllands-andel-a-m-b-a/",
-      "destination": "/karriere/vestjyllands-andel-a-m-b-a/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/equidan-vetline-aps/",
-      "destination": "/karriere/equidan-vetline-aps/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/nel-hydrogen-a-s/",
-      "destination": "/karriere/nel-hydrogen-a-s/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/indura-a-s/",
-      "destination": "/karriere/indura-a-s/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/martello-aps/",
-      "destination": "/karriere/martello-aps/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/knowledgecotton-apparel/",
-      "destination": "/karriere/knowledgecotton-apparel/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/innovatorium-a-s/",
-      "destination": "/karriere/innovatorium-a-s/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/horn-bordplader-a-s/",
-      "destination": "/karriere/horn-bordplader-a-s/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/elsikkerhed-dk-aps/",
-      "destination": "/karriere/elsikkerhed-dk-aps/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/green-box-a-s/",
-      "destination": "/karriere/green-box-a-s/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/sky-work-a-s/",
-      "destination": "/karriere/sky-work-a-s/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/fog-venoe-a-s/",
-      "destination": "/karriere/karriere/fog-and-veno-a-s/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/italian-corner-scandinavia-aps/",
-      "destination": "/karriere/italian-corner-scandinavia-aps/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/helms-tmt-centret-a-s/",
-      "destination": "/karriere/helms-tmt-centret-a-s/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/piano-herning/",
-      "destination": "/karriere/piano-herning/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/leadmotor/",
-      "destination": "/karriere/leadmotor/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/best-western-plus-hotel-eyde/",
-      "destination": "/karriere/best-western-plus-hotel-eyde/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/mch-messecenter-herning/",
-      "destination": "/karriere/mch-messecenter-herning/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/balle-innovation-aps/",
-      "destination": "/karriere/balle-innovation-aps/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/erhvervsraadet-herning-ikast-brande/",
-      "destination": "/karriere/erhvervsradet-herning-and-ikast-brande/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/herning-kommune/",
-      "destination": "/karriere/herning-kommune/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/designhub/",
-      "destination": "/karriere/designhub/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/a-flensborg/",
-      "destination": "/karriere/a-flensborg/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/scandic-regina/",
-      "destination": "/karriere/scandic-regina/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/sygeplejebutikken/",
-      "destination": "/karriere/sygeplejebutikken/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/kvik-a-s/",
-      "destination": "/karriere/kvik-a-s/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/virksomhedssocialisten/",
-      "destination": "/karriere/virksomhedssocialisten/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/oliz-koko-nora/",
-      "destination": "/karriere/oliz-koko-nora/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/helt-solgt/",
-      "destination": "/karriere/helt-solgt/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/pinecone-automation/",
-      "destination": "/karriere/pinecone-automation/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/brock-hrnavigator/",
-      "destination": "/karriere/brock-and-hrnavigator/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/sejer-pedersen-a-s/",
-      "destination": "/karriere/sejer-pedersen-a-s/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/leesign-creative-partner-aps/",
-      "destination": "/karriere/leesign-creative-partner-aps/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/bg-beton-a-s/",
-      "destination": "/karriere/bg-beton-a-s/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/sht-a-s/",
-      "destination": "/karriere/sht-a-s/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/blue-water-shipping-a-s/",
-      "destination": "/karriere/blue-water-shipping-a-s/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/danesian-audio/",
-      "destination": "/karriere/danesian-audio/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/lyngsoee-rainwear/",
-      "destination": "/karriere/lyngsoee-rainwear/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/la-rouge/",
-      "destination": "/karriere/la-rouge/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/htm-moebler-aps/",
-      "destination": "/karriere/htm-moebler-aps/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/ege-carpets/",
-      "destination": "/karriere/ege-carpets/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/topsoe-soec-plant/",
-      "destination": "/karriere/topsoe-soec-plant/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/easyfair/",
-      "destination": "/karriere/easyfair/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/meny-kaffe/",
-      "destination": "/karriere/meny-kaffe/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/denwood-by-horn/",
-      "destination": "/karriere/denwood-by-horn/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/autoophuggeren-dk/",
-      "destination": "/karriere/autoophuggeren-dk/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/clipper-a-s/",
-      "destination": "/karriere/clipper-a-s/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/handimobil/",
-      "destination": "/karriere/handimobil/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/convey/",
-      "destination": "/karriere/convey/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/loxam-herning/",
-      "destination": "/karriere/loxam-herning/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/witt-a-s/",
-      "destination": "/karriere/witt-a-s/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/aj-energi-stroe/",
-      "destination": "/karriere/aj-energi-and-stro/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/bila-2/",
-      "destination": "/karriere/bila-2/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/jysk-formtryk/",
-      "destination": "/karriere/jysk-formtryk/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/a-tex-part-of-trimco-group/",
-      "destination": "/karriere/a-tex-part-of-trimco-group/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/kd-emballage/",
-      "destination": "/karriere/kd-emballage/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/profil-vaerktoej-a-s/",
-      "destination": "/karriere/profil-vaerktoej-a-s/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/difko/",
-      "destination": "/karriere/difko/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/gn-belysning/",
-      "destination": "/karriere/gn-belysning/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/guld-og-ure/",
-      "destination": "/karriere/guld-og-ure/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/herningcentret/",
-      "destination": "/karriere/herningcentret/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/hedens-hjemmepleje/",
-      "destination": "/karriere/hedens-hjemmepleje/",
-      "permanent": false
-    },
-    {
-      "source": "/karrierekort/ey-herning/",
-      "destination": "/karriere/ey-herning/",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/byvandringer-i-herning/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/expat-fair-herning-2020/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/city-walks-in-herning/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/locked-escape-room-bombsquad-paa-terrormission-med-dine-medstuderende-hold-2/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/locked-escape-room-1/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/locked-escape-room-1-10-21/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/fc-midtjylland-fodbold-og-forretning/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/comedy-for-studerende/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/city-escape-operation-mindfall/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/padel-pizza-gratis-event-for-studerende-2/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/padel-pizza-gratis-event-for-studerende/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/comedy-og-poetry-slam-for-studerende/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/hoevdingebold-event/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/yoga/",
-      "destination": "/begivenheder/yoga",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/international-citizen-day-herning/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/studiestart-faellesspisning-semester-start-common-dinning/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/student-cup-2023/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/wakeboard-vandski-wakeboard-waterskiing/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/padel-pizza/",
-      "destination": "/begivenheder/padel-and-pizza",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/yoga-2/",
-      "destination": "/begivenheder/yoga",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/yoga-3/",
-      "destination": "/begivenheder/yoga",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/comedy-poetry-slam/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/herning-blue-fox-event-incl-pre-match-spisning-food/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/yoga-4/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/student-bar/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/keramik-workshop-ceramics-workshop/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/skoejteloeb-m-gloegg-og-oebleskiver-iceskating-event/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/poetryslam-workshop/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/fredagscafe-med-justerbart-fridaycafe-with-justerbart/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/poetryslam-workshop-vol-2/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/nightlife-boost-workshop/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/skoejteloeb-iceskating/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/justerbart-valentines-special/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/yoga-5/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/cook-n-talk/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/pubquiz-med-international-society-pubquiz-with-international-society-2/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/pubquiz-med-international-society-pubquiz-with-international-society/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/faellespisning-og-diy-common-dinning-and-diy-490/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/pupquiz-sammen-med-international-society-pupquiz-with-international-society/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/faellespisning-og-diy-common-dinning-and-diy/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/klatring-bouldering/",
-      "destination": "/begivenheder/klatring-bouldering",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/yoga-6/",
-      "destination": "/begivenheder/yoga",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/gamebox-festival-student-discount/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/funktionel-fitness-crossfit/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/keramikworkshop-ceramicsworkshop/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/musicbingo-karaoke/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/mountainbike-tur-mountainbike-ride/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/comedy-night/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/styrketraening-i-terminalen-strengthtraining-at-the-terminal/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/yoga-7/",
-      "destination": "/begivenheder/yoga",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/wakeboard-vandski-wakeboard-water-skiing/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/pubquiz-med-international-society-pubquiz-with-international-society-2-168/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/cook-n-talk-709/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/student-cup-2024/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/studiestart-faellesspisning-semester-start-common-dining/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/yoga-8/",
-      "destination": "/begivenheder/yoga",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/karrieremesse-i-herning-career-fair-in-herning/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/bustur-til-skovsnogen-bus-trip-to-skovsnogen/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/klatring-climbing/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/yoga-9/",
-      "destination": "/begivenheder/yoga",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/yoga-10/",
-      "destination": "/begivenheder/yoga",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/studentbar/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/comedy/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/keramik-ceramics-workshop-ii/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/keramik-ceramics-workshop-i/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/saunagus/",
-      "destination": "/begivenheder/saunagus",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/recycle-workshop-sy-dit-toej-om-renew-your-clothes/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/bedre-oekonomi/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/juleoelsmagning-christmas-beer-tasting/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/tufting-og-aftensmad-tufting-and-dinner/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/skoejteloeb-aebleskiver-ice-skating-aebleskiver/",
-      "destination": "/det-sker",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/padel-pizza-2/",
-      "destination": "/begivenheder/padel-and-pizza",
-      "permanent": false
-    },
-    {
-      "source": "/arrangement/fastelavn-semester-fest/",
-      "destination": "/begivenheder/fastelavnsfest",
-      "permanent": false
-    }
+    [
+      {
+        "source": "/arrangement/",
+        "permanent": false,
+        "destination": "/dt-sker"
+      },
+      {
+        "source": "/arrangement/byvandringer-i-herning/",
+        "permanent": false,
+        "destination": "/dt-sker"
+      },
+      {
+        "source": "/arrangement/expat-fair-herning-2020/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/city-walks-in-herning/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/locked-escape-room-bombsquad-paa-terrormission-med-dine-medstuderende-hsource-2/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/locked-escape-room-1/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/locked-escape-room-1-10-21/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/fc-midtjylland-fodbsource-og-forretning/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/comedy-for-studerende/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/city-escape-operation-mindfall/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/padel-pizza-gratis-event-for-studerende-2/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/padel-pizza-gratis-event-for-studerende/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/comedy-og-poetry-slam-for-studerende/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/hoevdingebsource-event/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/yoga/",
+        "permanent": false,
+        "destination": "/begivenheder/yoga"
+      },
+      {
+        "source": "/arrangement/international-citizen-day-herning/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/studiestart-faellesspisning-semester-start-common-dinning/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/student-cup-2023/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/wakeboard-vandski-wakeboard-waterskiing/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/padel-pizza/",
+        "permanent": false,
+        "destination": "/begivenheder/padel-and-pizza"
+      },
+      {
+        "source": "/arrangement/yoga-2/",
+        "permanent": false,
+        "destination": "/begivenheder/yoga"
+      },
+      {
+        "source": "/arrangement/yoga-3/",
+        "permanent": false,
+        "destination": "/begivenheder/yoga"
+      },
+      {
+        "source": "/arrangement/comedy-poetry-slam/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/herning-blue-fox-event-incl-pre-match-spisning-food/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/yoga-4/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/student-bar/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/keramik-workshop-ceramics-workshop/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/skoejteloeb-m-gloegg-og-oebleskiver-iceskating-event/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/poetryslam-workshop/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/fredagscafe-med-justerbart-fridaycafe-with-justerbart/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/poetryslam-workshop-vol-2/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/nightlife-boost-workshop/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/skoejteloeb-iceskating/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/justerbart-valentines-special/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/yoga-5/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/cook-n-talk/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/pubquiz-med-international-society-pubquiz-with-international-society-2/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/pubquiz-med-international-society-pubquiz-with-international-society/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/faellespisning-og-diy-common-dinning-and-diy-490/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/pupquiz-sammen-med-international-society-pupquiz-with-international-society/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/faellespisning-og-diy-common-dinning-and-diy/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/klatring-bouldering/",
+        "permanent": false,
+        "destination": "/begivenheder/klatring-bouldering"
+      },
+      {
+        "source": "/arrangement/yoga-6/",
+        "permanent": false,
+        "destination": "/begivenheder/yoga"
+      },
+      {
+        "source": "/arrangement/gamebox-festival-student-discount/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/funktionel-fitness-crossfit/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/keramikworkshop-ceramicsworkshop/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/musicbingo-karaoke/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/mountainbike-tur-mountainbike-ride/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/comedy-night/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/styrketraening-i-terminalen-strengthtraining-at-the-terminal/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/yoga-7/",
+        "permanent": false,
+        "destination": "/begivenheder/yoga"
+      },
+      {
+        "source": "/arrangement/wakeboard-vandski-wakeboard-water-skiing/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/pubquiz-med-international-society-pubquiz-with-international-society-2-168/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/cook-n-talk-709/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/student-cup-2024/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/studiestart-faellesspisning-semester-start-common-dining/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/yoga-8/",
+        "permanent": false,
+        "destination": "/begivenheder/yoga"
+      },
+      {
+        "source": "/arrangement/karrieremesse-i-herning-career-fair-in-herning/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/bustur-til-skovsnogen-bus-trip-to-skovsnogen/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/klatring-climbing/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/yoga-9/",
+        "permanent": false,
+        "destination": "/begivenheder/yoga"
+      },
+      {
+        "source": "/arrangement/yoga-10/",
+        "permanent": false,
+        "destination": "/begivenheder/yoga"
+      },
+      {
+        "source": "/arrangement/studentbar/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/comedy/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/keramik-ceramics-workshop-ii/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/keramik-ceramics-workshop-i/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/saunagus/",
+        "permanent": false,
+        "destination": "/begivenheder/saunagus"
+      },
+      {
+        "source": "/arrangement/recycle-workshop-sy-dit-toej-om-renew-your-clothes/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/bedre-oekonomi/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/juleoelsmagning-christmas-beer-tasting/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/tufting-og-aftensmad-tufting-and-dinner/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/skoejteloeb-aebleskiver-ice-skating-aebleskiver/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/arrangement/padel-pizza-2/",
+        "permanent": false,
+        "destination": "/begivenheder/padel-and-pizza"
+      },
+      {
+        "source": "/arrangement/fastelavn-semester-fest/",
+        "permanent": false,
+        "destination": "/begivenheder/fastelavnsfest"
+      },
+      {
+        "source": "/karrierekort/",
+        "permanent": false,
+        "destination": "/karriere/"
+      },
+      {
+        "source": "/karrierekort/deugro/",
+        "permanent": false,
+        "destination": "/karriere/deugro/"
+      },
+      {
+        "source": "/karrierekort/slikbilen-aps/",
+        "permanent": false,
+        "destination": "/karriere/slikbilen-aps/"
+      },
+      {
+        "source": "/karrierekort/stof-a-s/",
+        "permanent": false,
+        "destination": "/karriere/stof-a-s/"
+      },
+      {
+        "source": "/karrierekort/zo24-aps/",
+        "permanent": false,
+        "destination": "/karriere/zo24-aps/"
+      },
+      {
+        "source": "/karrierekort/kyocera-unimerco-tooling-a-s/",
+        "permanent": false,
+        "destination": "/karriere/kyocera-unimerco-tooling-a-s/"
+      },
+      {
+        "source": "/karrierekort/sika-footwear-a-s/",
+        "permanent": false,
+        "destination": "/karriere/sika-footwear-a-s/"
+      },
+      {
+        "source": "/karrierekort/flexsign-a-s/",
+        "permanent": false,
+        "destination": "/karriere/flexsign-a-s/"
+      },
+      {
+        "source": "/karrierekort/freightsolution-aps/",
+        "permanent": false,
+        "destination": "/karriere/freightsolution-aps/"
+      },
+      {
+        "source": "/karrierekort/cognitech-a-s/",
+        "permanent": false,
+        "destination": "/karriere/cognitech-a-s/"
+      },
+      {
+        "source": "/karrierekort/midtjydsk-moertelfabrik-amba/",
+        "permanent": false,
+        "destination": "/karriere/midtjydsk-moertelfabrik-amba/"
+      },
+      {
+        "source": "/karrierekort/mediehusene-midtjylland/",
+        "permanent": false,
+        "destination": "/karriere/mediehusene-midtjylland/"
+      },
+      {
+        "source": "/karrierekort/sunds-textiles-a-s/",
+        "permanent": false,
+        "destination": "/karriere/sunds-textiles-a-s/"
+      },
+      {
+        "source": "/karrierekort/mhome/",
+        "permanent": false,
+        "destination": "/karriere/mhome/"
+      },
+      {
+        "source": "/karrierekort/jai-overfladebehandling-a-s/",
+        "permanent": false,
+        "destination": "/karriere/jai-overfladebehandling-a-s/"
+      },
+      {
+        "source": "/karrierekort/dansk-wilton-a-s/",
+        "permanent": false,
+        "destination": "/karriere/dansk-wilton-a-s/"
+      },
+      {
+        "source": "/karrierekort/dana-vinduer-a-s/",
+        "permanent": false,
+        "destination": "/karriere/dana-vinduer-a-s/"
+      },
+      {
+        "source": "/karrierekort/hubsch-a-s/",
+        "permanent": false,
+        "destination": "/karriere/"
+      },
+      {
+        "source": "/karrierekort/grau-engineering-aps/",
+        "permanent": false,
+        "destination": "/karriere/grau-engineering-aps/"
+      },
+      {
+        "source": "/karrierekort/h-s-westergaard-a-s/",
+        "permanent": false,
+        "destination": "/karriere/h-and-s-westergaard-a-s"
+      },
+      {
+        "source": "/karrierekort/nettoline-a-s/",
+        "permanent": false,
+        "destination": "/karriere/nettoline-a-s/"
+      },
+      {
+        "source": "/karrierekort/greenway-logistics-aps/",
+        "permanent": false,
+        "destination": "/karriere/greenway-logistics-aps/"
+      },
+      {
+        "source": "/karrierekort/bubbles-aps/",
+        "permanent": false,
+        "destination": "/karriere/bubbles-aps/"
+      },
+      {
+        "source": "/karrierekort/kannox-danmark-aps/",
+        "permanent": false,
+        "destination": "/karriere/kannox-danmark-aps/"
+      },
+      {
+        "source": "/karrierekort/puffins-fulfillment-aps/",
+        "permanent": false,
+        "destination": "/karriere/puffins-fulfillment-aps/"
+      },
+      {
+        "source": "/karrierekort/rotek-a-s/",
+        "permanent": false,
+        "destination": "/karriere/rotek-a-s/"
+      },
+      {
+        "source": "/karrierekort/uni-el-a-s/",
+        "permanent": false,
+        "destination": "/karriere/uni-el-a-s/"
+      },
+      {
+        "source": "/karrierekort/hakon-anlaeg/",
+        "permanent": false,
+        "destination": "/karriere/hakon-anlaeg/"
+      },
+      {
+        "source": "/karrierekort/dfi-gruppen/",
+        "permanent": false,
+        "destination": "/karriere/dfi-gruppen/"
+      },
+      {
+        "source": "/karrierekort/wennstrom-solutions-service-a-s/",
+        "permanent": false,
+        "destination": "/karriere/wennstrom-solutions-and-service-a-s/"
+      },
+      {
+        "source": "/karrierekort/midtjysk-albyg-a-s/",
+        "permanent": false,
+        "destination": "/karriere/midtjysk-albyg-a-s/"
+      },
+      {
+        "source": "/karrierekort/zystm-a-s/",
+        "permanent": false,
+        "destination": "/karriere/zystm-a-s/"
+      },
+      {
+        "source": "/karrierekort/elka-rainwear-a-s/",
+        "permanent": false,
+        "destination": "/karriere/elka-rainwear-a-s/"
+      },
+      {
+        "source": "/karrierekort/it-relation/",
+        "permanent": false,
+        "destination": "/karriere/it-relation/"
+      },
+      {
+        "source": "/karrierekort/oyoy-living-design-a-s/",
+        "permanent": false,
+        "destination": "/karriere/oyoy-living-design-a-s/"
+      },
+      {
+        "source": "/karrierekort/easyday-aps/",
+        "permanent": false,
+        "destination": "/karriere/easyday-aps/"
+      },
+      {
+        "source": "/karrierekort/simteq-a-s/",
+        "permanent": false,
+        "destination": "/karriere/simteq-a-s/"
+      },
+      {
+        "source": "/karrierekort/overgaard-huse/",
+        "permanent": false,
+        "destination": "/karriere/overgaard-huse/"
+      },
+      {
+        "source": "/karrierekort/guldsmeden-facius-eftf-aps/",
+        "permanent": false,
+        "destination": "/karriere/guldsmeden-facius-eftf-aps/"
+      },
+      {
+        "source": "/karrierekort/ravnsgaard-smede-og-maskinvaerksted-a-s/",
+        "permanent": false,
+        "destination": "/karriere/ravnsgaard-smede-og-maskinvaerksted-a-s/"
+      },
+      {
+        "source": "/karrierekort/elwerk-aps/",
+        "permanent": false,
+        "destination": "/karriere/elwerk-aps/"
+      },
+      {
+        "source": "/karrierekort/vestjyllands-andel-a-m-b-a/",
+        "permanent": false,
+        "destination": "/karriere/vestjyllands-andel-a-m-b-a/"
+      },
+      {
+        "source": "/karrierekort/equidan-vetline-aps/",
+        "permanent": false,
+        "destination": "/karriere/equidan-vetline-aps/"
+      },
+      {
+        "source": "/karrierekort/nel-hydrogen-a-s/",
+        "permanent": false,
+        "destination": "/karriere/nel-hydrogen-a-s/"
+      },
+      {
+        "source": "/karrierekort/indura-a-s/",
+        "permanent": false,
+        "destination": "/karriere/indura-a-s/"
+      },
+      {
+        "source": "/karrierekort/martello-aps/",
+        "permanent": false,
+        "destination": "/karriere/martello-aps/"
+      },
+      {
+        "source": "/karrierekort/knowledgecotton-apparel/",
+        "permanent": false,
+        "destination": "/karriere/knowledgecotton-apparel/"
+      },
+      {
+        "source": "/karrierekort/innovatorium-a-s/",
+        "permanent": false,
+        "destination": "/karriere/innovatorium-a-s/"
+      },
+      {
+        "source": "/karrierekort/horn-bordplader-a-s/",
+        "permanent": false,
+        "destination": "/karriere/horn-bordplader-a-s/"
+      },
+      {
+        "source": "/karrierekort/elsikkerhed-dk-aps/",
+        "permanent": false,
+        "destination": "/karriere/elsikkerhed-dk-aps/"
+      },
+      {
+        "source": "/karrierekort/green-box-a-s/",
+        "permanent": false,
+        "destination": "/karriere/green-box-a-s/"
+      },
+      {
+        "source": "/karrierekort/sky-work-a-s/",
+        "permanent": false,
+        "destination": "/karriere/sky-work-a-s/"
+      },
+      {
+        "source": "/karrierekort/fog-venoe-a-s/",
+        "permanent": false,
+        "destination": "/karriere/karriere/fog-and-veno-a-s/"
+      },
+      {
+        "source": "/karrierekort/italian-corner-scandinavia-aps/",
+        "permanent": false,
+        "destination": "/karriere/italian-corner-scandinavia-aps/"
+      },
+      {
+        "source": "/karrierekort/helms-tmt-centret-a-s/",
+        "permanent": false,
+        "destination": "/karriere/helms-tmt-centret-a-s/"
+      },
+      {
+        "source": "/karrierekort/piano-herning/",
+        "permanent": false,
+        "destination": "/karriere/piano-herning/"
+      },
+      {
+        "source": "/karrierekort/leadmotor/",
+        "permanent": false,
+        "destination": "/karriere/leadmotor/"
+      },
+      {
+        "source": "/karrierekort/best-western-plus-hotel-eyde/",
+        "permanent": false,
+        "destination": "/karriere/best-western-plus-hotel-eyde/"
+      },
+      {
+        "source": "/karrierekort/mch-messecenter-herning/",
+        "permanent": false,
+        "destination": "/karriere/mch-messecenter-herning/"
+      },
+      {
+        "source": "/karrierekort/balle-innovation-aps/",
+        "permanent": false,
+        "destination": "/karriere/balle-innovation-aps/"
+      },
+      {
+        "source": "/karrierekort/erhvervsraadet-herning-ikast-brande/",
+        "permanent": false,
+        "destination": "/karriere/erhvervsradet-herning-and-ikast-brande/"
+      },
+      {
+        "source": "/karrierekort/herning-kommune/",
+        "permanent": false,
+        "destination": "/karriere/herning-kommune/"
+      },
+      {
+        "source": "/karrierekort/designhub/",
+        "permanent": false,
+        "destination": "/karriere/designhub/"
+      },
+      {
+        "source": "/karrierekort/a-flensborg/",
+        "permanent": false,
+        "destination": "/karriere/a-flensborg/"
+      },
+      {
+        "source": "/karrierekort/scandic-regina/",
+        "permanent": false,
+        "destination": "/karriere/scandic-regina/"
+      },
+      {
+        "source": "/karrierekort/sygeplejebutikken/",
+        "permanent": false,
+        "destination": "/karriere/sygeplejebutikken/"
+      },
+      {
+        "source": "/karrierekort/kvik-a-s/",
+        "permanent": false,
+        "destination": "/karriere/kvik-a-s/"
+      },
+      {
+        "source": "/karrierekort/virksomhedssocialisten/",
+        "permanent": false,
+        "destination": "/karriere/virksomhedssocialisten/"
+      },
+      {
+        "source": "/karrierekort/oliz-koko-nora/",
+        "permanent": false,
+        "destination": "/karriere/oliz-koko-nora/"
+      },
+      {
+        "source": "/karrierekort/helt-solgt/",
+        "permanent": false,
+        "destination": "/karriere/helt-solgt/"
+      },
+      {
+        "source": "/karrierekort/pinecone-automation/",
+        "permanent": false,
+        "destination": "/karriere/pinecone-automation/"
+      },
+      {
+        "source": "/karrierekort/brock-hrnavigator/",
+        "permanent": false,
+        "destination": "/karriere/brock-and-hrnavigator/"
+      },
+      {
+        "source": "/karrierekort/sejer-pedersen-a-s/",
+        "permanent": false,
+        "destination": "/karriere/sejer-pedersen-a-s/"
+      },
+      {
+        "source": "/karrierekort/leesign-creative-partner-aps/",
+        "permanent": false,
+        "destination": "/karriere/leesign-creative-partner-aps/"
+      },
+      {
+        "source": "/karrierekort/bg-beton-a-s/",
+        "permanent": false,
+        "destination": "/karriere/bg-beton-a-s/"
+      },
+      {
+        "source": "/karrierekort/sht-a-s/",
+        "permanent": false,
+        "destination": "/karriere/sht-a-s/"
+      },
+      {
+        "source": "/karrierekort/blue-water-shipping-a-s/",
+        "permanent": false,
+        "destination": "/karriere/blue-water-shipping-a-s/"
+      },
+      {
+        "source": "/karrierekort/danesian-audio/",
+        "permanent": false,
+        "destination": "/karriere/danesian-audio/"
+      },
+      {
+        "source": "/karrierekort/lyngsoee-rainwear/",
+        "permanent": false,
+        "destination": "/karriere/lyngsoee-rainwear/"
+      },
+      {
+        "source": "/karrierekort/la-rouge/",
+        "permanent": false,
+        "destination": "/karriere/la-rouge/"
+      },
+      {
+        "source": "/karrierekort/htm-moebler-aps/",
+        "permanent": false,
+        "destination": "/karriere/htm-moebler-aps/"
+      },
+      {
+        "source": "/karrierekort/ege-carpets/",
+        "permanent": false,
+        "destination": "/karriere/ege-carpets/"
+      },
+      {
+        "source": "/karrierekort/topsoe-soec-plant/",
+        "permanent": false,
+        "destination": "/karriere/topsoe-soec-plant/"
+      },
+      {
+        "source": "/karrierekort/easyfair/",
+        "permanent": false,
+        "destination": "/karriere/easyfair/"
+      },
+      {
+        "source": "/karrierekort/meny-kaffe/",
+        "permanent": false,
+        "destination": "/karriere/meny-kaffe/"
+      },
+      {
+        "source": "/karrierekort/denwood-by-horn/",
+        "permanent": false,
+        "destination": "/karriere/denwood-by-horn/"
+      },
+      {
+        "source": "/karrierekort/autoophuggeren-dk/",
+        "permanent": false,
+        "destination": "/karriere/autoophuggeren-dk/"
+      },
+      {
+        "source": "/karrierekort/clipper-a-s/",
+        "permanent": false,
+        "destination": "/karriere/clipper-a-s/"
+      },
+      {
+        "source": "/karrierekort/handimobil/",
+        "permanent": false,
+        "destination": "/karriere/handimobil/"
+      },
+      {
+        "source": "/karrierekort/convey/",
+        "permanent": false,
+        "destination": "/karriere/convey/"
+      },
+      {
+        "source": "/karrierekort/loxam-herning/",
+        "permanent": false,
+        "destination": "/karriere/loxam-herning/"
+      },
+      {
+        "source": "/karrierekort/witt-a-s/",
+        "permanent": false,
+        "destination": "/karriere/witt-a-s/"
+      },
+      {
+        "source": "/karrierekort/aj-energi-stroe/",
+        "permanent": false,
+        "destination": "/karriere/aj-energi-and-stro/"
+      },
+      {
+        "source": "/karrierekort/bila-2/",
+        "permanent": false,
+        "destination": "/karriere/bila-2/"
+      },
+      {
+        "source": "/karrierekort/jysk-formtryk/",
+        "permanent": false,
+        "destination": "/karriere/jysk-formtryk/"
+      },
+      {
+        "source": "/karrierekort/a-tex-part-of-trimco-group/",
+        "permanent": false,
+        "destination": "/karriere/a-tex-part-of-trimco-group/"
+      },
+      {
+        "source": "/karrierekort/kd-emballage/",
+        "permanent": false,
+        "destination": "/karriere/kd-emballage/"
+      },
+      {
+        "source": "/karrierekort/profil-vaerktoej-a-s/",
+        "permanent": false,
+        "destination": "/karriere/profil-vaerktoej-a-s/"
+      },
+      {
+        "source": "/karrierekort/difko/",
+        "permanent": false,
+        "destination": "/karriere/difko/"
+      },
+      {
+        "source": "/karrierekort/gn-belysning/",
+        "permanent": false,
+        "destination": "/karriere/gn-belysning/"
+      },
+      {
+        "source": "/karrierekort/guld-og-ure/",
+        "permanent": false,
+        "destination": "/karriere/guld-og-ure/"
+      },
+      {
+        "source": "/karrierekort/herningcentret/",
+        "permanent": false,
+        "destination": "/karriere/herningcentret/"
+      },
+      {
+        "source": "/karrierekort/hedens-hjemmepleje/",
+        "permanent": false,
+        "destination": "/karriere/hedens-hjemmepleje/"
+      },
+      {
+        "source": "/karrierekort/ey-herning/",
+        "permanent": false,
+        "destination": "/karriere/ey-herning/"
+      },
+      {
+        "source": "/overpringshandling/",
+        "permanent": false,
+        "destination": "/"
+      },
+      {
+        "source": "/personoplysningspolitik/",
+        "permanent": false,
+        "destination": "/personoplysningspolitik/"
+      },
+      {
+        "source": "/uddannelser-gammel/",
+        "permanent": false,
+        "destination": "/uddannelser"
+      },
+      {
+        "source": "/foraeldrearrangement/",
+        "permanent": false,
+        "destination": "/abent-hus-herning"
+      },
+      {
+        "source": "/nyhedsbrev-tak/",
+        "permanent": false,
+        "destination": "/"
+      },
+      {
+        "source": "/tak-2021-uddannelsessoegende/",
+        "permanent": false,
+        "destination": "/"
+      },
+      {
+        "source": "/tak-2021-inspiration/",
+        "permanent": false,
+        "destination": "/"
+      },
+      {
+        "source": "/download-materiale/",
+        "permanent": false,
+        "destination": "/"
+      },
+      {
+        "source": "/download-materiale-form/",
+        "permanent": false,
+        "destination": "/"
+      },
+      {
+        "source": "/tilmeld-nyhedsbrev/",
+        "permanent": false,
+        "destination": "/"
+      },
+      {
+        "source": "/internationale-studerende-anil/",
+        "permanent": false,
+        "destination": "/"
+      },
+      {
+        "source": "/internationale-studerende-alisa/",
+        "permanent": false,
+        "destination": "/"
+      },
+      {
+        "source": "/internationale-studerende-mara/",
+        "permanent": false,
+        "destination": "/"
+      },
+      {
+        "source": "/internationale-studerende-enrique/",
+        "permanent": false,
+        "destination": "/"
+      },
+      {
+        "source": "/internationale-studerende-gediminas/",
+        "permanent": false,
+        "destination": "/"
+      },
+      {
+        "source": "/internationale-studerende-marcela/",
+        "permanent": false,
+        "destination": "/"
+      },
+      {
+        "source": "/om-os/",
+        "permanent": false,
+        "destination": "/studielivet-i-herning"
+      },
+      {
+        "source": "/meet-international-students/",
+        "permanent": false,
+        "destination": "/uddannelser"
+      },
+      {
+        "source": "/kontakt/",
+        "permanent": false,
+        "destination": "/abent-hus-herning"
+      },
+      {
+        "source": "/livet-i-herning/moed-de-studerende/",
+        "permanent": false,
+        "destination": "/studielivet-i-herning"
+      },
+      {
+        "source": "/ledige-pladser/",
+        "permanent": false,
+        "destination": "/studielivet-i-herning"
+      },
+      {
+        "source": "/bliv-ingenior/",
+        "permanent": false,
+        "destination": "/uddannelser"
+      },
+      {
+        "source": "/bo-i-herning/",
+        "permanent": false,
+        "destination": "/ny-i-herning"
+      },
+      {
+        "source": "/livet-i-herning/",
+        "permanent": false,
+        "destination": "/ny-i-herning"
+      },
+      {
+        "source": "/international-student/",
+        "permanent": false,
+        "destination": "/uddannelser"
+      },
+      {
+        "source": "/internationale-studerende-q-a/",
+        "permanent": false,
+        "destination": "/uddannelser"
+      },
+      {
+        "source": "/inspiration/",
+        "permanent": false,
+        "destination": "/studielivet-i-herning"
+      },
+      {
+        "source": "/forside-2/",
+        "permanent": false,
+        "destination": "/"
+      },
+      {
+        "source": "/arrangementer/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/student-cup-herning/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/studentcupherning/",
+        "permanent": false,
+        "destination": "/det-sker"
+      },
+      {
+        "source": "/studiepraktik/",
+        "permanent": false,
+        "destination": "/uddannelser"
+      },
+      {
+        "source": "/billetter/",
+        "permanent": false,
+        "destination": "/det-sker"
+      }    
+    ]
   ]
 }
