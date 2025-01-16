@@ -1,9 +1,14 @@
 export function formatDate(date: string) {
-  return new Date(date).toLocaleDateString('da-DK', {
-    month: 'long',
+  if (!date) {
+    return null
+  }
+
+  return new Intl.DateTimeFormat('da-DK', {
     day: 'numeric',
+    month: 'long',
     year: 'numeric',
-  })
+    timeZone: 'Europe/Copenhagen', // Explicitly set the Danish time zone
+  }).format(new Date(date))
 }
 
 export function formatDateToNumber(date: string) {
@@ -19,10 +24,11 @@ export function formatTime(date: string) {
     return null
   }
 
-  return new Date(date).toLocaleTimeString('da-DK', {
+  return new Intl.DateTimeFormat('da-DK', {
     hour: 'numeric',
     minute: 'numeric',
-  })
+    timeZone: 'Europe/Copenhagen', // Explicitly set the Danish time zone
+  }).format(new Date(date))
 }
 
 export function formatNumberDate(date: string) {
