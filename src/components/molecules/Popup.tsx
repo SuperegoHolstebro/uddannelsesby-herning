@@ -80,9 +80,9 @@ const Popup = () => {
                   transition: { duration: 0.5, ease: [0.86, 0, 0.07, 1] },
                 }}
                 transition={{ duration: 1, delay: 1, ease: [0.86, 0, 0.07, 1] }}
-                className="fixed bottom-0 right-0 z-[calc(infinity+1)] h-full flex items-end"
+                className="fixed bottom-0 right-0 z-[calc(infinity+1)] h-full flex items-end pointer-events-none"
               >
-                <div className="flex flex-col-reverse w-full h-auto max-w-3xl gap-3 pb-8 shadow-md md:gap-12 md:flex-row bg-lys md:pb-0">
+                <div className="flex flex-col-reverse w-full h-auto max-w-3xl gap-3 pb-8 shadow-md pointer-events-auto md:gap-12 md:flex-row bg-lys md:pb-0">
                   <div className="w-full px-4 pt-3 pr-0 space-y-3 md:space-y-8 md:p-8 md:pt-6 md:pt-12 md:space-y-6 md:p-12 md:w-1/2">
                     {data?.custom?.title && (
                       <Heading tag="h6" type="h4" spacing="none">
@@ -116,8 +116,8 @@ const Popup = () => {
                   </div>
                 </div>
               </motion.div>
-
-            </>)}
+            </>
+          )}
         </AnimatePresence>
       )}
 
@@ -134,9 +134,9 @@ const Popup = () => {
                 transition: { duration: 0.5, ease: [0.86, 0, 0.07, 1] },
               }}
               transition={{ duration: 1, delay: 1, ease: [0.86, 0, 0.07, 1] }}
-              className="fixed bottom-0 right-0 z-[calc(infinity+1)] h-full flex items-end"
+              className="fixed bottom-0 right-0 z-[calc(infinity+1)] h-full flex items-end pointer-events-none"
             >
-              <div className="flex flex-col-reverse w-full max-w-3xl gap-3 shadow-[0px_24px_40px_-10px_rgba(15,_28,_51,_0.16)] md:gap-12 md:flex-row bg-lys pb-8 md:pb-0">
+              <div className="flex flex-col-reverse w-full max-w-3xl gap-3 shadow-[0px_24px_40px_-10px_rgba(15,_28,_51,_0.16)] md:gap-12 md:flex-row bg-lys pb-8 md:pb-0 pointer-events-auto">
                 <div className="flex flex-col justify-between w-full p-8 pt-6 pr-0 md:pt-12 md:p-12 md:w-1/2">
                   <div className="space-y-5 md:space-y-6">
                     {data?.event?.title && (
@@ -162,7 +162,7 @@ const Popup = () => {
                       <Link
                         className="text-increased"
                         href={resolveHref('event', data?.event?.slug)}
-                      // href="#signup"
+                        // href="#signup"
                       >
                         SE MERE
                         <span className="overflow-hidden">
