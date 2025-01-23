@@ -223,7 +223,7 @@ html.lenis body {
 
 
 #coitable {
-  @apply py-40 bg-lys text-dark prose-headings:font-heading prose-headings:text-dark prose-h1:text-dark
+  @apply py-40 bg-lys text-dark prose-headings:font-outfit prose-headings:text-dark prose-h1:text-dark
   grid-cols-4 xs:grid-cols-4 sm:grid-cols-8 md:grid-cols-12 lg:grid-cols-12 xl:grid-cols-24 2xl:grid-cols-24
   gap-4 xs:gap-4 sm:gap-4 md:gap-6 lg:gap-6 xl:gap-6 2xl:gap-6
   px-4 xs:px-4 sm:px-13 md:px-24 lg:px-19 xl:px-36 2xl:px-52
