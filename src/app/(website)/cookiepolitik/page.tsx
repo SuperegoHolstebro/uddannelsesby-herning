@@ -9,7 +9,7 @@ const CookiePage = () => {
         src="https://policy.app.cookieinformation.com/cid.js"
         data-culture="DA"
         type="text/javascript"
-        strategy="afterInteractive"
+        strategy="beforeInteractive"
       />
     </>
 
