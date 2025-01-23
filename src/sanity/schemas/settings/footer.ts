@@ -121,48 +121,5 @@ export default defineType({
         },
       ],
     },
-    {
-      name: 'openingHours',
-      title: 'Åbningstider',
-      type: 'array',
-      options: {
-        collapsible: true,
-        collapsed: true,
-      },
-      of: [
-        {
-          type: 'object',
-          fields: [
-            defineField({
-              name: 'day',
-              title: 'Dag',
-              type: 'string',
-              options: {
-                list: [
-                  { title: 'Mandag', value: 'mandag' },
-                  { title: 'Tirsdag', value: 'tirsdag' },
-                  { title: 'Onsdag', value: 'onsdag' },
-                  { title: 'Torsdag', value: 'torsdag' },
-                  { title: 'Fredag', value: 'fredag' },
-                  { title: 'Lørdag', value: 'lørdag' },
-                  { title: 'Søndag', value: 'søndag' },
-                ],
-              },
-            }),
-            defineField({
-              name: 'hours',
-              title: 'Åbningstider',
-              type: 'string',
-            }),
-          ],
-          preview: {
-            select: {
-              title: 'day',
-              subtitle: 'hours',
-            },
-          },
-        },
-      ],
-    },
   ],
 })

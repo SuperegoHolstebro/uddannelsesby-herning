@@ -1,8 +1,8 @@
 {
   "redirects": [
     {
-      "source": "/me",
-      "destination": "/profile.html",
+      "source": "/was",
+      "destination": "https://www.was.digst.dk/uddannelsesbyherning-dk/",
       "permanent": false
     },
     {

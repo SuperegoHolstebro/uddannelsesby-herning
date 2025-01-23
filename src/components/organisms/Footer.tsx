@@ -106,8 +106,13 @@ function ColumnTwo({ data }) {
   return (
     <div className="order-1 md:order-2">
       <div className="">
-        <Link className="text-mørk w-full block" href="/">
+        <Link
+          aria-label="Gå til forsiden"
+          className="text-mørk w-full block"
+          href="/"
+        >
           <Logo className="w-full h-auto max-w-xs mx-auto sm:mx-0" />
+          <span className="sr-only">Forsiden</span>
         </Link>
       </div>
     </div>
@@ -151,11 +156,16 @@ function Legal({ data }) {
               Cookiepolitik
             </Link>
           </p>
-          {/*  <p className="text-[14px]">
-            <Link href="/" target="_blank" rel="noreferrer">
+          <p className="text-[14px]">
+            <Link
+              href=" https://www.was.digst.dk/uddannelsesbyherning-dk"
+              target="_blank"
+              rel="noreferrer"
+              title="Gå til Tilgængelighedserklæring"
+            >
               Tilgængelighedserklæring
             </Link>
-          </p> */}
+          </p>
           <p className="text-[14px]">
             <Link
               className="group"

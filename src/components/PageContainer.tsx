@@ -52,7 +52,7 @@ export default function PageContainer({
     <>
       <a
         href="#indhold"
-        className="absolute z-[999] px-4 py-2 text-white transition-transform -translate-y-full bg-[#325FF3] left-28 top-2 opacity-0  focus-visible:opacity-100  focus-visible:translate-y-0"
+        className="absolute z-[999] px-4 py-2 text-dark transition-transform -translate-y-full bg-signal-gul left-28 top-2 opacity-0  focus-visible:opacity-100  focus-visible:translate-y-0"
       >
         Gå til indhold
       </a>
