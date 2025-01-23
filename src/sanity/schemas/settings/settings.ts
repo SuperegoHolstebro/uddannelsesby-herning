@@ -15,7 +15,13 @@ export default defineType({
       type: 'string',
       description: 'Sidens titel',
     }),
-
+    defineField({
+      // should match 'languageField' plugin configuration setting, if customized
+      name: 'locale',
+      type: 'string',
+      readOnly: true,
+      // hidden: true,
+    }),
     defineField({
       name: 'siteDescription',
       title: 'Sidebeskrivelse',
