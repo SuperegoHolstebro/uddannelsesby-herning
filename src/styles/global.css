@@ -219,3 +219,23 @@ html.lenis body {
   outline: 2px solid blue;
   outline-offset: 2px;
 }
+
+
+
+#coitable {
+  @apply py-40 bg-lys text-dark prose-headings:font-heading prose-headings:text-dark prose-h1:text-dark
+  grid-cols-4 xs:grid-cols-4 sm:grid-cols-8 md:grid-cols-12 lg:grid-cols-12 xl:grid-cols-24 2xl:grid-cols-24
+  gap-4 xs:gap-4 sm:gap-4 md:gap-6 lg:gap-6 xl:gap-6 2xl:gap-6
+  px-4 xs:px-4 sm:px-13 md:px-24 lg:px-19 xl:px-36 2xl:px-52
+  prose-p:mt-2 prose-p:mb-4 prose-p:text-regular
+  prose-h1:mt-8 prose-h1:mb-4 prose-h1:max-w-prose prose-h1:text-balance prose-h1:text-giant
+  prose-h2:mt-8 prose-h2:mb-4 prose-h2:max-w-prose prose-h2:text-balance prose-h2:text-huge
+  prose-h3:max-w-prose prose-h3:text-balance prose-h3:text-large  
+  prose-h4:max-w-prose prose-h4:text-balance prose-h4:text-medium
+  prose-h5:max-w-prose prose-h5:text-balance prose-h5:text-increased
+  prose-h6:max-w-prose prose-h6:text-balance prose-h6:text-small
+}
+
+#coitable * {
+  @apply col-start-1 -col-end-1 sm:col-start-2 sm:-col-end-2 lg:col-start-3 lg:-col-end-3 xl:col-start-6 xl:-col-end-6 2xl:col-start-6 2xl:-col-end-6
+}
