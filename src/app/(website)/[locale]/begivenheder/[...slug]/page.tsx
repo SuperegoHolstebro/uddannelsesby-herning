@@ -67,9 +67,14 @@ export default async function DynamicRoute({
               </Paragraph>
             ) : (
               <Scheduler hasText start={page.open}>
-                <AdvancedButton variant="primary">
+                {page.isFull ? (
+                  <></>
+                ): (
+                <AdvancedButton className="inline" asChild variant="primary">
                   <Link
+                    title="Book billet"
                     className="text-increased"
+                    target={page?.isExternal ? '_blank' : '_self'}
                     href={
                       page?.isExternal
                         ? page?.externalLink || `#signup`
@@ -99,6 +104,7 @@ export default async function DynamicRoute({
                     </span>
                   </Link>
                 </AdvancedButton>
+             )}
               </Scheduler>
             )}
           </div>
