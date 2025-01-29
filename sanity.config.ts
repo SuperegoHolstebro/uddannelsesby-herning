@@ -30,6 +30,7 @@ import { GoToCompanyLoginAction } from '~/sanity/actions/goToCompantLogin.action
 import { documentInternationalization } from '@sanity/document-internationalization'
 import Appconfig from './config'
 import { SendEmailToCompanyAction } from '~/sanity/actions/SendEmailToCompany'
+import { pages } from '~/sanity/plugin/sanity-studio/src'
 
 const SANITY_STUDIO_PREVIEW_URL =
   process.env.SANITY_STUDIO_PREVIEW_URL || 'http://localhost:3333'
@@ -95,22 +96,40 @@ export default defineConfig({
       ],
     }),
     structureTool({ structure, title: 'Indhold' }),
-    presentationTool({
+    /*     presentationTool({
       resolve,
-      /*  components: {
+       components: {
         unstable_navigator: {
           component: Sidebar,
           maxWidth: 350,
           minWidth: 150,
         },
-      }, */
+      },
       title: 'Visuel redigering',
       previewUrl: {
         previewMode: {
           enable: '/api/draft-mode/enable',
         },
       },
+    }), */
+
+    pages({
+      i18n: Appconfig.i18n,
+      title: 'Visuel redigering',
+      resolve,
+      previewUrl: {
+        previewMode: {
+          enable: '/api/draft-mode/enable',
+        },
+      },
+      creatablePages: [
+        {
+          title: 'Sider',
+          type: 'page',
+        },
+      ],
     }),
+
     media(),
     visionTool({ defaultApiVersion: apiVersion, title: 'Udviklingsværktøj' }),
     daDKLocale({ title: 'Dansk' }),
