@@ -3,13 +3,18 @@
   "extends": [
     "next",
     "eslint:recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "sanity",
+    "sanity/react",
+    "sanity/typescript",
+    "prettier"
   ],
   "plugins": [
     "simple-import-sort",
     "@typescript-eslint"
   ],
   "rules": {
+    "no-negated-condition": "off",
     "simple-import-sort/imports": "warn",
     "simple-import-sort/exports": "warn",
     "react-hooks/exhaustive-deps": "off",  // Changed from "error" to "warn"
