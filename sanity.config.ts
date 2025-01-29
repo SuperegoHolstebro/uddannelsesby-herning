@@ -31,6 +31,7 @@ import { documentInternationalization } from '@sanity/document-internationalizat
 import Appconfig from './config'
 import { SendEmailToCompanyAction } from '~/sanity/actions/SendEmailToCompany'
 import { pages } from '~/sanity/plugin/sanity-studio/src'
+import { duplicateEvent } from '~/sanity/actions/duplicateEvent'
 
 const SANITY_STUDIO_PREVIEW_URL =
   process.env.SANITY_STUDIO_PREVIEW_URL || 'http://localhost:3333'
@@ -140,7 +141,7 @@ export default defineConfig({
     actions: (prev, context) => {
       // Include the custom DownloadAttendeesAction for event documents
       if (context.schemaType === 'event') {
-        return [...prev, DownloadAttendeesAction] // Add the custom action
+        return [...prev, DownloadAttendeesAction, duplicateEvent] // Add the custom action
       }
 
       if (context.schemaType === 'company') {

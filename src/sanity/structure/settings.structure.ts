@@ -4,7 +4,6 @@ import { CornerUpRight, PanelBottom, PanelTop, Map } from '@mynaui/icons-react'
 import companyLogins from './companyLogin.structure'
 import popup from './popup.structure'
 
-
 import { SettingsIcon } from '~/components/sanity/PageBuilderIcons'
 
 export default defineStructure<ListItemBuilder>((S, context) =>
@@ -40,18 +39,7 @@ export default defineStructure<ListItemBuilder>((S, context) =>
                 .views([S.view.form().id('redirectEditor')]),
             ),
           S.divider(),
-          S.listItem()
-            .title('Kort kategorier')
-            .icon(Map)
-            .child(
-              S.documentTypeList('MapCategory')
-                .title('Kort kategorier')
-                .child((documentId) =>
-                  S.document().documentId(documentId).schemaType('MapCategory'),
-                ),
-            ),
           companyLogins(S, context),
-          popup(S, context),
         ]),
     ),
 )

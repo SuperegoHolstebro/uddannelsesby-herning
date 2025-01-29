@@ -7,6 +7,8 @@ import school from './school.structure'
 import experience from './experience.structure'
 import discounts from './discounts.structure'
 import company from './company.structure'
+import popup from './popup.structure'
+import { CornerUpRight, PanelBottom, PanelTop, Map } from '@mynaui/icons-react'
 
 export const structure: StructureResolver = (S, context) =>
   S.list()
@@ -21,6 +23,17 @@ export const structure: StructureResolver = (S, context) =>
       S.divider(),
       discounts(S, context),
       experience(S, context),
+      S.listItem()
+        .title('Kort kategorier')
+        .icon(Map)
+        .child(
+          S.documentTypeList('MapCategory')
+            .title('Kort kategorier')
+            .child((documentId) =>
+              S.document().documentId(documentId).schemaType('MapCategory'),
+            ),
+        ),
+      popup(S, context),
       S.divider(),
       settings(S, context),
     ])
