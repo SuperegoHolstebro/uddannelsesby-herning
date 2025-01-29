@@ -10,6 +10,7 @@ import 'swiper/css'
 export type ExtendedPagePayload = PagePayload & {
   localeInfo: any
   descriptionEN?: any
+  titleEnglish?: any
 }
 
 export default async function IndexRoute({

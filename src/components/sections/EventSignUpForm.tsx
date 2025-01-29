@@ -8,7 +8,7 @@ import Heading from '../atoms/Heading'
 import Paragraph from '../atoms/Paragraph'
 import Link from 'next/link'
 
-function EventSignUpForm({ event }) {
+function EventSignUpForm({ event, locale }) {
   const [formData, setFormData] = useState({
     navn: '',
     email: '',
@@ -128,16 +128,18 @@ function EventSignUpForm({ event }) {
               tag="h3"
               className="col-span-full"
             >
-              Tilmeld dig nu
+              {locale === 'da' ? 'Tilmeld dig nu' : 'Sign up now'}
             </Heading>
 
             <Paragraph spacing="small" className="col-span-full">
-              Udfyld formularen herunder og sikre dig billetter til eventet
-              allerede nu.{' '}
+              {locale === 'da'
+                ? 'Udfyld formularen herunder og sikre dig billetter til eventet allerede nu.'
+                : 'Fill out the form below and secure your tickets to the event now.'}{' '}
             </Paragraph>
 
             <Paragraph spacing="small" className="font-bold col-span-full">
-              {ticketsLeft} tilgængelige billetter
+              {ticketsLeft}{' '}
+              {locale === 'da' ? 'tilgængelige billetter' : 'tickets available'}
             </Paragraph>
 
             <form onSubmit={handleSubmit} className="space-y-4">

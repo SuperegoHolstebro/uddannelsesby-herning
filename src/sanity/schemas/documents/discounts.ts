@@ -14,12 +14,22 @@ export default defineType({
   fields: [
     defineField({
       name: 'title',
-      title: 'Title',
+      title: 'Titel',
+      type: 'string',
+    }),
+    defineField({
+      name: 'titleEnglish',
+      title: 'Titel - engelsk',
       type: 'string',
     }),
     defineField({
       name: 'discount',
       title: 'Rabat',
+      type: 'string',
+    }),
+    defineField({
+      name: 'discountEnglish',
+      title: 'Rabat - engelsk',
       type: 'string',
     }),
     defineField({

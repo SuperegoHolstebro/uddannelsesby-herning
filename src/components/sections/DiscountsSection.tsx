@@ -8,7 +8,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { useMediaQuery } from '~/hooks/useMediaQuery'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const DiscountsSection = ({ section }) => {
+const DiscountsSection = ({ section, locale }) => {
   const [data, setData] = useState(section)
   const [selectedCategory, setSelectedCategory] = useState('all')
 
@@ -52,6 +52,7 @@ const DiscountsSection = ({ section }) => {
     <Section>
       <div className="grid grid-cols-6 gap-4 pb-6 col-span-full">
         <FilterButtons
+          locale={locale}
           categories={uniqueCategories}
           selectedCategory={selectedCategory}
           setSelectedCategory={setSelectedCategory}
@@ -65,7 +66,11 @@ const DiscountsSection = ({ section }) => {
           paddingBottom="none"
         >
           {filteredDiscounts.map((discount, index) => (
-            <DiscountsCard key={discount._id || index} data={discount} />
+            <DiscountsCard
+              locale={locale}
+              key={discount._id || index}
+              data={discount}
+            />
           ))}
         </Section>
       </div>
@@ -76,11 +81,13 @@ const DiscountsSection = ({ section }) => {
 export default DiscountsSection
 
 const FilterButtons = ({
+  locale,
   categories,
   selectedCategory,
   setSelectedCategory,
 }) => {
   const isMobile = useMediaQuery('(max-width: 768px)')
+  const isDanishLocale = locale === 'da'
 
   return isMobile ? (
     <div className="col-span-full">
@@ -92,7 +99,7 @@ const FilterButtons = ({
             selectedCategory={selectedCategory}
             setSelectedCategory={setSelectedCategory}
           >
-            Alle rabatter
+            {isDanishLocale ? 'Alle rabatter' : 'All discounts'}
           </FilterButton>
         </SwiperSlide>
         {categories.map((category, index) => (
@@ -118,7 +125,7 @@ const FilterButtons = ({
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}
       >
-        Alle rabatter
+        {isDanishLocale ? 'Alle rabatter' : 'All discounts'}
       </FilterButton>
       {categories.map((category, index) => (
         <FilterButton

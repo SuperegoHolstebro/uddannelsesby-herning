@@ -45,6 +45,7 @@ export const EVENT_QUERY = groq`
   _type,
   category->{
     title,
+    titleEnglish
   },
   ${SEO_QUERY},
   image{
@@ -66,6 +67,7 @@ export const EVENT_QUERY = groq`
   },
   category->{
     title,
+    titleEnglish
   },
   _type,
   price

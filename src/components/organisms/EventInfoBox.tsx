@@ -75,7 +75,9 @@ const EventInfoBox = ({ page }) => {
           <Icon type="tickets" className="w-8 h-8" />
           <Heading type="h5" tag="h5" spacing="default">
             {page.isFull
-              ? 'Udsolgt'
+              ? page.locale === 'DA'
+                ? 'Udsolgt'
+                : 'Sold out'
               : page.isExternal
                 ? 'Stadig ledige billetter'
                 : ticketsLeft > 0

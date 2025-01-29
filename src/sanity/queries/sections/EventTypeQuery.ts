@@ -11,6 +11,7 @@ const EventCardQuery = groq`
   },
   category->{
     title,
+    titleEnglish,
   },
   _type,
   price

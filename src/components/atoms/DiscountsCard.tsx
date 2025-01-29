@@ -4,7 +4,8 @@ import Heading from './Heading'
 import Paragraph from './Paragraph'
 import Link from 'next/link'
 
-const DiscountsCard = ({ data }) => {
+const DiscountsCard = ({ data, locale }) => {
+  const isDanishLocale = locale === 'da'
   return (
     <div className="relative col-span-full sm:col-span-4 xl:col-span-8 group border-b-grå border-b pb-6 mb-6">
       {data.url && (
@@ -54,9 +55,11 @@ const DiscountsCard = ({ data }) => {
       <div className="relative flex gap-6 pt-6">
         <div className="w-full">
           <Heading spacing="none" tag="h5" type="h5">
-            {data.title}
+            {isDanishLocale ? data.title : data?.titleEnglish}
           </Heading>
-          <Paragraph spacing="none">{data.discount}</Paragraph>
+          <Paragraph spacing="none">
+            {isDanishLocale ? data.discount : data?.discountEnglish}
+          </Paragraph>
         </div>
         <div className="w-1/5">
           {data.url && (

@@ -16,4 +16,5 @@ interface Section {
 
 export interface PageBuilderTypes {
   sections: Section[]
+  locale?: any
 }

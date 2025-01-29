@@ -9,7 +9,10 @@ import { PAGE_QUERY } from '@/sanity/lib/sanity.queries'
 export type PagePayload = {
   location?: string
   price?: string
-  category?: { title: string }
+  category?: {
+    titleEnglish?: string
+    title?: string
+  }
   maxAttendees?: number
   attendees?: { name: string; email: string; phone: string; school: string }[]
   isExternal?: boolean

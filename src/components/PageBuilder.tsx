@@ -25,8 +25,9 @@ import Program from './sections/program'
 import Schools from './sections/schools'
 import LogoBand from './sections/LogoBand'
 import Experiences from './sections/Experiences'
+import { PageBuilderTypes } from '~/types/PageBuilder.types'
 
-const PageBuilder = ({ sections }) => {
+const PageBuilder = ({ sections, locale }: PageBuilderTypes) => {
   return (
     <React.Fragment>
       {sections?.map((section, index) => {
@@ -96,7 +97,9 @@ const PageBuilder = ({ sections }) => {
             return <EventWithFilter section={section} key={index} />
 
           case 'DiscountsType':
-            return <DiscountsSection key={index} section={section} />
+            return (
+              <DiscountsSection locale={locale} key={index} section={section} />
+            )
           case 'programType':
             return <Program key={index} data={section} />
           case 'textContainer':
