@@ -8,6 +8,8 @@ import { SITE_SETTINGS_QUERY } from '@/sanity/lib/sanity.queries'
 import Script from 'next/script'
 import Appconfig from 'config'
 import { Outfit } from 'next/font/google'
+import { Analytics } from "@vercel/analytics/react"
+
 
 const sans = Outfit({
   variable: '--font-sans',
@@ -20,7 +22,7 @@ const sans = Outfit({
 const outfit = Outfit({
   variable: '--font-outfit',
   subsets: ['latin'],
-  weight: ['100', '200', '300', '400', '500', '600','700', '800','900',],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900',],
   display: 'swap',
   preload: true,
 })
@@ -57,8 +59,9 @@ export default async function RootLayout({
           <>
             <VisualEditing />
             {/* <SanityLive refreshOnFocus={false} /> */}
-            </>
+          </>
         )}
+        <Analytics />
       </body>
     </html>
   )
