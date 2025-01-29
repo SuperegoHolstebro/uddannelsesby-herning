@@ -1,5 +1,6 @@
 import { File } from '@mynaui/icons-react'
 import { defineArrayMember, defineField, defineType } from 'sanity'
+import { isUniqueOtherThanLanguage } from '~/utils/isUniqueOtherThanLanguage'
 
 export default defineType({
   name: 'school',
@@ -51,7 +52,15 @@ export default defineType({
       options: {
         source: 'title',
         maxLength: 96,
+        isUnique: isUniqueOtherThanLanguage,
       },
+    }),
+    defineField({
+      // should match 'languageField' plugin configuration setting, if customized
+      name: 'locale',
+      type: 'string',
+      readOnly: true,
+      // hidden: true,
     }),
     defineField({
       name: 'mainImage',
@@ -113,12 +122,13 @@ export default defineType({
       title: 'title',
       slug: 'slug.current',
       media: 'mainImage',
+      locale: 'locale',
     },
-    prepare({ title, slug, media }) {
+    prepare({ title, slug, locale, media }) {
       return {
         title: title,
         subtitle: slug
-          ? `/${slug.startsWith('/') ? slug.slice(1) : slug}`
+          ? `${locale} /${slug.startsWith('/') ? slug.slice(1) : slug}`
           : 'Mangler slug',
         media: media,
       }

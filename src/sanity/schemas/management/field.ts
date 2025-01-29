@@ -11,6 +11,11 @@ export default defineType({
       type: 'string',
       validation: (Rule) => Rule.required(),
     }),
+    defineField({
+      name: 'titleEnglish',
+      title: 'Fagområde titel - engelsk',
+      type: 'string',
+    }),
   ],
   preview: {
     select: {

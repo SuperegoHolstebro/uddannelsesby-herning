@@ -46,6 +46,13 @@ export default defineType({
       description: 'Kort beskrivelse af virksomheden',
     }),
     defineField({
+      name: 'descriptionEnglish',
+      title: 'Om virksomheden - engelsk',
+      type: 'text',
+      group: 'companyDetails',
+      description: 'Kort beskrivelse af virksomheden på engelsk',
+    }),
+    defineField({
       name: 'fields',
       title: 'Fagområder',
       type: 'array',

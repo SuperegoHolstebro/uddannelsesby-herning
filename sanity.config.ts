@@ -52,7 +52,14 @@ export default defineConfig({
     documentInternationalization({
       // Required configuration
       supportedLanguages: [...Appconfig.i18n.locales],
-      schemaTypes: ['page', 'navigation', 'footer', 'settings', 'article'],
+      schemaTypes: [
+        'page',
+        'navigation',
+        'footer',
+        'settings',
+        'article',
+        'school',
+      ],
       languageField: 'locale',
     }),
 

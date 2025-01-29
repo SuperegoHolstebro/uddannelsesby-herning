@@ -7,6 +7,7 @@ view == "all" => *[_type == "company"] {
   "slug": slug.current,
   contactPerson,
   description,
+  descriptionEnglish,
   email,
   phone,
   address,
@@ -22,7 +23,8 @@ view == "all" => *[_type == "company"] {
   fields[]-> {
     _id,
     _rev,
-    title
+    title,
+    titleEnglish
   }
 }
 

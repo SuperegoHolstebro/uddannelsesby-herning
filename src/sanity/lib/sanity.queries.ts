@@ -74,8 +74,17 @@ export const EVENT_QUERY = groq`
 `
 
 export const SCHOOLPAGE_QUERY = groq`
-*[_type == "school" && slug.current == $slug][0] {
+*[_type == "school" && slug.current == $slug && locale == $locale][0] {
   ...,
+  "localeInfo": {
+    locale,
+    "_translations": *[_type == "translation.metadata" && references(^._id)].translations[].value->{
+      title,
+      _type,
+      slug,
+      locale
+    },
+  },
   _type,
   ${SEO_QUERY},
   mainImage{
@@ -190,6 +199,7 @@ export const COMPANY_QUERY = groq`
   },
   fields[]->{
     title,
+    titleEnglish
   }
 }
 `

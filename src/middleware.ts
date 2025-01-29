@@ -17,7 +17,27 @@ export async function middleware(request: NextRequest) {
     // Check if the pathname already contains a locale
     const hasLocale = Appconfig.i18n.locales.some(
       (locale) =>
-        pathname.startsWith(`/${locale?.id}/`) || pathname === `/${locale?.id}`
+        pathname.startsWith(`/${locale?.id}/`) || pathname === `/${locale?.id}`,
+    )
+
+    // If no locale is present, rewrite to add the default locale
+    if (!hasLocale) {
+      const searchString = searchParams.toString()
+      return NextResponse.rewrite(
+        new URL(
+          `/${Appconfig.i18n.defaultLocaleId}${pathname}${searchString ? `?${searchString}` : ''}`,
+          request.url,
+        ),
+      )
+    }
+    return NextResponse.next()
+  }
+
+  if (pathname.startsWith('/karriere')) {
+    // Check if the pathname already contains a locale
+    const hasLocale = Appconfig.i18n.locales.some(
+      (locale) =>
+        pathname.startsWith(`/${locale?.id}/`) || pathname === `/${locale?.id}`,
     )
 
     // If no locale is present, rewrite to add the default locale
@@ -41,9 +61,8 @@ export async function middleware(request: NextRequest) {
 
   // Skip locale check for specific paths
   if (
-    pathname.startsWith('/karriere') ||
-    pathname.startsWith('/uddannelsessteder') ||
-    pathname.startsWith('/cookiepolitik') ||
+    /*     pathname.startsWith('/uddannelsessteder') ||
+     */ pathname.startsWith('/cookiepolitik') ||
     pathname.startsWith('/signin') ||
     pathname.includes('.') // exclude all files in the public folder
   ) {

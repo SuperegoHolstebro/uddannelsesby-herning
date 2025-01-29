@@ -16,18 +16,18 @@ import { urlFor } from '~/sanity/lib/sanity.image'
 import CallToActionSection2 from '~/components/sections/CallToActionSection2'
 import Photo from '~/components/atoms/Photo'
 import { Params } from '~/types/Params.types'
-import { ExtendedPagePayload } from '../../[locale]/page'
+import { ExtendedPagePayload } from '../../page'
 
 export default async function DynamicRoute({
   params,
 }: {
-  params: Promise<Params>
+  params: Promise<{ slug: string[]; locale: string }>
 }) {
-  const resolvedParams = await params // Await the Promise
-  const slug = `${resolvedParams.slug.join('/')}`
+  const { slug: slugArray, locale: locale } = await params
+  const slug = slugArray.join('/')
   const page = (await loadPage(
     slug,
-    'da',
+    locale,
     SCHOOLPAGE_QUERY,
   )) as ExtendedPagePayload
 
@@ -64,7 +64,9 @@ export default async function DynamicRoute({
       </Section>
 
       <TextContainer asChild paddingBottom="default" paddingTop="none">
-        <Paragraph spacing='none' portableText>{page?.schoolInfo?.description}</Paragraph>
+        <Paragraph spacing="none" portableText>
+          {page?.schoolInfo?.description}
+        </Paragraph>
       </TextContainer>
 
       <TextContainer asChild paddingBottom="default" paddingTop="none">
@@ -72,7 +74,6 @@ export default async function DynamicRoute({
       </TextContainer>
       {/* @ts-ignore */}
       <CallToActionSection2 section={page?.CallToAction2} />
-
 
       {page.pageBuilder && <PageBuilder sections={page.pageBuilder} />}
     </PageContainer>

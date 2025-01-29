@@ -44,6 +44,7 @@ export type ExtendedPagePayload = PagePayload & {
   email: string
   phone: string
   website: string
+  descriptionEnglish: string
 }
 
 export default async function DynamicRoute({
@@ -51,11 +52,11 @@ export default async function DynamicRoute({
 }: {
   params: Promise<Params>
 }) {
-  const { slug: slugArray } = await params
+  const { slug: slugArray, locale: locale } = await params
   const slug = slugArray.join('/')
   const page = (await loadPage(
     slug,
-    'da',
+    locale,
     COMPANY_QUERY,
   )) as ExtendedPagePayload
   const session = await getServerSession(authOptions)
@@ -80,11 +81,20 @@ export default async function DynamicRoute({
           </div>
 
           <div className="flex flex-wrap gap-3 col-span-full h-fit">
-            {page?.fields?.map((field, index) => (
-              <Badge key={index} variant="dark">
-                {field?.title}{' '}
-              </Badge>
-            ))}
+            {locale === 'da'
+              ? page?.fields?.map((field, index) => (
+                  <Badge key={index} variant="dark">
+                    {field?.title}{' '}
+                  </Badge>
+                ))
+              : page?.fields?.map(
+                  (field, index) =>
+                    field?.titleEnglish && (
+                      <Badge key={index} variant="dark">
+                        {field?.titleEnglish}{' '}
+                      </Badge>
+                    ),
+                )}
           </div>
         </div>
       </Section>
@@ -108,7 +118,11 @@ export default async function DynamicRoute({
                     Mail: <a href={`mailto:${page.email}`}>{page.email}</a>
                   </Heading>
                 )}
-                <Paragraph spacing="none">Kontakt</Paragraph>
+                {locale === 'da' ? (
+                  <Paragraph spacing="none">Kontakt</Paragraph>
+                ) : (
+                  <Paragraph spacing="none">Contact</Paragraph>
+                )}
               </div>
             </div>
           )}
@@ -119,7 +133,11 @@ export default async function DynamicRoute({
                 <Heading type="h5" tag="h5" spacing="none">
                   {page?.address}
                 </Heading>
-                <Paragraph spacing="none">Lokation</Paragraph>
+                {locale === 'da' ? (
+                  <Paragraph spacing="none">Lokation</Paragraph>
+                ) : (
+                  <Paragraph spacing="none">Location</Paragraph>
+                )}
               </div>
             </div>
           )}
@@ -140,11 +158,17 @@ export default async function DynamicRoute({
         {page.description && (
           <>
             <Heading type="h3" tag="h3">
-              Om {page.name}
+              {locale === 'da' ? `Om ${page.name}` : `About ${page.name}`}
             </Heading>
-            <Paragraph className="whitespace-pre-line" spacing="none">
-              {page.description}
-            </Paragraph>
+            {(await params).locale === 'da' ? (
+              <Paragraph className="whitespace-pre-line" spacing="none">
+                {page.description}
+              </Paragraph>
+            ) : (
+              <Paragraph className="whitespace-pre-line" spacing="none">
+                {page.descriptionEnglish}
+              </Paragraph>
+            )}
           </>
         )}
         <div className="pt-12">
@@ -156,7 +180,7 @@ export default async function DynamicRoute({
                   href={`https://${page.website}`}
                   target="_blank"
                 >
-                  Læs mere om os
+                  {locale === 'da' ? 'Læs mere om os' : 'Read more about us'}
                   <span className="overflow-hidden">
                     <span
                       className={`block mr-auto w-10 overflow-hidden transition-all ease-custom duration-735 group-hover/button:w-full`}
