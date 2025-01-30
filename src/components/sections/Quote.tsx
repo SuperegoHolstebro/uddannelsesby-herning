@@ -37,7 +37,7 @@ const Quote = ({ section }) => {
     >
       <Symbol
         type="tlys"
-        className="absolute z-10 hidden size-52 left-4 md:left-8 top-8 lg:block"
+        className="absolute z-10 hidden inline-block size-52 left-4 md:left-8 top-8 lg:block"
       />
       {/* Image in the last 12 columns */}
       <div className="relative h-full sm:row-start-1 col-span-full sm:col-start-4 sm:-col-end-1 xl:col-start-12 aspect-1">

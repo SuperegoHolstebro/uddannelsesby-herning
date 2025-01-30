@@ -65,7 +65,7 @@ const PageTitle = ({ data }) => {
             <FadeUp delay={0.625}>
               <Symbol
                 type={data.symbolPickerRight?.icon}
-                className="size-28 sm:size-36 md:size-36 lg:size-44 opacity-30 md:opacity-100"
+                className="inline-block size-28 sm:size-36 md:size-36 lg:size-44 opacity-30 md:opacity-100"
               />
             </FadeUp>
           </span>
@@ -73,7 +73,7 @@ const PageTitle = ({ data }) => {
             <FadeUp delay={0.725}>
               <Symbol
                 type={data.symbolPickerLeft?.icon}
-                className="size-20 sm:size-36 md:size-36 lg:size-44"
+                className="inline-block size-20 sm:size-36 md:size-36 lg:size-44"
               />
             </FadeUp>
           </span>
