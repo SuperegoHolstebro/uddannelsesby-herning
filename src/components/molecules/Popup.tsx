@@ -102,7 +102,7 @@ const Popup = () => {
                   </div>
                   <div className="relative w-full p-4 pb-0 md:p-0 md:w-1/2">
                     {data?.custom?.image?.asset && (
-                      <Photo image={data?.custom?.image} className="aspect-1" />
+                      <Photo image={data?.custom?.image} className="md:aspect-1" />
                     )}
                     <button
                       onClick={togglePopup}
@@ -189,9 +189,9 @@ const Popup = () => {
                     </AdvancedButton>
                   </div>
                 </div>
-                <div className="relative w-full p-8 pb-0 md:p-0 md:w-1/2 aspect-1">
+                <div className="relative w-full p-8 pb-0 md:p-0 md:w-1/2 md:aspect-1">
                   {data?.event?.image?.asset && (
-                    <Photo image={data?.event?.image} className="aspect-1" />
+                    <Photo image={data?.event?.image} className="md:aspect-1" />
                   )}
                   <button
                     onClick={togglePopup}
