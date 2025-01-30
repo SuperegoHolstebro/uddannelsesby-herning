@@ -49,7 +49,7 @@ const TextWithIllustration = ({ data, popup }: TextAndCollageProps) => {
               <FadeUp delay={0.625}>
                 <Symbol
                   type={data.symbolPicker?.icon}
-                  className="my-auto mt-auto size-36 md:size-40"
+                  className="inline-block my-auto mt-auto size-36 md:size-40"
                 />
               </FadeUp>
             </div>
