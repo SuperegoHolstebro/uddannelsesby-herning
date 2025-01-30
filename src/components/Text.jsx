@@ -45,7 +45,7 @@ export default function Text({ videoSrc, textContent, type, title }) {
               autoplay
               loop
               src="/lottie/SE-DET-FOR-DIG.json"
-              className="w-[calc(91.666667%-0rem)] md:w-[calc(91.666667%-4rem)] xl:w-[calc(91.666667%-6rem)] 3xl:w-[calc(91.666667%-9rem)]"
+              className="w-[calc(91.666667%-0rem)] md:w-[calc(91.666667%-4rem)] xl:w-[calc(91.666667%-6rem)] 3xl:w-[calc(91.666667%-9rem)] h-[calc(100vh-4rem)]"
             ></Player>
           </FadeUp>
         </div>

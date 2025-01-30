@@ -47,36 +47,15 @@ const Symbol: React.FC<SymbolProps> = ({ type, ...props }) => {
         />
       </svg>
     ),
-
     r: (
-      <>
-        <svg
-          {...props}
-          width="128"
-          height="194"
-          viewBox="0 0 128 194"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M89.1345 193.39L29.7481 119.935V193.39H0V63.9693C0 28.6412 28.6412 0 63.9602 0C99.2792 0 127.93 28.6412 127.93 63.9693C127.93 95.7573 104.731 122.121 74.3519 127.079L127.957 193.381H89.1345V193.39ZM29.7572 63.9693C29.7572 82.8683 45.0795 98.1815 63.9694 98.1815C82.8592 98.1815 98.1815 82.8592 98.1815 63.9693C98.1815 45.0795 82.8684 29.7573 63.9694 29.7573C45.0704 29.7573 29.7572 45.0703 29.7572 63.9693Z"
-            fill="#D8FD01"
-          />
-          <path
-            d="M63.9694 33.7546C63.9694 33.7546 60.5299 58.2794 33.7548 63.9692C60.5299 69.659 63.9694 94.1839 63.9694 94.1839C63.9694 94.1839 67.4089 69.659 94.184 63.9692C67.4089 58.2794 63.9694 33.7546 63.9694 33.7546Z"
-            fill="#D8FD01"
-          />
-        </svg>
-        {/*       <Player
-          keepLastFrame
+      <span {...props} >
+        <Player
           autoplay
-          src="/lottie/R/R.json"
-          className=" max-w-72 sm:max-w-xs md:max-w-md xl:max-w-lg"
-        ></Player> */}
-      </>
-
+          speed={.5}
+          src="/lottie/R/R-ny.json"
+        ></Player>
+      </span>
     ),
-
     g: (
       <svg
         {...props}
@@ -92,7 +71,6 @@ const Symbol: React.FC<SymbolProps> = ({ type, ...props }) => {
         />
       </svg>
     ),
-
     tlys: (
       <>
         {/*         <Player
@@ -126,36 +104,16 @@ const Symbol: React.FC<SymbolProps> = ({ type, ...props }) => {
         </svg>
       </>
     ),
-
     t: (
-      <svg
-        {...props}
-        width="169"
-        height="200"
-        viewBox="0 0 169 200"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <g clipPath="url(#clip0_980_1044)">
-          <path
-            d="M65.0331 36.6955H1.65083V1.65083H166.762V36.6955H65.0331Z"
-            stroke="#D9FC00"
-            strokeWidth="3.30165"
-          />
-          <path
-            d="M66.7404 77.2209L66.7404 1.65082L102.115 1.65083L102.115 198.324L66.7404 198.324L66.7404 77.2209Z"
-            stroke="#D9FC00"
-            strokeWidth="3.30165"
-          />
-        </g>
-        <defs>
-          <clipPath id="clip0_980_1044">
-            <rect width="168.422" height="199.75" fill="white" />
-          </clipPath>
-        </defs>
-      </svg>
-    ),
+      <span {...props} >
+      <Player
+        autoplay
+        loop
+        src="/lottie/T/T.json"
+      ></Player>
+    </span>
 
+    ),
     d: (
       <svg
         {...props}
@@ -171,20 +129,41 @@ const Symbol: React.FC<SymbolProps> = ({ type, ...props }) => {
         />
       </svg>
     ),
-
     e: (
-      <svg
-        {...props}
-        width="128"
-        height="200"
-        viewBox="0 0 128 200"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path d="M0 0V33.7735H127.757V0H0Z" fill="#D9FC00" />
-        <path d="M0 83.2393V117.013H127.757V83.2393H0Z" fill="#D9FC00" />
-        <path d="M0 199.6V165.827H127.757V199.6H0Z" fill="#D9FC00" />
-      </svg>
+      <span {...props} >
+        <Player
+          autoplay
+          loop
+          src="/lottie/E/E-streger.json"
+        ></Player>
+      </span>
+    ),
+    i:(
+      <span {...props} >
+        <Player
+          autoplay
+          loop
+          src="/lottie/I/i-uptimized.json"
+        ></Player>
+      </span>
+    ),
+    o:(
+      <span {...props} >
+        <Player
+          autoplay
+          loop
+          src="/lottie/O/O.json"
+        ></Player>
+      </span>
+    ),
+    s:(
+      <span {...props} >
+        <Player
+          autoplay
+          loop
+          src="/lottie/S/S-1.json"
+        ></Player>
+      </span>
     ),
   }
 
