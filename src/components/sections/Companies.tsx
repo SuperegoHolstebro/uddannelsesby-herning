@@ -5,17 +5,17 @@ import Section from './Section'
 import CompanyCard from '../molecules/CompanyCard'
 import Heading from '../atoms/Heading'
 
-const Companies = ({ section }) => {
+const Companies = ({ section, locale }: { section: any; locale: string }) => {
   return (
     <div>
-      <AllCompanies section={section} />
+      <AllCompanies section={section} locale={locale} />
     </div>
   )
 }
 
 export default Companies
 
-function AllCompanies({ section }) {
+function AllCompanies({ section, locale }) {
   const [selectedField, setSelectedField] = useState('all')
 
   const handleFilterChange = (event) => {
@@ -26,7 +26,14 @@ function AllCompanies({ section }) {
   const allFields = [
     ...new Set(
       section?.companies.flatMap((company) =>
-        company?.fields ? company?.fields?.map((field) => field?.title) : [],
+        company?.fields
+          ? company?.fields?.map((field) => {
+              // Check the locale and return the appropriate title
+              const fieldTitle =
+                locale === 'da' ? field?.title : field?.titleEnglish
+              return fieldTitle // Return the appropriate title
+            })
+          : [],
       ),
     ),
   ]
@@ -52,7 +59,9 @@ function AllCompanies({ section }) {
             spacing="none"
             className="col-span-full sm:col-span-6 max-w-prose md:col-span-9 xl:col-span-18"
           >
-            {companyCount} virksomheder kan se det for sig
+            {locale === 'da'
+              ? `${companyCount} virksomheder kan se det for sig`
+              : `${companyCount} companies can picture it`}
           </Heading>
 
           {clean(section.view) === 'all' && (
@@ -61,7 +70,7 @@ function AllCompanies({ section }) {
               value={selectedField}
               onChange={handleFilterChange}
             >
-              <option value="all">Alle</option>
+              <option value="all"> {locale === 'da' ? 'Alle' : 'All'}</option>
               {allFields.map((field: string, index) => (
                 <option key={index} value={field}>
                   {field}
@@ -75,7 +84,7 @@ function AllCompanies({ section }) {
         {clean(section.view) === 'all' && (
           <>
             {filteredCompanies.map((company, index) => (
-              <CompanyCard key={index} company={company} />
+              <CompanyCard key={index} company={company} locale={locale} />
             ))}
           </>
         )}

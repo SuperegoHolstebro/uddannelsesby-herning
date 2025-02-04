@@ -43,7 +43,7 @@ const PageBuilder = ({ sections, locale }: PageBuilderTypes) => {
           case 'TextAndCollage':
             return <TextAndCollage key={index} data={section} />
           case 'companiesType':
-            return <Companies key={index} section={section} />
+            return <Companies locale={locale} key={index} section={section} />
           case 'logoband':
             return <LogoBand key={index} data={section} />
           case 'experienceType':

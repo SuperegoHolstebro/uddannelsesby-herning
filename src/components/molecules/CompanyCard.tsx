@@ -20,7 +20,7 @@ import Photo from '../atoms/Photo'
  *
  **/
 
-const CompanyCard = ({ company }) => {
+const CompanyCard = ({ company, locale }) => {
   return (
     <li className="relative col-span-full sm:col-span-4 xl:col-span-8  border-b-grå border-b pb-6 mb-6">
       <Link
@@ -29,7 +29,7 @@ const CompanyCard = ({ company }) => {
         title={clean(company.name)}
       >
         <CompanyCardPortrait data={company} />
-        <CompanyCardInfo data={company} />
+        <CompanyCardInfo data={company} locale={locale} />
       </Link>
     </li>
   )
@@ -47,7 +47,7 @@ function CompanyCardPortrait({ data }) {
     </div>
   )
 }
-function CompanyCardInfo({ data }) {
+function CompanyCardInfo({ data, locale }) {
   return (
     <>
       {data.name && (
@@ -56,13 +56,17 @@ function CompanyCardInfo({ data }) {
         </Heading>
       )}
       {data.fields && data.fields.length > 0 && (
-        <ul className="flex flex-row flex-wrap gap-2.5  mt-auto">
+        <ul className="flex flex-row flex-wrap gap-2.5 mt-auto">
           <Badge variant="dark" className="">
-            {data.fields[0]?.title}
+            {locale === 'da'
+              ? data.fields[0]?.title
+              : data.fields[0]?.titleEnglish}
           </Badge>
           {data.fields.length > 1 && (
             <Badge variant="dark" className="">
-              + {data.fields.length - 1} FLERE
+              {locale === 'da'
+                ? `+ ${data.fields.length - 1} FLERE`
+                : `+ ${data.fields.length - 1} MORE`}
             </Badge>
           )}
         </ul>
