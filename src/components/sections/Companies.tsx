@@ -43,7 +43,12 @@ function AllCompanies({ section, locale }) {
     selectedField === 'all'
       ? section?.companies
       : section?.companies?.filter((company) =>
-          company?.fields?.some((field) => field?.title === selectedField),
+          company?.fields?.some((field) => {
+            // Compare the correct field title based on the locale
+            const fieldTitle =
+              locale === 'da' ? field?.title : field?.titleEnglish
+            return fieldTitle === selectedField
+          }),
         )
 
   // Count the number of companies
