@@ -1,5 +1,5 @@
 import { defineField, defineType } from 'sanity'
-import IconPickerInput from '@/components/sanity/IconPickerInput'
+import LogoPickerInput from '@/components/sanity/LogoPickerInput'
 
 export default defineType({
   name: 'footer',
@@ -80,7 +80,7 @@ export default defineType({
               title: '',
 
               components: {
-                input: IconPickerInput,
+                input: LogoPickerInput,
               },
               options: {
                 list: [

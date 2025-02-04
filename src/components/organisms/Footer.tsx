@@ -123,6 +123,8 @@ function ColumnThree({ data }) {
   const address = data?.object?.address
   const cvr = data?.object?.cvr
   const companyName = data?.object?.companyName
+  const telephone = data?.object?.telephone
+  const email = data?.object?.email
   return (
     <>
       <div className="order-3 mt-12 md:mt-0">
@@ -135,8 +137,18 @@ function ColumnThree({ data }) {
           </Paragraph>
         </div>
         <div className="text-center md:text-right">
-          <p>{address}</p>
-          <p>CVR {cvr}</p>
+          {address && <p>{address}</p>}
+          {telephone && (
+            <p>
+              <a href={`tel:${telephone}`}>{telephone}</a>
+            </p>
+          )}
+          {email && (
+            <p>
+              <a href={`mailto:${email}`}>{email}</a>
+            </p>
+          )}
+          {cvr && <p>CVR {cvr}</p>}
         </div>
       </div>
     </>
