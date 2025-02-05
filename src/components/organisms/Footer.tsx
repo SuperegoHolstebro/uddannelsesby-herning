@@ -63,7 +63,7 @@ export default function Footer({ locale }) {
           <Footer.ColumnTwo data={data} />
           <Footer.ColumnThree data={data} />
         </div>
-        <Footer.Legal data={data} />
+        <Footer.Legal locale={locale} data={data} />
       </Section>
     </>
   )

@@ -48,7 +48,7 @@ const EventWithFilter = ({ section, locale }) => {
                   {locale === 'da' ? 'Udforsk alle' : 'Explore all'}
                 </FilterButton>
               </SwiperSlide>
-              {uniqueCategories.map((category, index) => (
+              {uniqueCategories.map((category: any, index) => (
                 <SwiperSlide key={index}>
                   <FilterButton
                     icon={category.icon}
@@ -73,7 +73,7 @@ const EventWithFilter = ({ section, locale }) => {
             >
               {locale === 'da' ? 'Udforsk alle' : 'Explore all'}
             </FilterButton>
-            {uniqueCategories.map((category, index) => (
+            {uniqueCategories.map((category: any, index) => (
               <FilterButton
                 className="px-6 mx-6"
                 icon={category.icon}
