@@ -3,7 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 import Heading from '@/components/atoms/Heading'
 import { urlFor } from '~/sanity/lib/sanity.image'
-import { resolveHref } from '~/sanity/lib/sanity.links'
+import { resolveHref, resolveHrefLang } from '~/sanity/lib/sanity.links'
 import { formatNumberDate } from '~/utils/date'
 import { formatPrice } from '~/utils/price'
 import Badge from '../atoms/badge'
@@ -43,7 +43,7 @@ const EventCardFilter = ({ event, locale }) => {
     <li className="relative group col-span-full sm:col-span-4 xl:col-span-8  border-b-grå border-b pb-6 mb-6">
       <Link
         className={`flex flex-col h-full w-full group ${event.isFull === true ? 'opacity-50' : ''}`}
-        href={resolveHref(event._type, event.slug)}
+        href={resolveHrefLang(locale, event?._type, event?.slug)}
         title={event.name}
       >
         <EventCardFilterPortrait locale={locale} data={event} />

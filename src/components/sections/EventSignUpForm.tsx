@@ -9,6 +9,8 @@ import Paragraph from '../atoms/Paragraph'
 import Link from 'next/link'
 
 function EventSignUpForm({ event, locale }) {
+  const isDanish = locale === 'da'
+
   const [formData, setFormData] = useState({
     navn: '',
     email: '',
@@ -38,7 +40,7 @@ function EventSignUpForm({ event, locale }) {
 
     if (isFull) {
       // Prevent form submission if the event is full
-      alert('Begivenheden er fuld')
+      alert(isDanish ? 'Begivenheden er fuld' : 'The event is full')
       return
     }
 
@@ -88,12 +90,18 @@ function EventSignUpForm({ event, locale }) {
         const maxTickets = event.maxAttendees ?? 0
         setTicketsLeft(maxTickets - newBookedTickets)
       } else {
-        console.log('Error response:', data)
-        alert('Der skete en fejl. Prøv igen senere')
+        alert(
+          isDanish
+            ? 'Der skete en fejl. Prøv igen senere'
+            : 'An error occurred. Please try again later',
+        )
       }
     } catch (error) {
-      console.error('Submission error:', error)
-      alert('Der skete en fejl. Prøv igen senere')
+      alert(
+        isDanish
+          ? 'Der skete en fejl. Prøv igen senere'
+          : 'An error occurred. Please try again later',
+      )
     } finally {
       setSubmitting(false)
     }
@@ -114,11 +122,13 @@ function EventSignUpForm({ event, locale }) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Gå til begivenhed
+            {isDanish ? 'Gå til begivenhed' : 'Go to event'}
           </Link>
         ) : isSubmitted ? (
           <Paragraph spacing="small" className="font-bold col-span-full">
-            Du er nu tilmeldt begivenheden
+            {isDanish
+              ? 'Du er nu tilmeldt begivenheden'
+              : 'You are now signed up for the event'}
           </Paragraph>
         ) : (
           <div>
@@ -128,18 +138,18 @@ function EventSignUpForm({ event, locale }) {
               tag="h3"
               className="col-span-full"
             >
-              {locale === 'da' ? 'Tilmeld dig nu' : 'Sign up now'}
+              {isDanish ? 'Tilmeld dig nu' : 'Sign up now'}
             </Heading>
 
             <Paragraph spacing="small" className="col-span-full">
-              {locale === 'da'
+              {isDanish
                 ? 'Udfyld formularen herunder og sikre dig billetter til eventet allerede nu.'
-                : 'Fill out the form below and secure your tickets to the event now.'}{' '}
+                : 'Fill out the form below and secure your tickets to the event now.'}
             </Paragraph>
 
             <Paragraph spacing="small" className="font-bold col-span-full">
               {ticketsLeft}{' '}
-              {locale === 'da' ? 'tilgængelige billetter' : 'tickets available'}
+              {isDanish ? 'tilgængelige billetter' : 'tickets available'}
             </Paragraph>
 
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -189,7 +199,9 @@ function EventSignUpForm({ event, locale }) {
                   />
 
                   <span className="absolute text-grå transition-all opacity-100 bottom-7 peer-placeholder-shown:opacity-0 text-small peer-placeholder-shown:text-regular peer-placeholder-shown:bottom-5">
-                    Antal billetter *
+                    {locale === 'da'
+                      ? 'Antal billetter *'
+                      : 'Number of tickets *'}
                   </span>
                 </label>
               </div>
@@ -197,7 +209,7 @@ function EventSignUpForm({ event, locale }) {
                 <label htmlFor="name" className="relative grid text-small">
                   <input
                     type="text"
-                    placeholder="Fuldt navn *"
+                    placeholder={isDanish ? 'Fuldt navn *' : 'Full name *'}
                     value={formData.navn}
                     onChange={(e) =>
                       setFormData({ ...formData, navn: e.target.value })
@@ -206,8 +218,7 @@ function EventSignUpForm({ event, locale }) {
                     className=" p-0 pb-1 border-t-0 border-b-2 placeholder-mørk border-grå border-x-0 bg-lys pt-6 peer "
                   />
                   <span className="absolute text-grå transition-all opacity-100 bottom-7 peer-placeholder-shown:opacity-0 text-small peer-placeholder-shown:text-regular peer-placeholder-shown:bottom-5">
-                    {' '}
-                    Fuldt navn *
+                    {isDanish ? 'Fuldt navn *' : 'Full name *'}
                   </span>
                 </label>
               </div>
@@ -216,7 +227,9 @@ function EventSignUpForm({ event, locale }) {
                   <input
                     type="tel"
                     name="telefon"
-                    placeholder="Telefonnummer *"
+                    placeholder={
+                      isDanish ? 'Telefonnummer *' : 'Phone number *'
+                    }
                     value={formData.telefon}
                     onChange={(e) =>
                       setFormData({ ...formData, telefon: e.target.value })
@@ -225,7 +238,7 @@ function EventSignUpForm({ event, locale }) {
                   />
                   <span className="absolute text-grå transition-all opacity-100 bottom-7 peer-placeholder-shown:opacity-0 text-small peer-placeholder-shown:text-regular peer-placeholder-shown:bottom-5">
                     {' '}
-                    Telefonnummer *
+                    {isDanish ? 'Telefonnummer *' : 'Phone number *'}{' '}
                   </span>
                 </label>
 
@@ -233,7 +246,7 @@ function EventSignUpForm({ event, locale }) {
                   <input
                     type="email"
                     name="email"
-                    placeholder="Mailadresse *"
+                    placeholder={isDanish ? 'Mailadresse *' : 'Email *'}
                     value={formData.email}
                     onChange={(e) =>
                       setFormData({ ...formData, email: e.target.value })
@@ -243,7 +256,7 @@ function EventSignUpForm({ event, locale }) {
                   />
                   <span className="absolute text-grå transition-all opacity-100 bottom-7 peer-placeholder-shown:opacity-0 text-small peer-placeholder-shown:text-regular peer-placeholder-shown:bottom-5">
                     {' '}
-                    Mailadresse *
+                    {isDanish ? 'Mailadresse *' : 'Email *'}{' '}
                   </span>
                 </label>
               </div>
@@ -257,7 +270,11 @@ function EventSignUpForm({ event, locale }) {
                     required
                     className="p-0 pb-1 border-t-0 border-b-2 placeholder-mørk border-grå border-x-0 bg-lys  appearance-none pt-6 peer "
                   >
-                    <option value="">Uddannelsesinstitution *</option>
+                    <option value="">
+                      {isDanish
+                        ? 'Uddannelsesinstitution *'
+                        : 'Educational instituition *'}
+                    </option>
                     <option value="Aarhus Universitet i Herning">
                       Aarhus Universitet i Herning
                     </option>
@@ -285,13 +302,19 @@ function EventSignUpForm({ event, locale }) {
               <AdvancedButton
                 variant="default"
                 type="submit"
-                disabled={isFull || submitting} // Disable if the event is full or the form is submitting
+                disabled={isFull || submitting}
               >
                 {isFull
-                  ? 'Begivenheden er desværre fuld'
+                  ? isDanish
+                    ? 'Begivenheden er desværre fuld'
+                    : 'The event is full'
                   : submitting
-                    ? 'Indsender...'
-                    : 'Send tilmelding'}
+                    ? isDanish
+                      ? 'Indsender...'
+                      : 'Submitting...'
+                    : isDanish
+                      ? 'Send tilmelding'
+                      : 'Submit'}
               </AdvancedButton>
             </form>
           </div>
