@@ -9,28 +9,35 @@ import { useMediaQuery } from '~/hooks/useMediaQuery'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { SwiperOptions } from 'swiper/types'
 
-const EventWithFilter = ({ section }) => {
+const EventWithFilter = ({ section, locale }) => {
   const { events, categoriesInUse } = section
   const [selectedCategory, setSelectedCategory] = useState('all')
 
-  // Deduplicate categories
+  // Extract unique categories without duplicates
   const uniqueCategories = Array.from(
-    new Set(
+    new Map(
       events
-        .filter((event) => event.category && event.category.title) // Ensure event has a valid category
-        .map((event) => event.category.title), // Map to category titles
-    ),
-  ).map((categoryTitle) => {
-    return categoriesInUse.find((item) => item.category === categoryTitle)
-  })
-
+        .filter((event) => event.category)
+        .map((event) => [
+          event.category.title, // Use the Danish title as the unique key
+          {
+            da: event.category.title,
+            en: event.category.titleEnglish,
+            icon:
+              categoriesInUse.find(
+                (item) => item.category === event.category.title,
+              )?.icon || 'default-icon',
+          },
+        ]),
+    ).values(),
+  )
   return (
     <Section>
       {/* Filter Buttons */}
       <div className="grid grid-cols-6 gap-4 pb-6 col-span-full">
         {useMediaQuery('(max-width: 768px)') ? (
           <div className="col-span-full">
-            <Swiper spaceBetween={'16'} slidesPerView={2.8}>
+            <Swiper spaceBetween={16} slidesPerView={2.8}>
               <SwiperSlide>
                 <FilterButton
                   icon="map"
@@ -38,18 +45,18 @@ const EventWithFilter = ({ section }) => {
                   selectedCategory={selectedCategory}
                   setSelectedCategory={setSelectedCategory}
                 >
-                  Udforsk alle
+                  {locale === 'da' ? 'Udforsk alle' : 'Explore all'}
                 </FilterButton>
               </SwiperSlide>
               {uniqueCategories.map((category, index) => (
                 <SwiperSlide key={index}>
                   <FilterButton
                     icon={category.icon}
-                    category={category.category}
+                    category={locale === 'da' ? category.da : category.en}
                     selectedCategory={selectedCategory}
                     setSelectedCategory={setSelectedCategory}
                   >
-                    {category.category}
+                    {locale === 'da' ? category.da : category.en}
                   </FilterButton>
                 </SwiperSlide>
               ))}
@@ -64,18 +71,18 @@ const EventWithFilter = ({ section }) => {
               selectedCategory={selectedCategory}
               setSelectedCategory={setSelectedCategory}
             >
-              Udforsk alle
+              {locale === 'da' ? 'Udforsk alle' : 'Explore all'}
             </FilterButton>
             {uniqueCategories.map((category, index) => (
               <FilterButton
                 className="px-6 mx-6"
                 icon={category.icon}
                 key={index}
-                category={category.category}
+                category={locale === 'da' ? category.da : category.en}
                 selectedCategory={selectedCategory}
                 setSelectedCategory={setSelectedCategory}
               >
-                {category.category}
+                {locale === 'da' ? category.da : category.en}
               </FilterButton>
             ))}
           </>
@@ -85,7 +92,7 @@ const EventWithFilter = ({ section }) => {
       {/* Event Cards */}
       <div className="pt-4 col-span-full">
         <Section
-          tag={'ul'}
+          tag="ul"
           paddingX="none"
           paddingTop="none"
           paddingBottom="none"
@@ -94,10 +101,16 @@ const EventWithFilter = ({ section }) => {
             .filter(
               (event) =>
                 selectedCategory === 'all' ||
-                (event.category && event.category.title === selectedCategory),
+                (event.category &&
+                  (event.category.title === selectedCategory ||
+                    event.category.titleEnglish === selectedCategory)),
             )
             .map((event, index) => (
-              <EventCardFilter key={index} event={clean(event)} />
+              <EventCardFilter
+                key={index}
+                event={clean(event)}
+                locale={locale}
+              />
             ))}
         </Section>
       </div>

@@ -21,7 +21,7 @@ import Photo from '../atoms/Photo'
  *
  **/
 
-const EventCardFilter = ({ event }) => {
+const EventCardFilter = ({ event, locale }) => {
   const maxAttendees = event.maxAttendees || 0
   const bookedTickets =
     event.attendees?.reduce(
@@ -46,15 +46,15 @@ const EventCardFilter = ({ event }) => {
         href={resolveHref(event._type, event.slug)}
         title={event.name}
       >
-        <EventCardFilterPortrait data={event} />
-        <EventCardFilterInfo data={event} />
+        <EventCardFilterPortrait locale={locale} data={event} />
+        <EventCardFilterInfo data={event} locale={locale} />
       </Link>
     </li>
   )
 }
 export default EventCardFilter
 
-function EventCardFilterPortrait({ data }) {
+function EventCardFilterPortrait({ data, locale }) {
   return (
     <div className="relative object-cover w-full overflow-hidden">
       {data.image && (
@@ -66,7 +66,7 @@ function EventCardFilterPortrait({ data }) {
       {data.isFull == true && (
         <div className="absolute inset-0 size-full">
           <span className="absolute p-2 leading-none translate-x-1/2 -translate-y-1/2 rounded-full whitespace-nowrap top-1/2 right-1/2 bg-signal-gul">
-            IKKE FLERE BILLETTER
+            {locale === 'da' ? 'IKKE FLERE BILLETTER' : 'NO MORE TICKETS'}
           </span>
         </div>
       )}
@@ -81,7 +81,7 @@ function EventCardFilterPortrait({ data }) {
     </div>
   )
 }
-function EventCardFilterInfo({ data }) {
+function EventCardFilterInfo({ data, locale }) {
   return (
     <>
       {data.title && (
@@ -92,7 +92,9 @@ function EventCardFilterInfo({ data }) {
       {data.category && (
         <>
           <Badge className="block mt-auto" variant="dark">
-            {data?.category?.title}
+            {locale === 'da'
+              ? data?.category?.title
+              : data?.category?.titleEnglish}
           </Badge>
         </>
       )}

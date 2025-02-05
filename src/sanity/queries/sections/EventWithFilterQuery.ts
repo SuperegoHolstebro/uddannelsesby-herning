@@ -5,6 +5,7 @@ const EventCardQuery = groq`
   title,
   category->{
     title,
+    titleEnglish,
   },
   "slug": slug.current,
   "date": {
