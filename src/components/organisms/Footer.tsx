@@ -59,7 +59,7 @@ export default function Footer({ locale }) {
         className={`pb-6 text-mørk bg-signal-pink pt-[15vw] sm:pt-[5vw]`}
       >
         <div className="flex flex-col justify-between pb-12 sm:flex-row col-span-full">
-          <Footer.ColumnOne data={data} />
+          <Footer.ColumnOne data={data} locale={locale} />
           <Footer.ColumnTwo data={data} />
           <Footer.ColumnThree data={data} />
         </div>
@@ -73,13 +73,13 @@ Footer.ColumnOne = ColumnOne
 Footer.ColumnTwo = ColumnTwo
 Footer.ColumnThree = ColumnThree
 Footer.Legal = Legal
-function ColumnOne({ data }) {
+function ColumnOne({ data, locale }) {
   const social = data?.social
   return (
     <div className="order-2 mx-auto mt-12 md:order-1 md:mx-0 md:mt-0">
       <div className="mb-4 texcol-span-full sm:col-span-full md:col-span-3 lg:col-span-3 xl:col-span-6t-center md:pb-4 md:text-left md:mb-2">
         <Paragraph className="text-mørk" spacing="none">
-          Følg os her:
+          {locale === 'da' ? 'Følg os her:' : 'Follow us here:'}
         </Paragraph>
       </div>
       <ul className="flex flex-wrap justify-center max-w-64 gap-x-4 gap-y-2 md:justify-start">
@@ -155,7 +155,7 @@ function ColumnThree({ data }) {
   )
 }
 
-function Legal({ data }) {
+function Legal({ data, locale }) {
   const companyName = data?.object?.companyName
   return (
     <div className="space-y-6 col-span-full">
@@ -165,7 +165,7 @@ function Legal({ data }) {
           <p className="text-[14px]">{`© ${companyName} ${new Date().getFullYear()}`}</p>
           <p className="text-[14px]">
             <Link href="/cookiepolitik" rel="noreferrer">
-              Cookiepolitik
+              {locale === 'da' ? 'Cookiepolitik' : 'Cookiepolicy'}
             </Link>
           </p>
           <p className="text-[14px]">
@@ -175,7 +175,9 @@ function Legal({ data }) {
               rel="noreferrer"
               title="Gå til Tilgængelighedserklæring"
             >
-              Tilgængelighedserklæring
+              {locale === 'da'
+                ? 'Tilgængelighedserklæring'
+                : 'Accessibility Act'}
             </Link>
           </p>
           <p className="text-[14px]">
@@ -186,7 +188,7 @@ function Legal({ data }) {
               rel="noreferrer"
               title="Virksomhedslogin"
             >
-              Virksomhedslogin
+              {locale === 'da' ? 'Virksomhedslogin' : 'Company login'}
             </Link>
           </p>
         </div>

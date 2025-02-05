@@ -94,7 +94,9 @@ const PageBuilder = ({ sections, locale }: PageBuilderTypes) => {
               />
             )
           case 'EventWithFilterType':
-            return <EventWithFilter section={section} key={index} />
+            return (
+              <EventWithFilter section={section} key={index} locale={locale} />
+            )
 
           case 'DiscountsType':
             return (

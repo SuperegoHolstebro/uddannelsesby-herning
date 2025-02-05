@@ -6,7 +6,7 @@ import Icon from '../atoms/Icons'
 import Heading from '../atoms/Heading'
 import Paragraph from '../atoms/Paragraph'
 
-const EventInfoBox = ({ page }) => {
+const EventInfoBox = ({ page, locale }) => {
   // Calculate remaining tickets based on the number of tickets booked
   const maxAttendees = page.maxAttendees || 0
   const bookedTickets =
@@ -75,14 +75,18 @@ const EventInfoBox = ({ page }) => {
           <Icon type="tickets" className="w-8 h-8" />
           <Heading type="h5" tag="h5" spacing="default">
             {page.isFull
-              ? page.locale === 'DA'
+              ? locale === 'da'
                 ? 'Udsolgt'
                 : 'Sold out'
               : page.isExternal
-                ? 'Stadig ledige billetter'
+                ? locale === 'da'
+                  ? 'Stadig ledige billetter'
+                  : 'Still tickets available'
                 : ticketsLeft > 0
                   ? `${ticketsLeft}`
-                  : 'Ingen ledige billetter'}
+                  : locale === 'da'
+                    ? 'Ingen ledige billetter'
+                    : 'No available tickets'}
           </Heading>
         </Box>
       </div>

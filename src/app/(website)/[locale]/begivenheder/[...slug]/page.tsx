@@ -113,12 +113,14 @@ export default async function DynamicRoute({
         </div>
 
         <div className="flex gap-3 uppercase col-span-full">
-          <Badge variant="dark">
-            {' '}
-            {locale === 'da'
-              ? page?.category?.title
-              : page?.category?.titleEnglish}
-          </Badge>
+          {page?.category?.title && page?.category?.titleEnglish && (
+            <Badge variant="dark">
+              {' '}
+              {locale === 'da'
+                ? page?.category?.title
+                : page?.category?.titleEnglish}
+            </Badge>
+          )}
           <Badge variant="dark">{formatDate(page?.startDate)}</Badge>
         </div>
         <div className="block md:hidden col-span-full">
@@ -168,7 +170,7 @@ export default async function DynamicRoute({
       </Section>
 
       {/* info boxes */}
-      <EventInfoBox page={page} />
+      <EventInfoBox page={page} locale={locale} />
 
       {/* image */}
       <Section
