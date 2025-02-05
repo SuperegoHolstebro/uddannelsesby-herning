@@ -79,7 +79,7 @@ function ColumnOne({ data, locale }) {
     <div className="order-2 mx-auto mt-12 md:order-1 md:mx-0 md:mt-0">
       <div className="mb-4 texcol-span-full sm:col-span-full md:col-span-3 lg:col-span-3 xl:col-span-6t-center md:pb-4 md:text-left md:mb-2">
         <Paragraph className="text-mørk" spacing="none">
-          {locale === 'da' ? 'Følg os her:' : 'Follow us here:'}
+          {locale.locale === 'da' ? 'Følg os her:' : 'Follow us here:'}
         </Paragraph>
       </div>
       <ul className="flex flex-wrap justify-center max-w-64 gap-x-4 gap-y-2 md:justify-start">
@@ -165,7 +165,7 @@ function Legal({ data, locale }) {
           <p className="text-[14px]">{`© ${companyName} ${new Date().getFullYear()}`}</p>
           <p className="text-[14px]">
             <Link href="/cookiepolitik" rel="noreferrer">
-              {locale === 'da' ? 'Cookiepolitik' : 'Cookiepolicy'}
+              {locale.locale === 'da' ? 'Cookiepolitik' : 'Cookiepolicy'}
             </Link>
           </p>
           <p className="text-[14px]">
@@ -175,7 +175,7 @@ function Legal({ data, locale }) {
               rel="noreferrer"
               title="Gå til Tilgængelighedserklæring"
             >
-              {locale === 'da'
+              {locale.locale === 'da'
                 ? 'Tilgængelighedserklæring'
                 : 'Accessibility Act'}
             </Link>
@@ -188,7 +188,7 @@ function Legal({ data, locale }) {
               rel="noreferrer"
               title="Virksomhedslogin"
             >
-              {locale === 'da' ? 'Virksomhedslogin' : 'Company login'}
+              {locale.locale === 'da' ? 'Virksomhedslogin' : 'Company login'}
             </Link>
           </p>
         </div>
