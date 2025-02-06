@@ -6,6 +6,7 @@ export const SchoolsTypeQuery = groq`
       _type,
       schools[]-> {
         title,
+        locale,
         _type,
         slug,
         infomation{

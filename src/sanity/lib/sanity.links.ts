@@ -47,6 +47,12 @@ export function resolveHrefLang(
       return slug
         ? `${langPrefix}/projekter/${slug}`.replace(/\/{2,}/g, '/')
         : langPrefix || '/'
+
+        case 'school':
+      return slug
+        ? `${langPrefix}/uddannelsessteder/${slug}`.replace(/\/{2,}/g, '/')
+        : langPrefix || '/'
+      
     default:
       console.warn('Invalid document type:', documentType)
       return langPrefix || '/'
