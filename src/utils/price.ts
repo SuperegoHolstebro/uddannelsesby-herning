@@ -3,9 +3,9 @@
 // adds a space between the currency and the price
 // adds a fallback text if no price is given
 
-export function formatPrice(price: number | undefined): string {
+export function formatPrice(price: number | undefined, locale: string): string {
   if (!price) {
-    return 'GRATIS'
+    return locale === 'da' ? 'GRATIS' : 'FREE'
   }
   return `${price} KR.`
 }

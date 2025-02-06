@@ -85,7 +85,7 @@ const EventCard = ({
                     tag="p"
                     type="h4"
                   >
-                    {formatPrice(Number(event.price))}
+                    {formatPrice(Number(event.price), locale)}
                   </Heading>
                 </motion.div>
               )}
@@ -133,7 +133,7 @@ const EventCard = ({
                   {formatDateToNumber(event.startDate)}
                 </Badge>
                 <Badge className="absolute top-2 right-2">
-                  {formatPrice(Number(event.price))}
+                  {formatPrice(Number(event.price), locale)}
                 </Badge>
               </motion.div>
             </AnimatePresence>
