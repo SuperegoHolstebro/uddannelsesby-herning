@@ -1,4 +1,4 @@
-name: Deploy Sanity
+name: Backup Sanity
 
 on:
   schedule:
@@ -6,9 +6,9 @@ on:
   workflow_dispatch:
 
 jobs:
-  sanity-deploy:
+  sanity-backup:
     runs-on: ubuntu-latest
-    name: Deploy Sanity
+    name: Backup Sanity
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
