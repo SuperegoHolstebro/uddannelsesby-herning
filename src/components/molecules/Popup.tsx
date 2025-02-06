@@ -18,7 +18,7 @@ import { AdvancedButton } from '../atoms/AdvancedButton'
 import Link from 'next/link'
 import { resolveHref } from '~/sanity/lib/sanity.links'
 
-const Popup = () => {
+const Popup = (locale) => {
   const [isOpen, setIsOpen] = useState(false)
   const [hasCheckedLocalStorage, setHasCheckedLocalStorage] = useState(false)
 
@@ -102,7 +102,10 @@ const Popup = () => {
                   </div>
                   <div className="relative w-full p-4 pb-0 md:p-0 md:w-1/2">
                     {data?.custom?.image?.asset && (
-                      <Photo image={data?.custom?.image} className="md:aspect-1" />
+                      <Photo
+                        image={data?.custom?.image}
+                        className="md:aspect-1"
+                      />
                     )}
                     <button
                       onClick={togglePopup}
@@ -152,7 +155,7 @@ const Popup = () => {
                       )}
                       {data?.event?.price && (
                         <Badge variant="pink">
-                          {formatPrice(data.event.price)}
+                          {formatPrice(Number(data.event.price), locale)}
                         </Badge>
                       )}
                     </div>
