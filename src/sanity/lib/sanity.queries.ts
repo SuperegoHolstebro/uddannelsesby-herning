@@ -205,7 +205,7 @@ export const allSlugsQuery = `
 `
 
 export const COMPANY_QUERY = groq`
-*[_type == "company" && locale == $locale && slug.current == $slug][0] {
+*[_type == "company" && slug.current == $slug][0] {
   ...,
   image{
     ${ImageQuery}
@@ -215,13 +215,25 @@ export const COMPANY_QUERY = groq`
     titleEnglish
   },
     "localeInfo": {
-    locale,
-    "_translations": *[_type == "translation.metadata" && references(^._id)].translations[].value->{
-      title,
-      _type,
-      slug,
-      locale
-    },
+    "locale": $locale,
+    "_translations": (
+      *[translations]->
+    ) + [
+      {
+        // Your hardcoded Spanish entry
+        "title": name,
+        _type,
+        slug,
+        "locale": "en"
+      },
+      {
+        // Your hardcoded Spanish entry
+        "title": name,
+        _type,
+        slug,
+        "locale": "da"
+      }
+    ]
   },
 
 }

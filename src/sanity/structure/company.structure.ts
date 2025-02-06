@@ -14,3 +14,7 @@ export default defineStructure<ListItemBuilder>((S) =>
         ),
     ),
 )
+
+/* 
+  .filter('_type == "company" && locale == "da"')
+ */
