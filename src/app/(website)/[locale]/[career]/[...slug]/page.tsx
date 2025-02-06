@@ -1,7 +1,6 @@
 import 'swiper/css'
 import React from 'react'
 import { loadPage, PagePayload } from '@/sanity/queries/loadPage'
-import PageBuilder from '~/components/PageBuilder'
 import PageContainer from '@/components/PageContainer'
 import { notFound } from 'next/navigation'
 import Section from '@/components/sections/Section'
@@ -9,14 +8,10 @@ import Heading from '@/components/atoms/Heading'
 import Paragraph from '@/components/atoms/Paragraph'
 import { COMPANY_QUERY } from '@/sanity/lib/sanity.queries'
 import TextContainer from '@/components/sections/textContainer'
-import Image from 'next/image'
-import { urlFor } from '~/sanity/lib/sanity.image'
 import EditButton from '~/components/atoms/EditButton'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/sanity/lib/authOptions'
 import Icon from '~/components/atoms/Icons'
-import { getMonth } from '~/utils/date'
-import { Button } from '~/components/atoms/Button'
 import Badge from '~/components/atoms/badge'
 import Photo from '~/components/atoms/Photo'
 import { AdvancedButton } from '~/components/atoms/AdvancedButton'
@@ -26,6 +21,7 @@ import CallToActionSection2 from '~/components/sections/CallToActionSection2'
 interface Params {
   slug: string[]
   locale: string
+  career: string
 }
 export interface UserProfile {
   name?: string
@@ -54,8 +50,14 @@ export default async function DynamicRoute({
 }: {
   params: Promise<Params>
 }) {
-  const { slug: slugArray, locale: locale } = await params
+  const { slug: slugArray, career, locale: locale } = await params
   const slug = slugArray.join('/')
+
+  const validTitles = ['karriere', 'career'];
+  if (!validTitles.includes(career)) {
+    notFound();
+  }
+
   const page = (await loadPage(
     slug,
     locale,
