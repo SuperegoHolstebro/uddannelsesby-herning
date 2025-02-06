@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import React from 'react'
 import Carousel from '../organisms/Carousel'
 import Section from './Section'

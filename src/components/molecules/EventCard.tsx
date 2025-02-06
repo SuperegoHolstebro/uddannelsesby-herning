@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
 import Heading from '@/components/atoms/Heading'
-import Paragraph from '@/components/atoms/Paragraph'
 import { resolveHref, resolveHrefLang } from '@/sanity/lib/sanity.links'
 import { formatDateToNumber } from '@/utils/date'
 import { formatPrice } from '~/utils/price'

@@ -1,7 +1,6 @@
 'use client'
 import 'swiper/css'
 import React from 'react'
-import Image from 'next/image'
 import Section from './Section'
 import Heading from '@/components/atoms/Heading'
 import { Swiper, SwiperSlide } from 'swiper/react'

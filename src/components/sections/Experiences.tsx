@@ -2,7 +2,6 @@
 import React, { useState } from 'react'
 import Section from './Section'
 import Heading from '../atoms/Heading'
-import EventCard from '../molecules/EventCard'
 import Carousel from '../organisms/Carousel'
 import { clean } from '~/utils/sanitize'
 import ExperienceCard from '../molecules/ExperienceCard'

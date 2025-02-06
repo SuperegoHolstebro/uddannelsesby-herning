@@ -1,6 +1,5 @@
 'use client'
 import React from 'react'
-import Image from 'next/image'
 import Section from './Section'
 import Heading from '@/components/atoms/Heading'
 import { clean } from '~/utils/sanitize'

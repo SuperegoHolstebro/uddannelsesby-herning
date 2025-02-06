@@ -2,7 +2,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
 import React, { useState } from 'react'
-import ReactPlayer from 'react-player'
 import Icon from '../atoms/Icons'
 import Photo from '../atoms/Photo'
 

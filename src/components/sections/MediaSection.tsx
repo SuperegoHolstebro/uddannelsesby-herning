@@ -1,10 +1,8 @@
 'use client'
 import React from 'react'
 import Section from '@/components/sections/Section'
-import { clean } from '~/utils/sanitize'
 import Media from '../organisms/Media'
 import { FadeUp } from '../interactions/AnimateFadeIn'
-import TextContainer from './textContainer'
 
 /**
  *

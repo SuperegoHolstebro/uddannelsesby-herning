@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { AdvancedButton } from './atoms/AdvancedButton'
 import Section from '~/components/sections/Section'
 import Heading from '~/components/atoms/Heading'
-import Image from 'next/image' // Assuming you're using Next.js image optimization
 import SignOut from './atoms/Signout'
 
 export default function EditCompanyForm({ session, company }) {

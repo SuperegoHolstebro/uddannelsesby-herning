@@ -1,7 +1,7 @@
 'use client'
-import React, { useState } from 'react'
+import React from 'react'
 import Icon from '../atoms/Icons'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 const Modal = ({ children, openModal }) => {
   return (
