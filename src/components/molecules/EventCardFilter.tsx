@@ -74,7 +74,7 @@ function EventCardFilterPortrait({ data, locale }) {
         </Badge>
       )}
       <Badge variant="pink" className="absolute right-3 top-3">
-        {formatPrice(data.price)}
+        {formatPrice(Number(data.price), locale)}
       </Badge>
     </div>
   )
