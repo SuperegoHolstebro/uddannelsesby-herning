@@ -12,7 +12,7 @@ import Photo from '../atoms/Photo'
 /**
  *
  * @returns: En eventCard komponent
- * @example: <eventCard />
+ * @example: <EventCardFilter />
  * @alias: eventCard
  * @summary: Denne komponent bruges til at vise information om en virksomhed.
  * @version: 1.0.0
