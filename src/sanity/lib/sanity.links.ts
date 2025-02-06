@@ -38,6 +38,10 @@ export function resolveHrefLang(
       return slug
         ? `${langPrefix}/artikler/${slug}`.replace(/\/{2,}/g, '/')
         : langPrefix || '/'
+    case 'company':
+      return slug
+        ? `${langPrefix}/karriere/${slug}`.replace(/\/{2,}/g, '/')
+        : langPrefix || '/'
     case 'project':
       return slug
         ? `${langPrefix}/projekter/${slug}`.replace(/\/{2,}/g, '/')

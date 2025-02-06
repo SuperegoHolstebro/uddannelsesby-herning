@@ -1,9 +1,7 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import Heading from '@/components/atoms/Heading'
-import { urlFor } from '~/sanity/lib/sanity.image'
-import { resolveHref } from '~/sanity/lib/sanity.links'
+import { resolveHrefLang } from '~/sanity/lib/sanity.links'
 import { clean } from '~/utils/sanitize'
 import Badge from '../atoms/badge'
 import Photo from '../atoms/Photo'
@@ -25,7 +23,9 @@ const CompanyCard = ({ company, locale }) => {
     <li className="relative col-span-full sm:col-span-4 xl:col-span-8  border-b-grå border-b pb-6 mb-6">
       <Link
         className={`flex flex-col h-full w-full group `}
-        href={clean(resolveHref(company._type, company.slug)) || '#'}
+        href={
+          clean(resolveHrefLang(locale, company._type, company.slug)) || '#'
+        }
         title={clean(company.name)}
       >
         <CompanyCardPortrait data={company} />

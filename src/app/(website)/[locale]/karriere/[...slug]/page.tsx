@@ -22,6 +22,7 @@ import Photo from '~/components/atoms/Photo'
 import { AdvancedButton } from '~/components/atoms/AdvancedButton'
 import Link from 'next/link'
 import CallToActionSection2 from '~/components/sections/CallToActionSection2'
+
 interface Params {
   slug: string[]
   locale: string
@@ -45,6 +46,7 @@ export type ExtendedPagePayload = PagePayload & {
   phone: string
   website: string
   descriptionEnglish: string
+  localeInfo: any
 }
 
 export default async function DynamicRoute({
@@ -67,8 +69,18 @@ export default async function DynamicRoute({
 
   const isUserAssignedToCompany = session?.user?.company === page.name
 
+  /* 
+  
+      <PageContainer locale={page.localeInfo}>
+      {page.pageBuilder && (
+        <PageBuilder locale={locale} sections={page.pageBuilder} />
+      )}
+    </PageContainer>
+
+  */
+
   return (
-    <PageContainer>
+    <PageContainer locale={page.localeInfo}>
       <Section
         variant="primary"
         paddingTop="none"

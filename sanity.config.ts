@@ -61,6 +61,7 @@ export default defineConfig({
         'settings',
         'article',
         'school',
+        'company',
       ],
       languageField: 'locale',
     }),

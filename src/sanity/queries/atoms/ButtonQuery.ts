@@ -1,4 +1,4 @@
-import groq from "groq";
+import groq from 'groq'
 
 export const ButtonQuery = groq`
 link {
@@ -6,8 +6,8 @@ link {
   internalLink-> {
     _type,
     slug,
-    title
+    title,
+    locale
   }
 }
-`;
-  
+`
