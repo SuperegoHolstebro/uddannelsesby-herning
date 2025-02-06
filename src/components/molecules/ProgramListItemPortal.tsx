@@ -4,6 +4,7 @@ import { createPortal } from 'react-dom'
 import EducationContent from './EducationContent'
 import Icon from '../atoms/Icons'
 import Photo from '../atoms/Photo'
+import { useEffect } from 'react'
 
 export const ProgramListItemPortal = ({
   item,
@@ -11,6 +12,23 @@ export const ProgramListItemPortal = ({
   isPortalVisible,
   setIsPortalVisible,
 }) => {
+
+
+  // Close the portal on ESC key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsPortalVisible(false)
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [setIsPortalVisible])
+
+
   return (
     <>
       {typeof document !== 'undefined' && createPortal(
@@ -20,7 +38,8 @@ export const ProgramListItemPortal = ({
               key="portal-overlay"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              exit={{ opacity: 0, transition: { duration: 0.5 } }} // Exit animation with duration
+              transition={{ ease: [0.86, 0, 0.07, 1]}}
+              exit={{ opacity: 0, transition: { duration: 0.5, ease: [0.86, 0, 0.07, 1] } }} // Exit animation with duration
               data-lenis-prevent="true"
               id="portal-overlay"
               className="fixed inset-0 z-50 flex items-center justify-center"
@@ -32,9 +51,10 @@ export const ProgramListItemPortal = ({
               />
 
               <motion.div
-                initial={{ y: 50, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: 50, opacity: 0, transition: { duration: 0.5 } }} // Exit animation for modal content
+                initial={{ x: "100%", opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.5, ease: [0.86, 0, 0.07, 1] }} // Enter animation with duration
+                exit={{ x: "100%", opacity: 0, transition: { duration: 0.3, ease: [0.86, 0, 0.07, 1] } }} // Exit animation for modal content
                 className="relative z-10 w-full h-full max-w-2xl p-6 py-24 ml-auto overflow-auto shadow-2xl md:pt-6 md:p-10 bg-lys"
               >
                 <div className="aspect-w-16 aspect-h-9">

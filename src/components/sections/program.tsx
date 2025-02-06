@@ -1,8 +1,10 @@
-'use client'
+'use client';
 import React, { useState } from 'react'
 import Section from './Section'
 import Heading from '../atoms/Heading'
 import { ProgramListItem } from '../atoms/ProgramListItem'
+import { AnimatePresence } from 'framer-motion'
+import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 
 const Program = ({ data }) => {
   // Extract unique education titles for the filter dropdown
@@ -18,8 +20,8 @@ const Program = ({ data }) => {
     selectedEducation === 'All'
       ? data.items
       : data.items.filter(
-        (item) => item.edducation?.title === selectedEducation,
-      )
+          (item) => item.edducation?.title === selectedEducation,
+        )
 
   // Group filtered items by their start time
   const groupedItems = filteredItems.reduce((acc, item) => {
@@ -54,28 +56,55 @@ const Program = ({ data }) => {
         </select>
       </div>
 
-      {/* Grouped Items by Start Time */}
-      <div className="col-span-full">
-        {Object.entries(groupedItems).map(([time, items]) => (
-          <div
-            key={time}
-            className="flex flex-col items-start pb-8 mb-8 border-b border-gray-300 md:flex-row md:mb-16 md:pb-16 last:border-none"
-          >
-            <div className="w-full font-bold md:w-1/5">
-              <Heading
-                className="text-center md:text-left"
-                tag="h4"
-                type="h4"
-              >{`KL. ${time}`}</Heading>
-            </div>
-            <ul className="w-full space-y-3 md:w-4/5">
-              {(items as unknown as any[]).map((item, itemIndex) => (
-                <ProgramListItem key={itemIndex} item={item} />
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
+      {/* 
+        NavigationMenu replaces the <ul>. 
+        Wrap your entire schedule in <NavigationMenu.Root> and <NavigationMenu.List> 
+      */}
+      <NavigationMenu.Root className="col-span-full">
+        <NavigationMenu.List className="col-span-full">
+          {Object.entries(groupedItems).map(([time, items]) => (
+            /*
+              Each time-group is now a <NavigationMenu.Item>. You can keep your 
+              styling and layout inside. 
+            */
+            <NavigationMenu.Item
+              key={time}
+              className="flex flex-col items-start pb-8 mb-8 border-b border-gray-300 md:flex-row md:mb-16 md:pb-16 last:border-none"
+            >
+              <div className="w-full font-bold md:w-1/5">
+                <Heading
+                  className="text-center md:text-left"
+                  tag="h4"
+                  type="h4"
+                >
+                  {`KL. ${time}`}
+                </Heading>
+              </div>
+
+              {/* 
+                A second <NavigationMenu.List> for the items in this group. 
+                This is optional depending on how you'd like your “menu” structure. 
+              */}
+              <div className="w-full space-y-3 md:w-4/5">
+
+              <NavigationMenu.List >
+                <AnimatePresence presenceAffectsLayout>
+                  {(items as unknown as any[]).map((item, itemIndex) => (
+                    <ProgramListItem 
+                      itemIndex={itemIndex} 
+                      key={itemIndex} 
+                      item={item} 
+                    />
+                  ))}
+                </AnimatePresence>
+              </NavigationMenu.List>
+              </div>
+
+            </NavigationMenu.Item>
+            
+          ))}
+        </NavigationMenu.List>
+      </NavigationMenu.Root>
     </Section>
   )
 }
