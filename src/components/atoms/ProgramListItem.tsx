@@ -4,6 +4,7 @@ import Heading from './Heading'
 import Paragraph from './Paragraph'
 import { ProgramListItemPortal } from '../molecules/ProgramListItemPortal'
 import { motion } from 'framer-motion'
+
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 
 export const ProgramListItem = ({ item, itemIndex }) => {
