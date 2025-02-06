@@ -12,7 +12,7 @@ const Player = dynamic(
   },
 )
 
-export default function Text({ videoSrc, textContent, type, title }) {
+export default function Text({ videoSrc, textContent, type, title, locale }) {
   return (
     <>
       <video
@@ -37,14 +37,14 @@ export default function Text({ videoSrc, textContent, type, title }) {
           </FadeUp>
         </div>
       )} */}
-      
+
       {clean(type) === 'regular' && (
         <div className="z-10 col-end-2 mt-auto mb-8 pointer-events-none md:mt-auto xl:mt-auto xs:col-end-3 -col-start-1 row-span-full sm:col-end-6 md:col-end-8 xl:-col-end-10 2xl:-col-end-9">
           <FadeUp delay={0.5}>
             <Player
               autoplay
               loop
-              src="/lottie/SE-DET-FOR-DIG.json"
+              src={`/lottie/${locale === 'da' ? 'SE-DET-FOR-DIG' : 'STUDY-IN-HERNING'}.json`}
               className="w-[calc(91.666667%-0rem)] md:w-[calc(91.666667%-4rem)] xl:w-[calc(91.666667%-6rem)] 3xl:w-[calc(91.666667%-9rem)] h-[calc(100vh-4rem)]"
             ></Player>
           </FadeUp>

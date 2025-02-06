@@ -19,16 +19,17 @@ import Text from '~/components/Text'
 
 interface HeroProps {
   data?: any
+  locale?: any
 }
 
-const Hero: React.FC<HeroProps> = ({ data, ...props }) => {
+const Hero: React.FC<HeroProps> = ({ data, locale, ...props }) => {
   return (
     <Section
       paddingBottom={'none'}
       paddingTop={'none'}
       paddingX={'none'}
       variant="lys"
-      gap='secondary'
+      gap="secondary"
       className="items-center justify-center w-full min-h-screen gap-0 overflow-hidden"
     >
       <Text
@@ -36,6 +37,7 @@ const Hero: React.FC<HeroProps> = ({ data, ...props }) => {
         videoSrc={data.media}
         type={data.type}
         title={data.string}
+        locale={locale}
       />
       <Scene type={data.type} />
     </Section>

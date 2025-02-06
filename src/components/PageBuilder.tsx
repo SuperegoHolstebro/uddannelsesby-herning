@@ -39,7 +39,7 @@ const PageBuilder = ({ sections, locale }: PageBuilderTypes) => {
           case 'mapType':
             return <Map data={section} key={index} />
           case 'hero':
-            return <Hero data={section} key={index} />
+            return <Hero data={section} key={index} locale={locale} />
           case 'TextAndCollage':
             return <TextAndCollage key={index} data={section} />
           case 'companiesType':
@@ -87,7 +87,8 @@ const PageBuilder = ({ sections, locale }: PageBuilderTypes) => {
             return <Schools key={index} data={section} />
           case 'EventType':
             return (
-              <EventSection locale={locale}
+              <EventSection
+                locale={locale}
                 amount={section.amount}
                 section={section}
                 key={index}
