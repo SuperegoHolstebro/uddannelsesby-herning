@@ -20,7 +20,7 @@ import { Button } from '../atoms/Button'
  *
  **/
 
-const EventSection = ({ section, amount }) => {
+const EventSection = ({ section, amount, locale }) => {
   const { events } = section
   const [activeIndex, setActiveIndex] = useState(null)
 
@@ -77,6 +77,7 @@ const EventSection = ({ section, amount }) => {
           .filter((event) => new Date(event.startDate) > new Date())
           .map((event, index) => (
             <EventCard
+              locale={locale}
               key={index}
               event={event}
               isActive={activeIndex === index}

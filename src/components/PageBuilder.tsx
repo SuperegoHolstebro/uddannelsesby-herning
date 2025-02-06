@@ -87,7 +87,7 @@ const PageBuilder = ({ sections, locale }: PageBuilderTypes) => {
             return <Schools key={index} data={section} />
           case 'EventType':
             return (
-              <EventSection
+              <EventSection locale={locale}
                 amount={section.amount}
                 section={section}
                 key={index}
