@@ -8,6 +8,7 @@ import { stegaClean } from '@sanity/client/stega'
 import Paragraph from '../atoms/Paragraph'
 import Section from '../sections/Section'
 import { FOOTER_QUERY } from '~/sanity/lib/sanity.queries'
+import { resolveHomeHrefLang } from '~/sanity/lib/sanity.links'
 
 /**
  *
@@ -57,7 +58,7 @@ export default function Footer({ locale }) {
       >
         <div className="flex flex-col justify-between pb-12 sm:flex-row col-span-full">
           <Footer.ColumnOne data={data} locale={locale} />
-          <Footer.ColumnTwo data={data} />
+          <Footer.ColumnTwo data={data} locale={locale} />
           <Footer.ColumnThree data={data} />
         </div>
         <Footer.Legal locale={locale} data={data} />
@@ -99,14 +100,14 @@ function ColumnOne({ data, locale }) {
   )
 }
 
-function ColumnTwo({ data }) {
+function ColumnTwo({ data, locale }) {
   return (
     <div className="order-1 md:order-2">
       <div className="">
         <Link
           aria-label="Gå til forsiden"
           className="text-mørk w-full block"
-          href="/"
+          href={resolveHomeHrefLang(locale.locale)}
         >
           <Logo className="w-full h-auto max-w-xs mx-auto sm:mx-0" />
           <span className="sr-only">Forsiden</span>

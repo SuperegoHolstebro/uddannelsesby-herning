@@ -9,6 +9,7 @@ import { FooterType } from '~/types/Footer.types'
 import { groq } from 'next-sanity'
 import { client } from '~/sanity/lib/sanity.client'
 import LocaleSwitcher from '../atoms/ LocaleSwitcher'
+import { resolveHomeHrefLang } from '~/sanity/lib/sanity.links'
 
 /**
  *
@@ -98,7 +99,7 @@ export default function Header({ locale }) {
           <Link
             title="Gå til forsiden"
             className="text-lys md:rotate-90"
-            href="/"
+            href={resolveHomeHrefLang(locale.locale)}
           >
             <Logo className="w-48 md:w-[250px] group" />
           </Link>
@@ -125,7 +126,7 @@ export default function Header({ locale }) {
               aria-hidden="true"
             ></span>
           </button>
-{/*             <div>
+          {/*             <div>
               <LocaleSwitcher view="desktop" locale={locale} />
             </div> */}
         </div>
