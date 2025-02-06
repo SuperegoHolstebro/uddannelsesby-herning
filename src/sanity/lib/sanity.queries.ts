@@ -9,13 +9,23 @@ import { CallToActionQuery2 } from '../queries/sections/CallToActionQuery2'
 // GROQ Navigation Query
 export const NAVIGATION_QUERY = groq`
 *[_type == "navigation" && locale == $locale][0] {
+  "localeInfo": {
+    locale,
+    "_translations": *[_type == "translation.metadata" && references(^._id)].translations[].value->{
+      title,
+      _type,
+      slug,
+      locale
+    },
+  },
   links[] {
     link {
       ...,
       internalLink-> {
         _type,
         slug,
-        title
+        title,
+        locale
       }
     },
     subLinks[] {
@@ -23,7 +33,8 @@ export const NAVIGATION_QUERY = groq`
         internalLink-> {
           _type,
           slug,
-          title
+          title,
+          locale
         }
     }
   }
@@ -202,7 +213,29 @@ export const COMPANY_QUERY = groq`
   fields[]->{
     title,
     titleEnglish
-  }
+  },
+    "localeInfo": {
+    "locale": $locale,
+    "_translations": (
+      *[translations]->
+    ) + [
+      {
+        // Your hardcoded Spanish entry
+        "title": name,
+        _type,
+        slug,
+        "locale": "en"
+      },
+      {
+        // Your hardcoded Spanish entry
+        "title": name,
+        _type,
+        slug,
+        "locale": "da"
+      }
+    ]
+  },
+
 }
 `
 

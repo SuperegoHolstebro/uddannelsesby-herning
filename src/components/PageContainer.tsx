@@ -1,7 +1,6 @@
 'use client'
 import Footer from '@/components/organisms/Footer'
 import Header from '@/components/organisms/Header'
-import Link from 'next/link'
 import { Lenis } from '~/components/Lenis'
 import Popup from './molecules/Popup'
 

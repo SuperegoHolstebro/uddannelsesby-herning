@@ -1,15 +1,7 @@
-import Image from 'next/image'
-import Link from 'next/link'
 import React from 'react'
 import Heading from '@/components/atoms/Heading'
-import Paragraph from '@/components/atoms/Paragraph'
-import { resolveHref } from '@/sanity/lib/sanity.links'
-import { formatDateToNumber } from '@/utils/date'
-import { urlFor } from '~/sanity/lib/sanity.image'
-import { formatPrice } from '~/utils/price'
 import { AnimatePresence, motion } from 'framer-motion'
 import Photo from '../atoms/Photo'
-import Badge from '../atoms/badge'
 
 /**
  *

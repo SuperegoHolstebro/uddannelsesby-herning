@@ -3,7 +3,6 @@ import Link from 'next/link'
 import React from 'react'
 import Heading from '@/components/atoms/Heading'
 import Icon from '@/components/atoms/Icons'
-import { urlFor } from '~/sanity/lib/sanity.image'
 import Photo from '../atoms/Photo'
 
 /**

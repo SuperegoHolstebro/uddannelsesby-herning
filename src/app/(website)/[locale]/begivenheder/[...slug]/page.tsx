@@ -1,26 +1,19 @@
 import 'swiper/css'
 import React from 'react'
 import { loadPage } from '@/sanity/queries/loadPage'
-import PageBuilder from '~/components/PageBuilder'
 import PageContainer from '@/components/PageContainer'
 import { notFound } from 'next/navigation'
 import Section from '@/components/sections/Section'
 import Heading from '@/components/atoms/Heading'
 import Paragraph from '@/components/atoms/Paragraph'
-import { eventDateRange, formatDate, formatTime } from '@/utils/date'
+import {  formatDate } from '@/utils/date'
 import { EVENT_QUERY } from '@/sanity/lib/sanity.queries'
-import { urlFor } from '~/sanity/lib/sanity.image'
-import Image from 'next/image'
-import { generatePageMetadata } from '~/utils/metadataUtils'
 import EventSignUpForm from '@/components/sections/EventSignUpForm'
 import { AdvancedButton } from '~/components/atoms/AdvancedButton'
 import TextContainer from '~/components/sections/textContainer'
-import Icon from '~/components/atoms/Icons'
-import { formatPrice } from '~/utils/price'
 import Link from 'next/link'
 import Scheduler from '~/components/atoms/Scheduler'
 import Badge from '~/components/atoms/badge'
-import Box from '~/components/atoms/box'
 import Photo from '~/components/atoms/Photo'
 import EventInfoBox from '~/components/organisms/EventInfoBox'
 import { ExtendedPagePayload } from '../../page'
@@ -208,7 +201,7 @@ export default async function DynamicRoute({
           </Section>
         ) : null}
       </Scheduler>
-      <EventSection amount={8} section={page} />
+      <EventSection amount={8} section={page} locale={locale}/>
     </PageContainer>
   )
 } /* 

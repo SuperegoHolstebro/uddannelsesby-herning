@@ -1,9 +1,6 @@
-import Link from "next/link";
 import Appconfig from "config";
-import { AppConfigLocales, LanguageProps, ExtendedLanguage } from "@/types/LocaleSwitcher.types";
-import Heading from "./Heading";
+import {  LanguageProps } from "@/types/LocaleSwitcher.types";
 import { cva, VariantProps } from "class-variance-authority";
-import { resolveHrefLang } from "~/sanity/lib/sanity.links";
 import { cn } from "~/utils/utils";
 
 /**

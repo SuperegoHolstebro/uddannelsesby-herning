@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import Section from './Section'
 import Heading from '../atoms/Heading'
 import { ProgramListItem } from '../atoms/ProgramListItem'
-import { clean } from '~/utils/sanitize'
 
 const Program = ({ data }) => {
   // Extract unique education titles for the filter dropdown

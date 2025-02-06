@@ -7,7 +7,6 @@ import Icon from '../atoms/Icons'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useMediaQuery } from '~/hooks/useMediaQuery'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { SwiperOptions } from 'swiper/types'
 
 const EventWithFilter = ({ section, locale }) => {
   const { events, categoriesInUse } = section

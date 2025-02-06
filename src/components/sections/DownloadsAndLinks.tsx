@@ -1,9 +1,7 @@
 'use client'
 
 import React from 'react'
-import Heading from '../atoms/Heading'
 import Paragraph from '../atoms/Paragraph'
-import Section from '../sections/Section'
 import Icon from '../atoms/Icons'
 import Link from 'next/link'
 

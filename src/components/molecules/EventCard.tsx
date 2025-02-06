@@ -1,11 +1,8 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import Heading from '@/components/atoms/Heading'
-import Paragraph from '@/components/atoms/Paragraph'
-import { resolveHref } from '@/sanity/lib/sanity.links'
+import { resolveHref, resolveHrefLang } from '@/sanity/lib/sanity.links'
 import { formatDateToNumber } from '@/utils/date'
-import { urlFor } from '~/sanity/lib/sanity.image'
 import { formatPrice } from '~/utils/price'
 import { AnimatePresence, motion } from 'framer-motion'
 import Photo from '../atoms/Photo'
@@ -25,6 +22,7 @@ import Badge from '../atoms/badge'
  **/
 
 const EventCard = ({
+  locale,
   event,
   isActive,
   onMouseEnter,
@@ -36,7 +34,7 @@ const EventCard = ({
       <Link
         key={event?._key}
         className={`hidden md:block group/event-card relative event-card-item w-full overflow-hidden transition-all ease-custom duration-735 ${isActive ? 'scale-110 z-10' : 'scale-100'}`}
-        href={resolveHref(event._type, event.slug) || '#'}
+        href={resolveHrefLang(locale, event._type, event.slug) || '#'}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
       >

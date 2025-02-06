@@ -25,6 +25,7 @@ export function resolveHrefLang(
   slug?: string,
 ): string {
   const langPrefix = locale && locale !== 'da' ? `/${locale}` : '' // Danish is the default
+  
   switch (documentType) {
     case 'page':
       return slug
@@ -38,10 +39,20 @@ export function resolveHrefLang(
       return slug
         ? `${langPrefix}/artikler/${slug}`.replace(/\/{2,}/g, '/')
         : langPrefix || '/'
+    case 'company':
+      return slug
+      ? `${langPrefix}/${locale === 'en' ? 'career' : 'karriere'}/${slug}`.replace(/\/{2,}/g, '/')
+      : langPrefix || '/'
     case 'project':
       return slug
         ? `${langPrefix}/projekter/${slug}`.replace(/\/{2,}/g, '/')
         : langPrefix || '/'
+
+        case 'school':
+      return slug
+        ? `${langPrefix}/uddannelsessteder/${slug}`.replace(/\/{2,}/g, '/')
+        : langPrefix || '/'
+      
     default:
       console.warn('Invalid document type:', documentType)
       return langPrefix || '/'

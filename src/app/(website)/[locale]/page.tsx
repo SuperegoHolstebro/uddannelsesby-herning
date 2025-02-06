@@ -26,7 +26,7 @@ export default async function IndexRoute({
 
   return (
     <PageContainer locale={page.localeInfo}>
-      {page.pageBuilder && <PageBuilder sections={page.pageBuilder} />}
+      {page.pageBuilder && <PageBuilder locale={locale} sections={page.pageBuilder} />}
     </PageContainer>
   )
 }

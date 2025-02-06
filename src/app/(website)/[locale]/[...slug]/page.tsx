@@ -4,7 +4,6 @@ import { loadPage } from '@/sanity/queries/loadPage'
 import PageBuilder from '@/components/PageBuilder'
 import PageContainer from '@/components/PageContainer'
 import { notFound } from 'next/navigation'
-import { generatePageMetadata } from '@/utils/metadataUtils'
 import { ExtendedPagePayload } from '../page'
 import { Params } from '~/types/Params.types'
 

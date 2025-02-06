@@ -4,7 +4,6 @@ import Section from '../sections/Section'
 import Box from '../atoms/box'
 import Icon from '../atoms/Icons'
 import Heading from '../atoms/Heading'
-import Paragraph from '../atoms/Paragraph'
 
 const EventInfoBox = ({ page, locale }) => {
   // Calculate remaining tickets based on the number of tickets booked

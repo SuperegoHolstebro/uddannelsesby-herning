@@ -3,13 +3,13 @@ import Photo from './Photo'
 import Heading from './Heading'
 import Paragraph from './Paragraph'
 import Link from 'next/link'
-import { resolveHref } from '~/sanity/lib/sanity.links'
+import { resolveHrefLang } from '~/sanity/lib/sanity.links'
 
 const SchoolCard = ({ data }) => {
   return (
     <div className="col-span-full md:col-span-4 xl:col-span-8  border-b-grå border-b pb-6 mb-6 ">
       <Link
-        href={resolveHref(data._type, data.slug.current) || '#'}
+        href={resolveHrefLang(data.locale, data._type, data.slug.current) || '#'}
         title={data.title}
         className="block group "
       >

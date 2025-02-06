@@ -4,18 +4,13 @@ import { loadPage } from '@/sanity/queries/loadPage'
 import PageBuilder from '~/components/PageBuilder'
 import PageContainer from '@/components/PageContainer'
 import { notFound } from 'next/navigation'
-import { generatePageMetadata } from '~/utils/metadataUtils'
 import { SCHOOLPAGE_QUERY } from '~/sanity/lib/sanity.queries'
 import Section from '~/components/sections/Section'
 import Heading from '~/components/atoms/Heading'
 import Paragraph from '~/components/atoms/Paragraph'
-import Icon from '~/components/atoms/Icons'
-import Image from 'next/image'
 import TextContainer from '~/components/sections/textContainer'
-import { urlFor } from '~/sanity/lib/sanity.image'
 import CallToActionSection2 from '~/components/sections/CallToActionSection2'
 import Photo from '~/components/atoms/Photo'
-import { Params } from '~/types/Params.types'
 import { ExtendedPagePayload } from '../../page'
 
 export default async function DynamicRoute({
@@ -36,7 +31,7 @@ export default async function DynamicRoute({
   }
 
   return (
-    <PageContainer>
+    <PageContainer locale={page.localeInfo}>
       <Section
         variant="primary"
         paddingTop="none"

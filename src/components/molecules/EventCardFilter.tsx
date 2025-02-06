@@ -1,9 +1,7 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import Heading from '@/components/atoms/Heading'
-import { urlFor } from '~/sanity/lib/sanity.image'
-import { resolveHref, resolveHrefLang } from '~/sanity/lib/sanity.links'
+import { resolveHrefLang } from '~/sanity/lib/sanity.links'
 import { formatNumberDate } from '~/utils/date'
 import { formatPrice } from '~/utils/price'
 import Badge from '../atoms/badge'
@@ -12,7 +10,7 @@ import Photo from '../atoms/Photo'
 /**
  *
  * @returns: En eventCard komponent
- * @example: <eventCard />
+ * @example: <EventCardFilter />
  * @alias: eventCard
  * @summary: Denne komponent bruges til at vise information om en virksomhed.
  * @version: 1.0.0
