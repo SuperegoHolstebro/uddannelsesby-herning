@@ -1,0 +1,32 @@
+name: Deploy Sanity
+
+on:
+  schedule:
+    - cron: '0 03 */1 * *'
+  workflow_dispatch:
+
+jobs:
+  sanity-deploy:
+    runs-on: ubuntu-latest
+    name: Deploy Sanity
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install Packages
+        run: npm install
+
+      # <--- New step to install the CLI globally
+      - name: Install Sanity CLI
+        run: npm install -g @sanity/cli
+
+      - name: Export Sanity dataset
+        run: sanity dataset export production backups/backup.tar.gz
+        env:
+          SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
+      - name: Upload Backup
+        uses: actions/upload-artifact@v4
+        with:
+            name: sanity-backup
+            path: backups/backup.tar.gz
+        
