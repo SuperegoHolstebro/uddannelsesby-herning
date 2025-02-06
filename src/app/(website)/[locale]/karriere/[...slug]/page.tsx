@@ -208,16 +208,17 @@ export default async function DynamicRoute({
         </div>
       </TextContainer>
       {isUserAssignedToCompany && <EditButton />}
-      <CallToActionSection2 section={customCTA} />
+      <CallToActionSection2 section={customCTA(locale)} />
     </PageContainer>
   )
 }
 
-const customCTA = {
-  heading: 'Se din karriere for dig',
+const customCTA = (locale: string) => ({
+  heading: locale === 'da' ? 'Se din karriere for dig' : 'Picture your career',
   link: {
-    label: 'Mød flere virksomheder',
-    url: '/din-karriere',
+    label:
+      locale === 'da' ? 'Mød flere virksomheder' : 'Look at more companies',
+    url: locale === 'da' ? '/din-karriere' : '/your-career',
   },
   MediaObject: {
     media: {
@@ -244,4 +245,4 @@ const customCTA = {
       },
     },
   },
-}
+})
